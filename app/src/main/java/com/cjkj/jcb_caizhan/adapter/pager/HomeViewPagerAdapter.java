@@ -1,8 +1,9 @@
-package com.cjkj.jcb_caizhan.tabbarhelper;
+package com.cjkj.jcb_caizhan.adapter.pager;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,11 +12,11 @@ import java.util.List;
  * ViewPagerAdapter
  */
 
-public class ViewPagerAdapter extends FragmentPagerAdapter {
+public class HomeViewPagerAdapter extends FragmentPagerAdapter {
 
     private final List<Fragment> mFragmentList = new ArrayList<>();
 
-    public ViewPagerAdapter(FragmentManager manager) {
+    public HomeViewPagerAdapter(FragmentManager manager) {
         super(manager);
     }
 
@@ -32,5 +33,6 @@ public class ViewPagerAdapter extends FragmentPagerAdapter {
     public void addFragment(Fragment fragment) {
         mFragmentList.add(fragment);
     }
+
 
 }

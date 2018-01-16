@@ -8,16 +8,12 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.MenuItem;
-import android.widget.Toast;
-
 import com.cjkj.jcb_caizhan.R;
+import com.cjkj.jcb_caizhan.adapter.pager.HomeViewPagerAdapter;
 import com.cjkj.jcb_caizhan.fragment.MineFragment;
 import com.cjkj.jcb_caizhan.fragment.orderManager.OrdermMnagePageFragment;
 import com.cjkj.jcb_caizhan.tabbarhelper.BottomNavigationViewHelper;
 import com.cjkj.jcb_caizhan.tabbarhelper.NoScrollViewPager;
-import com.cjkj.jcb_caizhan.tabbarhelper.ViewPagerAdapter;
-import com.cjkj.jcb_caizhan.util.ToastUtil;
-
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -87,8 +83,8 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
-
+        HomeViewPagerAdapter adapter = new HomeViewPagerAdapter(getSupportFragmentManager());
+        viewPager .setOffscreenPageLimit(4);
         adapter.addFragment(OrdermMnagePageFragment.newInstance());
         adapter.addFragment(OrdermMnagePageFragment.newInstance());
         adapter.addFragment(OrdermMnagePageFragment.newInstance());
