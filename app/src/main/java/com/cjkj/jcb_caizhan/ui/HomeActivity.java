@@ -10,11 +10,14 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.adapter.pager.HomeViewPagerAdapter;
+import com.cjkj.jcb_caizhan.fragment.DataStatisticsFragment;
 import com.cjkj.jcb_caizhan.fragment.MineFragment;
 import com.cjkj.jcb_caizhan.fragment.UserManagementFragment;
 import com.cjkj.jcb_caizhan.fragment.orderManager.OrdermMnagePageFragment;
 import com.cjkj.jcb_caizhan.tabbarhelper.BottomNavigationViewHelper;
 import com.cjkj.jcb_caizhan.tabbarhelper.NoScrollViewPager;
+import com.cjkj.jcb_caizhan.util.SnackbarUtil;
+
 import java.util.Timer;
 import java.util.TimerTask;
 /**
@@ -87,7 +90,7 @@ public class HomeActivity extends AppCompatActivity {
         viewPager.setOffscreenPageLimit(4);
         adapter.addFragment(OrdermMnagePageFragment.newInstance());
         adapter.addFragment(UserManagementFragment.newInstance());
-        adapter.addFragment(OrdermMnagePageFragment.newInstance());
+        adapter.addFragment(DataStatisticsFragment.newInstance());
         adapter.addFragment(MineFragment.newInstance());
         viewPager.setAdapter(adapter);
     }
@@ -99,7 +102,7 @@ public class HomeActivity extends AppCompatActivity {
         Timer tExit = null;
         if (isExit == false) {
             isExit = true; // 准备退出
-            Snackbar.make(this.bottomNavigationView, "再按一次退出", Snackbar.LENGTH_SHORT).show();
+            SnackbarUtil.showMessage(this.bottomNavigationView, "再按一次退出");
             tExit = new Timer();
             tExit.schedule(new TimerTask() {
                 @Override

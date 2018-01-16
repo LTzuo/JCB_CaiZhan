@@ -18,4 +18,8 @@
     <dimen name="tab_indicator_long_width">40dp</dimen>
     <dimen name="tab_layout_small_height">40dp</dimen>
     <dimen name="tab_layout_default_height">48dp</dimen>
+
+    <!--common text size-->
+    <dimen name="default_tiny_text_size">12sp</dimen>
+    <dimen name="default_small_text_size">14sp</dimen>
 </resources>

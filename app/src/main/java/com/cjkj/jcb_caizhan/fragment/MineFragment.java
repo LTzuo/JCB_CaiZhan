@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
+import com.cjkj.jcb_caizhan.util.SnackbarUtil;
 import com.cjkj.jcb_caizhan.util.ToastUtil;
 import com.cjkj.jcb_caizhan.widget.ObservableScrollView;
 
@@ -111,7 +112,7 @@ public class MineFragment  extends RxLazyFragment implements ObservableScrollVie
 
     @Override
     protected void finishTask() {
-        Snackbar.make(this.mSwipeRefreshLayout, "刷新完成", Snackbar.LENGTH_SHORT).show();
+        SnackbarUtil.showMessage(this.mSwipeRefreshLayout, "刷新完成");
         mSwipeRefreshLayout.setRefreshing(false);
     }
 

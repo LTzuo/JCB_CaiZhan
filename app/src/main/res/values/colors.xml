@@ -10,6 +10,7 @@
     <color name="tab_checked">#3083eb</color>
     <color name="tab_unchecked">#999999</color>
     <color name="black">#000000</color><!--黑色 -->
+    <color name="black_alpha_45">#71000000</color>
     <color name="black_light">#434343</color>
     <color name="white">#FFFFFF</color><!--白色-->
     <color name="snow">#fffafa</color><!--雪白色 -->

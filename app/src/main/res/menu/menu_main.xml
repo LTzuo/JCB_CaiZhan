@@ -4,7 +4,7 @@
     <item
         android:id="@+id/item_news"
         android:icon="@mipmap/ic_launcher"
-        android:title="@string/drder_managment" />
+        android:title="@string/order_managment" />
     <item
         android:id="@+id/item_lib"
         android:icon="@mipmap/ic_launcher"
