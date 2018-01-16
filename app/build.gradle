@@ -8,6 +8,15 @@ buildscript {
     dependencies {
         classpath 'me.tatarka:gradle-retrolambda:3.2.5'
     }
+
+}
+
+allprojects {
+    repositories {
+        jcenter()
+        // 添加maven仓库
+        maven { url "https://raw.githubusercontent.com/miomin/mvn-repo-ione/master" }
+    }
 }
 
 repositories {
@@ -45,4 +54,5 @@ dependencies {
     compile 'com.trello:rxlifecycle-components:0.6.1'
     compile 'com.jakewharton:butterknife:7.0.1'
     compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.0@aar'
+
 }

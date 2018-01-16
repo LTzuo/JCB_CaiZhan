@@ -2,24 +2,23 @@ package com.cjkj.jcb_caizhan.fragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.HandlerThread;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
-import com.cjkj.jcb_caizhan.widget.HwjSwipeRefreshLayout;
+import com.cjkj.jcb_caizhan.util.ToastUtil;
 import com.cjkj.jcb_caizhan.widget.ObservableScrollView;
+
 import butterknife.Bind;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.schedulers.Schedulers;
 
 /**
  * Created by 1 on 2018/1/15.
  * 个人中心
  */
-public class MineFragment  extends RxLazyFragment implements ObservableScrollView.OnObservableScrollViewListener {
+public class MineFragment  extends RxLazyFragment implements ObservableScrollView.OnObservableScrollViewListener  {
 
     @Bind(R.id.sv_main_content)
     ObservableScrollView mObservableScrollView;
@@ -29,10 +28,10 @@ public class MineFragment  extends RxLazyFragment implements ObservableScrollVie
     LinearLayout mHeaderContent;
     @Bind(R.id.tv_header_title)
     TextView tv_header_title;
-    private int mHeight;
 
     @Bind(R.id.swipe_refresh_layout)
-    HwjSwipeRefreshLayout mSwipeRefreshLayout;
+    SwipeRefreshLayout mSwipeRefreshLayout;
+    private int mHeight;
 
     public static MineFragment newInstance() {
         return new MineFragment();
@@ -56,6 +55,8 @@ public class MineFragment  extends RxLazyFragment implements ObservableScrollVie
                 mObservableScrollView.setOnObservableScrollViewListener(MineFragment.this);
             }
         });
+        isPrepared = true;
+        lazyLoad();
     }
 
     @Override
@@ -75,8 +76,6 @@ public class MineFragment  extends RxLazyFragment implements ObservableScrollVie
            // mHeaderContent.setBackgroundColor(Color.argb(255, 75, 137, 220));
             tv_header_title.setTextColor(Color.argb(255,238, 239, 255));
         }
-        isPrepared = true;
-        lazyLoad();
     }
 
     @Override
@@ -96,26 +95,23 @@ public class MineFragment  extends RxLazyFragment implements ObservableScrollVie
             mSwipeRefreshLayout.setRefreshing(true);
             loadData();
         });
+
     }
 
     @Override
     protected void loadData() {
-//        RetrofitHelper.getLiveAPI()
-//                .getLiveAppIndex()
-//                .compose(bindToLifecycle())
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(liveAppIndexInfo -> {
-//                    mLiveAppIndexAdapter.setLiveInfo(liveAppIndexInfo);
-//                    finishTask();
-//                }, throwable -> initEmptyView());
+       mHandler.postDelayed(new Runnable() {
+           @Override
+           public void run() {
+              finishTask();
+           }
+       },1*1000);
+    }
 
-        mHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mSwipeRefreshLayout.setRefreshing(false);
-            }
-        },1*1000);
+    @Override
+    protected void finishTask() {
+        ToastUtil.ShortToast("刷新完成");
+        mSwipeRefreshLayout.setRefreshing(false);
     }
 
 }

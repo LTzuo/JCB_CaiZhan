@@ -3,10 +3,13 @@ package com.cjkj.jcb_caizhan.ui;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
+import android.support.design.widget.Snackbar;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.MenuItem;
+import android.widget.Toast;
+
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.fragment.MineFragment;
 import com.cjkj.jcb_caizhan.fragment.orderManager.OrdermMnagePageFragment;
@@ -14,6 +17,9 @@ import com.cjkj.jcb_caizhan.tabbarhelper.BottomNavigationViewHelper;
 import com.cjkj.jcb_caizhan.tabbarhelper.NoScrollViewPager;
 import com.cjkj.jcb_caizhan.tabbarhelper.ViewPagerAdapter;
 import com.cjkj.jcb_caizhan.util.ToastUtil;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 /**
  * 彩站端首页
@@ -23,7 +29,7 @@ public class HomeActivity extends AppCompatActivity {
     private NoScrollViewPager viewPager;
     private MenuItem menuItem;
     private BottomNavigationView bottomNavigationView;
-    private long exitTime;
+    private static Boolean isExit = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,33 +90,39 @@ public class HomeActivity extends AppCompatActivity {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         adapter.addFragment(OrdermMnagePageFragment.newInstance());
-        adapter.addFragment(MineFragment.newInstance());
-        adapter.addFragment(MineFragment.newInstance());
+        adapter.addFragment(OrdermMnagePageFragment.newInstance());
+        adapter.addFragment(OrdermMnagePageFragment.newInstance());
         adapter.addFragment(MineFragment.newInstance());
         viewPager.setAdapter(adapter);
-    }
-
-    /**
-     * 监听back键处理DrawerLayout和SearchView
-     */
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if (keyCode == KeyEvent.KEYCODE_BACK) {
-            exitApp();
-        }
-        return true;
     }
 
     /**
      * 双击退出App
      */
     private void exitApp() {
-        if (System.currentTimeMillis() - exitTime > 2000) {
-           // ToastUtil.ShortToast("再按一次退出");
-            exitTime = System.currentTimeMillis();
+        Timer tExit = null;
+        if (isExit == false) {
+            isExit = true; // 准备退出
+            Snackbar.make(this.bottomNavigationView, "再按一次退出", Snackbar.LENGTH_SHORT).show();
+            tExit = new Timer();
+            tExit.schedule(new TimerTask() {
+                @Override
+                public void run() {
+                    isExit = false; // 取消退出
+                }
+            }, 2000); // 如果2秒钟内没有按下返回键，则启动定时器取消掉刚才执行的任务
         } else {
             finish();
+            System.exit(0);
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        if (keyCode == KeyEvent.KEYCODE_BACK) {
+            exitApp(); // 调用双击退出函数
+        }
+        return false;
     }
 
 }

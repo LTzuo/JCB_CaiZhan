@@ -1,19 +1,30 @@
 package com.cjkj.jcb_caizhan.widget;
 
 import android.content.Context;
+import android.support.v4.view.NestedScrollingChild;
+import android.support.v4.view.NestedScrollingChildHelper;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ScrollView;
 /**
  * 重写ScrollView对外抛出滑动监听数据
- * Create by: chenwei.li
- * Date: 2017/4/18
- * time: 10:55
- * Email: lichenwei.me@foxmail.com
+ * 2018/1/16
+ * 林天佐/此ScrollView可与任何刷新控件嵌套使用，并保持了ScrollView有一个子View特性，解决了刷新时滑动冲突
  */
-public class ObservableScrollView extends ScrollView {
+public class ObservableScrollView extends ScrollView implements NestedScrollingChild {
 
-    private float xDistance, yDistance, lastX, lastY;
+    private NestedScrollingChildHelper childHelper;
+    private float ox;
+    private float oy;
+    private int[] consumed = new int[2];
+    private int[] offsetInWindow = new int[2];
+
+    private void init() {
+        this.setWillNotDraw(false);
+        this.childHelper = new NestedScrollingChildHelper(this);
+        this.childHelper.setNestedScrollingEnabled(true);
+    }
 
     /**
      * 回调接口监听事件
@@ -22,16 +33,18 @@ public class ObservableScrollView extends ScrollView {
 
     public ObservableScrollView(Context context) {
         super(context);
+        this.init();
     }
 
     public ObservableScrollView(Context context, AttributeSet attrs) {
         super(context, attrs);
+        this.init();
     }
 
     public ObservableScrollView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+        this.init();
     }
-
 
     /**
      * 添加回调接口，便于把滑动事件的数据向外抛
@@ -70,25 +83,80 @@ public class ObservableScrollView extends ScrollView {
         }
     }
 
-    @Override
-    public boolean onInterceptTouchEvent(MotionEvent ev) {
-        switch (ev.getAction()) {
-            case MotionEvent.ACTION_DOWN:
-                xDistance = yDistance = 0f;
-                lastX = ev.getX();
-                lastY = ev.getY();
-                break;
-            case MotionEvent.ACTION_MOVE:
-                final float curX = ev.getX();
-                final float curY = ev.getY();
-                xDistance += Math.abs(curX - lastX);
-                yDistance += Math.abs(curY - lastY);
-                lastX = curX;
-                lastY = curY;
-                if (xDistance > yDistance)
-                    return false;
+
+    public boolean onTouchEvent(MotionEvent ev) {
+        if(ev.getAction() == 0) {
+            this.ox = ev.getX();
+            this.oy = ev.getY();
+            this.startNestedScroll(3);
         }
 
-        return super.onInterceptTouchEvent(ev);
+        if(ev.getAction() == 1 || ev.getAction() == 3) {
+            this.stopNestedScroll();
+        }
+
+        if(ev.getAction() == 2) {
+            float clampedX = ev.getX();
+            float clampedY = ev.getY();
+            int dx = (int)(this.ox - clampedX);
+            int dy = (int)(this.oy - clampedY);
+            if(this.dispatchNestedPreScroll(dx, dy, this.consumed, this.offsetInWindow)) {
+                ev.setLocation(clampedX + (float)this.consumed[0], clampedY + (float)this.consumed[1]);
+            }
+
+            this.ox = ev.getX();
+            this.oy = ev.getY();
+        }
+
+        return super.onTouchEvent(ev);
     }
+
+    public void setNestedScrollingEnabled(boolean enabled) {
+        this.childHelper.setNestedScrollingEnabled(enabled);
+    }
+
+    public boolean isNestedScrollingEnabled() {
+        return this.childHelper.isNestedScrollingEnabled();
+    }
+
+    public boolean startNestedScroll(int axes) {
+        return this.childHelper.startNestedScroll(axes);
+    }
+
+    public void stopNestedScroll() {
+        this.childHelper.stopNestedScroll();
+    }
+
+    public boolean hasNestedScrollingParent() {
+        return this.childHelper.hasNestedScrollingParent();
+    }
+
+    public boolean dispatchNestedScroll(int dxConsumed, int dyConsumed, int dxUnconsumed, int dyUnconsumed, int[] offsetInWindow) {
+        return this.childHelper.dispatchNestedScroll(dxConsumed, dyConsumed, dxUnconsumed, dyUnconsumed, offsetInWindow);
+    }
+
+    public boolean dispatchNestedPreScroll(int dx, int dy, int[] consumed, int[] offsetInWindow) {
+        return this.childHelper.dispatchNestedPreScroll(dx, dy, consumed, offsetInWindow);
+    }
+
+    public boolean dispatchNestedFling(float velocityX, float velocityY, boolean consumed) {
+        return this.childHelper.dispatchNestedFling(velocityX, velocityY, consumed);
+    }
+
+    public boolean dispatchNestedPreFling(float velocityX, float velocityY) {
+        return this.childHelper.dispatchNestedPreFling(velocityX, velocityY);
+    }
+
+    public boolean onNestedPreFling(View target, float velocityX, float velocityY) {
+        return this.dispatchNestedPreFling(velocityX, velocityY);
+    }
+
+    public boolean onNestedFling(View target, float velocityX, float velocityY, boolean consumed) {
+        return this.dispatchNestedFling(velocityX, velocityY, consumed);
+    }
+
+    public void fling(int velocityY) {
+        super.fling(velocityY);
+    }
+
 }

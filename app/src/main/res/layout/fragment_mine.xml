@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/white"
     android:orientation="vertical">
 
     <include layout="@layout/include_header_itl" />
-    <com.cjkj.jcb_caizhan.widget.HwjSwipeRefreshLayout
-        android:id="@+id/swipe_refresh_layout"
-        android:layout_marginTop="44dp"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        >
+
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/swipe_refresh_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="44dp">
     <com.cjkj.jcb_caizhan.widget.ObservableScrollView
         android:id="@+id/sv_main_content"
         android:layout_width="match_parent"
@@ -47,8 +50,8 @@
 
         </LinearLayout>
     </com.cjkj.jcb_caizhan.widget.ObservableScrollView>
-    </com.cjkj.jcb_caizhan.widget.HwjSwipeRefreshLayout>
 
+</android.support.v4.widget.SwipeRefreshLayout>
 
 
 </RelativeLayout>
