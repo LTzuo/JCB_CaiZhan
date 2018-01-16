@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">聚彩宝-彩站</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+    <string-array name="sections">
+        <item>订单</item>
+        <item>合买</item>
+        <item>跟单</item>
+    </string-array>
+
+</resources>
