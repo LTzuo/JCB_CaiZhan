@@ -4,18 +4,18 @@
     <item
         android:id="@+id/item_news"
         android:icon="@mipmap/ic_launcher"
-        android:title="订单管理" />
+        android:title="@string/drder_managment" />
     <item
         android:id="@+id/item_lib"
         android:icon="@mipmap/ic_launcher"
-        android:title="用户管理" />
+        android:title="@string/user_managment" />
     <item
         android:id="@+id/item_find"
         android:icon="@mipmap/ic_launcher"
-        android:title="数据统计" />
+        android:title="@string/data_statistics" />
     <item
         android:id="@+id/item_more"
         android:icon="@mipmap/ic_launcher"
-        android:title="个人中心" />
+        android:title="@string/personal_center" />
 
 </menu>

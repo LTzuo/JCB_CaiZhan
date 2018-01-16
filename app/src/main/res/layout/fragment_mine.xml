@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
     android:orientation="vertical">
 
-    <include layout="@layout/include_header_itl" />
+    <include layout="@layout/include_title_mine_itl" />
 
         <android.support.v4.widget.SwipeRefreshLayout
             android:id="@+id/swipe_refresh_layout"
@@ -32,21 +30,14 @@
             <TextView
                 android:id="@+id/tv_main_topContent"
                 android:layout_width="match_parent"
-                android:layout_height="280dp"
+                android:layout_height="200dp"
                 android:background="@color/colorPrimary"
                 android:gravity="center"
                 android:src="@mipmap/ic_launcher"
                 android:text="我是头部"
                 android:textSize="22sp" />
 
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="600dp"
-                android:background="#ffffff"
-                android:gravity="center"
-                android:src="@mipmap/ic_launcher"
-                android:text="我是内容"
-                android:textSize="22sp" />
+            <include layout="@layout/include_content_mine_itl" />
 
         </LinearLayout>
     </com.cjkj.jcb_caizhan.widget.ObservableScrollView>

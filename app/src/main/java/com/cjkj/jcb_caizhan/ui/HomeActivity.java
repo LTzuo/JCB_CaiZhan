@@ -11,12 +11,12 @@ import android.view.MenuItem;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.adapter.pager.HomeViewPagerAdapter;
 import com.cjkj.jcb_caizhan.fragment.MineFragment;
+import com.cjkj.jcb_caizhan.fragment.UserManagementFragment;
 import com.cjkj.jcb_caizhan.fragment.orderManager.OrdermMnagePageFragment;
 import com.cjkj.jcb_caizhan.tabbarhelper.BottomNavigationViewHelper;
 import com.cjkj.jcb_caizhan.tabbarhelper.NoScrollViewPager;
 import java.util.Timer;
 import java.util.TimerTask;
-
 /**
  * 彩站端首页
  */
@@ -84,9 +84,9 @@ public class HomeActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager) {
         HomeViewPagerAdapter adapter = new HomeViewPagerAdapter(getSupportFragmentManager());
-        viewPager .setOffscreenPageLimit(4);
+        viewPager.setOffscreenPageLimit(4);
         adapter.addFragment(OrdermMnagePageFragment.newInstance());
-        adapter.addFragment(OrdermMnagePageFragment.newInstance());
+        adapter.addFragment(UserManagementFragment.newInstance());
         adapter.addFragment(OrdermMnagePageFragment.newInstance());
         adapter.addFragment(MineFragment.newInstance());
         viewPager.setAdapter(adapter);
