@@ -6,7 +6,7 @@ package com.cjkj.jcb_caizhan.network;
  */
 
 public class ApiConstants {
-    public static final String TESTURL = "http://api.jisuapi.com/area/province?";
+    public static final String TESTURL = "http://gank.io/api/";
 
     public static final String COMMON_UA_STR = "OhMyBiliBili Android Client/2.1 (100332338@qq.com)";
 }

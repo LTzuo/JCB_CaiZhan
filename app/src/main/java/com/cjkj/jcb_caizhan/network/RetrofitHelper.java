@@ -1,8 +1,8 @@
 package com.cjkj.jcb_caizhan.network;
 
 import com.cjkj.jcb_caizhan.App;
-import com.cjkj.jcb_caizhan.network.api.UserManagemantService;
-import com.cjkj.jcb_caizhan.util.CommonUtil;
+import com.cjkj.jcb_caizhan.network.api.UserManagemantApi;
+import com.cjkj.jcb_caizhan.utils.CommonUtil;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
 import java.io.File;
 import java.io.IOException;
@@ -30,8 +30,8 @@ public class RetrofitHelper {
         initOkHttpClient();
     }
 
-    public static UserManagemantService getTestApi() {
-        return createApi(UserManagemantService.class, ApiConstants.TESTURL);
+    public static UserManagemantApi getTestApi() {
+        return createApi(UserManagemantApi.class, ApiConstants.TESTURL);
     }
 
     /**

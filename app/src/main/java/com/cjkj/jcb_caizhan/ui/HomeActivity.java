@@ -3,7 +3,6 @@ package com.cjkj.jcb_caizhan.ui;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.design.widget.Snackbar;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
@@ -16,7 +15,7 @@ import com.cjkj.jcb_caizhan.fragment.UserManagementFragment;
 import com.cjkj.jcb_caizhan.fragment.orderManager.OrdermMnagePageFragment;
 import com.cjkj.jcb_caizhan.tabbarhelper.BottomNavigationViewHelper;
 import com.cjkj.jcb_caizhan.tabbarhelper.NoScrollViewPager;
-import com.cjkj.jcb_caizhan.util.SnackbarUtil;
+import com.cjkj.jcb_caizhan.utils.SnackbarUtil;
 
 import java.util.Timer;
 import java.util.TimerTask;

@@ -6,12 +6,19 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.Toast;
+
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.adapter.RetfitTestAdapter;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
+import com.cjkj.jcb_caizhan.entity.TestInfo;
 import com.cjkj.jcb_caizhan.network.RetrofitHelper;
-import com.cjkj.jcb_caizhan.util.SnackbarUtil;
+import com.cjkj.jcb_caizhan.utils.SnackbarUtil;
+import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.cjkj.jcb_caizhan.widget.CustomEmptyView;
+
+import java.util.List;
+
 import butterknife.Bind;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -51,7 +58,7 @@ public class UserManagementFragment extends RxLazyFragment{
             return;
         }
         initRefreshLayout();
-     //   initRecyclerView();
+        initRecyclerView();
         isPrepared = false;
     }
 
@@ -59,15 +66,8 @@ public class UserManagementFragment extends RxLazyFragment{
     protected void initRecyclerView() {
         mTestAdapter = new RetfitTestAdapter(mRecyclerView);
         mRecyclerView.setAdapter(mTestAdapter);
-        GridLayoutManager layout = new GridLayoutManager(getActivity(), 12);
-        layout.setOrientation(LinearLayoutManager.VERTICAL);
-//        layout.setSpanSizeLookup(new GridLayoutManager.SpanSizeLookup() {
-//            @Override
-//            public int getSpanSize(int position) {
-//                return mUserManagementAdapter.getSpanSize(position);
-//            }
-//        });
-        mRecyclerView.setLayoutManager(layout);
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+        mRecyclerView.setLayoutManager(linearLayoutManager);
     }
 
 
@@ -84,16 +84,15 @@ public class UserManagementFragment extends RxLazyFragment{
     @Override
     protected void loadData() {
         RetrofitHelper.getTestApi()
-                .getDatas()
+                .getDatas("福利",5,1)
                 .compose(bindToLifecycle())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(TestInfo -> {
-                    mTestAdapter.setTestInfo(TestInfo);
+                .subscribe(Info -> {
+                    mTestAdapter.setTestInfo(Info.getResults());
                     finishTask();
                 }, throwable -> initEmptyView());
     }
-
 
     private void initEmptyView() {
         mSwipeRefreshLayout.setRefreshing(false);
@@ -101,15 +100,13 @@ public class UserManagementFragment extends RxLazyFragment{
         mRecyclerView.setVisibility(View.GONE);
         mCustomEmptyView.setEmptyImage(R.mipmap.ic_launcher);
         mCustomEmptyView.setEmptyText("加载失败~(≧▽≦)~啦啦啦.");
-        SnackbarUtil.showMessage(mRecyclerView, "数据加载失败,请重新加载或者检查网络是否链接");
+        ToastUtil.ShortToast("数据加载失败,请重新加载或者检查网络是否链接");
     }
-
 
     public void hideEmptyView() {
         mCustomEmptyView.setVisibility(View.GONE);
         mRecyclerView.setVisibility(View.VISIBLE);
     }
-
 
     @Override
     protected void finishTask() {

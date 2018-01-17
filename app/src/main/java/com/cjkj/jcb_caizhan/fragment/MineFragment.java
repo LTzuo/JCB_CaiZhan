@@ -2,7 +2,6 @@ package com.cjkj.jcb_caizhan.fragment;
 
 import android.graphics.Color;
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
@@ -10,8 +9,8 @@ import android.widget.TextView;
 
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
-import com.cjkj.jcb_caizhan.util.SnackbarUtil;
-import com.cjkj.jcb_caizhan.util.ToastUtil;
+import com.cjkj.jcb_caizhan.utils.SnackbarUtil;
+import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.cjkj.jcb_caizhan.widget.ObservableScrollView;
 
 import butterknife.Bind;
@@ -112,7 +111,7 @@ public class MineFragment  extends RxLazyFragment implements ObservableScrollVie
 
     @Override
     protected void finishTask() {
-        SnackbarUtil.showMessage(this.mSwipeRefreshLayout, "刷新完成");
+        ToastUtil.ShortToast("刷新完成");
         mSwipeRefreshLayout.setRefreshing(false);
     }
 

@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.util;
+package com.cjkj.jcb_caizhan.utils;
 
 import android.support.design.widget.Snackbar;
 import android.view.View;

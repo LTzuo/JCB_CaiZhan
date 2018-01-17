@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.util;
+package com.cjkj.jcb_caizhan.utils;
 
 import android.content.Context;
 import android.net.ConnectivityManager;
