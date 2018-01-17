@@ -6,6 +6,7 @@
 
     <color name="line_bg">#e6e6e6</color>
     <color name="font_gray">#656565</color>
+    <color name="black_text2_color">#454545</color>
     <color name="window_background">#eaeaea</color>
     <color name="tab_checked">#3083eb</color>
     <color name="tab_unchecked">#999999</color>

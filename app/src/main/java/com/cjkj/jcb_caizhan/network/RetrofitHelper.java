@@ -1,6 +1,7 @@
 package com.cjkj.jcb_caizhan.network;
 
 import com.cjkj.jcb_caizhan.App;
+import com.cjkj.jcb_caizhan.network.api.MineApi;
 import com.cjkj.jcb_caizhan.network.api.UserManagemantApi;
 import com.cjkj.jcb_caizhan.utils.CommonUtil;
 import com.facebook.stetho.okhttp3.StethoInterceptor;
@@ -32,6 +33,10 @@ public class RetrofitHelper {
 
     public static UserManagemantApi getTestApi() {
         return createApi(UserManagemantApi.class, ApiConstants.TESTURL);
+    }
+
+    public static MineApi getMineApi() {
+        return createApi(MineApi.class, ApiConstants.TESTURL);
     }
 
     /**

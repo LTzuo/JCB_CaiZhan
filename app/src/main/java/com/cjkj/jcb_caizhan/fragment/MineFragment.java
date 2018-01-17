@@ -1,19 +1,22 @@
 package com.cjkj.jcb_caizhan.fragment;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
+import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
-import com.cjkj.jcb_caizhan.utils.SnackbarUtil;
+import com.cjkj.jcb_caizhan.ui.mine.lottery.LotteryCategoryActivity;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.cjkj.jcb_caizhan.widget.ObservableScrollView;
 
 import butterknife.Bind;
+import butterknife.OnClick;
 
 /**
  * Created by 1 on 2018/1/15.
@@ -41,6 +44,13 @@ public class MineFragment  extends RxLazyFragment implements ObservableScrollVie
     @Override
     public int getLayoutResId() {
         return R.layout.fragment_mine;
+    }
+
+    @OnClick(R.id.lin1)
+    public void BtnClick(View v){
+
+        Intent i = new Intent(getContext(),LotteryCategoryActivity.class);
+        startActivity(i);
     }
 
     @Override
