@@ -34,8 +34,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.activity.lottery.LotteryCategoryActivity"></activity>
-        <activity android:name=".ui.activity.lottery.LotteryDetailActivity"></activity>
+        <activity android:name=".ui.activity.mine.lottery.LotteryCategoryActivity"></activity>
+        <activity android:name=".ui.activity.mine.lottery.LotteryDetailActivity"></activity>
     </application>
 
 </manifest>

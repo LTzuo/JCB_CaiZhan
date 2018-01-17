@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.ui.activity.lottery.mine;
+package com.cjkj.jcb_caizhan.ui.activity.mine.lottery;
 
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
