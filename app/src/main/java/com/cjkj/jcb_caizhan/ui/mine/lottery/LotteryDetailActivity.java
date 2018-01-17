@@ -66,7 +66,6 @@ public class LotteryDetailActivity extends BaseActivity {
         loadData();
     }
 
-
     private void loadData() {
         Call<MobBaseEntity<MobLotteryEntity>> call = RetrofitHelper.getMineApi().querylotteryDetail(ApiConstants.URL_APP_Key,lotteryName);
         call.enqueue(new Callback<MobBaseEntity<MobLotteryEntity>>() {
