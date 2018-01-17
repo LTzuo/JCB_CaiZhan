@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.ui;
+package com.cjkj.jcb_caizhan.ui.activity;
 
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -9,10 +9,10 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.adapter.pager.HomeViewPagerAdapter;
-import com.cjkj.jcb_caizhan.fragment.DataStatisticsFragment;
-import com.cjkj.jcb_caizhan.fragment.MineFragment;
-import com.cjkj.jcb_caizhan.fragment.UserManagementFragment;
-import com.cjkj.jcb_caizhan.fragment.orderManager.OrdermMnagePageFragment;
+import com.cjkj.jcb_caizhan.ui.fragment.DataStatisticsFragment;
+import com.cjkj.jcb_caizhan.ui.fragment.MineFragment;
+import com.cjkj.jcb_caizhan.ui.fragment.UserManagementFragment;
+import com.cjkj.jcb_caizhan.ui.fragment.orderManager.OrdermMnagePageFragment;
 import com.cjkj.jcb_caizhan.tabbarhelper.BottomNavigationViewHelper;
 import com.cjkj.jcb_caizhan.tabbarhelper.NoScrollViewPager;
 import com.cjkj.jcb_caizhan.utils.SnackbarUtil;

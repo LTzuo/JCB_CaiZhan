@@ -25,7 +25,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.HomeActivity"
+            android:name=".ui.activity.HomeActivity"
             android:theme="@style/MainActivityColorTranslucentTheme">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -34,8 +34,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".ui.mine.lottery.LotteryCategoryActivity"></activity>
-        <activity android:name=".ui.mine.lottery.LotteryDetailActivity"></activity>
+        <activity android:name=".ui.activity.lottery.LotteryCategoryActivity"></activity>
+        <activity android:name=".ui.activity.lottery.LotteryDetailActivity"></activity>
     </application>
 
 </manifest>

@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.fragment;
+package com.cjkj.jcb_caizhan.ui.fragment;
 
 import android.os.Bundle;
 

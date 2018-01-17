@@ -1,23 +1,17 @@
-package com.cjkj.jcb_caizhan.fragment;
+package com.cjkj.jcb_caizhan.ui.fragment;
 
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.widget.Toast;
 
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.adapter.RetfitTestAdapter;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
-import com.cjkj.jcb_caizhan.entity.TestInfo;
 import com.cjkj.jcb_caizhan.network.RetrofitHelper;
-import com.cjkj.jcb_caizhan.utils.SnackbarUtil;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.cjkj.jcb_caizhan.widget.CustomEmptyView;
-
-import java.util.List;
 
 import butterknife.Bind;
 import rx.android.schedulers.AndroidSchedulers;

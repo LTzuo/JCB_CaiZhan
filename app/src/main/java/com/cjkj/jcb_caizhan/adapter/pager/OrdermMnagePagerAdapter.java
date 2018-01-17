@@ -5,8 +5,8 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.cjkj.jcb_caizhan.R;
-import com.cjkj.jcb_caizhan.fragment.orderManager.OrderFragment;
-import com.cjkj.jcb_caizhan.fragment.orderManager.TogetherBuyFragment;
+import com.cjkj.jcb_caizhan.ui.fragment.orderManager.OrderFragment;
+import com.cjkj.jcb_caizhan.ui.fragment.orderManager.TogetherBuyFragment;
 
 /**
  * 订单管理界面Fragment模块Adapter

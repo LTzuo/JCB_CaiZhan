@@ -1,29 +1,27 @@
-package com.cjkj.jcb_caizhan.fragment.orderManager;
+package com.cjkj.jcb_caizhan.ui.fragment.orderManager;
 
 import android.os.Bundle;
-
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
 
 /**
- * 订单管理-订单
  * Created by 1 on 2018/1/15.
+ * 订单管理—合买
  */
-public class OrderFragment extends RxLazyFragment{
+public class TogetherBuyFragment extends RxLazyFragment{
 
-    public static OrderFragment newIntance() {
-        return new OrderFragment();
+    public static TogetherBuyFragment newIntance() {
+        return new TogetherBuyFragment();
     }
 
     @Override
     public int getLayoutResId() {
-        return R.layout.fragment_order;
+        return R.layout.fragment_togetherbuy;
     }
 
     @Override
     public void finishCreateView(Bundle state) {
 
     }
-
 
 }

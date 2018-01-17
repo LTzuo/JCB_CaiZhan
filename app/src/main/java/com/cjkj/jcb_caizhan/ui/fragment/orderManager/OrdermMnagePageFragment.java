@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.fragment.orderManager;
+package com.cjkj.jcb_caizhan.ui.fragment.orderManager;
 
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
