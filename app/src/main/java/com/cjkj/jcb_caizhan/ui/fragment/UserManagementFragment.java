@@ -14,6 +14,8 @@ import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.cjkj.jcb_caizhan.widget.CustomEmptyView;
 
 import butterknife.Bind;
+import rx.Subscriber;
+import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
@@ -78,7 +80,7 @@ public class UserManagementFragment extends RxLazyFragment{
     @Override
     protected void loadData() {
         RetrofitHelper.getTestApi()
-                .getDatas("福利",5,1)
+                .getDatas("福利",25,1)
                 .compose(bindToLifecycle())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())

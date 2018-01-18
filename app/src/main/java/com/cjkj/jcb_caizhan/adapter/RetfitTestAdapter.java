@@ -55,9 +55,8 @@ public class RetfitTestAdapter extends AbsRecyclerViewAdapter {
 
     @Override
     public int getItemCount() {
-        return mDatas.size();
+        return mDatas == null ? 0 : mDatas.size();
     }
-
 
     private class ItemViewHolder extends AbsRecyclerViewAdapter.ClickableViewHolder {
 
