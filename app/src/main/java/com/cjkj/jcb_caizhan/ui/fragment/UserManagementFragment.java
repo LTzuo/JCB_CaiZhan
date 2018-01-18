@@ -95,7 +95,7 @@ public class UserManagementFragment extends RxLazyFragment{
         mCustomEmptyView.setVisibility(View.VISIBLE);
         mRecyclerView.setVisibility(View.GONE);
         mCustomEmptyView.setEmptyImage(R.mipmap.ic_launcher);
-        mCustomEmptyView.setEmptyText("加载失败~(≧▽≦)~啦啦啦.");
+        mCustomEmptyView.setEmptyText("加载失败~~(≧▽≦)~~啦啦啦.");
         ToastUtil.ShortToast("数据加载失败,请重新加载或者检查网络是否链接");
     }
 
