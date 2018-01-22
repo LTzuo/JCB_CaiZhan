@@ -1,8 +1,4 @@
-package com.cjkj.jcb_caizhan.constant;
-
-import android.os.Environment;
-
-import java.io.File;
+package com.cjkj.jcb_caizhan.core;
 
 /**
  * 常量类

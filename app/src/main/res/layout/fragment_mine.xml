@@ -13,7 +13,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginTop="44dp">
-    <com.cjkj.jcb_caizhan.widget.ObservableScrollView
+    <com.cjkj.jcb_caizhan.ui.widget.ObservableScrollView
         android:id="@+id/sv_main_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -40,7 +40,7 @@
             <include layout="@layout/include_content_mine_itl" />
 
         </LinearLayout>
-    </com.cjkj.jcb_caizhan.widget.ObservableScrollView>
+    </com.cjkj.jcb_caizhan.ui.widget.ObservableScrollView>
 
 </android.support.v4.widget.SwipeRefreshLayout>
 

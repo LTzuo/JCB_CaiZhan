@@ -8,13 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 import android.view.MenuItem;
 import com.cjkj.jcb_caizhan.R;
-import com.cjkj.jcb_caizhan.adapter.pager.HomeViewPagerAdapter;
+import com.cjkj.jcb_caizhan.ui.adapter.pager.HomeViewPagerAdapter;
 import com.cjkj.jcb_caizhan.ui.fragment.DataStatisticsFragment;
 import com.cjkj.jcb_caizhan.ui.fragment.MineFragment;
 import com.cjkj.jcb_caizhan.ui.fragment.UserManagementFragment;
 import com.cjkj.jcb_caizhan.ui.fragment.orderManager.OrdermMnagePageFragment;
-import com.cjkj.jcb_caizhan.tabbarhelper.BottomNavigationViewHelper;
-import com.cjkj.jcb_caizhan.tabbarhelper.NoScrollViewPager;
+import com.cjkj.jcb_caizhan.ui.widget.tabbarhelper.BottomNavigationViewHelper;
+import com.cjkj.jcb_caizhan.ui.widget.tabbarhelper.NoScrollViewPager;
 import com.cjkj.jcb_caizhan.utils.SnackbarUtil;
 
 import java.util.Timer;

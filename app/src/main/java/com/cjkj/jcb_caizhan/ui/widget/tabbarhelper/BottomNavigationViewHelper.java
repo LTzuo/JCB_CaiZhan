@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.tabbarhelper;
+package com.cjkj.jcb_caizhan.ui.widget.tabbarhelper;
 
 import android.support.design.internal.BottomNavigationItemView;
 import android.support.design.internal.BottomNavigationMenuView;

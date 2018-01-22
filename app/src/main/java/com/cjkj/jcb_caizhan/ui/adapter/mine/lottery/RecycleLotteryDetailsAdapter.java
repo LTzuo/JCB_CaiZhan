@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.adapter.mine.lottery;
+package com.cjkj.jcb_caizhan.ui.adapter.mine.lottery;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

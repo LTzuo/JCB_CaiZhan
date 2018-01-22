@@ -7,15 +7,14 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.cjkj.jcb_caizhan.R;
-import com.cjkj.jcb_caizhan.adapter.RetfitTestAdapter;
+import com.cjkj.jcb_caizhan.ui.adapter.RetfitTestAdapter;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
 import com.cjkj.jcb_caizhan.network.RetrofitHelper;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
-import com.cjkj.jcb_caizhan.widget.CustomEmptyView;
+import com.cjkj.jcb_caizhan.ui.widget.CustomEmptyView;
+import com.cjkj.jcb_caizhan.ui.widget.resyclerview.OnLoadMoreListener;
 
 import butterknife.Bind;
-import rx.Subscriber;
-import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
@@ -23,7 +22,7 @@ import rx.schedulers.Schedulers;
  * Created by 1 on 2018/1/16.
  * 用户管理
  */
-public class UserManagementFragment extends RxLazyFragment{
+public class UserManagementFragment extends RxLazyFragment implements OnLoadMoreListener{
 
     @Bind(R.id.recycle)
     RecyclerView mRecyclerView;
@@ -33,6 +32,8 @@ public class UserManagementFragment extends RxLazyFragment{
     CustomEmptyView mCustomEmptyView;
 
     RetfitTestAdapter mTestAdapter;
+
+    int page = 1;
     public static UserManagementFragment newInstance() {
         return new UserManagementFragment();
     }
@@ -61,9 +62,19 @@ public class UserManagementFragment extends RxLazyFragment{
     @Override
     protected void initRecyclerView() {
         mTestAdapter = new RetfitTestAdapter(mRecyclerView);
-        mRecyclerView.setAdapter(mTestAdapter);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(linearLayoutManager);
+//        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+//            @Override
+//            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+//                super.onScrollStateChanged(recyclerView, newState);
+//                if (!recyclerView.canScrollVertically(1) && !mSwipeRefreshLayout.isRefreshing()) {
+//                      showRefreshing(true);
+//                }
+//            }
+//            }
+//        );
+       mRecyclerView.setAdapter(mTestAdapter);
     }
 
 
@@ -73,6 +84,7 @@ public class UserManagementFragment extends RxLazyFragment{
         mSwipeRefreshLayout.setOnRefreshListener(this::loadData);
         mSwipeRefreshLayout.post(() -> {
             mSwipeRefreshLayout.setRefreshing(true);
+            page = 1;
             loadData();
         });
     }
@@ -80,7 +92,7 @@ public class UserManagementFragment extends RxLazyFragment{
     @Override
     protected void loadData() {
         RetrofitHelper.getTestApi()
-                .getDatas("福利",35,1)
+                .getDatas("福利",10,page)
                 .compose(bindToLifecycle())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -88,6 +100,17 @@ public class UserManagementFragment extends RxLazyFragment{
                     mTestAdapter.setTestInfo(Info.getResults());
                     finishTask();
                 }, throwable -> initEmptyView());
+    }
+
+    protected void showRefreshing(final boolean refresh) {
+        mSwipeRefreshLayout.post(new Runnable() {
+            @Override
+            public void run() {
+                page ++;
+                mSwipeRefreshLayout.setRefreshing(refresh);
+                loadData();
+            }
+        });
     }
 
     private void initEmptyView() {
@@ -110,6 +133,11 @@ public class UserManagementFragment extends RxLazyFragment{
         mSwipeRefreshLayout.setRefreshing(false);
         mTestAdapter.notifyDataSetChanged();
         mRecyclerView.scrollToPosition(0);
+    }
+
+    @Override
+    public void onLoadMore() {
+     ToastUtil.ShortToast("加载更多");
     }
 
 }

@@ -25,7 +25,7 @@
                     android:overScrollMode="never"
                     android:scrollbars="none" />
 
-                <com.cjkj.jcb_caizhan.widget.CustomEmptyView
+                <com.cjkj.jcb_caizhan.ui.widget.CustomEmptyView
                     android:id="@+id/empty_layout"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"

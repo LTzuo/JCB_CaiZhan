@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.widget;
+package com.cjkj.jcb_caizhan.ui.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;

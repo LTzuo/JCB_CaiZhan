@@ -9,12 +9,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 import android.view.View;
 import com.cjkj.jcb_caizhan.R;
-import com.cjkj.jcb_caizhan.adapter.mine.lottery.RecycleLotteryAdapter;
+import com.cjkj.jcb_caizhan.ui.adapter.mine.lottery.RecycleLotteryAdapter;
 import com.cjkj.jcb_caizhan.base.BaseActivity;
 import com.cjkj.jcb_caizhan.base.MobBaseEntity;
-import com.cjkj.jcb_caizhan.listeners.OnItemClickListener;
 import com.cjkj.jcb_caizhan.network.ApiConstants;
 import com.cjkj.jcb_caizhan.network.RetrofitHelper;
+import com.cjkj.jcb_caizhan.ui.widget.resyclerview.OnItemClickListener;
+
 import java.util.ArrayList;
 import butterknife.Bind;
 import retrofit2.Call;

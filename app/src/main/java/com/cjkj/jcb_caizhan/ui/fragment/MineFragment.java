@@ -13,7 +13,7 @@ import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
 import com.cjkj.jcb_caizhan.ui.activity.mine.lottery.LotteryCategoryActivity;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
-import com.cjkj.jcb_caizhan.widget.ObservableScrollView;
+import com.cjkj.jcb_caizhan.ui.widget.ObservableScrollView;
 
 import butterknife.Bind;
 import butterknife.OnClick;

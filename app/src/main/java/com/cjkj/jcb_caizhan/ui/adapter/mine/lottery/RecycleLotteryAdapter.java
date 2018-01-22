@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.adapter.mine.lottery;
+package com.cjkj.jcb_caizhan.ui.adapter.mine.lottery;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.cjkj.jcb_caizhan.R;
-import com.cjkj.jcb_caizhan.listeners.OnItemClickListener;
+import com.cjkj.jcb_caizhan.ui.widget.resyclerview.OnItemClickListener;
 
 import java.util.List;
 import butterknife.Bind;

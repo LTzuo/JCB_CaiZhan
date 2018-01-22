@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.adapter.pager;
+package com.cjkj.jcb_caizhan.ui.adapter.pager;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;

@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.adapter;
+package com.cjkj.jcb_caizhan.ui.adapter;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.cjkj.jcb_caizhan.R;
-import com.cjkj.jcb_caizhan.adapter.helper.AbsRecyclerViewAdapter;
+import com.cjkj.jcb_caizhan.ui.adapter.helper.AbsRecyclerViewAdapter;
 import com.cjkj.jcb_caizhan.entity.TestInfo;
 import java.util.ArrayList;
 import java.util.List;
@@ -31,6 +31,11 @@ public class RetfitTestAdapter extends AbsRecyclerViewAdapter {
         this.mDatas = mDatas;
     }
 
+    public void addInfo(int position,List<TestInfo.ResultsBean> mDatas) {
+        this.mDatas = mDatas;
+        this.notifyItemRangeInserted(position, mDatas.size());
+    }
+
     @Override
     public ClickableViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         bindContext(parent.getContext());
@@ -42,13 +47,16 @@ public class RetfitTestAdapter extends AbsRecyclerViewAdapter {
     public void onBindViewHolder(ClickableViewHolder holder, int position) {
         if (holder instanceof ItemViewHolder) {
             ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
-            itemViewHolder.mItemText.setText(mDatas.get(position).getWho());
+            itemViewHolder.mItemText0.setText(mDatas.get(position).getWho());
+            itemViewHolder.mItemText1.setText(mDatas.get(position).getCreatedAt());
+            itemViewHolder.mItemText2.setText(mDatas.get(position).getType());
+            itemViewHolder.mItemText3.setText(mDatas.get(position).getSource());
 
             Glide.with(getContext())
                     .load(mDatas.get(position).getUrl() + "")
                     .placeholder(R.mipmap.ic_launcher)
                     .error(R.mipmap.ic_launcher)
-                    .into(itemViewHolder.text_img);
+                    .into(itemViewHolder.head_img);
         }
         super.onBindViewHolder(holder, position);
     }
@@ -60,12 +68,15 @@ public class RetfitTestAdapter extends AbsRecyclerViewAdapter {
 
     private class ItemViewHolder extends AbsRecyclerViewAdapter.ClickableViewHolder {
 
-        TextView mItemText;
-        ImageView text_img;
+        TextView mItemText0,mItemText1,mItemText2,mItemText3;
+        ImageView head_img;
         public ItemViewHolder(View itemView) {
             super(itemView);
-            mItemText = $(R.id.test);
-            text_img = $(R.id.text_img);
+            mItemText0 = $(R.id.mItemText0);
+            mItemText1 = $(R.id.mItemText1);
+            mItemText2 = $(R.id.mItemText2);
+            mItemText3 = $(R.id.mItemText3);
+            head_img = $(R.id.head_img);
         }
     }
 }

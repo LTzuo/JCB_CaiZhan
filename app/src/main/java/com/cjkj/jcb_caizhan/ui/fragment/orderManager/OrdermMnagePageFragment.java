@@ -5,7 +5,7 @@ import android.support.v4.view.ViewPager;
 import android.widget.TextView;
 
 import com.cjkj.jcb_caizhan.R;
-import com.cjkj.jcb_caizhan.adapter.pager.OrdermMnagePagerAdapter;
+import com.cjkj.jcb_caizhan.ui.adapter.pager.OrdermMnagePagerAdapter;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
 import com.flyco.tablayout.SlidingTabLayout;
 import butterknife.Bind;
