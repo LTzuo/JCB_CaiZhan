@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.base;
+package com.cjkj.jcb_caizhan.ui.activity;
 
 import android.os.Bundle;
 import android.support.annotation.ColorInt;

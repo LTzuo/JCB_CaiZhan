@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.base;
+package com.cjkj.jcb_caizhan.ui.fragment;
 
 import android.app.Activity;
 import android.content.Context;

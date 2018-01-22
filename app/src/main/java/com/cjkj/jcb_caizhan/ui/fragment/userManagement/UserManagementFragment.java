@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.ui.fragment;
+package com.cjkj.jcb_caizhan.ui.fragment.userManagement;
 
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
@@ -8,8 +8,8 @@ import android.view.View;
 
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.ui.adapter.RetfitTestAdapter;
-import com.cjkj.jcb_caizhan.base.RxLazyFragment;
 import com.cjkj.jcb_caizhan.network.RetrofitHelper;
+import com.cjkj.jcb_caizhan.ui.fragment.RxLazyFragment;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.cjkj.jcb_caizhan.ui.widget.CustomEmptyView;
 import com.cjkj.jcb_caizhan.ui.widget.resyclerview.OnLoadMoreListener;

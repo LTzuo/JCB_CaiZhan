@@ -1,6 +1,6 @@
 package com.cjkj.jcb_caizhan.network.api;
 
-import com.cjkj.jcb_caizhan.base.MobBaseEntity;
+import com.cjkj.jcb_caizhan.entity.MobBaseEntity;
 import com.cjkj.jcb_caizhan.entity.mine.lottery.MobLotteryEntity;
 import com.cjkj.jcb_caizhan.network.ApiConstants;
 import java.util.ArrayList;

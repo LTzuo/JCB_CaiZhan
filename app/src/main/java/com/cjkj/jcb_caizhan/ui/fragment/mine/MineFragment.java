@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.ui.fragment;
+package com.cjkj.jcb_caizhan.ui.fragment.mine;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -10,8 +10,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.cjkj.jcb_caizhan.R;
-import com.cjkj.jcb_caizhan.base.RxLazyFragment;
 import com.cjkj.jcb_caizhan.ui.activity.mine.lottery.LotteryCategoryActivity;
+import com.cjkj.jcb_caizhan.ui.fragment.RxLazyFragment;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.cjkj.jcb_caizhan.ui.widget.ObservableScrollView;
 

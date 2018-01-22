@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.base;
+package com.cjkj.jcb_caizhan.entity;
 
 import java.io.Serializable;
 

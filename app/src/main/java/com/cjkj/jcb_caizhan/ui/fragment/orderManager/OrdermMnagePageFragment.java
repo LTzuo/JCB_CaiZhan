@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.ui.adapter.pager.OrdermMnagePagerAdapter;
-import com.cjkj.jcb_caizhan.base.RxLazyFragment;
+import com.cjkj.jcb_caizhan.ui.fragment.RxLazyFragment;
 import com.flyco.tablayout.SlidingTabLayout;
 import butterknife.Bind;
 
@@ -14,7 +14,7 @@ import butterknife.Bind;
  * Created by 1 on 2018/1/15.
  * 订单管理
  */
-public class OrdermMnagePageFragment extends RxLazyFragment{
+public class OrdermMnagePageFragment extends RxLazyFragment {
 
     @Bind(R.id.base_title)
     TextView base_title;
