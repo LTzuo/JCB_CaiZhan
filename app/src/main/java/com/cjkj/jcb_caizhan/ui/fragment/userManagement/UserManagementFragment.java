@@ -12,7 +12,6 @@ import com.cjkj.jcb_caizhan.network.RetrofitHelper;
 import com.cjkj.jcb_caizhan.ui.fragment.RxLazyFragment;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.cjkj.jcb_caizhan.ui.widget.CustomEmptyView;
-import com.cjkj.jcb_caizhan.ui.widget.resyclerview.OnLoadMoreListener;
 
 import butterknife.Bind;
 import rx.android.schedulers.AndroidSchedulers;
@@ -22,7 +21,7 @@ import rx.schedulers.Schedulers;
  * Created by 1 on 2018/1/16.
  * 用户管理
  */
-public class UserManagementFragment extends RxLazyFragment implements OnLoadMoreListener{
+public class UserManagementFragment extends RxLazyFragment{
 
     @Bind(R.id.recycle)
     RecyclerView mRecyclerView;
@@ -64,19 +63,17 @@ public class UserManagementFragment extends RxLazyFragment implements OnLoadMore
         mTestAdapter = new RetfitTestAdapter(mRecyclerView);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
         mRecyclerView.setLayoutManager(linearLayoutManager);
-//        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-//            @Override
-//            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-//                super.onScrollStateChanged(recyclerView, newState);
-//                if (!recyclerView.canScrollVertically(1) && !mSwipeRefreshLayout.isRefreshing()) {
-//                      showRefreshing(true);
-//                }
-//            }
-//            }
-//        );
+        mRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                super.onScrollStateChanged(recyclerView, newState);
+                if (!recyclerView.canScrollVertically(1) && !mSwipeRefreshLayout.isRefreshing()) {
+                    showRefreshing(true);
+                }
+            }
+        });
        mRecyclerView.setAdapter(mTestAdapter);
     }
-
 
     @Override
     protected void initRefreshLayout() {
@@ -91,13 +88,15 @@ public class UserManagementFragment extends RxLazyFragment implements OnLoadMore
 
     @Override
     protected void loadData() {
+        ToastUtil.ShortToast("页码："+page+"===总数据条数"+mTestAdapter.getItemCount());
         RetrofitHelper.getTestApi()
-                .getDatas("福利",10,page)
+                .getDatas("App",20,page)
                 .compose(bindToLifecycle())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(Info -> {
                     mTestAdapter.setTestInfo(Info.getResults());
+                    //mTestAdapter.addInfo(mTestAdapter.getItemCount(),Info.getResults());
                     finishTask();
                 }, throwable -> initEmptyView());
     }
@@ -133,11 +132,6 @@ public class UserManagementFragment extends RxLazyFragment implements OnLoadMore
         mSwipeRefreshLayout.setRefreshing(false);
         mTestAdapter.notifyDataSetChanged();
         mRecyclerView.scrollToPosition(0);
-    }
-
-    @Override
-    public void onLoadMore() {
-     ToastUtil.ShortToast("加载更多");
     }
 
 }

@@ -32,8 +32,12 @@ public class RetfitTestAdapter extends AbsRecyclerViewAdapter {
     }
 
     public void addInfo(int position,List<TestInfo.ResultsBean> mDatas) {
-        this.mDatas = mDatas;
+        mDatas.addAll(mDatas);
         this.notifyItemRangeInserted(position, mDatas.size());
+    }
+
+    public void addInfo(List<TestInfo.ResultsBean> mDatas) {
+        mDatas.addAll(mDatas);
     }
 
     @Override
@@ -47,10 +51,10 @@ public class RetfitTestAdapter extends AbsRecyclerViewAdapter {
     public void onBindViewHolder(ClickableViewHolder holder, int position) {
         if (holder instanceof ItemViewHolder) {
             ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
-            itemViewHolder.mItemText0.setText(mDatas.get(position).getWho());
+            itemViewHolder.mItemText0.setText(mDatas.get(position).getDesc());
             itemViewHolder.mItemText1.setText(mDatas.get(position).getCreatedAt());
             itemViewHolder.mItemText2.setText(mDatas.get(position).getType());
-            itemViewHolder.mItemText3.setText(mDatas.get(position).getSource());
+            itemViewHolder.mItemText3.setText(mDatas.get(position).getWho());
 
             Glide.with(getContext())
                     .load(mDatas.get(position).getUrl() + "")

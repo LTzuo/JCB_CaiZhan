@@ -10,7 +10,9 @@ import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
 import com.trello.rxlifecycle.components.support.RxFragment;
+
 import butterknife.ButterKnife;
 
 /**
@@ -42,6 +44,7 @@ public abstract class RxLazyFragment extends RxFragment {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this,view);
         finishCreateView(savedInstanceState);
+
     }
 
     /**
@@ -169,4 +172,6 @@ public abstract class RxLazyFragment extends RxFragment {
     public <T extends View> T $(int id) {
         return (T) parentView.findViewById(id);
     }
+
+
 }

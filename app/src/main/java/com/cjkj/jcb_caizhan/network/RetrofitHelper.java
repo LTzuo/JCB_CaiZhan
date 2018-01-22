@@ -18,6 +18,10 @@ import okhttp3.logging.HttpLoggingInterceptor;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import rx.Observable;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Func1;
+import rx.schedulers.Schedulers;
 
 /**
  * Retrofit帮助类
@@ -52,6 +56,31 @@ public class RetrofitHelper {
         return retrofit.create(clazz);
     }
 
+    /**
+     * 倒计时
+     * @param time
+     * @return
+     */
+    public static Observable<Integer> countdown(int time) {
+        if (time < 0) {
+            time = 0;
+        }
+        final int countTime = time;
+
+        return Observable.interval(0, 1, TimeUnit.SECONDS)
+                .map(new Func1<Long, Integer>() {
+                    @Override
+                    public Integer call(Long increaseTime) {
+                        return countTime - increaseTime.intValue();
+                    }
+                })
+                .take(countTime + 1)
+                .subscribeOn(Schedulers.io())
+                .unsubscribeOn(Schedulers.io())
+                .subscribeOn(AndroidSchedulers.mainThread())
+                .observeOn(AndroidSchedulers.mainThread());
+
+    }
 
     /**
      * 初始化OKHttpClient,设置缓存,设置超时时间,设置打印日志,设置UA拦截器

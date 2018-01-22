@@ -51,9 +51,13 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
     compile'com.android.support:support-v4:25.0.1'
+    //防止RxJava中subscription导致内存泄漏
     compile 'com.trello:rxlifecycle-components:0.6.1'
+    //注解
     compile 'com.jakewharton:butterknife:7.0.1'
+    //自定义控件
     compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.0.0@aar'
+    //网络相关
     compile 'com.squareup.okhttp3:okhttp:3.2.0'
     compile 'com.squareup.okhttp3:logging-interceptor:3.2.0'
     compile 'com.facebook.stetho:stetho:1.3.1'
@@ -64,5 +68,6 @@ dependencies {
     compile 'io.reactivex:rxandroid:1.1.0'
     compile 'io.reactivex:rxjava:1.1.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    //列表刷新控件
     compile 'cn.bingoogolapple:bga-swipebacklayout:1.0.8'
 }
