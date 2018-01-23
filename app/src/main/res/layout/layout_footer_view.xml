@@ -11,14 +11,17 @@
         android:id="@+id/footer_view_progressbar"
         android:layout_width="20dp"
         android:layout_height="20dp"
+        android:indeterminateTint="@color/colorPrimary"
+        android:indeterminateTintMode="src_atop"
+        style="@style/Base.Widget.AppCompat.ProgressBar"
         />
-
 
     <TextView
         android:id="@+id/footer_view_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
-        android:text="正在加载数据..."
+        android:textSize="@dimen/bottom_circle_progress_text_size"
+        android:text="@string/bottom_progress_refreshing_text"
         />
 </LinearLayout>

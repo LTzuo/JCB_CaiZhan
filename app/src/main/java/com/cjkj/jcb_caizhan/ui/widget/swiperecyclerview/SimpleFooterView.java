@@ -8,12 +8,10 @@ import android.view.ViewGroup;
 import android.widget.FrameLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
 import com.cjkj.jcb_caizhan.R;
 
 /**
- * @author deadline
- * @time 2016/10/22
+ * @time 2018/1/22
  */
 public class SimpleFooterView extends BaseFooterView{
 
@@ -44,7 +42,8 @@ public class SimpleFooterView extends BaseFooterView{
     @Override
     public void onLoadingMore() {
         progressBar.setVisibility(VISIBLE);
-        mText.setVisibility(GONE);
+//      mText.setVisibility(GONE);
+        mText.setText(getContext().getString(R.string.bottom_progress_refreshing_text));
     }
 
     public void showText(){
@@ -53,7 +52,6 @@ public class SimpleFooterView extends BaseFooterView{
     }
 
     /**************文字自行修改或根据传入的参数动态修改****************/
-
     @Override
     public void onNoMore(CharSequence message) {
         showText();

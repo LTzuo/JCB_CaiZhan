@@ -33,6 +33,7 @@ public class UserManagementFragment extends RxLazyFragment{
     RetfitTestAdapter mTestAdapter;
 
     int page = 1;
+    boolean isLoadmore = false;
     public static UserManagementFragment newInstance() {
         return new UserManagementFragment();
     }
@@ -78,10 +79,18 @@ public class UserManagementFragment extends RxLazyFragment{
     @Override
     protected void initRefreshLayout() {
         mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
-        mSwipeRefreshLayout.setOnRefreshListener(this::loadData);
+        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                page = 1;
+                isLoadmore = false;
+                loadData();
+            }
+        });
         mSwipeRefreshLayout.post(() -> {
             mSwipeRefreshLayout.setRefreshing(true);
             page = 1;
+            isLoadmore = false;
             loadData();
         });
     }
@@ -90,13 +99,16 @@ public class UserManagementFragment extends RxLazyFragment{
     protected void loadData() {
         ToastUtil.ShortToast("页码："+page+"===总数据条数"+mTestAdapter.getItemCount());
         RetrofitHelper.getTestApi()
-                .getDatas("App",20,page)
+                .getDatas("福利",20,page)
                 .compose(bindToLifecycle())
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(Info -> {
-                    mTestAdapter.setTestInfo(Info.getResults());
-                    //mTestAdapter.addInfo(mTestAdapter.getItemCount(),Info.getResults());
+                    if(!isLoadmore){
+                        mTestAdapter.setTestInfo(Info.getResults());
+                    }else{
+                        mTestAdapter.addInfo(mTestAdapter.getItemCount(),Info.getResults());
+                    }
                     finishTask();
                 }, throwable -> initEmptyView());
     }
@@ -106,6 +118,7 @@ public class UserManagementFragment extends RxLazyFragment{
             @Override
             public void run() {
                 page ++;
+                isLoadmore = true;
                 mSwipeRefreshLayout.setRefreshing(refresh);
                 loadData();
             }
@@ -113,6 +126,7 @@ public class UserManagementFragment extends RxLazyFragment{
     }
 
     private void initEmptyView() {
+        isLoadmore = false;
         mSwipeRefreshLayout.setRefreshing(false);
         mCustomEmptyView.setVisibility(View.VISIBLE);
         mRecyclerView.setVisibility(View.GONE);
@@ -128,10 +142,11 @@ public class UserManagementFragment extends RxLazyFragment{
 
     @Override
     protected void finishTask() {
+        isLoadmore = false;
         hideEmptyView();
         mSwipeRefreshLayout.setRefreshing(false);
         mTestAdapter.notifyDataSetChanged();
-        mRecyclerView.scrollToPosition(0);
+       // mRecyclerView.scrollToPosition(0);
     }
 
 }

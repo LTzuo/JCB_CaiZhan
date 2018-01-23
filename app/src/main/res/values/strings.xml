@@ -4,6 +4,7 @@
     <string name="user_managment">用户管理</string>
     <string name="data_statistics">数据统计</string>
     <string name="personal_center">个人中心</string>
+    <string name="bottom_progress_refreshing_text">正在加载数据...</string>
 
     <string-array name="sections">
         <item>订单</item>

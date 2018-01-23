@@ -22,4 +22,7 @@
     <!--common text size-->
     <dimen name="default_tiny_text_size">12sp</dimen>
     <dimen name="default_small_text_size">14sp</dimen>
+
+    <!--bottom_circle_progress text size-->
+    <dimen name="bottom_circle_progress_text_size">12dp</dimen>
 </resources>

@@ -27,17 +27,13 @@ public class RetfitTestAdapter extends AbsRecyclerViewAdapter {
         super(recyclerView);
     }
 
-    public void setTestInfo(List<TestInfo.ResultsBean> mDatas) {
-        this.mDatas = mDatas;
+    public void setTestInfo(List<TestInfo.ResultsBean> datas) {
+        this.mDatas = datas;
     }
 
-    public void addInfo(int position,List<TestInfo.ResultsBean> mDatas) {
-        mDatas.addAll(mDatas);
+    public void addInfo(int position,List<TestInfo.ResultsBean> datas) {
+        mDatas.add((TestInfo.ResultsBean) datas);
         this.notifyItemRangeInserted(position, mDatas.size());
-    }
-
-    public void addInfo(List<TestInfo.ResultsBean> mDatas) {
-        mDatas.addAll(mDatas);
     }
 
     @Override
