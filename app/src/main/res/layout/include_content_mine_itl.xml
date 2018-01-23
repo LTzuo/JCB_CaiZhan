@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/ll_header_content"
+    android:id="@+id/ll_content"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/white"
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
     <LinearLayout
         android:id="@+id/lin1"
         android:layout_width="match_parent"
-        android:layout_height="44dp"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
         android:orientation="horizontal"
+        android:background="@color/white"
         >
 
         <TextView
@@ -19,16 +20,21 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="中国福利彩票开奖结果"
-            android:drawableLeft="@mipmap/ic_launcher"
+            android:drawableLeft="@drawable/bird"
+            android:drawableTint="@color/cornflowerblue"
+            android:drawablePadding="8dp"
             android:textColor="@color/black_light"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="@dimen/minefragment_lift_text_size"
+             />
 
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="44dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_marginTop="2dp"
+        android:padding="10dp"
         >
 
         <TextView
@@ -36,10 +42,11 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="未出票"
-            android:drawableLeft="@mipmap/ic_launcher"
+            android:drawableLeft="@drawable/bird"
+            android:drawableTint="@color/blueviolet"
+            android:drawablePadding="8dp"
             android:textColor="@color/black_light"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="@dimen/minefragment_lift_text_size" />
 
 
         <TextView
@@ -48,56 +55,98 @@
             android:layout_weight="1"
             android:text="0单未出"
             android:gravity="end|center_vertical"
+            android:textColor="@color/grey1"
+            android:drawableRight="@drawable/more"
+            android:textSize="@dimen/minefragment_right_text_size"
+            style="@style/font_style"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_marginTop="2dp"
+        android:padding="10dp"
+        >
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="派奖"
+            android:drawableLeft="@drawable/bird"
+            android:drawableTint="@color/palegreen"
+            android:drawablePadding="8dp"
             android:textColor="@color/black_light"
-            android:drawableRight="@mipmap/ic_launcher"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="@dimen/minefragment_lift_text_size" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:text="0单未派奖"
+            android:gravity="end|center_vertical"
+            android:textColor="@color/grey1"
+            android:drawableRight="@drawable/more"
+            android:textSize="@dimen/minefragment_right_text_size"
+            style="@style/font_style"/>
 
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="44dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_marginTop="2dp"
+        android:padding="10dp"
         >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="未出票"
-            android:drawableLeft="@mipmap/ic_launcher"
+            android:text="合作订单派奖"
+            android:drawableLeft="@drawable/bird"
+            android:drawableTint="@color/brown"
+            android:drawablePadding="8dp"
             android:textColor="@color/black_light"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="@dimen/minefragment_lift_text_size" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="0单未出"
+            android:text="0单未派奖"
             android:gravity="end|center_vertical"
-            android:textColor="@color/black_light"
-            android:drawableRight="@mipmap/ic_launcher"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textColor="@color/grey1"
+            android:drawableRight="@drawable/more"
+            android:textSize="@dimen/minefragment_right_text_size"
+            style="@style/font_style"/>
 
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="44dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_marginTop="2dp"
+        android:padding="10dp"
         >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="未出票"
-            android:drawableLeft="@mipmap/ic_launcher"
+            android:text="体现"
+            android:drawableLeft="@drawable/bird"
+            android:drawableTint="@color/gold"
+            android:drawablePadding="8dp"
             android:textColor="@color/black_light"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="@dimen/minefragment_lift_text_size" />
 
 
         <TextView
@@ -106,27 +155,31 @@
             android:layout_weight="1"
             android:text="0单未出"
             android:gravity="end|center_vertical"
-            android:textColor="@color/black_light"
-            android:drawableRight="@mipmap/ic_launcher"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textColor="@color/grey1"
+            android:drawableRight="@drawable/more"
+            android:textSize="@dimen/minefragment_right_text_size"
+            style="@style/font_style"/>
 
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="44dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_marginTop="2dp"
+        android:padding="10dp"
         >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="未出票"
-            android:drawableLeft="@mipmap/ic_launcher"
+            android:text="充值"
+            android:drawableLeft="@drawable/bird"
+            android:drawableTint="@color/darkviolet"
+            android:drawablePadding="8dp"
             android:textColor="@color/black_light"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="@dimen/minefragment_lift_text_size" />
 
 
         <TextView
@@ -135,413 +188,137 @@
             android:layout_weight="1"
             android:text="0单未出"
             android:gravity="end|center_vertical"
-            android:textColor="@color/black_light"
-            android:drawableRight="@mipmap/ic_launcher"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textColor="@color/grey1"
+            android:drawableRight="@drawable/more"
+            android:textSize="@dimen/minefragment_right_text_size"
+            style="@style/font_style"/>
 
-    </LinearLayout><LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="44dp"
-    android:orientation="horizontal"
-    >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="未出票"
-        android:drawableLeft="@mipmap/ic_launcher"
-        android:textColor="@color/black_light"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:text="0单未出"
-        android:gravity="end|center_vertical"
-        android:textColor="@color/black_light"
-        android:drawableRight="@mipmap/ic_launcher"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-</LinearLayout><LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="44dp"
-    android:orientation="horizontal"
-    >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="未出票"
-        android:drawableLeft="@mipmap/ic_launcher"
-        android:textColor="@color/black_light"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:text="0单未出"
-        android:gravity="end|center_vertical"
-        android:textColor="@color/black_light"
-        android:drawableRight="@mipmap/ic_launcher"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-</LinearLayout><LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="44dp"
-    android:orientation="horizontal"
-    >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="未出票"
-        android:drawableLeft="@mipmap/ic_launcher"
-        android:textColor="@color/black_light"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:text="0单未出"
-        android:gravity="end|center_vertical"
-        android:textColor="@color/black_light"
-        android:drawableRight="@mipmap/ic_launcher"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-</LinearLayout><LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="44dp"
-    android:orientation="horizontal"
-    >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="未出票"
-        android:drawableLeft="@mipmap/ic_launcher"
-        android:textColor="@color/black_light"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:text="0单未出"
-        android:gravity="end|center_vertical"
-        android:textColor="@color/black_light"
-        android:drawableRight="@mipmap/ic_launcher"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-</LinearLayout><LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="44dp"
-    android:orientation="horizontal"
-    >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="未出票"
-        android:drawableLeft="@mipmap/ic_launcher"
-        android:textColor="@color/black_light"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:text="0单未出"
-        android:gravity="end|center_vertical"
-        android:textColor="@color/black_light"
-        android:drawableRight="@mipmap/ic_launcher"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-</LinearLayout>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="44dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
         >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="未出票"
-            android:drawableLeft="@mipmap/ic_launcher"
+            android:text="订单查询"
+            android:drawableLeft="@drawable/bird"
+            android:drawablePadding="8dp"
             android:textColor="@color/black_light"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="@dimen/minefragment_lift_text_size" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="0单未出"
             android:gravity="end|center_vertical"
-            android:textColor="@color/black_light"
-            android:drawableRight="@mipmap/ic_launcher"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textColor="@color/grey1"
+            android:drawableRight="@drawable/more"
+            android:textSize="@dimen/minefragment_right_text_size"
+            style="@style/font_style"/>
 
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="44dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_marginTop="2dp"
+        android:padding="10dp"
         >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="未出票"
-            android:drawableLeft="@mipmap/ic_launcher"
+            android:text="跟单查询"
+            android:drawableLeft="@drawable/bird"
+            android:drawableTint="@color/darkviolet"
+            android:drawablePadding="8dp"
             android:textColor="@color/black_light"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="@dimen/minefragment_lift_text_size" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="0单未出"
             android:gravity="end|center_vertical"
-            android:textColor="@color/black_light"
-            android:drawableRight="@mipmap/ic_launcher"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textColor="@color/grey1"
+            android:drawableRight="@drawable/more"
+            android:textSize="@dimen/minefragment_right_text_size"
+            style="@style/font_style"/>
 
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="44dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_marginTop="2dp"
+        android:padding="10dp"
         >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="未出票"
-            android:drawableLeft="@mipmap/ic_launcher"
+            android:text="账户明细"
+            android:drawableLeft="@drawable/bird"
+            android:drawablePadding="8dp"
             android:textColor="@color/black_light"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="@dimen/minefragment_lift_text_size" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="0单未出"
             android:gravity="end|center_vertical"
-            android:textColor="@color/black_light"
-            android:drawableRight="@mipmap/ic_launcher"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textColor="@color/grey1"
+            android:drawableRight="@drawable/more"
+            android:textSize="@dimen/minefragment_right_text_size"
+            style="@style/font_style"/>
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="44dp"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_marginTop="2dp"
+        android:padding="10dp"
         >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="未出票"
-            android:drawableLeft="@mipmap/ic_launcher"
+            android:text="设置"
+            android:drawableLeft="@drawable/bird"
+            android:drawablePadding="8dp"
             android:textColor="@color/black_light"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textSize="@dimen/minefragment_lift_text_size" />
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:text="0单未出"
             android:gravity="end|center_vertical"
-            android:textColor="@color/black_light"
-            android:drawableRight="@mipmap/ic_launcher"
-            android:textSize="16sp"
-            android:textStyle="bold" />
+            android:textColor="@color/grey1"
+            android:drawableRight="@drawable/more"
+            android:textSize="@dimen/minefragment_right_text_size"
+            style="@style/font_style"/>
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:orientation="horizontal"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="未出票"
-            android:drawableLeft="@mipmap/ic_launcher"
-            android:textColor="@color/black_light"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="0单未出"
-            android:gravity="end|center_vertical"
-            android:textColor="@color/black_light"
-            android:drawableRight="@mipmap/ic_launcher"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:orientation="horizontal"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="未出票"
-            android:drawableLeft="@mipmap/ic_launcher"
-            android:textColor="@color/black_light"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="0单未出"
-            android:gravity="end|center_vertical"
-            android:textColor="@color/black_light"
-            android:drawableRight="@mipmap/ic_launcher"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:orientation="horizontal"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="未出票"
-            android:drawableLeft="@mipmap/ic_launcher"
-            android:textColor="@color/black_light"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="0单未出"
-            android:gravity="end|center_vertical"
-            android:textColor="@color/black_light"
-            android:drawableRight="@mipmap/ic_launcher"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="44dp"
-        android:orientation="horizontal"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="未出票"
-            android:drawableLeft="@mipmap/ic_launcher"
-            android:textColor="@color/black_light"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="0单未出"
-            android:gravity="end|center_vertical"
-            android:textColor="@color/black_light"
-            android:drawableRight="@mipmap/ic_launcher"
-            android:textSize="16sp"
-            android:textStyle="bold" />
-
-    </LinearLayout> <LinearLayout
-    android:layout_width="match_parent"
-    android:layout_height="44dp"
-    android:orientation="horizontal"
-    >
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:text="未出票"
-        android:drawableLeft="@mipmap/ic_launcher"
-        android:textColor="@color/black_light"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
-        android:text="0单未出"
-        android:gravity="end|center_vertical"
-        android:textColor="@color/black_light"
-        android:drawableRight="@mipmap/ic_launcher"
-        android:textSize="16sp"
-        android:textStyle="bold" />
-
-</LinearLayout>
-
-
 </LinearLayout>

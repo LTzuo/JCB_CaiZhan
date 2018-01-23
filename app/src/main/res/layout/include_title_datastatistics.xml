@@ -7,8 +7,6 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-
-
         <TextView
             android:id="@+id/tv_header_title"
             android:layout_width="match_parent"

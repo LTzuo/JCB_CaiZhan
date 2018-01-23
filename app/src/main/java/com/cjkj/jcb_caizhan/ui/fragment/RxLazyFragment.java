@@ -139,27 +139,15 @@ public abstract class RxLazyFragment extends RxFragment {
     }
 
     /**
-     * 显示进度条
-     */
-    protected void showProgressBar() {
-    }
-
-    /**
-     * 隐藏进度条
-     */
-    protected void hideProgressBar() {
-    }
-
-    /**
      * 初始化recyclerView
      */
     protected void initRecyclerView() {
     }
 
     /**
-     * 初始化refreshLayout
+     * 初始化statusManagerLayout
      */
-    protected void initRefreshLayout() {
+    protected void initstatusManagerLayout() {
     }
 
     /**

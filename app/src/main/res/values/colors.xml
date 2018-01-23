@@ -29,6 +29,7 @@
     <color name="slategrey">#708090</color><!--灰石色 -->
     <color name="lightslategrey">#778899</color><!--亮蓝灰 -->
     <color name="darkslategrey">#2f4f4f</color><!--暗瓦灰色 -->
+    <color name="grey1">#a0a0a0</color><!--灰色-->
     <color name="silver">#c0c0c0</color><!--银色 -->
 
     <color name="transparent">#00000000</color>

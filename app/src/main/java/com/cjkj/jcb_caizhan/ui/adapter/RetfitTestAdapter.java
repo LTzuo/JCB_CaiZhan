@@ -20,7 +20,6 @@ import java.util.List;
  */
 public class RetfitTestAdapter extends AbsRecyclerViewAdapter {
 
-   // private Context context;
     private List<TestInfo.ResultsBean> mDatas = new ArrayList<>();
 
     public RetfitTestAdapter(RecyclerView recyclerView) {

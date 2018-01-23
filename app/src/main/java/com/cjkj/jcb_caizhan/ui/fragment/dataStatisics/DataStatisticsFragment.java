@@ -53,13 +53,13 @@ public class DataStatisticsFragment extends RxLazyFragment implements SwipeRecyc
         if (!isPrepared || !isVisible) {
             return;
         }
-        initRefreshLayout();
+        initstatusManagerLayout();
         initRecyclerView();
         isPrepared = false;
     }
 
     @Override
-    protected void initRefreshLayout() {
+    protected void initstatusManagerLayout() {
         mStatusLayoutManager = new StatusLayoutManager.Builder(mSwipRecyclerView)
                 // 设置重试事件监听器
                 .setOnStatusChildClickListener(new DefaultOnStatusChildClickListener() {

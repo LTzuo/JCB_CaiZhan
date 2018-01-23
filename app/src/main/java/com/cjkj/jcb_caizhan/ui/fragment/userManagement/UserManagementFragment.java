@@ -7,13 +7,20 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import com.cjkj.jcb_caizhan.R;
+import com.cjkj.jcb_caizhan.entity.TestInfo;
 import com.cjkj.jcb_caizhan.ui.adapter.RetfitTestAdapter;
 import com.cjkj.jcb_caizhan.network.RetrofitHelper;
 import com.cjkj.jcb_caizhan.ui.fragment.RxLazyFragment;
+import com.cjkj.jcb_caizhan.ui.widget.swiperecyclerview.SwipeRecyclerView;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.cjkj.jcb_caizhan.ui.widget.CustomEmptyView;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import butterknife.Bind;
+import me.bakumon.statuslayoutmanager.library.DefaultOnStatusChildClickListener;
+import me.bakumon.statuslayoutmanager.library.StatusLayoutManager;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
@@ -21,19 +28,14 @@ import rx.schedulers.Schedulers;
  * Created by 1 on 2018/1/16.
  * 用户管理
  */
-public class UserManagementFragment extends RxLazyFragment{
+public class UserManagementFragment extends RxLazyFragment implements SwipeRecyclerView.OnLoadListener{
 
-    @Bind(R.id.recycle)
-    RecyclerView mRecyclerView;
-    @Bind(R.id.swipe_refresh_layout)
-    SwipeRefreshLayout mSwipeRefreshLayout;
-    @Bind(R.id.empty_layout)
-    CustomEmptyView mCustomEmptyView;
-
+    @Bind(R.id.swipeRecyclerView)
+    SwipeRecyclerView mSwipRecyclerView;
     RetfitTestAdapter mTestAdapter;
-
-    int page = 1;
-    boolean isLoadmore = false;
+    List<TestInfo.ResultsBean> mDatas = new ArrayList<>();
+    private int page = 1;
+    StatusLayoutManager mStatusLayoutManager;
     public static UserManagementFragment newInstance() {
         return new UserManagementFragment();
     }
@@ -54,99 +56,82 @@ public class UserManagementFragment extends RxLazyFragment{
         if (!isPrepared || !isVisible) {
             return;
         }
-        initRefreshLayout();
+        initstatusManagerLayout();
         initRecyclerView();
         isPrepared = false;
     }
 
     @Override
-    protected void initRecyclerView() {
-        mTestAdapter = new RetfitTestAdapter(mRecyclerView);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-        mRecyclerView.setLayoutManager(linearLayoutManager);
-        mRecyclerView.setOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                super.onScrollStateChanged(recyclerView, newState);
-                if (!recyclerView.canScrollVertically(1) && !mSwipeRefreshLayout.isRefreshing()) {
-                    showRefreshing(true);
-                }
-            }
-        });
-       mRecyclerView.setAdapter(mTestAdapter);
+    protected void initstatusManagerLayout() {
+        mStatusLayoutManager = new StatusLayoutManager.Builder(mSwipRecyclerView)
+                // 设置重试事件监听器
+                .setOnStatusChildClickListener(new DefaultOnStatusChildClickListener() {
+                    @Override
+                    public void onEmptyChildClick(View view) {
+                        mStatusLayoutManager.showLoadingLayout();
+                        loadData();
+                    }
+
+                    @Override
+                    public void onErrorChildClick(View view) {
+                        mStatusLayoutManager.showLoadingLayout();
+                        loadData();
+                    }
+                })
+                .build();
     }
 
     @Override
-    protected void initRefreshLayout() {
-        mSwipeRefreshLayout.setColorSchemeResources(R.color.colorPrimary);
-        mSwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
-            @Override
-            public void onRefresh() {
-                page = 1;
-                isLoadmore = false;
-                loadData();
-            }
-        });
-        mSwipeRefreshLayout.post(() -> {
-            mSwipeRefreshLayout.setRefreshing(true);
-            page = 1;
-            isLoadmore = false;
-            loadData();
-        });
+    protected void initRecyclerView() {
+        mTestAdapter = new RetfitTestAdapter(mSwipRecyclerView.getRecyclerView());
+        mSwipRecyclerView.getSwipeRefreshLayout().setColorSchemeColors(getResources().getColor(R.color.colorPrimary));
+        mSwipRecyclerView.getRecyclerView().setLayoutManager(new LinearLayoutManager(getContext()));
+        mSwipRecyclerView.setOnLoadListener(this);
+        mSwipRecyclerView.setAdapter(mTestAdapter);
+        mSwipRecyclerView.setRefreshing(true);
+    }
+
+    @Override
+    public void onRefresh() {
+        page = 1;
+        loadData();
+    }
+
+    @Override
+    public void onLoadMore() {
+        page++;
+        loadData();
     }
 
     @Override
     protected void loadData() {
-        ToastUtil.ShortToast("页码："+page+"===总数据条数"+mTestAdapter.getItemCount());
         RetrofitHelper.getTestApi()
-                .getDatas("福利",20,page)
+                .getDatas("福利", 10, page)
                 .compose(bindToLifecycle())
+                .cache()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(Info -> {
-                    if(!isLoadmore){
-                        mTestAdapter.setTestInfo(Info.getResults());
-                    }else{
-                        mTestAdapter.addInfo(mTestAdapter.getItemCount(),Info.getResults());
+                    if (page == 1) {
+                        mDatas = Info.getResults();
+                        if (mDatas.isEmpty()) mStatusLayoutManager.showEmptyLayout();
+                    } else {
+                        if (Info.getResults().isEmpty())
+                            mSwipRecyclerView.onNoMore("-- 到底啦 --");
+                        for (TestInfo.ResultsBean bean : Info.getResults()) {
+                            mDatas.add(bean);
+                        }
                     }
+                    mTestAdapter.setTestInfo(mDatas);
                     finishTask();
-                }, throwable -> initEmptyView());
-    }
-
-    protected void showRefreshing(final boolean refresh) {
-        mSwipeRefreshLayout.post(new Runnable() {
-            @Override
-            public void run() {
-                page ++;
-                isLoadmore = true;
-                mSwipeRefreshLayout.setRefreshing(refresh);
-                loadData();
-            }
-        });
-    }
-
-    private void initEmptyView() {
-        isLoadmore = false;
-        mSwipeRefreshLayout.setRefreshing(false);
-        mCustomEmptyView.setVisibility(View.VISIBLE);
-        mRecyclerView.setVisibility(View.GONE);
-        mCustomEmptyView.setEmptyImage(R.mipmap.ic_launcher);
-        mCustomEmptyView.setEmptyText("加载失败~~(≧▽≦)~~啦啦啦.");
-        ToastUtil.ShortToast("数据加载失败,请重新加载或者检查网络是否链接");
-    }
-
-    public void hideEmptyView() {
-        mCustomEmptyView.setVisibility(View.GONE);
-        mRecyclerView.setVisibility(View.VISIBLE);
+                }, throwable -> mStatusLayoutManager.showErrorLayout());
     }
 
     @Override
     protected void finishTask() {
-        isLoadmore = false;
-        hideEmptyView();
-        mSwipeRefreshLayout.setRefreshing(false);
+        if (page == 1) mSwipRecyclerView.complete();
+        else mSwipRecyclerView.stopLoadingMore();
+        mStatusLayoutManager.showSuccessLayout();
         mTestAdapter.notifyDataSetChanged();
-       // mRecyclerView.scrollToPosition(0);
     }
-
 }
