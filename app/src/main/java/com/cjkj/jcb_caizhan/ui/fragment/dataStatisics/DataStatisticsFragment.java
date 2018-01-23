@@ -1,19 +1,15 @@
 package com.cjkj.jcb_caizhan.ui.fragment.dataStatisics;
 
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
-import android.widget.TextView;
 
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.entity.TestInfo;
 import com.cjkj.jcb_caizhan.network.RetrofitHelper;
 import com.cjkj.jcb_caizhan.ui.adapter.RetfitTestAdapter;
 import com.cjkj.jcb_caizhan.ui.fragment.RxLazyFragment;
-import com.cjkj.jcb_caizhan.ui.widget.CustomEmptyView;
 import com.cjkj.jcb_caizhan.ui.widget.swiperecyclerview.SwipeRecyclerView;
-import com.cjkj.jcb_caizhan.utils.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +19,6 @@ import me.bakumon.statuslayoutmanager.library.DefaultOnStatusChildClickListener;
 import me.bakumon.statuslayoutmanager.library.StatusLayoutManager;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
-
 /**
  * Created by 1 on 2018/1/16.
  * 数据统计
@@ -32,7 +27,6 @@ public class DataStatisticsFragment extends RxLazyFragment implements SwipeRecyc
 
     @Bind(R.id.swipeRecyclerView)
     SwipeRecyclerView mSwipRecyclerView;
-
     RetfitTestAdapter mTestAdapter;
     List<TestInfo.ResultsBean> mDatas = new ArrayList<>();
     private int page = 1;
@@ -71,11 +65,13 @@ public class DataStatisticsFragment extends RxLazyFragment implements SwipeRecyc
                 .setOnStatusChildClickListener(new DefaultOnStatusChildClickListener() {
                     @Override
                     public void onEmptyChildClick(View view) {
+                        mStatusLayoutManager.showLoadingLayout();
                         loadData();
                     }
 
                     @Override
                     public void onErrorChildClick(View view) {
+                        mStatusLayoutManager.showLoadingLayout();
                         loadData();
                     }
                 })
@@ -85,13 +81,8 @@ public class DataStatisticsFragment extends RxLazyFragment implements SwipeRecyc
     @Override
     protected void initRecyclerView() {
         mTestAdapter = new RetfitTestAdapter(mSwipRecyclerView.getRecyclerView());
-        mSwipRecyclerView.getSwipeRefreshLayout()
-                .setColorSchemeColors(getResources().getColor(R.color.colorPrimary));
+        mSwipRecyclerView.getSwipeRefreshLayout().setColorSchemeColors(getResources().getColor(R.color.colorPrimary));
         mSwipRecyclerView.getRecyclerView().setLayoutManager(new LinearLayoutManager(getContext()));
-        //设置网络处理
-        //mSwipRecyclerView.onNetChange(true);
-        //设置错误信息
-        //recyclerView.onError("error");
         mSwipRecyclerView.setOnLoadListener(this);
         mSwipRecyclerView.setAdapter(mTestAdapter);
         mSwipRecyclerView.setRefreshing(true);
@@ -135,11 +126,8 @@ public class DataStatisticsFragment extends RxLazyFragment implements SwipeRecyc
 
     @Override
     protected void finishTask() {
-        if (page == 1) {
-            mSwipRecyclerView.complete();
-        } else {
-            mSwipRecyclerView.stopLoadingMore();
-        }
+        if (page == 1) mSwipRecyclerView.complete();
+        else mSwipRecyclerView.stopLoadingMore();
         mStatusLayoutManager.showSuccessLayout();
         mTestAdapter.notifyDataSetChanged();
     }
