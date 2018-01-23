@@ -58,7 +58,7 @@ public class SplashActivity extends BaseActivity {
         Glide.with(this).load("https://upload-images.jianshu.io/upload_images/5431992-83bd048f5fe69e4d.jpg?imageMogr2/auto-orient/strip%7CimageView2/2/w/700").diskCacheStrategy(DiskCacheStrategy.SOURCE)
                 .into(new GlideDrawableImageViewTarget(img_splash, 100));
 
-        RetrofitHelper.countdown(15)
+        RetrofitHelper.countdown(10)
               //  .compose(this.<Integer>bindToLife())
                 .subscribe(new Subscriber<Integer>() {
                     @Override

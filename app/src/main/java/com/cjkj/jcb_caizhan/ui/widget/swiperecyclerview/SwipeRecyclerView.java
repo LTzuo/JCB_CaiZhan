@@ -335,6 +335,7 @@ public class SwipeRecyclerView extends FrameLayout
         if(mFootView != null){
             mFootView.onError(message);
         }
+        mRefreshLayout.setRefreshing(false);
     }
 
 
