@@ -10,4 +10,6 @@
 # 第三方库
 ![](http://upload-images.jianshu.io/upload_images/7077845-a19ad38efb22bb37.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/300)
 
-感谢无私奉献的大神们，感谢开源精神，感谢这个平台。
+# 感谢
+
+无私奉献的开源大神们
