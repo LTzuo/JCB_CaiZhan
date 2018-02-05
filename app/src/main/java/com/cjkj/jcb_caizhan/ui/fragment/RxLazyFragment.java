@@ -44,7 +44,6 @@ public abstract class RxLazyFragment extends RxFragment {
         super.onViewCreated(view, savedInstanceState);
         ButterKnife.bind(this,view);
         finishCreateView(savedInstanceState);
-
     }
 
     /**

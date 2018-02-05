@@ -3,10 +3,10 @@ package com.cjkj.jcb_caizhan.entity;
 import java.io.Serializable;
 
 /**
- * Created by maning on 2017/4/11.
+ * Created by maning on 2018/1/16.
  */
 
-public class MobBaseEntity<T> implements Serializable {
+public class BaseEntity<T> implements Serializable {
     private static final long serialVersionUID = -4553802208756427393L;
 
     private String msg;
@@ -41,7 +41,7 @@ public class MobBaseEntity<T> implements Serializable {
 
     @Override
     public String toString() {
-        return "MobBaseEntity{" +
+        return "BaseEntity{" +
                 "msg='" + msg + '\'' +
                 ", retCode='" + retCode + '\'' +
                 ", result=" + (result == null ? "" : result.toString())+

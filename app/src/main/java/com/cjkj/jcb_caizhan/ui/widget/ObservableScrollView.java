@@ -103,7 +103,6 @@ public class ObservableScrollView extends ScrollView implements NestedScrollingC
             if(this.dispatchNestedPreScroll(dx, dy, this.consumed, this.offsetInWindow)) {
                 ev.setLocation(clampedX + (float)this.consumed[0], clampedY + (float)this.consumed[1]);
             }
-
             this.ox = ev.getX();
             this.oy = ev.getY();
         }

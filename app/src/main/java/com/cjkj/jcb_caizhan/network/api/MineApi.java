@@ -1,6 +1,6 @@
 package com.cjkj.jcb_caizhan.network.api;
 
-import com.cjkj.jcb_caizhan.entity.MobBaseEntity;
+import com.cjkj.jcb_caizhan.entity.BaseEntity;
 import com.cjkj.jcb_caizhan.entity.mine.lottery.MobLotteryEntity;
 import com.cjkj.jcb_caizhan.network.ApiConstants;
 import java.util.ArrayList;
@@ -16,12 +16,12 @@ public interface MineApi {
     //支持彩种列表
     //http://apicloud.mob.com/lottery/list?key=appkey
     @GET(ApiConstants.URL_Mob  + "lottery/list")
-    Call<MobBaseEntity<ArrayList<String>>> querylotteryList(@Query("key") String appkey);
+    Call<BaseEntity<ArrayList<String>>> querylotteryList(@Query("key") String appkey);
 
     //彩票开奖结果查询
     //http://apicloud.mob.com/lottery/query?key=appkey&name=大乐透
     @GET(ApiConstants.URL_Mob + "lottery/query")
-    Call<MobBaseEntity<MobLotteryEntity>> querylotteryDetail(@Query("key") String appkey,
+    Call<BaseEntity<MobLotteryEntity>> querylotteryDetail(@Query("key") String appkey,
                                                              @Query("name") String name
     );
 }

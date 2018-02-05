@@ -31,6 +31,27 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_marginTop="2dp"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="发起众筹"
+            android:drawableLeft="@drawable/bird"
+            android:drawableTint="@color/cornflowerblue"
+            android:drawablePadding="8dp"
+            android:textColor="@color/black_light"
+            android:textSize="@dimen/minefragment_lift_text_size"
+            />
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:background="@color/white"
         android:layout_marginTop="2dp"
@@ -95,6 +116,7 @@
             style="@style/font_style"/>
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -108,40 +130,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
-            android:text="合作订单派奖"
-            android:drawableLeft="@drawable/bird"
-            android:drawableTint="@color/brown"
-            android:drawablePadding="8dp"
-            android:textColor="@color/black_light"
-            android:textSize="@dimen/minefragment_lift_text_size" />
-
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:text="0单未派奖"
-            android:gravity="end|center_vertical"
-            android:textColor="@color/grey1"
-            android:drawableRight="@drawable/more"
-            android:textSize="@dimen/minefragment_right_text_size"
-            style="@style/font_style"/>
-
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@color/white"
-        android:layout_marginTop="2dp"
-        android:padding="10dp"
-        >
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="体现"
+            android:text="提现"
             android:drawableLeft="@drawable/bird"
             android:drawableTint="@color/gold"
             android:drawablePadding="8dp"
@@ -289,7 +278,28 @@
             style="@style/font_style"/>
 
     </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:layout_marginTop="2dp"
+        android:padding="10dp"
+        >
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="意见反馈"
+            android:drawableLeft="@drawable/bird"
+            android:drawableTint="@color/gold"
+            android:drawablePadding="8dp"
+            android:textColor="@color/black_light"
+            android:textSize="@dimen/minefragment_lift_text_size" />
+
+
+    </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

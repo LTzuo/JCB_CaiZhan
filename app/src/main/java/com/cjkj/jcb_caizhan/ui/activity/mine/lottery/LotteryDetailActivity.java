@@ -11,11 +11,10 @@ import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.ui.adapter.mine.lottery.RecycleLotteryDetailsAdapter;
 import com.cjkj.jcb_caizhan.ui.adapter.mine.lottery.RecycleLotteryNumberAdapter;
 import com.cjkj.jcb_caizhan.ui.activity.BaseActivity;
-import com.cjkj.jcb_caizhan.entity.MobBaseEntity;
+import com.cjkj.jcb_caizhan.entity.BaseEntity;
 import com.cjkj.jcb_caizhan.entity.mine.lottery.MobLotteryEntity;
 import com.cjkj.jcb_caizhan.network.ApiConstants;
 import com.cjkj.jcb_caizhan.network.RetrofitHelper;
-
 import java.util.List;
 import butterknife.Bind;
 import retrofit2.Call;
@@ -67,12 +66,12 @@ public class LotteryDetailActivity extends BaseActivity {
     }
 
     private void loadData() {
-        Call<MobBaseEntity<MobLotteryEntity>> call = RetrofitHelper.getMineApi().querylotteryDetail(ApiConstants.URL_APP_Key,lotteryName);
-        call.enqueue(new Callback<MobBaseEntity<MobLotteryEntity>>() {
+        Call<BaseEntity<MobLotteryEntity>> call = RetrofitHelper.getMineApi().querylotteryDetail(ApiConstants.URL_APP_Key,lotteryName);
+        call.enqueue(new Callback<BaseEntity<MobLotteryEntity>>() {
             @Override
-            public void onResponse(Call<MobBaseEntity<MobLotteryEntity>> call, Response<MobBaseEntity<MobLotteryEntity>> response) {
+            public void onResponse(Call<BaseEntity<MobLotteryEntity>> call, Response<BaseEntity<MobLotteryEntity>> response) {
                 if (response.isSuccess()) {
-                    MobBaseEntity body = response.body();
+                    BaseEntity body = response.body();
                     if (body != null) {
                         if (body.getMsg().equals("success")) {
 //                            KLog.i("querylotteryList---success：" + body.toString());
@@ -102,7 +101,7 @@ public class LotteryDetailActivity extends BaseActivity {
             }
 
             @Override
-            public void onFailure(Call<MobBaseEntity<MobLotteryEntity>> call, Throwable t) {
+            public void onFailure(Call<BaseEntity<MobLotteryEntity>> call, Throwable t) {
                 // KLog.e("querylotteryList-----onFailure：" + t.toString());
                 //数据错误
                 // myCallBack.onFail(what, NET_FAIL);

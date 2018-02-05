@@ -11,7 +11,7 @@ import android.view.View;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.ui.adapter.mine.lottery.RecycleLotteryAdapter;
 import com.cjkj.jcb_caizhan.ui.activity.BaseActivity;
-import com.cjkj.jcb_caizhan.entity.MobBaseEntity;
+import com.cjkj.jcb_caizhan.entity.BaseEntity;
 import com.cjkj.jcb_caizhan.network.ApiConstants;
 import com.cjkj.jcb_caizhan.network.RetrofitHelper;
 import com.cjkj.jcb_caizhan.ui.widget.resyclerview.OnItemClickListener;
@@ -51,12 +51,12 @@ public class LotteryCategoryActivity extends BaseActivity {
     }
 
     private void loadData() {
-        Call<MobBaseEntity<ArrayList<String>>> call = RetrofitHelper.getMineApi().querylotteryList(ApiConstants.URL_APP_Key);
-        call.enqueue(new Callback<MobBaseEntity<ArrayList<String>>>() {
+        Call<BaseEntity<ArrayList<String>>> call = RetrofitHelper.getMineApi().querylotteryList(ApiConstants.URL_APP_Key);
+        call.enqueue(new Callback<BaseEntity<ArrayList<String>>>() {
             @Override
-            public void onResponse(Call<MobBaseEntity<ArrayList<String>>> call, Response<MobBaseEntity<ArrayList<String>>> response) {
+            public void onResponse(Call<BaseEntity<ArrayList<String>>> call, Response<BaseEntity<ArrayList<String>>> response) {
                 if (response.isSuccess()) {
-                    MobBaseEntity<ArrayList<String>> body = response.body();
+                    BaseEntity<ArrayList<String>> body = response.body();
                     if (body != null) {
                         if (body.getMsg().equals("success")) {
 //                            KLog.i("querylotteryList---success：" + body.toString());
@@ -75,7 +75,7 @@ public class LotteryCategoryActivity extends BaseActivity {
             }
 
             @Override
-            public void onFailure(Call<MobBaseEntity<ArrayList<String>>> call, Throwable t) {
+            public void onFailure(Call<BaseEntity<ArrayList<String>>> call, Throwable t) {
                // KLog.e("querylotteryList-----onFailure：" + t.toString());
                 //数据错误
                // myCallBack.onFail(what, NET_FAIL);

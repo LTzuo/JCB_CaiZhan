@@ -9,7 +9,6 @@ import android.view.ViewTreeObserver;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.ui.activity.mine.lottery.LotteryCategoryActivity;
@@ -122,11 +121,6 @@ public class MineFragment  extends RxLazyFragment implements ObservableScrollVie
 
     @Override
     protected void finishTask() {
-//     Glide.with(getContext())
-//                .load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516705014262&di=d0a4d7f5d6255786fbdad18d9950ef71&imgtype=0&src=http%3A%2F%2Fimg1.gtimg.com%2F20%2F2093%2F209378%2F20937885_1200x1000_0.jpg")
-//                .placeholder(R.mipmap.ic_launcher)
-//                .error(R.mipmap.ic_launcher)
-//                .into(img_header);
         Glide.with(getContext())
                 .load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516705014262&di=d0a4d7f5d6255786fbdad18d9950ef71&imgtype=0&src=http%3A%2F%2Fimg1.gtimg.com%2F20%2F2093%2F209378%2F20937885_1200x1000_0.jpg")
                 .centerCrop()
@@ -135,5 +129,4 @@ public class MineFragment  extends RxLazyFragment implements ObservableScrollVie
         ToastUtil.ShortToast("刷新完成");
         mSwipeRefreshLayout.setRefreshing(false);
     }
-
 }
