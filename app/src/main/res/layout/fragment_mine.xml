@@ -16,7 +16,7 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/refreshLayout"
         android:layout_marginTop="44dp"
-        app:srlHeaderHeight="70dp"
+        app:srlHeaderHeight="45dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 

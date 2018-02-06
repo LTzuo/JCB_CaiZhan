@@ -117,7 +117,7 @@ public class MineFragment extends RxLazyFragment implements ObservableScrollView
         //mRefreshLayout.setRefreshHeader(new FunGameBattleCityHeader(getActivity()));//坦克大战
         //mRefreshLayout.setRefreshHeader(new PhoenixHeader(getActivity()));//city
         //设置主题颜色
-        mRefreshLayout.setPrimaryColorsId(R.color.colorPrimary, R.color.blanchedalmond);
+        mRefreshLayout.setPrimaryColorsId(R.color.colorPrimary, R.color.whitesmoke);
         mRefreshLayout.setOnRefreshListener(new OnRefreshListener() {
             @Override
             public void onRefresh(RefreshLayout refreshlayout) {
