@@ -2,15 +2,18 @@ package com.cjkj.jcb_caizhan.ui.fragment;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.LayoutRes;
 import android.support.v4.app.FragmentActivity;
+import android.util.TypedValue;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.cjkj.jcb_caizhan.R;
 import com.trello.rxlifecycle.components.support.RxFragment;
 
 import butterknife.ButterKnife;
@@ -31,6 +34,16 @@ public abstract class RxLazyFragment extends RxFragment {
     public abstract
     @LayoutRes
     int getLayoutResId();
+
+    protected int getActionBarSize() {
+        TypedValue typedValue = new TypedValue();
+        int[] textSizeAttr = new int[]{R.attr.actionBarSize};
+        int indexOfAttrTextSize = 0;
+        TypedArray a = activity.obtainStyledAttributes(typedValue.data, textSizeAttr);
+        int actionBarSize = a.getDimensionPixelSize(indexOfAttrTextSize, -1);
+        a.recycle();
+        return actionBarSize;
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle state) {

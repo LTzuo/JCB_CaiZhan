@@ -6,16 +6,14 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 import android.view.View;
 import com.cjkj.jcb_caizhan.R;
+import com.cjkj.jcb_caizhan.ui.activity.RxBaseActivity;
 import com.cjkj.jcb_caizhan.ui.adapter.mine.lottery.RecycleLotteryAdapter;
-import com.cjkj.jcb_caizhan.ui.activity.BaseActivity;
 import com.cjkj.jcb_caizhan.entity.BaseEntity;
 import com.cjkj.jcb_caizhan.network.ApiConstants;
 import com.cjkj.jcb_caizhan.network.RetrofitHelper;
 import com.cjkj.jcb_caizhan.ui.widget.resyclerview.OnItemClickListener;
-
 import java.util.ArrayList;
 import butterknife.Bind;
 import retrofit2.Call;
@@ -25,7 +23,7 @@ import retrofit2.Response;
 /**
  * 彩票分类
  */
-public class LotteryCategoryActivity extends BaseActivity {
+public class LotteryCategoryActivity extends RxBaseActivity {
 
     @Bind(R.id.toolbar)
     Toolbar mToolbar;
@@ -36,21 +34,29 @@ public class LotteryCategoryActivity extends BaseActivity {
     private RecycleLotteryAdapter mRecycleLotteryAdapter;
 
     @Override
-    protected int getContentViewLayoutID() {
+    public int getLayoutId() {
         return R.layout.activity_lottery_category;
     }
 
     @Override
-    protected void initView(Bundle savedInstanceState) {
-        initMyToolBar();
+    public void initViews(Bundle savedInstanceState) {
         GridLayoutManager linearLayoutManager = new GridLayoutManager(this, 3);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.setItemAnimator(new DefaultItemAnimator());
-
         loadData();
     }
 
-    private void loadData() {
+    @Override
+    public void initToolBar() {
+        mToolbar.setTitle("彩票");// 标题的文字需在setSupportActionBar之前，不然会无效
+        mToolbar.setNavigationIcon(R.drawable.ic_back_white);
+        setSupportActionBar(mToolbar);
+        mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        mToolbar.setPopupTheme(R.style.ToolBarPopupThemeDay);
+    }
+
+    @Override
+    public void loadData() {
         Call<BaseEntity<ArrayList<String>>> call = RetrofitHelper.getMineApi().querylotteryList(ApiConstants.URL_APP_Key);
         call.enqueue(new Callback<BaseEntity<ArrayList<String>>>() {
             @Override
@@ -101,25 +107,7 @@ public class LotteryCategoryActivity extends BaseActivity {
 
 
 
-    private void initMyToolBar() {
-         initToolBar(mToolbar, "彩票", R.drawable.ic_back_white);
-    }
 
-    public void initToolBar(Toolbar toolbar, String title, int icon) {
-        toolbar.setTitle(title);// 标题的文字需在setSupportActionBar之前，不然会无效
-        toolbar.setNavigationIcon(icon);
-        setSupportActionBar(toolbar);
-        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
-        toolbar.setPopupTheme(R.style.ToolBarPopupThemeDay);
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                this.finish();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
+
 }

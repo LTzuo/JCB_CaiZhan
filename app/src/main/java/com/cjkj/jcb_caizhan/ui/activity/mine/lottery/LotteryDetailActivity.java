@@ -5,12 +5,11 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 import android.widget.TextView;
 import com.cjkj.jcb_caizhan.R;
+import com.cjkj.jcb_caizhan.ui.activity.RxBaseActivity;
 import com.cjkj.jcb_caizhan.ui.adapter.mine.lottery.RecycleLotteryDetailsAdapter;
 import com.cjkj.jcb_caizhan.ui.adapter.mine.lottery.RecycleLotteryNumberAdapter;
-import com.cjkj.jcb_caizhan.ui.activity.BaseActivity;
 import com.cjkj.jcb_caizhan.entity.BaseEntity;
 import com.cjkj.jcb_caizhan.entity.mine.lottery.MobLotteryEntity;
 import com.cjkj.jcb_caizhan.network.ApiConstants;
@@ -24,7 +23,7 @@ import retrofit2.Response;
 /**
  * 彩票详情
  */
-public class LotteryDetailActivity extends BaseActivity {
+public class LotteryDetailActivity extends RxBaseActivity {
 
     @Bind(R.id.toolbar)
     Toolbar mToolbar;
@@ -50,22 +49,28 @@ public class LotteryDetailActivity extends BaseActivity {
     private RecycleLotteryDetailsAdapter mRecycleLotteryDetailsAdapter;
 
     @Override
-    protected int getContentViewLayoutID() {
+    public int getLayoutId() {
         return R.layout.activity_lottery_detail;
     }
 
     @Override
-    protected void initView(Bundle savedInstanceState) {
-        initIntent();
-
+    public void initViews(Bundle savedInstanceState) {
+        lotteryName = getIntent().getStringExtra(IntentKey_LotteryName);
         initView();
-
-        initToolBar(mToolbar, lotteryName, R.drawable.ic_back_white);
-
         loadData();
     }
 
-    private void loadData() {
+    @Override
+    public void initToolBar() {
+        mToolbar.setTitle(lotteryName);// 标题的文字需在setSupportActionBar之前，不然会无效
+        mToolbar.setNavigationIcon(R.drawable.ic_back_white);
+        setSupportActionBar(mToolbar);
+        mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
+        mToolbar.setPopupTheme(R.style.ToolBarPopupThemeDay);
+    }
+
+    @Override
+    public  void loadData() {
         Call<BaseEntity<MobLotteryEntity>> call = RetrofitHelper.getMineApi().querylotteryDetail(ApiConstants.URL_APP_Key,lotteryName);
         call.enqueue(new Callback<BaseEntity<MobLotteryEntity>>() {
             @Override
@@ -109,13 +114,7 @@ public class LotteryDetailActivity extends BaseActivity {
         });
     }
 
-    public void initToolBar(Toolbar toolbar, String title, int icon) {
-        toolbar.setTitle(title);// 标题的文字需在setSupportActionBar之前，不然会无效
-        toolbar.setNavigationIcon(icon);
-        setSupportActionBar(toolbar);
-        toolbar.setTitleTextColor(getResources().getColor(R.color.white));
-        toolbar.setPopupTheme(R.style.ToolBarPopupThemeDay);
-    }
+
 
 
     private void initNumberAdpater() {
@@ -134,9 +133,7 @@ public class LotteryDetailActivity extends BaseActivity {
         }
     }
 
-    private void initIntent() {
-        lotteryName = getIntent().getStringExtra(IntentKey_LotteryName);
-    }
+
 
     private void initView() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
@@ -148,19 +145,7 @@ public class LotteryDetailActivity extends BaseActivity {
         mRecyclerViewLotteryDetails.setItemAnimator(new DefaultItemAnimator());
     }
 
-    private void initMyToolBar() {
 
-            initToolBar(mToolbar, lotteryName, R.drawable.ic_back_white);
 
-    }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                this.finish();
-                return true;
-        }
-        return super.onOptionsItemSelected(item);
-    }
 }

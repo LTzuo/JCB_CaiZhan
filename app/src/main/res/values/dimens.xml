@@ -26,6 +26,7 @@
     <!--bottom_circle_progress text size-->
     <dimen name="bottom_circle_progress_text_size">12dp</dimen>
     <!--minefragment_text_size-->
+    <dimen name="minefragment_header_hight">200dp</dimen>
     <dimen name="minefragment_lift_text_size">16dp</dimen>
     <dimen name="minefragment_right_text_size">14dp</dimen>
 </resources>

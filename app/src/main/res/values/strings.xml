@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">聚彩宝-彩站</string>
     <string name="order_managment">订单管理</string>
-    <string name="user_managment">用户管理</string>
+    <string name="user_managment">本站彩友</string>
     <string name="data_statistics">数据统计</string>
     <string name="personal_center">个人中心</string>
     <string name="bottom_progress_refreshing_text">正在加载数据...</string>
@@ -10,6 +10,7 @@
         <item>订单</item>
         <item>合买</item>
         <item>跟单</item>
+        <item>众筹</item>
     </string-array>
 
 </resources>

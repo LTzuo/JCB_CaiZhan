@@ -37,6 +37,9 @@ public class OrdermMnagePagerAdapter extends FragmentPagerAdapter {
         case 2:
           fragments[position] = OrderFragment.newIntance();
           break;
+        case 3:
+          fragments[position] = OrderFragment.newIntance();
+          break;
         default:
           break;
       }

@@ -73,5 +73,13 @@ dependencies {
     compile 'io.reactivex:rxjava:1.1.0'
     compile 'com.github.bumptech.glide:glide:3.7.0'
     //列表刷新控件
-    compile 'cn.bingoogolapple:bga-swipebacklayout:1.0.8'
+//    compile 'cn.bingoogolapple:bga-swipebacklayout:1.0.8'
+    compile 'com.scwang.smartrefresh:SmartRefreshLayout:1.0.5.1'
+    compile 'com.scwang.smartrefresh:SmartRefreshHeader:1.0.5.1'
+    //observablescrollview
+    compile 'com.github.ksoichiro:android-observablescrollview:1.6.0'
+//    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+//        exclude group: 'com.android.support', module: 'support-annotations'
+//    })
+    compile 'com.nineoldandroids:library:2.4.0'
 }
