@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.ui.fragment.orderManager;
+package com.cjkj.jcb_caizhan.ui.fragment.order_manager;
 
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -40,7 +40,7 @@ public class OrdermMnagePageFragment extends RxLazyFragment {
 
     private void initViewPager() {
         OrdermMnagePagerAdapter mAdapter = new OrdermMnagePagerAdapter(getChildFragmentManager(), getApplicationContext());
-        mViewPager.setOffscreenPageLimit(4);
+        mViewPager.setOffscreenPageLimit(2);
         mViewPager.setAdapter(mAdapter);
         mSlidingTab.setViewPager(mViewPager);
         mViewPager.setCurrentItem(0);

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginBottom="10dp"
+    android:background="@color/white"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="10dp">
+
+    <cn.carbs.android.avatarimageview.library.AvatarImageView
+        android:id="@+id/item_header"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:padding="5dp"
+        app:aiv_BoarderWidth="2dp"
+        app:aiv_ShowBoarder="false"
+        app:aiv_TextSizeRatio="0.4"/>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="10dp"
+        android:layout_weight="1"
+        android:gravity="center_vertical"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/item_lottery_station"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black_alpha_60"
+            android:textSize="@dimen/_15dp" />
+
+        <TextView
+            android:id="@+id/item_tv_user"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="5dp"
+            android:textColor="@color/black_alpha_60"
+            android:textSize="@dimen/_13dp" />
+    </LinearLayout>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/more" />
+
+</LinearLayout>

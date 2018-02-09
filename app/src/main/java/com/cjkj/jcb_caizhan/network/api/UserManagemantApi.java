@@ -1,13 +1,9 @@
 package com.cjkj.jcb_caizhan.network.api;
 
 import com.cjkj.jcb_caizhan.entity.TestInfo;
-import com.cjkj.jcb_caizhan.entity.UserManagement.UserManagementInfo;
-
-import java.util.List;
 
 import retrofit2.http.GET;
 import retrofit2.http.Path;
-import retrofit2.http.Query;
 import rx.Observable;
 
 /**

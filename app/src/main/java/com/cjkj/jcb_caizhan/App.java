@@ -1,7 +1,6 @@
 package com.cjkj.jcb_caizhan;
 
 import android.app.Application;
-
 /**
  * Created by 1 on 2018/1/15.
  */

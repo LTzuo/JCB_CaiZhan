@@ -8,8 +8,6 @@
 
     <string-array name="sections">
         <item>订单</item>
-        <item>合买</item>
-        <item>跟单</item>
         <item>众筹</item>
     </string-array>
 

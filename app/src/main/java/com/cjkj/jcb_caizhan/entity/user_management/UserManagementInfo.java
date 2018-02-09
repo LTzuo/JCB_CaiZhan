@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.entity.UserManagement;
+package com.cjkj.jcb_caizhan.entity.user_management;
 
 /**
  * Created by 1 on 2018/1/16.

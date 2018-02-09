@@ -6,10 +6,11 @@ import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.cjkj.jcb_caizhan.R;
+import com.cjkj.jcb_caizhan.ui.activity.mine.ChangeLotteryStationActivity;
 import com.cjkj.jcb_caizhan.ui.activity.mine.SeetingActivity;
 import com.cjkj.jcb_caizhan.ui.activity.mine.lottery.LotteryCategoryActivity;
 import com.cjkj.jcb_caizhan.ui.fragment.RxLazyFragment;
@@ -20,23 +21,10 @@ import com.github.ksoichiro.android.observablescrollview.ObservableScrollViewCal
 import com.github.ksoichiro.android.observablescrollview.ScrollState;
 import com.github.ksoichiro.android.observablescrollview.ScrollUtils;
 import com.nineoldandroids.view.ViewHelper;
-import com.scwang.smartrefresh.header.BezierCircleHeader;
-import com.scwang.smartrefresh.header.DeliveryHeader;
-import com.scwang.smartrefresh.header.DropboxHeader;
-import com.scwang.smartrefresh.header.FlyRefreshHeader;
-import com.scwang.smartrefresh.header.FunGameBattleCityHeader;
-import com.scwang.smartrefresh.header.MaterialHeader;
-import com.scwang.smartrefresh.header.PhoenixHeader;
-import com.scwang.smartrefresh.header.fungame.FunGameHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
-import com.scwang.smartrefresh.layout.constant.SpinnerStyle;
-import com.scwang.smartrefresh.layout.footer.BallPulseFooter;
-import com.scwang.smartrefresh.layout.header.BezierRadarHeader;
 import com.scwang.smartrefresh.layout.header.ClassicsHeader;
-import com.scwang.smartrefresh.layout.header.FalsifyHeader;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
-
 import butterknife.Bind;
 import butterknife.OnClick;
 
@@ -51,7 +39,7 @@ public class MineFragment extends RxLazyFragment implements ObservableScrollView
     @Bind(R.id.ll_toolbar)
     LinearLayout ll_toolbar;
     @Bind(R.id.ll_header_content)
-    LinearLayout mHeaderContent;
+    RelativeLayout mHeaderContent;
     @Bind(R.id.ll_content)
     LinearLayout mContent;
     @Bind(R.id.tv_header_title)
@@ -78,13 +66,15 @@ public class MineFragment extends RxLazyFragment implements ObservableScrollView
         return R.layout.fragment_mine;
     }
 
-    @OnClick({R.id.lin1, R.id.layout_seeting})
+    @OnClick({R.id.lin1,R.id.layout_chenge,R.id.layout_seeting})
     public void BtnClick(View v) {
         if (v.getId() == R.id.lin1) {
             Intent i = new Intent(getContext(), LotteryCategoryActivity.class);
             startActivity(i);
         } else if (v.getId() == R.id.layout_seeting) {
             IntentUtils.Goto(getActivity(), SeetingActivity.class);
+        }else if(v.getId() == R.id.layout_chenge){
+            IntentUtils.Goto(getActivity(), ChangeLotteryStationActivity.class);
         }
     }
 
@@ -145,7 +135,7 @@ public class MineFragment extends RxLazyFragment implements ObservableScrollView
     @Override
     protected void finishTask() {
         Glide.with(getContext())
-                .load("https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1516705014262&di=d0a4d7f5d6255786fbdad18d9950ef71&imgtype=0&src=http%3A%2F%2Fimg1.gtimg.com%2F20%2F2093%2F209378%2F20937885_1200x1000_0.jpg")
+                .load(R.drawable.default_lottery)
                 .centerCrop()
                 .crossFade()
                 .into(img_header);
@@ -162,12 +152,11 @@ public class MineFragment extends RxLazyFragment implements ObservableScrollView
 
     @Override
     public void onScrollChanged(int scrollY, boolean firstScroll, boolean dragging) {
-        int baseColor = getResources().getColor(R.color.white);
         float alpha = Math.min(1, (float) scrollY / mFlexibleSpaceHeight);
-        // ll_toolbar.setBackgroundColor(ScrollUtils.getColorWithAlpha(alpha, baseColor));
-        tv_header_title.setTextColor(ScrollUtils.getColorWithAlpha(alpha, baseColor));
-        tv_title.setTextColor(ScrollUtils.getColorWithAlpha(1 - alpha, baseColor));
-        ViewHelper.setTranslationY(mHeaderContent, scrollY / 2);
+       // mHeaderContent.setBackgroundColor(ScrollUtils.getColorWithAlpha(1-alpha, getResources().getColor(R.color.colorPrimary)));
+        tv_header_title.setTextColor(ScrollUtils.getColorWithAlpha(alpha, getResources().getColor(R.color.white)));
+        tv_title.setTextColor(ScrollUtils.getColorWithAlpha(1 - alpha, getResources().getColor(R.color.white)));
+       // ViewHelper.setTranslationY(mHeaderContent, scrollY / 2);
     }
 
     @Override
@@ -178,6 +167,13 @@ public class MineFragment extends RxLazyFragment implements ObservableScrollView
     @Override
     public void onUpOrCancelMotionEvent(ScrollState scrollState) {
 //        mSwipeRefreshLayout.setNestedScrollingEnabled(true);
+//        if(scrollState == ScrollState.UP){
+//            ViewHelper.setScaleX(img_header,(float)0.0001);
+//            ViewHelper.setScaleY(img_header,(float)0.0001);
+//        }else if(scrollState == ScrollState.DOWN){
+//            ViewHelper.setScaleX(img_header,1);
+//            ViewHelper.setScaleY(img_header,1);
+//        }
     }
 
 }

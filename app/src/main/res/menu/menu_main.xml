@@ -3,19 +3,19 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/item_news"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ddgl"
         android:title="@string/order_managment" />
     <item
         android:id="@+id/item_lib"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/bzcy"
         android:title="@string/user_managment" />
     <item
         android:id="@+id/item_find"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/sjtj"
         android:title="@string/data_statistics" />
     <item
         android:id="@+id/item_more"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/grzx"
         android:title="@string/personal_center" />
 
 </menu>

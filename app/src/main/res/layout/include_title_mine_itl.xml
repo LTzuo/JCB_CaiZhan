@@ -14,14 +14,7 @@
         android:gravity="center_vertical"
         >
 
-        <ImageView
-            android:id="@+id/iv_header_left"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:tint="@color/white"
-            android:paddingLeft="8dp"
-            android:paddingRight="12dp"
-            android:src="@mipmap/ic_launcher" />
+
 
         <TextView
             android:id="@+id/tv_header_title"
@@ -30,21 +23,12 @@
             android:layout_centerHorizontal="true"
             android:ellipsize="end"
             android:gravity="center"
-            android:text="彩站178"
+            android:text="林天佐体彩中心"
             android:textColor="@color/colorPrimary"
             android:textSize="@dimen/basetitle_size"
              />
 
-        <ImageView
-            android:id="@+id/iv_header_img"
-            android:layout_width="40dp"
-            android:layout_height="match_parent"
-            android:layout_alignParentRight="true"
-            android:layout_gravity="center"
-            android:paddingLeft="12dp"
-            android:paddingRight="8dp"
-            android:tint="@color/white"
-            android:src="@mipmap/ic_launcher" />
+
 
     </RelativeLayout>
 

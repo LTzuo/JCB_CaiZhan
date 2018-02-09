@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/_15dp"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginBottom="1dp"
+        android:padding="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <View
+            android:layout_width="35dp"
+            android:layout_height="0.5dp"
+            android:background="@color/black_alpha_60"
+            />
+        <TextView
+            android:id="@+id/item_type"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textSize="@dimen/_16dp"
+            android:textColor="@color/black_alpha_70"
+            android:text="取票数据" />
+        <View
+            android:layout_width="35dp"
+            android:layout_height="0.5dp"
+            android:background="@color/black_alpha_60"
+            />
+    </LinearLayout>
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/item_day_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/font_gray"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="今日取票" />
+
+            <TextView
+                android:id="@+id/item_day_single"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black_alpha_70"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                android:text="0单" />
+
+            <TextView
+                android:id="@+id/item_day_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black_alpha_70"
+                android:gravity="center"
+                android:text="0元" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+        <View
+            android:layout_width="0.5dp"
+            android:layout_height="20dp"
+            android:layout_marginTop="15dp"
+            android:layout_gravity="center"
+            android:background="@color/black_alpha_45"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/item_week_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/font_gray"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="今日取票" />
+
+            <TextView
+                android:id="@+id/item_week_single"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black_alpha_70"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                android:text="0单" />
+
+            <TextView
+                android:id="@+id/item_week_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black_alpha_70"
+                android:gravity="center"
+                android:text="0元" />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+            <View
+                android:layout_width="0.5dp"
+                android:layout_height="20dp"
+                android:layout_marginTop="15dp"
+                android:layout_gravity="center"
+                android:background="@color/black_alpha_45"/>
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/item_month_title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/font_gray"
+                android:layout_marginBottom="10dp"
+                android:gravity="center"
+                android:text="今日取票" />
+
+            <TextView
+                android:id="@+id/item_month_single"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black_alpha_70"
+                android:gravity="center"
+                android:layout_marginBottom="10dp"
+                android:text="0单" />
+
+            <TextView
+                android:id="@+id/item_month_price"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black_alpha_70"
+                android:gravity="center"
+                android:text="0元" />
+
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:gravity="center"
+        android:orientation="horizontal">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableRight="@drawable/icons_more_than"
+        android:background="@color/white"
+        android:paddingBottom="10dp"
+        android:textColor="@color/colorPrimary"
+        android:gravity="center_horizontal"
+        android:text="详情"/>
+    </LinearLayout>
+</LinearLayout>

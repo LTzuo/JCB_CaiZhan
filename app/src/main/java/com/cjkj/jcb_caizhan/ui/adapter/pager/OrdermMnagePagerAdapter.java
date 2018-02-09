@@ -5,8 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.cjkj.jcb_caizhan.R;
-import com.cjkj.jcb_caizhan.ui.fragment.orderManager.OrderFragment;
-import com.cjkj.jcb_caizhan.ui.fragment.orderManager.TogetherBuyFragment;
+import com.cjkj.jcb_caizhan.ui.fragment.order_manager.OrderFragment;
 
 /**
  * 订单管理界面Fragment模块Adapter
@@ -32,12 +31,6 @@ public class OrdermMnagePagerAdapter extends FragmentPagerAdapter {
           fragments[position] = OrderFragment.newIntance();
           break;
         case 1:
-          fragments[position] = TogetherBuyFragment.newIntance();
-          break;
-        case 2:
-          fragments[position] = OrderFragment.newIntance();
-          break;
-        case 3:
           fragments[position] = OrderFragment.newIntance();
           break;
         default:
