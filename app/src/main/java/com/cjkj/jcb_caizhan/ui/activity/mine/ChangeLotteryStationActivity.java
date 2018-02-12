@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.widget.TextView;
 
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.entity.mine.changelotterystation.ChangeLotteryStationBean;
@@ -22,6 +23,8 @@ public class ChangeLotteryStationActivity extends RxBaseActivity {
 
     @Bind(R.id.toolbar)
     Toolbar mToolbar;
+    @Bind(R.id.toolbar_title)
+    TextView toolbar_title;
     @Bind(R.id.mRecyclerView)
     RecyclerView mRecyclerView;
 
@@ -58,7 +61,8 @@ public class ChangeLotteryStationActivity extends RxBaseActivity {
 
     @Override
     public void initToolBar() {
-        mToolbar.setTitle("切换彩站");// 标题的文字需在setSupportActionBar之前，不然会无效
+        mToolbar.setTitle("");// 标题的文字需在setSupportActionBar之前，不然会无效
+        toolbar_title.setText("切换彩站");
         mToolbar.setNavigationIcon(R.drawable.ic_back_white);
         setSupportActionBar(mToolbar);
         mToolbar.setTitleTextColor(getResources().getColor(R.color.white));

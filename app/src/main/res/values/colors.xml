@@ -5,6 +5,7 @@
     <!--<color name="colorPrimaryDark">#4b89dc</color>-->
     <color name="colorPrimaryDark">#D2142E</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="gallery_blue">#D2142E</color>
 
     <color name="line_bg">#e6e6e6</color>
     <color name="font_gray">#656565</color>
@@ -161,4 +162,13 @@
     <color name="darkviolet">#9400d3</color><!--暗紫罗兰色 -->
     <color name="mediumorchid">#ba55d3</color><!--中粉紫色 -->
     <color name="font_normal">#555555</color>
+
+
+    <color name="base_color_0">#f53e7b</color>
+    <color name="base_color_1">#333333</color>
+    <color name="base_color_2">#666666</color>
+    <color name="base_color_3">#999999</color>
+    <color name="base_color_4">#eeeeee</color>
+    <color name="base_color_5">#e5e5e5</color>
+    <color name="base_color_6">#ffffff</color>
 </resources>

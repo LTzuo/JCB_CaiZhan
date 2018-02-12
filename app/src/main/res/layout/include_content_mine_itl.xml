@@ -162,6 +162,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/layout_launchCrowdfunding"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -189,7 +190,6 @@
             android:layout_weight="1"
             android:drawableRight="@drawable/more"
             android:gravity="end|center_vertical"
-            android:text="0单未派奖"
             android:textColor="@color/grey1"
             android:textSize="@dimen/minefragment_right_text_size" />
 

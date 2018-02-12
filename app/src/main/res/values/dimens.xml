@@ -40,6 +40,8 @@
     <dimen name="_16dp">16dp</dimen>
     <dimen name="_17dp">17dp</dimen>
     <dimen name="_18dp">18dp</dimen>
+    <dimen name="_19dp">19dp</dimen>
+    <dimen name="_20dp">20dp</dimen>
 
     <dimen name="_100dp">100dp</dimen>
 
