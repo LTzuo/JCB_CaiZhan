@@ -11,4 +11,12 @@
         <item>众筹</item>
     </string-array>
 
+    <string-array name="FlowlayoutTagValues">
+        <item>200份</item>
+        <item>100份</item>
+        <item>50份</item>
+        <item>20份</item>
+        <item>10份</item>
+    </string-array>
+
 </resources>

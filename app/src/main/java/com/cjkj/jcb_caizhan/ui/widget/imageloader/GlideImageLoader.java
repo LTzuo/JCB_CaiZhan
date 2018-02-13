@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.ui.widget.glideloader;
+package com.cjkj.jcb_caizhan.ui.widget.imageloader;
 
 import android.content.Context;
 import android.graphics.Bitmap;

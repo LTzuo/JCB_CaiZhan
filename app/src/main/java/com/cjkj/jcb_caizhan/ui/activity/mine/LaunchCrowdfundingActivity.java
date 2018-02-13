@@ -1,7 +1,8 @@
 package com.cjkj.jcb_caizhan.ui.activity.mine;
 
-import android.content.DialogInterface;
+import android.app.Activity;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -11,8 +12,6 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.entity.mine.launch_crowdfunding.ImageItem;
 import com.cjkj.jcb_caizhan.ui.activity.RxBaseActivity;
@@ -20,14 +19,14 @@ import com.cjkj.jcb_caizhan.ui.adapter.helper.AbsRecyclerViewAdapter;
 import com.cjkj.jcb_caizhan.ui.adapter.mine.launch_crowfunding.NineGridAdapter;
 import com.cjkj.jcb_caizhan.ui.widget.FlowlayoutTags;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
-import com.hy.telegramgallery.GalleryActivity;
 import com.previewlibrary.GPreviewBuilder;
+import com.yuyh.library.imgsel.ISNav;
+import com.yuyh.library.imgsel.config.ISListConfig;
 import java.util.ArrayList;
 import java.util.List;
-import butterknife.Bind;
+  import butterknife.Bind;
 import butterknife.OnClick;
 import cn.qing.soft.keyboardlib.CustomKeyboardHelper;
-import cn.yhq.dialog.core.DialogBuilder;
 
 /**
  * 个人中心-发起众筹
@@ -39,6 +38,8 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
     NineGridAdapter mNineGridAdapter;
     GridLayoutManager mGridLayoutManager;
     private List<ImageItem> datas = new ArrayList<>();
+
+    private static final int REQUEST_CODE = 1;
 
     @Bind(R.id.toolbar)
     Toolbar mToolbar;
@@ -54,16 +55,7 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
     @OnClick({R.id.tv_launch})
     public void onBtnClick(View v) {
         if (v.getId() == R.id.tv_launch) {
-            List<String> list = new ArrayList<>();
-            list.add("相机");
-            list.add("相册");
-            DialogBuilder.alertDialog(LaunchCrowdfundingActivity.this).setMessage("jbjhb")
-                    .setOnPositiveButtonClickListener(new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            Toast.makeText(LaunchCrowdfundingActivity.this, "点击了确认按钮", Toast.LENGTH_LONG).show();
-                        }
-                    }).create();
+
         }
     }
 
@@ -74,13 +66,7 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
 
     @Override
     public void initViews(Bundle savedInstanceState) {
-        List<String> mVals = new ArrayList<>();
-        mVals.add("200份");
-        mVals.add("100份");
-        mVals.add("50份");
-        mVals.add("20份");
-        mVals.add("10份");
-        //设置数据源
+        String[] mVals = getResources().getStringArray(R.array.FlowlayoutTagValues);
         mFlowlayoutTag.removeAllViews();
         mFlowlayoutTag.setTags(mVals);
         mFlowlayoutTag.setTagsUncheckedColorAnimal(false);
@@ -90,14 +76,14 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
                 ArrayList<Integer> tagList = mFlowlayoutTag.getCheckedTagsIndexArrayList();
                 String mCategory = "";
                 for (int i = 0; i < tagList.size(); i++) {
-                    mCategory += mVals.get(tagList.get(i));
+                    mCategory += mVals[tagList.get(i)];
                 }
                 ToastUtil.ShortToast(mCategory);
             }
         });
 //        helper = new CustomKeyboardHelper(this, R.xml.keyboardnumber);
 //        helper.registerEditText(edit);
-        initTransferee();
+          initRecyclerView();
     }
 
     /**
@@ -106,38 +92,21 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
      * @param count
      */
     private void AlbumCamera(int count) {
-//        Album.image(this)
-//                .multipleChoice()
-//                .columnCount(4) // 页面列表的列数。
-//                .selectCount(count)  // 最多选择几张图片。
-//                .camera(true) // 是否在Item中出现相机。
-//                .requestCode(2)
-//                .onResult(new Action<ArrayList<AlbumFile>>() {
-//                    @Override
-//                    public void onAction(int requestCode, @NonNull ArrayList<AlbumFile> result) {
-//                        ToastUtil.ShortToast(""+result.size());
-//                        for (AlbumFile bean : result) {
-//                            ImageItem item = new ImageItem(bean.getPath());
-//                            datas.add(0,item);
-//                        }
-//                        mNineGridAdapter.setDatas(datas);
-//                    }
-//                })
-//                .onCancel(new Action<String>() {
-//                    @Override
-//                    public void onAction(int requestCode, @NonNull String result) {
-//                        // 用户取消了操作。
-//                        ToastUtil.ShortToast("取消");
-//                    }
-//                })
-//                .start();
-        GalleryActivity.openActivity(
-                this,
-                new String[]{"image/jepg","image/jpg", "image/png"},//过滤掉指定类型，遵守MIME Type类型规范。eg：new String[]{"image/gif","image/png"}
-                false,//true 单选，false 多选
-                count,//图片可选数量限制，当singlePhoto=false时生效
-                2);//请求码
-
+        // 自由配置选项
+        ISListConfig config = new ISListConfig.Builder()
+                .multiSelect(true)
+                .rememberSelected(false)
+                .btnTextColor(Color.WHITE)
+                .statusBarColor(getResources().getColor(R.color.colorPrimary))
+                .title("图片")
+                .titleColor(Color.WHITE)
+                .titleBgColor(getResources().getColor(R.color.colorPrimary))
+                .cropSize(1, 1, 200, 200)
+                .needCrop(false)
+                .needCamera(true)
+                .maxNum(count)
+                .build();
+        ISNav.getInstance().toListActivity(this, config, REQUEST_CODE);
     }
 
     /**
@@ -172,10 +141,8 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
         }
     }
 
-    /**
-     * 初始化图片预览
-     */
-    private void initTransferee() {
+    @Override
+    public void initRecyclerView() {
         datas = new ArrayList<>();
         mNineGridAdapter = new NineGridAdapter(mRecyclerView);
         mGridLayoutManager = new GridLayoutManager(this, 4);
@@ -205,14 +172,14 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
         mRecyclerView.setAdapter(mNineGridAdapter);
     }
 
-    @Override
-    public void onBackPressed() {
-        if (helper.isCustomKeyboardVisible()) {
-            helper.hideCustomKeyboard();
-        } else {
-            super.onBackPressed();
-        }
-    }
+//    @Override
+//    public void onBackPressed() {
+//        if (helper.isCustomKeyboardVisible()) {
+//            helper.hideCustomKeyboard();
+//        } else {
+//            super.onBackPressed();
+//        }
+//    }
 
     @Override
     public void initToolBar() {
@@ -227,10 +194,23 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
     //接受返回值
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if(requestCode == 2 && data != null){
-            //照片路径集合返回值
-            List<String> photos = (List<String>) data.getSerializableExtra(GalleryActivity.PHOTOS);
-            for (String bean : photos) {
+//        if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICKER) {
+//            final ArrayList<String> pathList =
+//                    data.getStringArrayListExtra(PhotoPickerActivity.EXTRA_RESULT_SELECTION);
+//            final boolean original =
+//                    data.getBooleanExtra(PhotoPickerActivity.EXTRA_RESULT_ORIGINAL, false);
+//
+//            for (String bean : pathList) {
+//                ImageItem item = new ImageItem(bean);
+//                datas.add(0, item);
+//            }
+//            mNineGridAdapter.setDatas(datas);
+//        }
+
+        // 图片选择结果回调
+        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK && data != null) {
+            List<String> pathList = data.getStringArrayListExtra("result");
+            for (String bean : pathList) {
                 ImageItem item = new ImageItem(bean);
                 datas.add(0, item);
             }
@@ -250,4 +230,5 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
         super.onDestroy();
         datas.clear();
     }
+
 }

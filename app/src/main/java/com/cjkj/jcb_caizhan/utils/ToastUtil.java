@@ -4,7 +4,7 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Looper;
 import android.widget.Toast;
-import com.cjkj.jcb_caizhan.App;
+import com.cjkj.jcb_caizhan.app.App;
 
 /**
  * Created by hcc on 16/8/4 21:18

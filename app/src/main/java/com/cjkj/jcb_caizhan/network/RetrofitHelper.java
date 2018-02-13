@@ -1,6 +1,6 @@
 package com.cjkj.jcb_caizhan.network;
 
-import com.cjkj.jcb_caizhan.App;
+import com.cjkj.jcb_caizhan.app.App;
 import com.cjkj.jcb_caizhan.network.api.MineApi;
 import com.cjkj.jcb_caizhan.network.api.UserManagemantApi;
 import com.cjkj.jcb_caizhan.utils.CommonUtil;
