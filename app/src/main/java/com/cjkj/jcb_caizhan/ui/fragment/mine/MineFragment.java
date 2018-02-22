@@ -12,6 +12,7 @@ import com.bumptech.glide.Glide;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.ui.activity.mine.ChangeLotteryStationActivity;
 import com.cjkj.jcb_caizhan.ui.activity.mine.LaunchCrowdfundingActivity;
+import com.cjkj.jcb_caizhan.ui.activity.mine.RechargeActivity;
 import com.cjkj.jcb_caizhan.ui.activity.mine.SeetingActivity;
 import com.cjkj.jcb_caizhan.ui.activity.mine.lottery.LotteryCategoryActivity;
 import com.cjkj.jcb_caizhan.ui.fragment.RxLazyFragment;
@@ -67,7 +68,7 @@ public class MineFragment extends RxLazyFragment implements ObservableScrollView
         return R.layout.fragment_mine;
     }
 
-    @OnClick({R.id.lin1,R.id.layout_chenge,R.id.layout_seeting,R.id.layout_launchCrowdfunding})
+    @OnClick({R.id.lin1,R.id.layout_chenge,R.id.layout_seeting,R.id.layout_launchCrowdfunding,R.id.Layout_recharge})
     public void BtnClick(View v) {
         if (v.getId() == R.id.lin1) {
             Intent i = new Intent(getContext(), LotteryCategoryActivity.class);
@@ -78,6 +79,9 @@ public class MineFragment extends RxLazyFragment implements ObservableScrollView
             IntentUtils.Goto(getActivity(), ChangeLotteryStationActivity.class);
         }else if(v.getId() == R.id.layout_launchCrowdfunding){
             IntentUtils.Goto(getActivity(), LaunchCrowdfundingActivity.class);
+        }else if(v.getId() == R.id.Layout_recharge){
+            //充值
+            IntentUtils.Goto(getActivity(),RechargeActivity.class);
         }
     }
 

@@ -31,9 +31,11 @@ import com.nineoldandroids.animation.ValueAnimator;
 import java.util.ArrayList;
 import java.util.List;
 /**
+ * 单选多选
  * Created by 1 on 2018/2/11.
  */
 public class FlowlayoutTags extends ViewGroup {
+
     private final int default_text_color = Color.rgb(0x49, 0xC1, 0x20);
     private final int default_background_color = Color.WHITE;
     private final int default_input_hint_color = Color.argb(0x80, 0x00, 0x00, 0x00);

@@ -86,8 +86,11 @@ dependencies {
     //        exclude group: 'com.android.support', module: 'support-annotations'
     //    })
     compile 'com.nineoldandroids:library:2.4.0'
-    //微信数字键盘
+    //数字键盘
     compile 'com.github.dcq123:CustomKeyboard:v1.0.1'
+    compile 'com.dilusense.android:customkeyboard:1.1'
+    //textview设置不同颜色
+    compile 'com.sflin:csstextview:1.0.0'
     //相册
     compile 'com.yuyh.imgsel:library:2.0.2'
    // compile 'io.github.changjiashuai:imagepicker:1.0.3'

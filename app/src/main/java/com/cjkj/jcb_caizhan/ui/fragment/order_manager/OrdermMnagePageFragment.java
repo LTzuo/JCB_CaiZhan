@@ -3,7 +3,6 @@ package com.cjkj.jcb_caizhan.ui.fragment.order_manager;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.widget.TextView;
-
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.ui.adapter.pager.OrdermMnagePagerAdapter;
 import com.cjkj.jcb_caizhan.ui.fragment.RxLazyFragment;

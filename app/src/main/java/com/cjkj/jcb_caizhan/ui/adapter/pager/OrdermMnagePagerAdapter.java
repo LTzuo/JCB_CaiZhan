@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.cjkj.jcb_caizhan.R;
+import com.cjkj.jcb_caizhan.ui.fragment.order_manager.CrowdfundFragment;
 import com.cjkj.jcb_caizhan.ui.fragment.order_manager.OrderFragment;
 
 /**
@@ -31,7 +32,7 @@ public class OrdermMnagePagerAdapter extends FragmentPagerAdapter {
           fragments[position] = OrderFragment.newIntance();
           break;
         case 1:
-          fragments[position] = OrderFragment.newIntance();
+          fragments[position] = CrowdfundFragment.newIntance();
           break;
         default:
           break;

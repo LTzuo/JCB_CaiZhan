@@ -1,6 +1,5 @@
 package com.cjkj.jcb_caizhan.ui.activity.mine;
 
-import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Rect;
@@ -19,12 +18,14 @@ import com.cjkj.jcb_caizhan.ui.adapter.helper.AbsRecyclerViewAdapter;
 import com.cjkj.jcb_caizhan.ui.adapter.mine.launch_crowfunding.NineGridAdapter;
 import com.cjkj.jcb_caizhan.ui.widget.FlowlayoutTags;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
+import com.dilusense.customkeyboard.KeyboardNumber;
+import com.dilusense.customkeyboard.KeyboardUtils;
 import com.previewlibrary.GPreviewBuilder;
 import com.yuyh.library.imgsel.ISNav;
 import com.yuyh.library.imgsel.config.ISListConfig;
 import java.util.ArrayList;
 import java.util.List;
-  import butterknife.Bind;
+import butterknife.Bind;
 import butterknife.OnClick;
 import cn.qing.soft.keyboardlib.CustomKeyboardHelper;
 
@@ -83,7 +84,9 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
         });
 //        helper = new CustomKeyboardHelper(this, R.xml.keyboardnumber);
 //        helper.registerEditText(edit);
-          initRecyclerView();
+        KeyboardNumber  keyboardIdentity = new KeyboardNumber(this);
+        KeyboardUtils.bindEditTextEvent(keyboardIdentity, edit);
+        initRecyclerView();
     }
 
     /**
@@ -191,23 +194,8 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
         mToolbar.setPopupTheme(R.style.ToolBarPopupThemeDay);
     }
 
-    //接受返回值
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        if (resultCode == Activity.RESULT_OK && requestCode == IMAGE_PICKER) {
-//            final ArrayList<String> pathList =
-//                    data.getStringArrayListExtra(PhotoPickerActivity.EXTRA_RESULT_SELECTION);
-//            final boolean original =
-//                    data.getBooleanExtra(PhotoPickerActivity.EXTRA_RESULT_ORIGINAL, false);
-//
-//            for (String bean : pathList) {
-//                ImageItem item = new ImageItem(bean);
-//                datas.add(0, item);
-//            }
-//            mNineGridAdapter.setDatas(datas);
-//        }
-
-        // 图片选择结果回调
         if (requestCode == REQUEST_CODE && resultCode == RESULT_OK && data != null) {
             List<String> pathList = data.getStringArrayListExtra("result");
             for (String bean : pathList) {

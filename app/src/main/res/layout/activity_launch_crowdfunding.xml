@@ -151,16 +151,14 @@
 
     <TextView
         android:id="@+id/tv_launch"
+        style="@style/red_button_style"
+        android:layout_alignParentBottom="true"
+        android:text="发起众筹"
+        android:layout_marginBottom="20dp"
+        />
+    <include
+        layout="@layout/layout_keyboardview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_marginBottom="20dp"
-        android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"
-        android:background="@drawable/shape_red_bg"
-        android:gravity="center"
-        android:padding="5dp"
-        android:text="发起众筹"
-        android:textColor="@color/white" />
-
+        android:layout_alignParentBottom="true"/>
 </RelativeLayout>

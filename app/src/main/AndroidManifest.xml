@@ -17,7 +17,7 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:name=".app.App"
@@ -58,16 +58,16 @@
         <activity android:name=".ui.activity.mine.lottery.LotteryDetailActivity" />
         <!-- 设置界面 -->
         <activity android:name=".ui.activity.mine.SeetingActivity" />
-        <!--切换彩站-->
+        <!-- 切换彩站 -->
         <activity android:name=".ui.activity.mine.ChangeLotteryStationActivity" />
-        <!--发起众筹-->
+        <!-- 发起众筹 -->
         <activity
             android:name=".ui.activity.mine.LaunchCrowdfundingActivity"
             android:windowSoftInputMode="adjustPan|adjustResize" />
-
-        <!--相册-->
-
-
+        <!--充值-->
+        <activity
+            android:name=".ui.activity.mine.RechargeActivity"
+            android:windowSoftInputMode="adjustPan|adjustResize"/>
     </application>
 
 </manifest>

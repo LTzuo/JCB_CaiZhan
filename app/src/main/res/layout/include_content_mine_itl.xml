@@ -89,6 +89,7 @@
             android:background="#e6e6e6"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/Layout_recharge"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
