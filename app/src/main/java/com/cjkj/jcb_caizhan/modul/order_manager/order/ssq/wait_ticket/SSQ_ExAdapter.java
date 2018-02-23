@@ -155,7 +155,7 @@ public class SSQ_ExAdapter extends BaseExpandableListAdapter {
         SourceDateList.add("01 02 03 04 05 - 6");
         SourceDateList.add("01 02 03 04 05 - 6");
         SourceDateList.add("01 02 03 04 05 - 6");
-        SourceDateList.add("01 02 03 04 05 - 6");
+        SourceDateList.add("01 02 03 04 05 - 9");
         SubListViewAdapter listViewAdaAdapter = new SubListViewAdapter(mContext,SourceDateList);
         holder.mChildListView.setAdapter(listViewAdaAdapter);
         holder.btn0.setOnClickListener(new View.OnClickListener() {
