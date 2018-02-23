@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cjkj.jcb_caizhan.ui.activity.SplashActivity">
+    tools:context=".modul.SplashActivity">
 
     <ImageView
         android:id="@+id/img_splash"
@@ -14,7 +14,7 @@
         android:scaleType="centerCrop"
         android:src="@mipmap/ic_launcher"/>
 
-    <com.cjkj.jcb_caizhan.ui.widget.SimpleButton
+    <com.cjkj.jcb_caizhan.modul.widget.SimpleButton
         android:id="@+id/sb_skip"
         android:layout_width="80dp"
         android:layout_height="wrap_content"

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.cjkj.jcb_caizhan.ui.widget.tabbarhelper.NoScrollViewPager
+    <com.cjkj.jcb_caizhan.modul.widget.tabbarhelper.NoScrollViewPager
         android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

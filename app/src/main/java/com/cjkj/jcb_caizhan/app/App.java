@@ -5,7 +5,7 @@ import android.content.Context;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
-import com.cjkj.jcb_caizhan.ui.widget.imageloader.GlideImageLoader;
+import com.cjkj.jcb_caizhan.widget.imageloader.GlideImageLoader;
 import com.previewlibrary.ZoomMediaLoader;
 import com.yuyh.library.imgsel.ISNav;
 import com.yuyh.library.imgsel.common.ImageLoader;

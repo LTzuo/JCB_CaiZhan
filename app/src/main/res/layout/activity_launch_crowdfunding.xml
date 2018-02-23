@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context="com.cjkj.jcb_caizhan.ui.activity.mine.LaunchCrowdfundingActivity">
+    tools:context=".modul.personal_center.launch_crowd.LaunchCrowdfundingActivity">
 
     <include layout="@layout/toolbar" />
 
@@ -31,7 +31,7 @@
             android:textColor="#333333"
             android:textSize="@dimen/_14dp" />
 
-        <com.cjkj.jcb_caizhan.ui.widget.FlowlayoutTags
+        <com.cjkj.jcb_caizhan.modul.widget.FlowlayoutTags
             android:id="@+id/fltag"
             style="@style/FlowlayoutTags.Red"
             android:layout_width="match_parent"

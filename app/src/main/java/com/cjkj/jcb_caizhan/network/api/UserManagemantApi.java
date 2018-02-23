@@ -1,6 +1,6 @@
 package com.cjkj.jcb_caizhan.network.api;
 
-import com.cjkj.jcb_caizhan.entity.TestInfo;
+import com.cjkj.jcb_caizhan.test.TestInfo;
 
 import retrofit2.http.GET;
 import retrofit2.http.Path;

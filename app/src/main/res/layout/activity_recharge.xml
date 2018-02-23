@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context="com.cjkj.jcb_caizhan.ui.activity.mine.RechargeActivity">
+    tools:context=".modul.personal_center.recharge.RechargeActivity">
 
     <LinearLayout
         android:layout_width="match_parent"

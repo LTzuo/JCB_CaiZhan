@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.cjkj.jcb_caizhan.ui.activity.mine.ChangeLotteryStationActivity">
+    tools:context=".modul.personal_center.chenge_station.ChangeLotteryStationActivity">
 
     <include layout="@layout/toolbar"/>
 
