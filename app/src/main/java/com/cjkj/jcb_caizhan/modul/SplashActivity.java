@@ -27,9 +27,9 @@ public class SplashActivity extends RxBaseActivity {
 
     private boolean mIsSkip = false;
 
-    private ComponentName componentName;
-    private ComponentName componentNameDefault;
-    private PackageManager packageManager;
+//    private ComponentName componentName;
+//    private ComponentName componentNameDefault;
+//    private PackageManager packageManager;
 
     private int INDEX;
 
@@ -124,10 +124,10 @@ public class SplashActivity extends RxBaseActivity {
 //                PackageManager.COMPONENT_ENABLED_STATE_DISABLED ||
 //                packageManager.getComponentEnabledSetting(componentName) ==
 //                        PackageManager.COMPONENT_ENABLED_STATE_DEFAULT){
-        packageManager.setComponentEnabledSetting(componentName,
-                PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
-        packageManager.setComponentEnabledSetting(componentNameDefault, PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
-                PackageManager.DONT_KILL_APP);
+//        packageManager.setComponentEnabledSetting(componentName,
+//                PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+//        packageManager.setComponentEnabledSetting(componentNameDefault, PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
+//                PackageManager.DONT_KILL_APP);
 //        }else if (packageManager.getComponentEnabledSetting(componentName)==
 //                PackageManager.COMPONENT_ENABLED_STATE_ENABLED){
 //            packageManager.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED,
@@ -150,8 +150,8 @@ public class SplashActivity extends RxBaseActivity {
 //            packageManager.setComponentEnabledSetting(componentNameDefault, PackageManager.COMPONENT_ENABLED_STATE_DISABLED,PackageManager.DONT_KILL_APP);
 //        }else if (packageManager.getComponentEnabledSetting(componentName)==
 //                PackageManager.COMPONENT_ENABLED_STATE_ENABLED){
-        packageManager.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
-        packageManager.setComponentEnabledSetting(componentNameDefault, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+//        packageManager.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+//        packageManager.setComponentEnabledSetting(componentNameDefault, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
 //        }
     }
 

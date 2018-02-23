@@ -36,7 +36,7 @@
             </intent-filter>
         </activity>
         <!-- 节日图标解决方案 -->
-        <activity-alias
+        <!--<activity-alias
             android:name=".newsLuncherActivity"
             android:enabled="false"
             android:icon="@mipmap/new_luncher_icon"
@@ -47,7 +47,7 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity-alias>
+        </activity-alias>-->
         <!-- 主页 -->
         <activity
             android:name=".modul.HomeActivity"
@@ -71,7 +71,7 @@
         <!-- 提现 -->
         <activity android:name=".modul.personal_center.withdrawals.WithdrawalsActivity" />
         <!--订单管理-双色球-->
-        <activity android:name=".modul.order_manager.order.ssq.SSQActivity"/>
+        <activity android:name=".modul.order_manager.order.ssq.SSQActivity" />
     </application>
 
 </manifest>

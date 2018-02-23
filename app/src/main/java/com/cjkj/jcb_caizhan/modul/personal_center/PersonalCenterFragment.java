@@ -34,7 +34,7 @@ import butterknife.OnClick;
  * Created by 1 on 2018/1/15.
  * 个人中心
  */
-public class MineFragment extends RxLazyFragment implements ObservableScrollViewCallbacks {
+public class PersonalCenterFragment extends RxLazyFragment implements ObservableScrollViewCallbacks {
 
     @Bind(R.id.sv_main_content)
     ObservableScrollView mObservableScrollView;
@@ -59,8 +59,8 @@ public class MineFragment extends RxLazyFragment implements ObservableScrollView
 
     private int mFlexibleSpaceHeight;
 
-    public static MineFragment newInstance() {
-        return new MineFragment();
+    public static PersonalCenterFragment newInstance() {
+        return new PersonalCenterFragment();
     }
 
     @Override
@@ -90,7 +90,7 @@ public class MineFragment extends RxLazyFragment implements ObservableScrollView
 
     @Override
     public void finishCreateView(Bundle state) {
-        mObservableScrollView.setScrollViewCallbacks(MineFragment.this);
+        mObservableScrollView.setScrollViewCallbacks(PersonalCenterFragment.this);
         mFlexibleSpaceHeight = getResources().getDimensionPixelSize(R.dimen.minefragment_header_hight);
         isPrepared = true;
         lazyLoad();

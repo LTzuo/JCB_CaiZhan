@@ -9,7 +9,7 @@ import android.view.KeyEvent;
 import android.view.MenuItem;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.modul.data_statistics.DataStatisticsFragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.MineFragment;
+import com.cjkj.jcb_caizhan.modul.personal_center.PersonalCenterFragment;
 import com.cjkj.jcb_caizhan.modul.user_management.UserManagementFragment;
 import com.cjkj.jcb_caizhan.modul.order_manager.OrdermMnagePageFragment;
 import com.cjkj.jcb_caizhan.widget.tabbarhelper.BottomNavigationViewHelper;
@@ -89,7 +89,7 @@ public class HomeActivity extends AppCompatActivity {
         adapter.addFragment(OrdermMnagePageFragment.newInstance());
         adapter.addFragment(UserManagementFragment.newInstance());
         adapter.addFragment(DataStatisticsFragment.newInstance());
-        adapter.addFragment(MineFragment.newInstance());
+        adapter.addFragment(PersonalCenterFragment.newInstance());
         viewPager.setAdapter(adapter);
     }
 

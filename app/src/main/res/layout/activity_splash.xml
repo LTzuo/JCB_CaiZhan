@@ -14,7 +14,7 @@
         android:scaleType="centerCrop"
         android:src="@mipmap/ic_launcher"/>
 
-    <com.cjkj.jcb_caizhan.modul.widget.SimpleButton
+    <com.cjkj.jcb_caizhan.widget.SimpleButton
         android:id="@+id/sb_skip"
         android:layout_width="80dp"
         android:layout_height="wrap_content"

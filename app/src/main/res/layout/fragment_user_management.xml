@@ -7,7 +7,7 @@
 
     <include layout="@layout/include_title_usermanagement" />
 
-    <com.cjkj.jcb_caizhan.modul.widget.swiperecyclerview.SwipeRecyclerView
+    <com.cjkj.jcb_caizhan.widget.swiperecyclerview.SwipeRecyclerView
         android:id="@+id/swipeRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

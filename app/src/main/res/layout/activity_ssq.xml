@@ -3,20 +3,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/bg_f3f2f7"
     tools:context=".modul.order_manager.order.ssq.SSQActivity">
 
     <include layout="@layout/toolbar" />
-
+<LinearLayout
+    android:id="@+id/tab"
+    android:layout_below="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:gravity="center"
+    android:background="@color/white">
     <LinearLayout
-        android:layout_below="@+id/toolbar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
         android:background="@drawable/shape_bg"
-        android:layout_centerHorizontal="true"
         android:orientation="horizontal">
         <TextView
+            android:id="@+id/tv_wait"
             android:layout_width="150dp"
             android:layout_height="match_parent"
             android:textColor="@color/white"
@@ -27,13 +32,26 @@
             android:gravity="center"
             android:text="待打票"/>
         <TextView
+            android:id="@+id/tv_error"
             android:layout_width="150dp"
             android:layout_height="match_parent"
+            android:textColor="@color/base_color_2"
             android:paddingRight="5dp"
             android:paddingTop="5dp"
             android:paddingBottom="5dp"
             android:gravity="center"
             android:text="打票错误"/>
     </LinearLayout>
+</LinearLayout>
+
+
+    <com.cjkj.jcb_caizhan.widget.ScrollViewPager
+        android:id="@+id/id_page_vp"
+        android:layout_below="@+id/tab"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+    </com.cjkj.jcb_caizhan.widget.ScrollViewPager>
 
 </RelativeLayout>
