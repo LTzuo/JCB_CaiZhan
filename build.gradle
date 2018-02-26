@@ -15,6 +15,10 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        // 添加maven仓库
+        maven { url "https://raw.githubusercontent.com/miomin/mvn-repo-ione/master" }
+        maven { url 'https://jitpack.io' }
+        maven { url "https://maven.google.com" }
     }
 }
 

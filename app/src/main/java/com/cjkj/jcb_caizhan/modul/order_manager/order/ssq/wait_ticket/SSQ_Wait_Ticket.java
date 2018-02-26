@@ -5,6 +5,8 @@ import android.view.View;
 import android.widget.ExpandableListView;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
+import com.cjkj.jcb_caizhan.utils.ToastUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.Bind;
@@ -44,30 +46,30 @@ public class SSQ_Wait_Ticket extends RxLazyFragment{
         }
         SSQ_ExAdapter yeAdapter = new SSQ_ExAdapter(getActivity(),mGroupItems);
         mExpandableListView.setAdapter(yeAdapter);
-        mExpandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-            @Override
-            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-               // ToastUtil.ShortToast(groupPosition + "nd group's " + childPosition + "nd Item is clicked!");
-                return false;
-            }
-        });
+//        mExpandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
+//            @Override
+//            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
+//               // ToastUtil.ShortToast(groupPosition + "nd group's " + childPosition + "nd Item is clicked!");
+//                return false;
+//            }
+//        });
 
-        mExpandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-            @Override
-            public void onGroupExpand(int groupPosition) {
-                int count = mExpandableListView.getExpandableListAdapter().getGroupCount();
-                for(int j = 0; j < count; j++){
-                    if(j != groupPosition){
-                        mExpandableListView.collapseGroup(j);
-                    }
-                }
-            }
-        });
+//        mExpandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+//            @Override
+//            public void onGroupExpand(int groupPosition) {
+//                int count = mExpandableListView.getExpandableListAdapter().getGroupCount();
+//                for(int j = 0; j < count; j++){
+//                    if(j != groupPosition){
+//                        mExpandableListView.collapseGroup(j);
+//                    }
+//                }
+//            }
+//        });
 
         mExpandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-               // ToastUtil.ShortToast(groupPosition + "nd group is clicked");
+                ToastUtil.ShortToast("正在点击-"+groupPosition + "-group");
                 return false;
             }
         });
@@ -75,7 +77,7 @@ public class SSQ_Wait_Ticket extends RxLazyFragment{
         mExpandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
             @Override
             public void onGroupCollapse(int groupPosition) {
-               // ToastUtil.ShortToast("the " + groupPosition + "nd group is collapsed");
+                ToastUtil.ShortToast( groupPosition + "-group关闭");
             }
         });
     }

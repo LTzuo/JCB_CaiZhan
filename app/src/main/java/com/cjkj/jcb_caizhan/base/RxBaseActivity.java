@@ -5,8 +5,11 @@ import android.view.MenuItem;
 
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
 
-import butterknife.ButterKnife;
+import org.xmlpull.v1.XmlPullParserException;
 
+import java.io.IOException;
+
+import butterknife.ButterKnife;
 
 /**
  * Activity基类

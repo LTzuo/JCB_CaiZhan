@@ -1,47 +1,41 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.withdrawals;
+package com.cjkj.jcb_caizhan.modul.personal_center.withdrawals.withdrawals_list;
 
 import android.os.Bundle;
-import android.support.v4.view.ViewPager;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
+
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxBaseActivity;
-import com.flyco.tablayout.SlidingTabLayout;
+import com.cjkj.jcb_caizhan.widget.checkbox.SmoothCheckBox;
+
 import butterknife.Bind;
 
 /**
- * 个人中心-提现
+ * 个人中心-提现详情
  */
-public class WithdrawalsActivity extends RxBaseActivity {
+public class WithdrawalsDetailsActivity extends RxBaseActivity {
 
     @Bind(R.id.toolbar)
     Toolbar mToolbar;
     @Bind(R.id.toolbar_title)
     TextView toolbar_title;
-
-    @Bind(R.id.view_pager)
-    ViewPager mViewPager;
-    @Bind(R.id.sliding_tabs)
-    SlidingTabLayout mSlidingTab;
+    @Bind(R.id.mSmoothCheckBox)
+    SmoothCheckBox mSmoothCheckBox;
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_withdrawals;
+        return R.layout.activity_withdrawals_details;
     }
 
     @Override
     public void initViews(Bundle savedInstanceState) {
-        WithdrawalsPagerAdapter mAdapter = new WithdrawalsPagerAdapter(getSupportFragmentManager(), getApplicationContext());
-        mViewPager.setOffscreenPageLimit(2);
-        mViewPager.setAdapter(mAdapter);
-        mSlidingTab.setViewPager(mViewPager);
-        mViewPager.setCurrentItem(0);
+        mSmoothCheckBox.setChecked(true,true);
     }
 
     @Override
     public void initToolBar() {
         mToolbar.setTitle("");// 标题的文字需在setSupportActionBar之前，不然会无效
-        toolbar_title.setText("提现");
+        toolbar_title.setText("提现详情");
         mToolbar.setNavigationIcon(R.drawable.ic_back_white);
         setSupportActionBar(mToolbar);
         mToolbar.setTitleTextColor(getResources().getColor(R.color.white));

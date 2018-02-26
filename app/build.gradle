@@ -14,10 +14,10 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
-        // 添加maven仓库
-        maven { url "https://raw.githubusercontent.com/miomin/mvn-repo-ione/master" }
-        maven { url 'https://jitpack.io' }
-        maven { url "https://maven.google.com" }
+//        // 添加maven仓库
+//        maven { url "https://raw.githubusercontent.com/miomin/mvn-repo-ione/master" }
+//        maven { url 'https://jitpack.io' }
+//        maven { url "https://maven.google.com" }
     }
 }
 
@@ -96,5 +96,6 @@ dependencies {
    // compile 'io.github.changjiashuai:imagepicker:1.0.3'
     //图片浏览大图带指示器
     compile 'com.ycjiang:ImagePreview:2.0.8'
-
+    //RecyclerView 支持侧滑，支持随时添加头部和底部，提供自动/点击加载更多功能
+    compile 'com.yanzhenjie:recyclerview-swipe:1.1.4'
 }

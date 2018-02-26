@@ -12,8 +12,10 @@ import com.bumptech.glide.Glide;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.modul.personal_center.chenge_station.ChangeLotteryStationActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.launch_crowd.LaunchCrowdfundingActivity;
+import com.cjkj.jcb_caizhan.modul.personal_center.lottery.AwardResultActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.lottery.LotteryCategoryActivity;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
+import com.cjkj.jcb_caizhan.modul.personal_center.mine_message.MineMessageActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.recharge.RechargeActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.seeting.SeetingActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.withdrawals.WithdrawalsActivity;
@@ -68,16 +70,21 @@ public class PersonalCenterFragment extends RxLazyFragment implements Observable
         return R.layout.fragment_mine;
     }
 
-    @OnClick({R.id.lin1,R.id.layout_chenge,R.id.layout_seeting,R.id.layout_launchCrowdfunding,R.id.Layout_recharge,R.id.layout_Withdrawals})
+    @OnClick({R.id.lin1,R.id.layout_chenge,R.id.layout_seeting,R.id.layout_launchCrowdfunding,R.id.Layout_recharge,R.id.layout_Withdrawals
+             ,R.id.Layout_message})
     public void BtnClick(View v) {
         if (v.getId() == R.id.lin1) {
-            Intent i = new Intent(getContext(), LotteryCategoryActivity.class);
-            startActivity(i);
+            //开奖结果
+          //IntentUtils.Goto(getActivity(), LotteryCategoryActivity.class);
+            IntentUtils.Goto(getActivity(), AwardResultActivity.class);
         } else if (v.getId() == R.id.layout_seeting) {
+            //设置
             IntentUtils.Goto(getActivity(), SeetingActivity.class);
         }else if(v.getId() == R.id.layout_chenge){
+            //切换彩站
             IntentUtils.Goto(getActivity(), ChangeLotteryStationActivity.class);
         }else if(v.getId() == R.id.layout_launchCrowdfunding){
+            //发起众筹
             IntentUtils.Goto(getActivity(), LaunchCrowdfundingActivity.class);
         }else if(v.getId() == R.id.Layout_recharge){
             //充值
@@ -85,6 +92,9 @@ public class PersonalCenterFragment extends RxLazyFragment implements Observable
         }else if(v.getId() == R.id.layout_Withdrawals){
             //提现
             IntentUtils.Goto(getActivity(),WithdrawalsActivity.class);
+        }else if(v.getId() == R.id.Layout_message){
+            //我的消息
+            IntentUtils.Goto(getActivity(),MineMessageActivity.class);
         }
     }
 

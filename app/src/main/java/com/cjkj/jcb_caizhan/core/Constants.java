@@ -6,9 +6,8 @@ package com.cjkj.jcb_caizhan.core;
  */
 public class Constants {
 
-    //SharePreferences  ---- Key
-   // public static final String LUNCHER_ICON_KEY = "LUNCHER_ICON_KEY";
-
+    //个人中心-开奖结果URL
+    public static final String AWARDRESULT_URL = "http://192.168.10.59:8801/pages/server/lotteryhistoryListpage.html?flag=site";
 
 
 }

@@ -36,7 +36,8 @@
             </intent-filter>
         </activity>
         <!-- 节日图标解决方案 -->
-        <!--<activity-alias
+        <!--
+        <activity-alias
             android:name=".newsLuncherActivity"
             android:enabled="false"
             android:icon="@mipmap/new_luncher_icon"
@@ -47,7 +48,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity-alias>-->
+        </activity-alias>
+        -->
         <!-- 主页 -->
         <activity
             android:name=".modul.HomeActivity"
@@ -70,8 +72,18 @@
             android:windowSoftInputMode="adjustPan|adjustResize" />
         <!-- 提现 -->
         <activity android:name=".modul.personal_center.withdrawals.WithdrawalsActivity" />
-        <!--订单管理-双色球-->
+        <!-- 订单管理-双色球 -->
         <activity android:name=".modul.order_manager.order.ssq.SSQActivity" />
+        <!-- 个人中心-我的消息 -->
+        <activity android:name=".modul.personal_center.mine_message.MineMessageActivity" />
+        <!-- 个人中心-开奖结果 -->
+        <activity android:name=".modul.personal_center.lottery.AwardResultActivity" />
+        <!-- 个人中心-提现详情 -->
+        <activity android:name=".modul.personal_center.withdrawals.withdrawals_list.WithdrawalsDetailsActivity" />
+        <!--走势图列表页-->
+        <activity android:name=".modul.personal_center.lottery.lottery_thread.LotteryThreadListActivity"/>
+        <!--走势图-->
+        <activity android:name=".modul.personal_center.lottery.lottery_thread.LotteryTrendActivity"/>
     </application>
 
 </manifest>

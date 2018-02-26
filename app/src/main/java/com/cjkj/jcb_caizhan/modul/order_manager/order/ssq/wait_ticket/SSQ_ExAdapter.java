@@ -7,9 +7,7 @@ import android.widget.BaseExpandableListAdapter;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.cjkj.jcb_caizhan.R;
-import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.cjkj.jcb_caizhan.widget.SubListView;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -151,19 +149,18 @@ public class SSQ_ExAdapter extends BaseExpandableListAdapter {
         }
         holder.mTextView.setText(mGroupItems.get(groupPosition).mChildList.get(childPosition).message);
         List<String> SourceDateList = new ArrayList<>();
-        SourceDateList.add("01 02 03 04 05 - 6");
-        SourceDateList.add("01 02 03 04 05 - 6");
-        SourceDateList.add("01 02 03 04 05 - 6");
-        SourceDateList.add("01 02 03 04 05 - 6");
-        SourceDateList.add("01 02 03 04 05 - 9");
+        SourceDateList.add("01 02 03 04 05");
+        SourceDateList.add("01 02 03 04 05");
+        SourceDateList.add("01 02 03 04 05");
+        SourceDateList.add("01 02 03 04 05");
+        SourceDateList.add("01 02 03 04 05");
         SubListViewAdapter listViewAdaAdapter = new SubListViewAdapter(mContext,SourceDateList);
         holder.mChildListView.setAdapter(listViewAdaAdapter);
         holder.btn0.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 // ToastUtil.ShortToast("上传照片"+groupPosition);
-//                SourceDateList.add("01 02 03 04 05 - 6");
-                listViewAdaAdapter.addInfo("01 02 03 04 05 - 6",0);
+                //listViewAdaAdapter.addInfo("01 02 03 04 05",0);
             }
         });
         return convertView;
