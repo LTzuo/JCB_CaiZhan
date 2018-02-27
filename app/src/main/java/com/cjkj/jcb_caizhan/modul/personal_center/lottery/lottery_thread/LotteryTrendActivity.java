@@ -4,9 +4,12 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.widget.Toolbar;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.widget.TextView;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxBaseActivity;
+import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.cjkj.jcb_caizhan.widget.lottery_trend.data.TrendData;
 import com.cjkj.jcb_caizhan.widget.lottery_trend.ui.LottoTrendView;
 import com.cjkj.jcb_caizhan.widget.lottery_trend.ui.TrendChart;
@@ -24,14 +27,14 @@ import okhttp3.Callback;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
-
 /**
  * 彩票走势图
  */
 public class LotteryTrendActivity extends RxBaseActivity implements TrendChart.ISelectedChangeListener {
 
-    private LottoTrendView mTrendView;
-    final int maxSignleNum = 9;
+    @Bind(R.id.ltv_trendView)
+    LottoTrendView mTrendView;
+
     private TrendChart mTrendChart;
 
     @Bind(R.id.toolbar)
@@ -58,7 +61,6 @@ public class LotteryTrendActivity extends RxBaseActivity implements TrendChart.I
     @Override
     public void initViews(Bundle savedInstanceState){
         type = getIntent().getIntExtra("index",0);
-        this.mTrendView = (LottoTrendView) findViewById(R.id.ltv_trendView);
         this.mTrendChart = new TrendChart(this, this.mTrendView);
         this.mTrendView.setChart(this.mTrendChart);
         this.mTrendChart.setShowYilou(true);
@@ -314,6 +316,6 @@ public class LotteryTrendActivity extends RxBaseActivity implements TrendChart.I
 
     @Override
     public void onSelectedChange(TreeSet<Integer> treeSet, TreeSet<Integer> treeSet2) {
-
+          ToastUtil.ShortToast(treeSet.toString()+treeSet2.toString());
     }
 }

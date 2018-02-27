@@ -16,6 +16,19 @@
         <item>记录</item>
     </string-array>
 
+    <string-array name="personal_center_OrderQuery">
+        <item>出票</item>
+        <item>合买</item>
+        <item>跟单</item>
+    </string-array>
+
+    <string-array name="personal_center_accountdetails">
+        <item>全部</item>
+        <item>派奖</item>
+        <item>充值</item>
+        <item>提现</item>
+    </string-array>
+
     <string-array name="FlowlayoutTagValues">
         <item>200份</item>
         <item>100份</item>

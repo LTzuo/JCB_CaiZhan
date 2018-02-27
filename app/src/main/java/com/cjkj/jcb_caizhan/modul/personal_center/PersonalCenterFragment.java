@@ -1,6 +1,5 @@
 package com.cjkj.jcb_caizhan.modul.personal_center;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.View;
@@ -10,12 +9,14 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.cjkj.jcb_caizhan.R;
+import com.cjkj.jcb_caizhan.modul.personal_center.account_details.AccountDetailsActivity;
+import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.CashPrizeActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.chenge_station.ChangeLotteryStationActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.launch_crowd.LaunchCrowdfundingActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.lottery.AwardResultActivity;
-import com.cjkj.jcb_caizhan.modul.personal_center.lottery.LotteryCategoryActivity;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
 import com.cjkj.jcb_caizhan.modul.personal_center.mine_message.MineMessageActivity;
+import com.cjkj.jcb_caizhan.modul.personal_center.order_query.OrderQueryActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.recharge.RechargeActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.seeting.SeetingActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.withdrawals.WithdrawalsActivity;
@@ -51,8 +52,6 @@ public class PersonalCenterFragment extends RxLazyFragment implements Observable
     @Bind(R.id.tv_title)
     TextView tv_title;
 
-    //@Bind(R.id.swipe_refresh_layout)
-    //SwipeRefreshLayout mSwipeRefreshLayout;
     @Bind(R.id.refreshLayout)
     SmartRefreshLayout mRefreshLayout;
 
@@ -71,7 +70,7 @@ public class PersonalCenterFragment extends RxLazyFragment implements Observable
     }
 
     @OnClick({R.id.lin1,R.id.layout_chenge,R.id.layout_seeting,R.id.layout_launchCrowdfunding,R.id.Layout_recharge,R.id.layout_Withdrawals
-             ,R.id.Layout_message})
+             ,R.id.Layout_message,R.id.Layout_OrderQuery,R.id.Layout_AccountDetails,R.id.Layout_Duijiang})
     public void BtnClick(View v) {
         if (v.getId() == R.id.lin1) {
             //开奖结果
@@ -95,6 +94,15 @@ public class PersonalCenterFragment extends RxLazyFragment implements Observable
         }else if(v.getId() == R.id.Layout_message){
             //我的消息
             IntentUtils.Goto(getActivity(),MineMessageActivity.class);
+        }else if(v.getId() == R.id.Layout_OrderQuery){
+            //订单查询
+            IntentUtils.Goto(getActivity(),OrderQueryActivity.class);
+        }else if(v.getId() == R.id.Layout_AccountDetails){
+            //账户明细
+            IntentUtils.Goto(getActivity(),AccountDetailsActivity.class);
+        }else if(v.getId() == R.id.Layout_Duijiang){
+            //委托兑奖
+            IntentUtils.Goto(getActivity(),CashPrizeActivity.class);
         }
     }
 

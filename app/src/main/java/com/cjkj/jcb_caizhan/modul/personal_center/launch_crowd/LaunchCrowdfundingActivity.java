@@ -19,8 +19,8 @@ import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.dilusense.customkeyboard.KeyboardNumber;
 import com.dilusense.customkeyboard.KeyboardUtils;
 import com.previewlibrary.GPreviewBuilder;
-import com.yuyh.library.imgsel.ISNav;
-import com.yuyh.library.imgsel.config.ISListConfig;
+//import com.yuyh.library.imgsel.ISNav;
+//import com.yuyh.library.imgsel.config.ISListConfig;
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.Bind;
@@ -50,6 +50,8 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
     EditText edit;
 
     CustomKeyboardHelper helper;
+
+   // PhotoCallback callback;
 
     @OnClick({R.id.tv_launch})
     public void onBtnClick(View v) {
@@ -85,6 +87,33 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
         KeyboardNumber  keyboardIdentity = new KeyboardNumber(this);
         KeyboardUtils.bindEditTextEvent(keyboardIdentity, edit);
         initRecyclerView();
+
+//        callback = ProxyTools.getShowMethodInfoProxy(new PhotoCallback() {
+//            @Override
+//            public void onFail(String msg, Throwable r, int requestCode) {
+//
+//            }
+//
+//            @Override
+//            public void onSuccessSingle(String originalPath, String compressedPath, int requestCode) {
+//
+//            }
+//
+//            @Override
+//            public void onSuccessMulti(List<String> originalPaths, List<String> compressedPaths, int requestCode) {
+//              //  List<String> pathList = data.getStringArrayListExtra("result");
+////            for (String bean : pathList) {
+////                ImageItem item = new ImageItem(bean);
+////                datas.add(0, item);
+////            }
+////            mNineGridAdapter.setDatas(datas);
+//            }
+//
+//            @Override
+//            public void onCancel(int requestCode) {
+//
+//            }
+//        });
     }
 
     /**
@@ -94,20 +123,24 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
      */
     private void AlbumCamera(int count) {
         // 自由配置选项
-        ISListConfig config = new ISListConfig.Builder()
-                .multiSelect(true)
-                .rememberSelected(false)
-                .btnTextColor(Color.WHITE)
-                .statusBarColor(getResources().getColor(R.color.colorPrimary))
-                .title("图片")
-                .titleColor(Color.WHITE)
-                .titleBgColor(getResources().getColor(R.color.colorPrimary))
-                .cropSize(1, 1, 200, 200)
-                .needCrop(false)
-                .needCamera(true)
-                .maxNum(count)
-                .build();
-        ISNav.getInstance().toListActivity(this, config, REQUEST_CODE);
+//        ISListConfig config = new ISListConfig.Builder()
+//                .multiSelect(true)
+//                .rememberSelected(false)
+//                .btnTextColor(Color.WHITE)
+//                .statusBarColor(getResources().getColor(R.color.colorPrimary))
+//                .title("图片")
+//                .titleColor(Color.WHITE)
+//                .titleBgColor(getResources().getColor(R.color.colorPrimary))
+//                .cropSize(1, 1, 200, 200)
+//                .needCrop(false)
+//                .needCamera(true)
+//                .maxNum(count)
+//                .build();
+       // ISNav.getInstance().toListActivity(this, config, REQUEST_CODE);
+
+//        PhotoUtil.multiSelect(9)
+//                .setNeedCropWhenOne(true)
+//                .start(this, 55, callback);
     }
 
     /**
@@ -202,6 +235,7 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
             }
             mNineGridAdapter.setDatas(datas);
         }
+//        PhotoUtil.onActivityResult(this,requestCode,resultCode,data);
 
     }
 

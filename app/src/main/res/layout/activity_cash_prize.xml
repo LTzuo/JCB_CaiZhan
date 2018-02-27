@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.CashPrizeActivity">
+
+    <include layout="@layout/toolbar_custom"/>
+
+    <GridView
+        android:id="@+id/mCustomGridView"
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:background="@color/white"
+        android:visibility="gone"
+        android:numColumns="4"/>
+
+
+
+</RelativeLayout>

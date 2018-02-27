@@ -25,8 +25,8 @@ import butterknife.OnClick;
  */
 public class AwardResultActivity extends RxBaseActivity {
 
-    @Bind(R.id.toolbar)
-    Toolbar mToolbar;
+//    @Bind(R.id.toolbar)
+//    Toolbar mToolbar;
     @Bind(R.id.toolbar_title)
     TextView toolbar_title;
     @Bind(R.id.menu_custom)
@@ -35,10 +35,16 @@ public class AwardResultActivity extends RxBaseActivity {
     @Bind(R.id.mWebView)
     WebView mWebView;
 
-    @OnClick(R.id.menu_custom)
+    @OnClick({R.id.menu_custom,R.id.imgback})
     public void BtnClick(View v){
         if(v.getId() == R.id.menu_custom){
             IntentUtils.Goto(this,LotteryThreadListActivity.class);
+        }else if(v.getId() == R.id.imgback){
+            if (mWebView.canGoBack()) {
+                mWebView.goBack();// 返回前一个页面
+            }else{
+                finish();
+            }
         }
     }
 
@@ -106,20 +112,6 @@ public class AwardResultActivity extends RxBaseActivity {
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                if (mWebView.canGoBack()) {
-                    mWebView.goBack();// 返回前一个页面
-                    return true;
-                }else{
-                    finish();
-                }
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
         if (keyCode == KeyEvent.KEYCODE_BACK ) {
             if (mWebView.canGoBack()) {
@@ -134,12 +126,12 @@ public class AwardResultActivity extends RxBaseActivity {
 
     @Override
     public void initToolBar() {
-        mToolbar.setTitle("");
+//        mToolbar.setTitle("");
         toolbar_title.setText("开奖结果");
-        mToolbar.setNavigationIcon(R.drawable.ic_back_white);
-        setSupportActionBar(mToolbar);
-        mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
-        mToolbar.setPopupTheme(R.style.ToolBarPopupThemeDay);
+//        mToolbar.setNavigationIcon(R.drawable.ic_back_white);
+//        setSupportActionBar(mToolbar);
+//        mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
+//        mToolbar.setPopupTheme(R.style.ToolBarPopupThemeDay);
         menu_custom.setImageDrawable(getResources().getDrawable(R.drawable.zoushi));
         menu_custom.setVisibility(View.VISIBLE);
     }

@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.AbsRecyclerViewAdapter;
 import com.cjkj.jcb_caizhan.base.RxBaseActivity;
-import com.cjkj.jcb_caizhan.utils.IntentUtils;
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.Bind;

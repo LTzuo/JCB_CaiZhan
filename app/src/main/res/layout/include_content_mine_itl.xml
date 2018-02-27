@@ -252,9 +252,9 @@
             android:background="#e6e6e6"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/Layout_Duijiang"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-
         android:background="@color/white"
         android:orientation="horizontal"
         android:padding="10dp">
@@ -369,6 +369,7 @@
             android:background="#e6e6e6"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/Layout_OrderQuery"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -410,6 +411,7 @@
             android:background="#e6e6e6"/>
     </LinearLayout>
     <LinearLayout
+        android:id="@+id/Layout_AccountDetails"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"

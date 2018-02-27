@@ -9,7 +9,6 @@ import com.cjkj.jcb_caizhan.base.RxLazyFragment;
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.Bind;
-
 /**
  * 众筹
  * Created by 1 on 2018/2/22.

@@ -9,13 +9,13 @@ import android.view.GestureDetector;
 import android.view.GestureDetector.OnDoubleTapListener;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.Scroller;
-
 import com.cjkj.jcb_caizhan.widget.lottery_trend.interfaces.ITrendChart;
 
-public class LottoTrendView extends View implements OnDoubleTapListener, OnGestureListener, OnTouchListener {
+public class LottoTrendView extends View implements OnDoubleTapListener, OnGestureListener, OnTouchListener{
     private ITrendChart mChart;
     private GestureDetector mGestureDetector;
     private float mLastDistance;
@@ -141,7 +141,7 @@ public class LottoTrendView extends View implements OnDoubleTapListener, OnGestu
                 float[] scaleRange = this.mChart.getScaleRange();
                 this.mScale=1.0f;
                 //去掉放大
-             //   this.mScale = Math.max(scaleRange[0], Math.min((this.mScale * x) / this.mLastDistance, scaleRange[1]));
+               // this.mScale = Math.max(scaleRange[0], Math.min((this.mScale * x) / this.mLastDistance, scaleRange[1]));
                 this.mLastDistance = x;
                 refreshPos();
                 return true;
@@ -227,4 +227,6 @@ public class LottoTrendView extends View implements OnDoubleTapListener, OnGestu
             invalidate();
         }
     }
+
+
 }

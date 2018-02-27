@@ -35,7 +35,14 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
+       // multiDexEnabled true
     }
+
+//    dexOptions{
+//        incremental true
+//        javaMaxHeapSize "4g"
+//    }
+
     buildTypes {
         release {
             minifyEnabled false
@@ -55,7 +62,7 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.3.1'
     compile 'com.android.support:cardview-v7:25.3.1'
     compile 'com.android.support:design:25.3.1'
-    compile 'com.android.support:support-v4:25.0.1'
+    compile 'com.android.support:support-v4:25.3.1'
     //防止RxJava中subscription导致内存泄漏
     compile 'com.trello:rxlifecycle-components:0.6.1'
     //注解
@@ -93,9 +100,18 @@ dependencies {
     compile 'com.sflin:csstextview:1.0.0'
     //相册
     compile 'com.yuyh.imgsel:library:2.0.2'
-   // compile 'io.github.changjiashuai:imagepicker:1.0.3'
+    //图片/视频选择、拍照、图片/视频预览
+//    compile 'com.github.hss01248.PhotoPicker:picker:1.0.8'
+//    compile ('com.github.yalantis:ucrop:2.2.1'){
+//        exclude group: 'com.android.support'
+//    }
+//    compile 'com.mylhyl:acp:1.0.0'
+//    compile 'com.github.hss01248:AdvancedLuban:1.0.0'
+//    compile'com.github.hss01248.PhotoPicker:glide:1.0.8'
     //图片浏览大图带指示器
     compile 'com.ycjiang:ImagePreview:2.0.8'
     //RecyclerView 支持侧滑，支持随时添加头部和底部，提供自动/点击加载更多功能
     compile 'com.yanzhenjie:recyclerview-swipe:1.1.4'
+    //字体对其TextView
+    compile 'me.codeboy.android:align-text-view:2.3.0'
 }

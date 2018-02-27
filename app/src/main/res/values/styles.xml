@@ -37,6 +37,11 @@
         <item name="android:background">@color/white</item>
     </style>
 
+    <style name="customTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>//标题栏背景色
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+    </style>
+
     <style name="RecyclerViewStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">match_parent</item>

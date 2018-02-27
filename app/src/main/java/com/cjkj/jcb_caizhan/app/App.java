@@ -3,7 +3,6 @@ package com.cjkj.jcb_caizhan.app;
 import android.app.Application;
 import android.content.Context;
 import android.widget.ImageView;
-
 import com.bumptech.glide.Glide;
 import com.cjkj.jcb_caizhan.widget.imageloader.GlideImageLoader;
 import com.previewlibrary.ZoomMediaLoader;
@@ -21,12 +20,8 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         mInstance = this;
-//        Album.initialize(
-//                AlbumConfig.newBuilder(this)
-//                        .setAlbumLoader(new GlideAlbumLoader()) // 设置Album加载器。
-//                        .setLocale(Locale.CHINA) // 比如强制设置在任何语言下都用中文显示。
-//                        .build()
-//        );
+
+       // PhotoUtil.init(getApplicationContext(),new GlideIniter());
         ZoomMediaLoader.getInstance().init(new GlideImageLoader());
 
         // 自定义图片加载器
@@ -36,6 +31,17 @@ public class App extends Application {
                 Glide.with(context).load(path).into(imageView);
             }
         });
+
+//        Phoenix.config()
+//                .imageLoader(new ImageLoader() {
+//                    @Override
+//                    public void loadImage(Context mContext, ImageView imageView
+//                            , String imagePath, int type) {
+//                        Glide.with(mContext)
+//                                .load(imagePath)
+//                                .into(imageView);
+//                    }
+//                });
     }
 
     public static App getInstance() {
