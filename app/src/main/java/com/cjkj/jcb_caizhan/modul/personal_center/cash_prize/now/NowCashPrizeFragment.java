@@ -41,23 +41,20 @@ public class NowCashPrizeFragment extends RxLazyFragment {
     }
 
     private void addTestData() {
-        for (int i = 0; i < 5; i++) {
+        for (int i = 0; i < 15; i++) {
             GroupCashPrizeEntity groupData = new GroupCashPrizeEntity();
-            groupData.setGroupName( "分组-" + i);
+            groupData.setGroupName("双色球");
+            groupData.setStage("第"+"201812"+i+"期");
             mCashPrizeExAdapter.getGroupData().add(groupData);
         }
         for (int i = 0; i < mCashPrizeExAdapter.getGroupCount(); i++) {
             List<ChildCashPrizeEntity> temp = new ArrayList<>();
-            for (int j = 0; j < 20; j++) {
                 ChildCashPrizeEntity childData = new ChildCashPrizeEntity();
-                childData.setChildName("第" + i + "组内容-" + j);
+                childData.setChildName("第" + i + "组子内容");
                 temp.add(childData);
-            }
             mCashPrizeExAdapter.getChildrenData().add(temp);
         }
-
         mCashPrizeExAdapter.notifyDataSetChanged();
     }
-
 
 }

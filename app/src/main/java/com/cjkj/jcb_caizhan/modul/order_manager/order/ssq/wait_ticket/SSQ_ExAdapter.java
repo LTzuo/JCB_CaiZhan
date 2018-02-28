@@ -16,6 +16,7 @@ import java.util.List;
  * Created by 1 on 2018/2/23.
  */
 public class SSQ_ExAdapter extends BaseExpandableListAdapter {
+
     //一级节点数据
     private List<GroupItem> mGroupItems;
     private Context mContext;

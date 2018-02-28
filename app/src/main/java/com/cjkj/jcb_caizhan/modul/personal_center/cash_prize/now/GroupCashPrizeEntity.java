@@ -7,6 +7,15 @@ package com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.now;
 public class GroupCashPrizeEntity {
 
     String groupName;
+    String stage;//期数
+
+    public String getStage() {
+        return stage;
+    }
+
+    public void setStage(String stage) {
+        this.stage = stage;
+    }
 
     public String getGroupName() {
         return groupName;

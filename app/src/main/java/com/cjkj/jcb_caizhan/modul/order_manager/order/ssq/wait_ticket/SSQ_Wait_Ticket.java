@@ -32,7 +32,7 @@ public class SSQ_Wait_Ticket extends RxLazyFragment{
     @Override
     public void finishCreateView(Bundle state) {
         List<SSQ_ExAdapter.GroupItem> mGroupItems = new ArrayList<>();
-        for (int i = 0; i < 7; i++) {
+        for (int i = 0; i < 17; i++) {
             SSQ_ExAdapter.GroupItem item = new SSQ_ExAdapter.GroupItem();
             item.title = "双色球" ;
             List<SSQ_ExAdapter.ChildItem> mChildItems = new ArrayList<>();

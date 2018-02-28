@@ -1,6 +1,8 @@
 package com.cjkj.jcb_caizhan.widget.exlistview;
 
 import android.content.Context;
+import android.support.annotation.IdRes;
+import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,6 +14,7 @@ import java.util.List;
 /**
  * 万能ExpandableListAdapter适配器基类
  * 特别需求，可在这个基础上进行扩展
+ * 只需传入child和grop对应的布局ID即可
  * Created by 1 on 2018/2/28.
  */
 public abstract class CommonExpandableListAdapter<T, K> extends BaseExpandableListAdapter {
@@ -55,7 +58,6 @@ public abstract class CommonExpandableListAdapter<T, K> extends BaseExpandableLi
                              boolean isLastChild, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = null;
         if (null == convertView) {
-
             convertView = LayoutInflater.from(context).inflate(childResource, parent,
                     false);
             viewHolder = new ViewHolder(convertView);
@@ -114,7 +116,7 @@ public abstract class CommonExpandableListAdapter<T, K> extends BaseExpandableLi
         return true;
     }
 
-    public final static class ViewHolder {
+    public static  class ViewHolder {
         private SparseArray<View> views = new SparseArray<View>();
         private View convertView;
 
@@ -134,4 +136,5 @@ public abstract class CommonExpandableListAdapter<T, K> extends BaseExpandableLi
             return (T) view;
         }
     }
+
 }
