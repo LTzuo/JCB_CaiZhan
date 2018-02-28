@@ -112,6 +112,6 @@ dependencies {
     compile 'com.ycjiang:ImagePreview:2.0.8'
     //RecyclerView 支持侧滑，支持随时添加头部和底部，提供自动/点击加载更多功能
     compile 'com.yanzhenjie:recyclerview-swipe:1.1.4'
-    //字体对其TextView
+    //字体对齐TextView
     compile 'me.codeboy.android:align-text-view:2.3.0'
 }

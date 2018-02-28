@@ -19,6 +19,8 @@ import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.dilusense.customkeyboard.KeyboardNumber;
 import com.dilusense.customkeyboard.KeyboardUtils;
 import com.previewlibrary.GPreviewBuilder;
+import com.yuyh.library.imgsel.ISNav;
+import com.yuyh.library.imgsel.config.ISListConfig;
 //import com.yuyh.library.imgsel.ISNav;
 //import com.yuyh.library.imgsel.config.ISListConfig;
 import java.util.ArrayList;
@@ -123,20 +125,20 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
      */
     private void AlbumCamera(int count) {
         // 自由配置选项
-//        ISListConfig config = new ISListConfig.Builder()
-//                .multiSelect(true)
-//                .rememberSelected(false)
-//                .btnTextColor(Color.WHITE)
-//                .statusBarColor(getResources().getColor(R.color.colorPrimary))
-//                .title("图片")
-//                .titleColor(Color.WHITE)
-//                .titleBgColor(getResources().getColor(R.color.colorPrimary))
-//                .cropSize(1, 1, 200, 200)
-//                .needCrop(false)
-//                .needCamera(true)
-//                .maxNum(count)
-//                .build();
-       // ISNav.getInstance().toListActivity(this, config, REQUEST_CODE);
+        ISListConfig config = new ISListConfig.Builder()
+                .multiSelect(true)
+                .rememberSelected(false)
+                .btnTextColor(Color.WHITE)
+                .statusBarColor(getResources().getColor(R.color.colorPrimary))
+                .title("图片")
+                .titleColor(Color.WHITE)
+                .titleBgColor(getResources().getColor(R.color.colorPrimary))
+                .cropSize(1, 1, 200, 200)
+                .needCrop(false)
+                .needCamera(true)
+                .maxNum(count)
+                .build();
+        ISNav.getInstance().toListActivity(this, config, REQUEST_CODE);
 
 //        PhotoUtil.multiSelect(9)
 //                .setNeedCropWhenOne(true)

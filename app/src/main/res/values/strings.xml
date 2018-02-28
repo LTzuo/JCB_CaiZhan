@@ -37,4 +37,21 @@
         <item>10份</item>
     </string-array>
 
+    <string-array name="custom_caizhong">
+        <item>全部彩种</item>
+        <item>福彩3D</item>
+        <item>七乐彩</item>
+        <item>大乐透</item>
+        <item>排列三</item>
+        <item>排列五</item>
+        <item>七星彩</item>
+        <item>竞彩足球</item>
+        <item>竞彩篮球</item>
+        <item>胜负过关</item>
+        <item>足球胜负</item>
+        <item>任选九场</item>
+        <item>足球单场</item>
+
+    </string-array>
+
 </resources>

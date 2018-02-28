@@ -20,7 +20,7 @@ public class CustomGridAdapter extends BaseAdapter{
 
     private Context mContext;
 
-    private String mDatas[] = {"全部彩种", "福彩3D", "七乐彩", "大乐透",  "排列三", "排列五", "七星彩", "竞彩足球", "竞彩篮球","胜负过关","足球胜负","任选九场","足球单场"};
+    private String mDatas[] ;
 
     private boolean selsectDatas[] = {
             false,false,false,false,false,false,false,false,false,false,false,false,false
@@ -28,6 +28,7 @@ public class CustomGridAdapter extends BaseAdapter{
 
     public CustomGridAdapter(Context context){
         this.mContext = context;
+        mDatas  = mContext.getResources().getStringArray(R.array.custom_caizhong);
     }
 
     public void SelsectItem(int index){
