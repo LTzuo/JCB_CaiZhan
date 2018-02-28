@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.fragment;
+package com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.caizhong;
 
 import android.os.Bundle;
 import android.widget.TextView;
@@ -23,7 +23,7 @@ public class CaiZhong_zqsf_Fragment extends RxLazyFragment{
 
     @Override
     public int getLayoutResId() {
-        return R.layout.fragment_custom_chenge_caizhong;
+        return R.layout.fragment_test;
     }
 
     @Override

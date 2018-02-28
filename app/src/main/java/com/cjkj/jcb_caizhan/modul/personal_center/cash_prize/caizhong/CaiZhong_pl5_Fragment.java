@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.fragment;
+package com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.caizhong;
 
 import android.os.Bundle;
 import android.widget.TextView;
@@ -9,25 +9,25 @@ import com.cjkj.jcb_caizhan.base.RxLazyFragment;
 import butterknife.Bind;
 
 /**
- * 委托兑奖-任选九场
+ * 委托兑奖-排列五
  * Created by 1 on 2018/2/28.
  */
-public class CaiZhong_rx9c_Fragment extends RxLazyFragment{
+public class CaiZhong_pl5_Fragment extends RxLazyFragment{
 
     @Bind(R.id.text)
     TextView text;
 
-    public static CaiZhong_rx9c_Fragment newIntance() {
-        return new CaiZhong_rx9c_Fragment();
+    public static CaiZhong_pl5_Fragment newIntance() {
+        return new CaiZhong_pl5_Fragment();
     }
 
     @Override
     public int getLayoutResId() {
-        return R.layout.fragment_custom_chenge_caizhong;
+        return R.layout.fragment_test;
     }
 
     @Override
     public void finishCreateView(Bundle state) {
-        text.setText("任选九场");
+        text.setText("排列五");
     }
 }

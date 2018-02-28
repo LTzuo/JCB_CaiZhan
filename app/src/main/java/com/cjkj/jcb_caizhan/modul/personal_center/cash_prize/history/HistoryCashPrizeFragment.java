@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.fragment;
+package com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.history;
 
 import android.os.Bundle;
 import android.widget.TextView;
@@ -9,25 +9,25 @@ import com.cjkj.jcb_caizhan.base.RxLazyFragment;
 import butterknife.Bind;
 
 /**
- * 委托兑奖-胜负过关
+ * 委托兑奖-历史委托
  * Created by 1 on 2018/2/28.
  */
-public class CaiZhong_sfgg_Fragment extends RxLazyFragment{
+public class HistoryCashPrizeFragment extends RxLazyFragment{
 
     @Bind(R.id.text)
     TextView text;
 
-    public static CaiZhong_sfgg_Fragment newIntance() {
-        return new CaiZhong_sfgg_Fragment();
+    public static HistoryCashPrizeFragment newIntance() {
+        return new HistoryCashPrizeFragment();
     }
 
     @Override
     public int getLayoutResId() {
-        return R.layout.fragment_custom_chenge_caizhong;
+        return R.layout.fragment_test;
     }
 
     @Override
     public void finishCreateView(Bundle state) {
-        text.setText("胜负过关");
+        text.setText("历史委托");
     }
 }

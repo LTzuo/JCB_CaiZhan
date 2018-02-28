@@ -54,4 +54,9 @@
 
     </string-array>
 
+    <string-array name="CashPrizeValues">
+        <item>当前委托</item>
+        <item>历史委托</item>
+    </string-array>
+
 </resources>

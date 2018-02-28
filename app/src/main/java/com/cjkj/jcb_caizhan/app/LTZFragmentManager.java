@@ -4,27 +4,12 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import com.cjkj.jcb_caizhan.R;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.fragment.CaiZhong_3D_Fragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.fragment.CaiZhong_7lc_Fragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.fragment.CaiZhong_7xc_Fragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.fragment.CaiZhong_All_Fragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.fragment.CaiZhong_dlt_Fragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.fragment.CaiZhong_jclq_Fragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.fragment.CaiZhong_jczq_Fragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.fragment.CaiZhong_pl3_Fragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.fragment.CaiZhong_pl5_Fragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.fragment.CaiZhong_rx9c_Fragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.fragment.CaiZhong_sfgg_Fragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.fragment.CaiZhong_zqdc_Fragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.fragment.CaiZhong_zqsf_Fragment;
-import com.cjkj.jcb_caizhan.utils.ToastUtil;
-
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Fragment管理类
- * Fragment的添加与替换
+ * Fragment通用管理类
+ * 适合多fragment,特别是10个以上的fragment页面
  * Created by 1 on 2018/2/28.
  */
 public class LTZFragmentManager {
@@ -38,10 +23,12 @@ public class LTZFragmentManager {
     public LTZFragmentManager(AppCompatActivity context,List<Fragment> fragmentList) {
         this.mContext = context;
         this.FragmentList = fragmentList;
-
     }
 
-    //切换Fragment
+    /**
+     * 添加与切换Fragment
+     * @param position
+     */
     public void swichFragment(int position) {
         switchFragment(FragmentList.get(position));
     }
