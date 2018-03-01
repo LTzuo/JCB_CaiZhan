@@ -15,11 +15,13 @@ import com.cjkj.jcb_caizhan.modul.personal_center.chenge_station.ChangeLotterySt
 import com.cjkj.jcb_caizhan.modul.personal_center.launch_crowd.LaunchCrowdfundingActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.lottery.AwardResultActivity;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
+import com.cjkj.jcb_caizhan.modul.personal_center.lottery.LotteryCategoryActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.mine_message.MineMessageActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.order_query.OrderQueryActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.recharge.RechargeActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.seeting.SeetingActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.withdrawals.WithdrawalsActivity;
+import com.cjkj.jcb_caizhan.test.TableTestActivity;
 import com.cjkj.jcb_caizhan.utils.IntentUtils;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
@@ -74,7 +76,7 @@ public class PersonalCenterFragment extends RxLazyFragment implements Observable
     public void BtnClick(View v) {
         if (v.getId() == R.id.lin1) {
             //开奖结果
-          //IntentUtils.Goto(getActivity(), LotteryCategoryActivity.class);
+//            IntentUtils.Goto(getActivity(), LotteryCategoryActivity.class);
             IntentUtils.Goto(getActivity(), AwardResultActivity.class);
         } else if (v.getId() == R.id.layout_seeting) {
             //设置
@@ -102,7 +104,8 @@ public class PersonalCenterFragment extends RxLazyFragment implements Observable
             IntentUtils.Goto(getActivity(),AccountDetailsActivity.class);
         }else if(v.getId() == R.id.Layout_Duijiang){
             //委托兑奖
-            IntentUtils.Goto(getActivity(),CashPrizeActivity.class);
+            //IntentUtils.Goto(getActivity(),CashPrizeActivity.class);
+            IntentUtils.Goto(getActivity(),TableTestActivity.class);
         }
     }
 

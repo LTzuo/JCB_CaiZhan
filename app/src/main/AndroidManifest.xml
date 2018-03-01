@@ -27,6 +27,9 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+        <!--专用于测试的界面-->
+        <activity android:name=".test.TableTestActivity"/>
+
         <!-- 开机动画 -->
         <activity android:name=".modul.SplashActivity">
             <intent-filter>
@@ -62,49 +65,61 @@
         <!-- 个人中心-设置界面 -->
         <activity android:name=".modul.personal_center.seeting.SeetingActivity" />
         <!-- 个人中心-切换彩站 -->
-        <activity android:name=".modul.personal_center.chenge_station.ChangeLotteryStationActivity"
-            android:theme="@style/MainActivityColorTranslucentTheme"/>
+        <activity
+            android:name=".modul.personal_center.chenge_station.ChangeLotteryStationActivity"
+            android:theme="@style/MainActivityColorTranslucentTheme" />
         <!-- 个人中心-发起众筹 -->
         <activity
             android:name=".modul.personal_center.launch_crowd.LaunchCrowdfundingActivity"
-            android:windowSoftInputMode="adjustPan|adjustResize"
-            android:theme="@style/MainActivityColorTranslucentTheme"/>
+            android:theme="@style/MainActivityColorTranslucentTheme"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
         <!-- 个人中心-充值 -->
         <activity
             android:name=".modul.personal_center.recharge.RechargeActivity"
-            android:windowSoftInputMode="adjustPan|adjustResize"
-            android:theme="@style/MainActivityColorTranslucentTheme"/>
+            android:theme="@style/MainActivityColorTranslucentTheme"
+            android:windowSoftInputMode="adjustPan|adjustResize" />
         <!-- 个人中心-提现 -->
-        <activity android:name=".modul.personal_center.withdrawals.WithdrawalsActivity"
-            android:theme="@style/MainActivityColorTranslucentTheme"/>
+        <activity
+            android:name=".modul.personal_center.withdrawals.WithdrawalsActivity"
+            android:theme="@style/MainActivityColorTranslucentTheme" />
         <!-- 个人中心-我的消息 -->
-        <activity android:name=".modul.personal_center.mine_message.MineMessageActivity"
-            android:theme="@style/MainActivityColorTranslucentTheme"/>
+        <activity
+            android:name=".modul.personal_center.mine_message.MineMessageActivity"
+            android:theme="@style/MainActivityColorTranslucentTheme" />
         <!-- 个人中心-开奖结果 -->
-        <activity android:name=".modul.personal_center.lottery.AwardResultActivity"
-            android:theme="@style/MainActivityColorTranslucentTheme"/>
+        <activity
+            android:name=".modul.personal_center.lottery.AwardResultActivity"
+            android:theme="@style/MainActivityColorTranslucentTheme" />
         <!-- 个人中心-提现详情 -->
-        <activity android:name=".modul.personal_center.withdrawals.withdrawals_list.WithdrawalsDetailsActivity"
-            android:theme="@style/MainActivityColorTranslucentTheme"/>
+        <activity
+            android:name=".modul.personal_center.withdrawals.withdrawals_list.WithdrawalsDetailsActivity"
+            android:theme="@style/MainActivityColorTranslucentTheme" />
         <!-- 走势图列表页 -->
-        <activity android:name=".modul.personal_center.lottery.lottery_thread.LotteryThreadListActivity"
-            android:theme="@style/MainActivityColorTranslucentTheme"/>
+        <activity
+            android:name=".modul.personal_center.lottery.lottery_thread.LotteryThreadListActivity"
+            android:theme="@style/MainActivityColorTranslucentTheme" />
         <!-- 走势图 -->
-        <activity android:name=".modul.personal_center.lottery.lottery_thread.LotteryTrendActivity"
-            android:theme="@style/MainActivityColorTranslucentTheme"/>
+        <activity
+            android:name=".modul.personal_center.lottery.lottery_thread.LotteryTrendActivity"
+            android:theme="@style/MainActivityColorTranslucentTheme" />
         <!-- 个人中心-订单查询 -->
-        <activity android:name=".modul.personal_center.order_query.OrderQueryActivity"
-            android:theme="@style/MainActivityColorTranslucentTheme"/>
+        <activity
+            android:name=".modul.personal_center.order_query.OrderQueryActivity"
+            android:theme="@style/MainActivityColorTranslucentTheme" />
         <!-- 个人中心-账户明细 -->
-        <activity android:name=".modul.personal_center.account_details.AccountDetailsActivity"
-            android:theme="@style/MainActivityColorTranslucentTheme"/>
-        <!--个人中心-委托兑奖-->
-        <activity android:name=".modul.personal_center.cash_prize.CashPrizeActivity"
-            android:theme="@style/MainActivityColorTranslucentTheme"/>
+        <activity
+            android:name=".modul.personal_center.account_details.AccountDetailsActivity"
+            android:theme="@style/MainActivityColorTranslucentTheme" />
+        <!-- 个人中心-委托兑奖 -->
+        <activity
+            android:name=".modul.personal_center.cash_prize.CashPrizeActivity"
+            android:theme="@style/MainActivityColorTranslucentTheme" />
 
         <!-- 订单管理-双色球 -->
-        <activity android:name=".modul.order_manager.order.ssq.SSQActivity"
-            android:theme="@style/MainActivityColorTranslucentTheme"/>
+        <activity
+            android:name=".modul.order_manager.order.ssq.SSQActivity"
+            android:theme="@style/MainActivityColorTranslucentTheme" />
+
 
     </application>
 

@@ -43,6 +43,10 @@ public abstract class CommonExpandableListAdapter<T, K> extends BaseExpandableLi
         this.groupResource = groupResource;
     }
 
+    public Context getContext(){
+        return context;
+    }
+
     @Override
     public Object getChild(int groupPosition, int childPosition) {
         return childrenData.get(groupPosition).get(childPosition);

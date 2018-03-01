@@ -3,13 +3,15 @@ package com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.now;
 import android.content.Context;
 import android.widget.ImageView;
 import android.widget.TextView;
+import com.bumptech.glide.Glide;
 import com.cjkj.jcb_caizhan.R;
-import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.cjkj.jcb_caizhan.widget.exlistview.CommonExpandableListAdapter;
 import com.mixiaoxiao.smoothcompoundbutton.SmoothCheckBox;
 import com.mixiaoxiao.smoothcompoundbutton.SmoothCompoundButton;
 import java.util.HashMap;
 import java.util.Map;
+
+import cn.carbs.android.avatarimageview.library.AvatarImageView;
 
 /**
  * 委托兑奖-当前委托适配器
@@ -25,8 +27,10 @@ public class CashPrizeExAdapter extends CommonExpandableListAdapter<ChildCashPri
 
     @Override
     protected void getChildView(ViewHolder holder, int groupPositon, int childPositon, boolean isLastChild, ChildCashPrizeEntity data) {
-        TextView textView = holder.getView(R.id.childtxt);
-        textView.setText(data.getChildName());
+        TextView child_text = holder.getView(R.id.child_txt);
+
+        child_text.setText(data.getChildName());
+
     }
 
     @Override
@@ -35,10 +39,17 @@ public class CashPrizeExAdapter extends CommonExpandableListAdapter<ChildCashPri
         TextView group_name = holder.getView(R.id.group_name);
         TextView group_stage = holder.getView(R.id.group_stage);
         ImageView arrowImage = holder.getView(R.id.groupIcon);
+        AvatarImageView group_img = holder.getView(R.id.group_img);
 
         group_name.setText(data.getGroupName());
         group_stage.setText(data.getStage());
         arrowImage.setImageResource(isExpanded ? R.drawable.shou_jt : R.drawable.xl_jt);
+
+        Glide.with(getContext())
+                .load(R.drawable.default_lottery)
+                .placeholder(R.drawable.default_lottery)
+                .error(R.drawable.default_lottery)
+                .into(group_img);
 
         group_checkbox.setOnCheckedChangeListener(new SmoothCompoundButton.OnCheckedChangeListener() {
             @Override
@@ -50,6 +61,7 @@ public class CashPrizeExAdapter extends CommonExpandableListAdapter<ChildCashPri
                 }
             }
         });
+
         if(map!=null&&map.containsKey(groupPositon)){
             group_checkbox.setChecked(true);
         }else {
