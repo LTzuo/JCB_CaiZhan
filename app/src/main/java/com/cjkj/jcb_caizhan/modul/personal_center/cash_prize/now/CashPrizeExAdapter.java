@@ -5,10 +5,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.cjkj.jcb_caizhan.R;
+import com.cjkj.jcb_caizhan.test.table.TableListViewTestAdapter;
+import com.cjkj.jcb_caizhan.test.table.TableTextEntity;
+import com.cjkj.jcb_caizhan.utils.ToastUtil;
+import com.cjkj.jcb_caizhan.widget.SubListView;
 import com.cjkj.jcb_caizhan.widget.exlistview.CommonExpandableListAdapter;
 import com.mixiaoxiao.smoothcompoundbutton.SmoothCheckBox;
 import com.mixiaoxiao.smoothcompoundbutton.SmoothCompoundButton;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import cn.carbs.android.avatarimageview.library.AvatarImageView;
@@ -27,10 +33,21 @@ public class CashPrizeExAdapter extends CommonExpandableListAdapter<ChildCashPri
 
     @Override
     protected void getChildView(ViewHolder holder, int groupPositon, int childPositon, boolean isLastChild, ChildCashPrizeEntity data) {
-        TextView child_text = holder.getView(R.id.child_txt);
-
-        child_text.setText(data.getChildName());
-
+        //球类订单列表展示
+        SubListView childlistView = holder.getView(R.id.childlistView);
+        ChildListViewAdapter mChildListViewAdapter = new ChildListViewAdapter(getContext());
+        childlistView.setAdapter(mChildListViewAdapter);
+        //合买列表展示
+        SubListView childTablelistView = holder.getView(R.id.childTablelistView);
+        TableListViewTestAdapter mTableTestAdapter = new TableListViewTestAdapter(getContext());
+//        View headView = LayoutInflater.from(getContext()).inflate(R.layout.item_table_test, null,false);
+//        childTablelistView.addHeaderView(headView);
+        childTablelistView.setAdapter(mTableTestAdapter);
+        List<TableTextEntity> mDatas = new ArrayList<>();
+        mDatas.add(new TableTextEntity("合买人","等级","出资","份额","奖金/加奖"));
+        mDatas.add(new TableTextEntity("林天佐","营长","2000万","20.0%","20万"));
+        mDatas.add(new TableTextEntity("林亮","军长","9000万","80.0%","90万"));
+        mTableTestAdapter.setInfo(mDatas);
     }
 
     @Override
@@ -46,7 +63,7 @@ public class CashPrizeExAdapter extends CommonExpandableListAdapter<ChildCashPri
         arrowImage.setImageResource(isExpanded ? R.drawable.shou_jt : R.drawable.xl_jt);
 
         Glide.with(getContext())
-                .load(R.drawable.default_lottery)
+                .load(R.mipmap.flight)
                 .placeholder(R.drawable.default_lottery)
                 .error(R.drawable.default_lottery)
                 .into(group_img);
@@ -59,6 +76,7 @@ public class CashPrizeExAdapter extends CommonExpandableListAdapter<ChildCashPri
                 }else {
                     map.remove(groupPositon);
                 }
+                ToastUtil.ShortToast(groupPositon+"~~~~~~"+b);
             }
         });
 

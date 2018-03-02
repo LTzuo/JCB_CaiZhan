@@ -27,8 +27,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
-        <!--专用于测试的界面-->
-        <activity android:name=".test.TableTestActivity"/>
+        <!-- 专用于测试的界面 -->
+        <activity android:name=".test.table.TableTestActivity" />
 
         <!-- 开机动画 -->
         <activity android:name=".modul.SplashActivity">
@@ -114,13 +114,19 @@
         <activity
             android:name=".modul.personal_center.cash_prize.CashPrizeActivity"
             android:theme="@style/MainActivityColorTranslucentTheme" />
+        <!-- 个人中心-下载我的彩民端展示页 -->
+        <activity
+            android:name=".modul.personal_center.dowmload_caimin.DownLoadCaiMinActivity"
+            android:theme="@style/MainActivityColorTranslucentTheme" />
+        <!-- 个人中心-开闭店设置 -->
+        <activity
+            android:name=".modul.personal_center.open_close.OpenAndCloseActivity"
+            android:theme="@style/MainActivityColorTranslucentTheme" />
 
         <!-- 订单管理-双色球 -->
         <activity
             android:name=".modul.order_manager.order.ssq.SSQActivity"
             android:theme="@style/MainActivityColorTranslucentTheme" />
-
-
     </application>
 
 </manifest>

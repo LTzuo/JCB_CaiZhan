@@ -1,11 +1,10 @@
-package com.cjkj.jcb_caizhan.test;
+package com.cjkj.jcb_caizhan.test.table;
 
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.widget.TableLayout;
 
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxBaseActivity;
@@ -26,7 +25,7 @@ public class TableTestActivity extends RxBaseActivity {
     @Bind(R.id.mRecyclerView)
     RecyclerView mRecyclerView;
 
-    TableTestAdapter mTableTestAdapter;
+    TableRecyclerViewTestAdapter mTableTestAdapter;
 
     List<TableTextEntity> mDatas = new ArrayList<>();
 
@@ -37,9 +36,8 @@ public class TableTestActivity extends RxBaseActivity {
 
     @Override
     public void initViews(Bundle savedInstanceState) {
-        mTableTestAdapter = new TableTestAdapter(mRecyclerView);
+        mTableTestAdapter = new TableRecyclerViewTestAdapter(mRecyclerView);
         LinearLayoutManager manager = new LinearLayoutManager(this,LinearLayoutManager.VERTICAL,false);
-      //  manager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(manager);
         mRecyclerView.addItemDecoration(new DividerItemDecoration(this, LinearLayoutManager.VERTICAL));
         mRecyclerView.setAdapter(mTableTestAdapter);

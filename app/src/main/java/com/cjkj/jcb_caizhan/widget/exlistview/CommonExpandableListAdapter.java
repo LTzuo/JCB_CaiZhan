@@ -62,8 +62,7 @@ public abstract class CommonExpandableListAdapter<T, K> extends BaseExpandableLi
                              boolean isLastChild, View convertView, ViewGroup parent) {
         ViewHolder viewHolder = null;
         if (null == convertView) {
-            convertView = LayoutInflater.from(context).inflate(childResource, parent,
-                    false);
+            convertView = LayoutInflater.from(context).inflate(childResource, parent,false);
             viewHolder = new ViewHolder(convertView);
             convertView.setTag(viewHolder);
         } else {
@@ -99,8 +98,7 @@ public abstract class CommonExpandableListAdapter<T, K> extends BaseExpandableLi
         ViewHolder viewHolder = null;
         if (null == convertView) {
 
-            convertView = LayoutInflater.from(context).inflate(groupResource, parent,
-                    false);
+            convertView = LayoutInflater.from(context).inflate(groupResource, parent, false);
             viewHolder = new ViewHolder(convertView);
             convertView.setTag(viewHolder);
         } else {

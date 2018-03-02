@@ -9,21 +9,37 @@
     android:fitsSystemWindows="true"
     android:orientation="vertical">
 
-    <cn.carbs.android.avatarimageview.library.AvatarImageView
-        android:id="@+id/item_avatar"
-        android:layout_width="75dp"
-        android:layout_height="75dp"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/default_lottery"
-        android:padding="2dp"
-        app:aiv_BoarderWidth="2dp"
-        app:aiv_BoarderColor="#db4358"
-        app:aiv_ShowBoarder="true"
-        app:aiv_TextSizeRatio="0.4"/>
+    <FrameLayout
+        android:id="@+id/framelayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        >
+        <cn.carbs.android.avatarimageview.library.AvatarImageView
+            android:id="@+id/item_avatar"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/default_lottery"
+            android:layout_gravity="center_horizontal"
+            android:padding="2dp"
+            app:aiv_BoarderWidth="2dp"
+            app:aiv_BoarderColor="#db4358"
+            app:aiv_ShowBoarder="true"
+            app:aiv_TextSizeRatio="0.4"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_marginLeft="25dp"
+            android:src="@drawable/xg_bi"/>
+
+    </FrameLayout>
+
 
     <TextView
         android:id="@+id/tv_title"
-        android:layout_below="@+id/item_avatar"
+        android:layout_below="@+id/framelayout"
         android:layout_centerHorizontal="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

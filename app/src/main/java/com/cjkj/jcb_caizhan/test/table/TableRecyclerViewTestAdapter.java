@@ -1,24 +1,21 @@
-package com.cjkj.jcb_caizhan.test;
+package com.cjkj.jcb_caizhan.test.table;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.AbsRecyclerViewAdapter;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import cn.carbs.android.avatarimageview.library.AvatarImageView;
 
 /**
  * 列表仿表格适配器
  * Created by 1 on 2018/3/1.
  */
-public class TableTestAdapter extends AbsRecyclerViewAdapter {
+public class TableRecyclerViewTestAdapter extends AbsRecyclerViewAdapter {
 
     public static final int ITEM_TYPE_HEADER = 1;
     public static final int ITEM_TYPE_NORMAL = 0;
@@ -26,7 +23,7 @@ public class TableTestAdapter extends AbsRecyclerViewAdapter {
 
     private List<TableTextEntity> mDatas = new ArrayList<>();
 
-    public TableTestAdapter(RecyclerView recyclerView) {
+    public TableRecyclerViewTestAdapter(RecyclerView recyclerView) {
         super(recyclerView);
     }
 
@@ -42,7 +39,7 @@ public class TableTestAdapter extends AbsRecyclerViewAdapter {
                     LayoutInflater.from(getContext()).inflate(R.layout.item_table_test, parent, false));
         } else{
             return new ItemViewHolder(
-                    LayoutInflater.from(getContext()).inflate(R.layout.item_table_test, parent, false));
+                    LayoutInflater.from(getContext()).inflate(R.layout.item_table_test, parent,false));
         }
 //        else{
 //            return new FooterViewHolder(
@@ -77,13 +74,13 @@ public class TableTestAdapter extends AbsRecyclerViewAdapter {
 
     @Override
     public int getItemViewType(int position) {
-         if(position == 0){
+        if(position == 0){
             return ITEM_TYPE_HEADER;
         }
 //         else if(position == getItemCount() + 1){
 //             return ITEM_TYPE_FOOTER;
 //         }
-         else{
+        else{
             return ITEM_TYPE_NORMAL;
         }
 
@@ -120,5 +117,4 @@ public class TableTestAdapter extends AbsRecyclerViewAdapter {
             text5 = $(R.id.text5);
         }
     }
-
 }

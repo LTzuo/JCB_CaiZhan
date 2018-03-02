@@ -12,16 +12,16 @@ import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.modul.personal_center.account_details.AccountDetailsActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.CashPrizeActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.chenge_station.ChangeLotteryStationActivity;
+import com.cjkj.jcb_caizhan.modul.personal_center.dowmload_caimin.DownLoadCaiMinActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.launch_crowd.LaunchCrowdfundingActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.lottery.AwardResultActivity;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.lottery.LotteryCategoryActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.mine_message.MineMessageActivity;
+import com.cjkj.jcb_caizhan.modul.personal_center.open_close.OpenAndCloseActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.order_query.OrderQueryActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.recharge.RechargeActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.seeting.SeetingActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.withdrawals.WithdrawalsActivity;
-import com.cjkj.jcb_caizhan.test.TableTestActivity;
 import com.cjkj.jcb_caizhan.utils.IntentUtils;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
@@ -34,6 +34,7 @@ import com.scwang.smartrefresh.layout.header.ClassicsHeader;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import butterknife.Bind;
 import butterknife.OnClick;
+import vn.luongvo.widget.iosswitchview.SwitchView;
 
 /**
  * Created by 1 on 2018/1/15.
@@ -60,6 +61,9 @@ public class PersonalCenterFragment extends RxLazyFragment implements Observable
     @Bind(R.id.item_avatar)
     ImageView img_header;
 
+    @Bind(R.id.switchview)
+    SwitchView switchView;
+
     private int mFlexibleSpaceHeight;
 
     public static PersonalCenterFragment newInstance() {
@@ -71,10 +75,12 @@ public class PersonalCenterFragment extends RxLazyFragment implements Observable
         return R.layout.fragment_mine;
     }
 
-    @OnClick({R.id.lin1,R.id.layout_chenge,R.id.layout_seeting,R.id.layout_launchCrowdfunding,R.id.Layout_recharge,R.id.layout_Withdrawals
-             ,R.id.Layout_message,R.id.Layout_OrderQuery,R.id.Layout_AccountDetails,R.id.Layout_Duijiang})
+    @OnClick({R.id.Layout_Open_Close,R.id.Layout_AwardResult,R.id.layout_chenge,R.id.layout_seeting,R.id.layout_launchCrowdfunding,R.id.Layout_recharge,R.id.layout_Withdrawals
+             ,R.id.Layout_message,R.id.Layout_OrderQuery,R.id.Layout_AccountDetails,R.id.Layout_Duijiang,R.id.Layout_DownLoad})
     public void BtnClick(View v) {
-        if (v.getId() == R.id.lin1) {
+        if(v.getId() == R.id.Layout_Open_Close){
+            IntentUtils.Goto(getActivity(), OpenAndCloseActivity.class);
+        }else if (v.getId() == R.id.Layout_AwardResult) {
             //开奖结果
 //            IntentUtils.Goto(getActivity(), LotteryCategoryActivity.class);
             IntentUtils.Goto(getActivity(), AwardResultActivity.class);
@@ -104,8 +110,10 @@ public class PersonalCenterFragment extends RxLazyFragment implements Observable
             IntentUtils.Goto(getActivity(),AccountDetailsActivity.class);
         }else if(v.getId() == R.id.Layout_Duijiang){
             //委托兑奖
-            //IntentUtils.Goto(getActivity(),CashPrizeActivity.class);
-            IntentUtils.Goto(getActivity(),TableTestActivity.class);
+          IntentUtils.Goto(getActivity(),CashPrizeActivity.class);
+//            IntentUtils.Goto(getActivity(),TableTestActivity.class);
+        }else if(v.getId() == R.id.Layout_DownLoad){
+            IntentUtils.Goto(getActivity(),DownLoadCaiMinActivity.class);
         }
     }
 
@@ -115,6 +123,14 @@ public class PersonalCenterFragment extends RxLazyFragment implements Observable
         mFlexibleSpaceHeight = getResources().getDimensionPixelSize(R.dimen.minefragment_header_hight);
         isPrepared = true;
         lazyLoad();
+
+        switchView.setChecked(true);
+        switchView.setOnCheckedChangeListener(new SwitchView.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(SwitchView switchView, boolean isChecked) {
+               ToastUtil.ShortToast(isChecked+"");
+            }
+        });
     }
 
     @Override
@@ -166,7 +182,7 @@ public class PersonalCenterFragment extends RxLazyFragment implements Observable
     @Override
     protected void finishTask() {
         Glide.with(getContext())
-                .load(R.drawable.default_lottery)
+                .load(R.mipmap.flight)
                 .centerCrop()
                 .crossFade()
                 .into(img_header);
@@ -192,19 +208,12 @@ public class PersonalCenterFragment extends RxLazyFragment implements Observable
 
     @Override
     public void onDownMotionEvent() {
-//        mSwipeRefreshLayout.setNestedScrollingEnabled(false);
+
     }
 
     @Override
     public void onUpOrCancelMotionEvent(ScrollState scrollState) {
-//        mSwipeRefreshLayout.setNestedScrollingEnabled(true);
-//        if(scrollState == ScrollState.UP){
-//            ViewHelper.setScaleX(img_header,(float)0.0001);
-//            ViewHelper.setScaleY(img_header,(float)0.0001);
-//        }else if(scrollState == ScrollState.DOWN){
-//            ViewHelper.setScaleX(img_header,1);
-//            ViewHelper.setScaleY(img_header,1);
-//        }
+//
     }
 
 }

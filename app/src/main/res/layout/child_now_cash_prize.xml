@@ -1,18 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:background="@color/bg_f3f2f7"
+    android:orientation="vertical"
+    android:paddingBottom="10dp">
 
     <TextView
-        android:id="@+id/child_txt"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="10dp"
+        android:textSize="@dimen/_10dp"
+        android:textColor="@color/black_alpha_60"
+        android:text="下单种类：双色球【直选5组-合买】"/>
 
-    <com.bin.david.form.core.SmartTable
-        android:id="@+id/child_table"
+    <com.cjkj.jcb_caizhan.widget.SubListView
+        android:id="@+id/childlistView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginRight="20dp"
+        android:divider="@null"
+         />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="5dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_10dp"
+            android:textColor="@color/black_alpha_60"
+            android:text="开奖号码："/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorPrimary"
+            android:textSize="@dimen/_10dp"
+            android:text="01 02 03 04 05 06"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/_10dp"
+            android:text="11"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="3dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_10dp"
+            android:textColor="@color/black_alpha_60"
+            android:text="购彩金额："/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_10dp"
+            android:textColor="@color/black_alpha_60"
+            android:text="1000.00元"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginTop="3dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_10dp"
+            android:textColor="@color/black_alpha_60"
+            android:text="中奖说明："/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_10dp"
+            android:textColor="@color/black_alpha_60"
+            android:text="林天佐随便就中了一千万"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="30dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="3dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_10dp"
+            android:textColor="@color/black_alpha_60"
+            android:text="中奖金额："/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_10dp"
+            android:textColor="@color/black_alpha_60"
+            android:layout_weight="1"
+            android:text="1000.00元-10元+100元"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_9dp"
+            android:textColor="@color/white"
+            android:background="@drawable/shape_red_bg"
+            android:text="税金"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_9dp"
+            android:layout_marginLeft="5dp"
+            android:textColor="@color/white"
+            android:background="@drawable/shape_red_bg"
+            android:text="加奖"/>
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:layout_marginTop="3dp"
+        android:textSize="@dimen/_9dp"
+        android:layout_marginLeft="30dp"
+        android:text="(中奖金额仅供参考，请以官方数据为准。)"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="25dp"
+        android:layout_marginTop="10dp"
+        android:textSize="@dimen/_10dp"
+        android:textColor="@color/black_alpha_60"
+        android:text="合买人"/>
+
+    <com.cjkj.jcb_caizhan.widget.SubListView
+        android:id="@+id/childTablelistView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:background="@drawable/gray_frame_bg" />
 
 </LinearLayout>

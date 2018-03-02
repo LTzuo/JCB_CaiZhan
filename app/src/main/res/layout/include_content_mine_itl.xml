@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/ll_content"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -7,7 +8,60 @@
     android:orientation="vertical">
 
     <LinearLayout
-        android:id="@+id/lin1"
+        android:id="@+id/Layout_Open_Close"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:drawableLeft="@drawable/open_close"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:text="开闭店设置"
+            android:textColor="@color/black_light"
+            android:textSize="@dimen/minefragment_lift_text_size" />
+
+        <vn.luongvo.widget.iosswitchview.SwitchView
+            android:id="@+id/switchview"
+            android:layout_width="35dp"
+            android:layout_height="25dp"
+            android:layout_marginLeft="5dp"
+            app:color_on="@color/orange"/>
+
+        <TextView
+            style="@style/font_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/more"
+            android:gravity="end|center_vertical"
+            android:textColor="@color/grey1"
+            android:textSize="@dimen/minefragment_right_text_size" />
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+            android:background="#e6e6e6" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Layout_AwardResult"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -18,9 +72,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
             android:drawableLeft="@drawable/kjjg_grzx"
             android:drawablePadding="8dp"
-            android:layout_marginLeft="8dp"
             android:gravity="center"
             android:text="开奖结果"
             android:textColor="@color/black_light"
@@ -36,16 +90,18 @@
             android:textColor="@color/grey1"
             android:textSize="@dimen/minefragment_right_text_size" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white">
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="10dp"
-            android:background="#e6e6e6"/>
+            android:background="#e6e6e6" />
     </LinearLayout>
 
     <LinearLayout
@@ -59,9 +115,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
             android:drawableLeft="@drawable/wdxx_grzx"
             android:drawablePadding="8dp"
-            android:layout_marginLeft="8dp"
             android:gravity="center"
             android:text="我的消息"
             android:textColor="@color/black_light"
@@ -74,21 +130,24 @@
             android:layout_weight="1"
             android:drawableRight="@drawable/more"
             android:gravity="end|center_vertical"
-            android:textColor="@color/grey1"
             android:text="2条未读，共10条"
+            android:textColor="@color/grey1"
             android:textSize="@dimen/minefragment_right_text_size" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white">
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="10dp"
-            android:background="#e6e6e6"/>
+            android:background="#e6e6e6" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/Layout_recharge"
         android:layout_width="match_parent"
@@ -100,9 +159,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
             android:drawableLeft="@drawable/cz_grzx"
             android:drawablePadding="8dp"
-            android:layout_marginLeft="8dp"
             android:gravity="center"
             android:text="充值"
             android:textColor="@color/black_light"
@@ -115,20 +174,22 @@
             android:layout_weight="1"
             android:drawableRight="@drawable/more"
             android:gravity="end|center_vertical"
+            android:text="账户余额：0.00"
             android:textColor="@color/orangered"
-            android:textSize="@dimen/minefragment_right_text_size"
-            android:text="账户余额：0.00" />
+            android:textSize="@dimen/minefragment_right_text_size" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white">
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="10dp"
-            android:background="#e6e6e6"/>
+            android:background="#e6e6e6" />
     </LinearLayout>
 
     <LinearLayout
@@ -142,9 +203,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
             android:drawableLeft="@drawable/tx_grzx"
             android:drawablePadding="8dp"
-            android:layout_marginLeft="8dp"
             android:gravity="center"
             android:text="提现"
             android:textColor="@color/black_light"
@@ -176,9 +237,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
             android:drawableLeft="@drawable/fqzc_grzx"
             android:drawablePadding="8dp"
-            android:layout_marginLeft="8dp"
 
             android:gravity="center"
             android:text="发起众筹"
@@ -197,16 +258,18 @@
             android:textSize="@dimen/minefragment_right_text_size" />
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white">
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="10dp"
-            android:background="#e6e6e6"/>
+            android:background="#e6e6e6" />
     </LinearLayout>
 
     <LinearLayout
@@ -219,9 +282,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
             android:drawableLeft="@drawable/wqp_grzx"
             android:drawablePadding="8dp"
-            android:layout_marginLeft="8dp"
             android:gravity="center"
             android:text="未出票"
             android:textColor="@color/black_light"
@@ -235,22 +298,25 @@
             android:layout_weight="1"
             android:drawableRight="@drawable/more"
             android:gravity="end|center_vertical"
+            android:text="0单未出"
             android:textColor="@color/grey1"
-            android:textSize="@dimen/minefragment_right_text_size"
-            android:text="0单未出" />
+            android:textSize="@dimen/minefragment_right_text_size" />
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white">
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="10dp"
-            android:background="#e6e6e6"/>
+            android:background="#e6e6e6" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/Layout_Duijiang"
         android:layout_width="match_parent"
@@ -262,9 +328,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
             android:drawableLeft="@drawable/wtdj_grzx"
             android:drawablePadding="8dp"
-            android:layout_marginLeft="8dp"
             android:gravity="center"
             android:text="委托兑奖"
             android:textColor="@color/black_light"
@@ -283,17 +349,20 @@
             android:textSize="@dimen/minefragment_right_text_size" />
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white">
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="10dp"
-            android:background="#e6e6e6"/>
+            android:background="#e6e6e6" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -304,9 +373,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
             android:drawableLeft="@drawable/smqp_grzx"
             android:drawablePadding="8dp"
-            android:layout_marginLeft="8dp"
             android:gravity="center"
             android:text="上门取票"
             android:textColor="@color/black_light"
@@ -327,6 +396,7 @@
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/Layout_DownLoad"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="15dp"
@@ -337,9 +407,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
             android:drawableLeft="@drawable/xz_grzx"
             android:drawablePadding="8dp"
-            android:layout_marginLeft="8dp"
             android:gravity="center"
             android:text="下载我的彩民端"
             android:textColor="@color/black_light"
@@ -357,17 +427,20 @@
             android:textSize="@dimen/minefragment_right_text_size" />
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white">
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="10dp"
-            android:background="#e6e6e6"/>
+            android:background="#e6e6e6" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/Layout_OrderQuery"
         android:layout_width="match_parent"
@@ -379,9 +452,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
             android:drawableLeft="@drawable/ddcx_grzx"
             android:drawablePadding="8dp"
-            android:layout_marginLeft="8dp"
             android:gravity="center"
             android:text="订单查询"
             android:textColor="@color/black_light"
@@ -399,17 +472,20 @@
             android:textSize="@dimen/minefragment_right_text_size" />
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white">
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="10dp"
-            android:background="#e6e6e6"/>
+            android:background="#e6e6e6" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/Layout_AccountDetails"
         android:layout_width="match_parent"
@@ -421,9 +497,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
             android:drawableLeft="@drawable/zhmx_grzx"
             android:drawablePadding="8dp"
-            android:layout_marginLeft="8dp"
             android:gravity="center"
             android:text="账户明细"
             android:textColor="@color/black_light"
@@ -441,16 +517,18 @@
             android:textSize="@dimen/minefragment_right_text_size" />
 
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white">
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="10dp"
-            android:background="#e6e6e6"/>
+            android:background="#e6e6e6" />
     </LinearLayout>
 
 
@@ -465,9 +543,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
             android:drawableLeft="@drawable/sz_grzx"
             android:drawablePadding="8dp"
-            android:layout_marginLeft="8dp"
             android:gravity="center"
             android:text="设置"
             android:textColor="@color/black_light"
@@ -484,17 +562,20 @@
             android:textColor="@color/grey1"
             android:textSize="@dimen/minefragment_right_text_size" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white">
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="10dp"
-            android:background="#e6e6e6"/>
+            android:background="#e6e6e6" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/layout_chenge"
         android:layout_width="match_parent"
@@ -506,9 +587,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
             android:drawableLeft="@drawable/zh_grzx"
             android:drawablePadding="8dp"
-            android:layout_marginLeft="8dp"
             android:gravity="center"
             android:text="切换彩站"
             android:textColor="@color/black_light"
@@ -525,17 +606,20 @@
             android:textColor="@color/grey1"
             android:textSize="@dimen/minefragment_right_text_size" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white">
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0.5dp"
             android:layout_marginLeft="15dp"
             android:layout_marginRight="10dp"
-            android:background="#e6e6e6"/>
+            android:background="#e6e6e6" />
     </LinearLayout>
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -546,9 +630,9 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
             android:drawableLeft="@drawable/tc_grzx"
             android:drawablePadding="8dp"
-            android:layout_marginLeft="8dp"
             android:gravity="center"
             android:text="退出"
             android:textColor="@color/black_light"
@@ -565,6 +649,7 @@
             android:textColor="@color/grey1"
             android:textSize="@dimen/minefragment_right_text_size" />
     </LinearLayout>
+
     <View
         android:layout_width="match_parent"
         android:layout_height="20dp" />

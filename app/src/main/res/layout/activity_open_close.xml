@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/bg_f3f2f7"
+    tools:context="com.cjkj.jcb_caizhan.modul.personal_center.open_close.OpenAndCloseActivity">
+
+    <include layout="@layout/toolbar"/>
+
+    <RelativeLayout
+        android:id="@+id/open_time"
+        android:layout_below="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black_alpha_70"
+            android:textSize="@dimen/_15dp"
+            android:text="开店时间"/>
+
+        <TextView
+            android:id="@+id/tv_opentime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grey1"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:textSize="@dimen/_14dp"
+            android:text="08:00"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/close_time"
+        android:layout_below="@+id/open_time"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:padding="10dp"
+        android:background="@color/white">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black_alpha_70"
+            android:textSize="@dimen/_15dp"
+            android:text="开店时间"/>
+
+        <TextView
+            android:id="@+id/tv_closetime"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/grey1"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="5dp"
+            android:textSize="@dimen/_14dp"
+            android:text="23:00"/>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>

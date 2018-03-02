@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.test;
+package com.cjkj.jcb_caizhan.test.table;
 
 /**
  * 表格测试数据
