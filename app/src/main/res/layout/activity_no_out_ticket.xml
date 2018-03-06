@@ -3,12 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".modul.personal_center.order_query.OrderQueryActivity">
+    tools:context="com.cjkj.jcb_caizhan.modul.personal_center.no_out_ticket.NoOutTicketActivity">
 
-    <include layout="@layout/toolbar_search"/>
-
-
+    <include layout="@layout/toolbar"/>
 
     <ExpandableListView
         android:id="@+id/mExpandableListView"
@@ -18,7 +15,6 @@
         android:childDivider="@color/bg_f3f2f7"
         android:dividerHeight="0dp"
         android:groupIndicator="@null"
-        android:layout_below="@+id/toolbar_container"/>
-
+        android:layout_below="@+id/toolbar"/>
 
 </RelativeLayout>

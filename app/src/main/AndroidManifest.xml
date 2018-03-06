@@ -122,11 +122,24 @@
         <activity
             android:name=".modul.personal_center.open_close.OpenAndCloseActivity"
             android:theme="@style/MainActivityColorTranslucentTheme" />
+        <!-- 个人中心-未出票 -->
+        <activity
+            android:name=".modul.personal_center.no_out_ticket.NoOutTicketActivity"
+            android:theme="@style/MainActivityColorTranslucentTheme" />
+        <!--个人中心-上门取票-->
+        <activity
+            android:name=".modul.personal_center.to_door_ticket.ToDoorTicketActivity"
+            android:theme="@style/MainActivityColorTranslucentTheme"/>
+        <!-- 个人中心-设置-版本信息 -->
+        <activity
+            android:name=".modul.personal_center.seeting.version_information.VersionInformationActivity"
+            android:theme="@style/MainActivityColorTranslucentTheme" />
 
         <!-- 订单管理-双色球 -->
         <activity
             android:name=".modul.order_manager.order.ssq.SSQActivity"
             android:theme="@style/MainActivityColorTranslucentTheme" />
+
     </application>
 
 </manifest>

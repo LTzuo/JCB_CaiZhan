@@ -145,7 +145,6 @@ public class SSQ_ExAdapter extends BaseExpandableListAdapter {
             convertView = View.inflate(mContext,R.layout.child_ssq_wait_ticket, null);
             holder.mTextView = (TextView) convertView.findViewById(R.id.order_number);
             holder.mChildListView = (SubListView) convertView.findViewById(R.id.mChildListView);
-            holder.btn0 = (TextView) convertView.findViewById(R.id.btn0);
             convertView.setTag(holder);
         }
         holder.mTextView.setText(mGroupItems.get(groupPosition).mChildList.get(childPosition).message);
@@ -157,13 +156,6 @@ public class SSQ_ExAdapter extends BaseExpandableListAdapter {
         SourceDateList.add("01 02 03 04 05");
         SubListViewAdapter listViewAdaAdapter = new SubListViewAdapter(mContext,SourceDateList);
         holder.mChildListView.setAdapter(listViewAdaAdapter);
-        holder.btn0.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // ToastUtil.ShortToast("上传照片"+groupPosition);
-                //listViewAdaAdapter.addInfo("01 02 03 04 05",0);
-            }
-        });
         return convertView;
     }
 
@@ -186,21 +178,20 @@ public class SSQ_ExAdapter extends BaseExpandableListAdapter {
     class ChildViewHolder{
         SubListView mChildListView;
         TextView mTextView;
-        TextView btn0;
     }
 
     /**
      * 一级节点对象
      */
     public static class GroupItem {
-        String title;
-        List<ChildItem> mChildList;
+       public String title;
+       public List<ChildItem> mChildList;
     }
 
     /**
      * 二级节点对象
      */
     public static class ChildItem {
-        String message;
+        public String message;
     }
 }

@@ -14,10 +14,12 @@
         android:groupIndicator="@null"/>
 
     <LinearLayout
+        android:id="@+id/layout_checkbox_select"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:layout_gravity="bottom"
+        android:visibility="gone"
         android:padding="10dp"
         android:orientation="horizontal">
        <TextView

@@ -7,7 +7,6 @@ import com.bumptech.glide.Glide;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.test.table.TableListViewTestAdapter;
 import com.cjkj.jcb_caizhan.test.table.TableTextEntity;
-import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.cjkj.jcb_caizhan.widget.SubListView;
 import com.cjkj.jcb_caizhan.widget.exlistview.CommonExpandableListAdapter;
 import com.mixiaoxiao.smoothcompoundbutton.SmoothCheckBox;
@@ -16,7 +15,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import cn.carbs.android.avatarimageview.library.AvatarImageView;
 
 /**
@@ -29,6 +27,28 @@ public class CashPrizeExAdapter extends CommonExpandableListAdapter<ChildCashPri
 
     public CashPrizeExAdapter(Context mContext, int childResource, int groupResource){
         super(mContext,childResource,groupResource);
+    }
+
+    CheckBoxSelectListener mCheckBoxSelectListener;
+    public interface CheckBoxSelectListener{
+        void onCheckBoxSelect(boolean isSelect);
+    }
+
+    public void setOnCheckBoxSelectListener(CheckBoxSelectListener mCheckBoxSelectListener){
+        this.mCheckBoxSelectListener = mCheckBoxSelectListener;
+    }
+
+    /**
+     * 多选框被选中
+     */
+    private void showCheckBoxSelectDialog(){
+        boolean isSelect = false;
+        for (Integer key : map.keySet()) {
+            if(map.get(key)){
+                isSelect = true;
+            }
+        }
+        mCheckBoxSelectListener.onCheckBoxSelect(isSelect);
     }
 
     @Override
@@ -76,7 +96,7 @@ public class CashPrizeExAdapter extends CommonExpandableListAdapter<ChildCashPri
                 }else {
                     map.remove(groupPositon);
                 }
-                ToastUtil.ShortToast(groupPositon+"~~~~~~"+b);
+                showCheckBoxSelectDialog();
             }
         });
 

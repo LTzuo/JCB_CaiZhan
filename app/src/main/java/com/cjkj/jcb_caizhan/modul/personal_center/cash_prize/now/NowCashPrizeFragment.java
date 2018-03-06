@@ -1,11 +1,14 @@
 package com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.now;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ExpandableListView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
+import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.cjkj.jcb_caizhan.widget.exlistview.CommonExpandableListAdapter;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,10 +19,12 @@ import butterknife.Bind;
  * 委托兑奖-当前委托
  * Created by 1 on 2018/2/28.
  */
-public class NowCashPrizeFragment extends RxLazyFragment {
+public class NowCashPrizeFragment extends RxLazyFragment implements CashPrizeExAdapter.CheckBoxSelectListener{
 
     @Bind(R.id.mExpandableListView)
     ExpandableListView mExpandableListView;
+    @Bind(R.id.layout_checkbox_select)
+    LinearLayout layout_checkbox_select;
 
     private CashPrizeExAdapter mCashPrizeExAdapter;
 
@@ -36,6 +41,7 @@ public class NowCashPrizeFragment extends RxLazyFragment {
     public void finishCreateView(Bundle state) {
         mCashPrizeExAdapter = new CashPrizeExAdapter(getActivity(), R.layout.child_now_cash_prize, R.layout.group_now_cash_prize);
         mExpandableListView.setAdapter(mCashPrizeExAdapter);
+        mCashPrizeExAdapter.setOnCheckBoxSelectListener(this);
         //添加测试数据
         addTestData();
     }
@@ -57,4 +63,12 @@ public class NowCashPrizeFragment extends RxLazyFragment {
         mCashPrizeExAdapter.notifyDataSetChanged();
     }
 
+    @Override
+    public void onCheckBoxSelect(boolean isSelect) {
+        if(isSelect){
+            layout_checkbox_select.setVisibility(View.VISIBLE);
+        }else
+            layout_checkbox_select.setVisibility(View.GONE);
+
+    }
 }

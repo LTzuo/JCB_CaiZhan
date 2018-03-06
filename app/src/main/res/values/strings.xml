@@ -23,6 +23,11 @@
     </string-array>
 
 
+    <string-array name="todoorticket_arrays">
+        <item>上门取票</item>
+        <item>取票历史</item>
+    </string-array>
+
     <string-array name="FlowlayoutTagValues">
         <item>200份</item>
         <item>100份</item>

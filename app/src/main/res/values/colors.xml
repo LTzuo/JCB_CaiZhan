@@ -163,7 +163,7 @@
     <color name="darkviolet">#9400d3</color><!--暗紫罗兰色 -->
     <color name="mediumorchid">#ba55d3</color><!--中粉紫色 -->
     <color name="font_normal">#555555</color>
-
+    <color name="color_accent">#0cc4ac</color>
 
     <color name="base_color_0">#f53e7b</color>
     <color name="base_color_1">#333333</color>

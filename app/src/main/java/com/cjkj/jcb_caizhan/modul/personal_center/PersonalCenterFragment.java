@@ -17,10 +17,12 @@ import com.cjkj.jcb_caizhan.modul.personal_center.launch_crowd.LaunchCrowdfundin
 import com.cjkj.jcb_caizhan.modul.personal_center.lottery.AwardResultActivity;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
 import com.cjkj.jcb_caizhan.modul.personal_center.mine_message.MineMessageActivity;
+import com.cjkj.jcb_caizhan.modul.personal_center.no_out_ticket.NoOutTicketActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.open_close.OpenAndCloseActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.order_query.OrderQueryActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.recharge.RechargeActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.seeting.SeetingActivity;
+import com.cjkj.jcb_caizhan.modul.personal_center.to_door_ticket.ToDoorTicketActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.withdrawals.WithdrawalsActivity;
 import com.cjkj.jcb_caizhan.utils.IntentUtils;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
@@ -75,8 +77,9 @@ public class PersonalCenterFragment extends RxLazyFragment implements Observable
         return R.layout.fragment_mine;
     }
 
-    @OnClick({R.id.Layout_Open_Close,R.id.Layout_AwardResult,R.id.layout_chenge,R.id.layout_seeting,R.id.layout_launchCrowdfunding,R.id.Layout_recharge,R.id.layout_Withdrawals
-             ,R.id.Layout_message,R.id.Layout_OrderQuery,R.id.Layout_AccountDetails,R.id.Layout_Duijiang,R.id.Layout_DownLoad})
+    @OnClick({R.id.Layout_Open_Close,R.id.Layout_AwardResult,R.id.layout_chenge,R.id.layout_seeting,R.id.layout_launchCrowdfunding,
+            R.id.Layout_recharge,R.id.layout_Withdrawals,R.id.Layout_message,R.id.Layout_OrderQuery,R.id.Layout_AccountDetails,
+            R.id.Layout_Duijiang,R.id.Layout_DownLoad,R.id.Layout_NoOutTicket,R.id.Layout_ToDoorTicket})
     public void BtnClick(View v) {
         if(v.getId() == R.id.Layout_Open_Close){
             IntentUtils.Goto(getActivity(), OpenAndCloseActivity.class);
@@ -113,7 +116,14 @@ public class PersonalCenterFragment extends RxLazyFragment implements Observable
           IntentUtils.Goto(getActivity(),CashPrizeActivity.class);
 //            IntentUtils.Goto(getActivity(),TableTestActivity.class);
         }else if(v.getId() == R.id.Layout_DownLoad){
+            //下载我的彩民端
             IntentUtils.Goto(getActivity(),DownLoadCaiMinActivity.class);
+        }else if(v.getId() == R.id.Layout_NoOutTicket){
+            //未出票
+            IntentUtils.Goto(getActivity(), NoOutTicketActivity.class);
+        }else if(v.getId() == R.id.Layout_ToDoorTicket){
+            //上门取票
+            IntentUtils.Goto(getActivity(), ToDoorTicketActivity.class);
         }
     }
 
