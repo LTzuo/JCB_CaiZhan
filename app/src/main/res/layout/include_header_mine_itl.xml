@@ -28,6 +28,7 @@
             app:aiv_TextSizeRatio="0.4"/>
 
         <ImageView
+            android:id="@+id/img_xiugai"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal|bottom"

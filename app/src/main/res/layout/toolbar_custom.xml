@@ -8,12 +8,12 @@
 
     <ImageView
         android:id="@+id/imgback"
-        android:layout_width="15dp"
-        android:layout_height="15dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:padding="2dp"
         android:layout_marginLeft="20dp"
         android:layout_centerVertical="true"
-        android:src="@drawable/ic_back"/>
+        android:src="@drawable/ic_back_white"/>
 
     <LinearLayout
         android:id="@+id/Layout_custom"

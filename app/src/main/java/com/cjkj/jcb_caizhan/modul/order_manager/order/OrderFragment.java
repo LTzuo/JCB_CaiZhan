@@ -19,9 +19,9 @@ import butterknife.Bind;
  */
 public class OrderFragment extends RxLazyFragment {
 
-    @Bind(R.id.mRecyclerView)
+    @Bind(R.id.RecyclerView)
     RecyclerView mRecyclerView;
-    @Bind(R.id.swipe_refresh_layout)
+    @Bind(R.id.SwipeRefreshLayout)
     SwipeRefreshLayout mSwipeRefreshLayout;
 
     OrderAdapter mAdapter;

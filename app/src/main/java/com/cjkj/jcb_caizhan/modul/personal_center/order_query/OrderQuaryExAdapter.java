@@ -8,6 +8,8 @@ import android.widget.ImageView;
 
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.now.ChildListViewAdapter;
+import com.cjkj.jcb_caizhan.test.table.TableListViewTestAdapter;
+import com.cjkj.jcb_caizhan.test.table.TableTextEntity;
 import com.cjkj.jcb_caizhan.widget.SubListView;
 import com.cjkj.jcb_caizhan.widget.exlistview.AbsExListViewAdapter;
 import com.cjkj.jcb_caizhan.widget.exlistview.ExBaseChildBean;
@@ -51,7 +53,7 @@ public class OrderQuaryExAdapter extends AbsExListViewAdapter{
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View view, ViewGroup viewGroup) {
         ChildViewHolder holder = null;
         if(view == null){
-            view = LayoutInflater.from(getContext()).inflate(R.layout.child_no_out_ticket,viewGroup,false);
+            view = LayoutInflater.from(getContext()).inflate(R.layout.child_order_query,viewGroup,false);
             holder = new ChildViewHolder(view);
             view.setTag(holder);
         }else{
@@ -59,6 +61,13 @@ public class OrderQuaryExAdapter extends AbsExListViewAdapter{
         }
         ChildListViewAdapter mChildListViewAdapter = new ChildListViewAdapter(getContext());
         holder.childlistView.setAdapter(mChildListViewAdapter);
+        TableListViewTestAdapter mTableTestAdapter = new TableListViewTestAdapter(getContext());
+        holder.childTablelistView.setAdapter(mTableTestAdapter);
+        List<TableTextEntity> mDatas = new ArrayList<>();
+        mDatas.add(new TableTextEntity("合买人","等级","出资","份额","奖金/加奖"));
+        mDatas.add(new TableTextEntity("林天佐","营长","2000万","20.0%","20万"));
+        mDatas.add(new TableTextEntity("林亮","军长","9000万","80.0%","90万"));
+        mTableTestAdapter.setInfo(mDatas);
         return view;
     }
 
@@ -97,10 +106,11 @@ public class OrderQuaryExAdapter extends AbsExListViewAdapter{
      * child视图
      */
     public class ChildViewHolder extends ExBaseViewHolder {
-        SubListView childlistView;
+        SubListView childlistView,childTablelistView;
         public ChildViewHolder(View itemView) {
             super(itemView);
             childlistView = $(R.id.childlistView);
+            childTablelistView = $(R.id.childTablelistView);
         }
     }
 

@@ -31,7 +31,7 @@ public class TableTestActivity extends RxBaseActivity {
 
     @Override
     public int getLayoutId() {
-        return R.layout.activity_test;
+        return R.layout.test_activity_table;
     }
 
     @Override

@@ -60,8 +60,6 @@ public class CashPrizeExAdapter extends CommonExpandableListAdapter<ChildCashPri
         //合买列表展示
         SubListView childTablelistView = holder.getView(R.id.childTablelistView);
         TableListViewTestAdapter mTableTestAdapter = new TableListViewTestAdapter(getContext());
-//        View headView = LayoutInflater.from(getContext()).inflate(R.layout.item_table_test, null,false);
-//        childTablelistView.addHeaderView(headView);
         childTablelistView.setAdapter(mTableTestAdapter);
         List<TableTextEntity> mDatas = new ArrayList<>();
         mDatas.add(new TableTextEntity("合买人","等级","出资","份额","奖金/加奖"));

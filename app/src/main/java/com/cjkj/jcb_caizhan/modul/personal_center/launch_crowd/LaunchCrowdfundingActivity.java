@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxBaseActivity;
 import com.cjkj.jcb_caizhan.base.AbsRecyclerViewAdapter;
@@ -19,12 +21,12 @@ import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.dilusense.customkeyboard.KeyboardNumber;
 import com.dilusense.customkeyboard.KeyboardUtils;
 import com.previewlibrary.GPreviewBuilder;
-import com.yuyh.library.imgsel.ISNav;
-import com.yuyh.library.imgsel.config.ISListConfig;
-//import com.yuyh.library.imgsel.ISNav;
-//import com.yuyh.library.imgsel.config.ISListConfig;
+import com.yanzhenjie.album.Action;
+import com.yanzhenjie.album.Album;
+import com.yanzhenjie.album.AlbumFile;
 import java.util.ArrayList;
 import java.util.List;
+
 import butterknife.Bind;
 import butterknife.OnClick;
 import cn.qing.soft.keyboardlib.CustomKeyboardHelper;
@@ -53,7 +55,6 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
 
     CustomKeyboardHelper helper;
 
-   // PhotoCallback callback;
 
     @OnClick({R.id.tv_launch})
     public void onBtnClick(View v) {
@@ -86,36 +87,13 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
         });
 //        helper = new CustomKeyboardHelper(this, R.xml.keyboardnumber);
 //        helper.registerEditText(edit);
-        KeyboardNumber  keyboardIdentity = new KeyboardNumber(this);
+        KeyboardNumber keyboardIdentity = new KeyboardNumber(this);
         KeyboardUtils.bindEditTextEvent(keyboardIdentity, edit);
         initRecyclerView();
+    }
 
-//        callback = ProxyTools.getShowMethodInfoProxy(new PhotoCallback() {
-//            @Override
-//            public void onFail(String msg, Throwable r, int requestCode) {
-//
-//            }
-//
-//            @Override
-//            public void onSuccessSingle(String originalPath, String compressedPath, int requestCode) {
-//
-//            }
-//
-//            @Override
-//            public void onSuccessMulti(List<String> originalPaths, List<String> compressedPaths, int requestCode) {
-//              //  List<String> pathList = data.getStringArrayListExtra("result");
-////            for (String bean : pathList) {
-////                ImageItem item = new ImageItem(bean);
-////                datas.add(0, item);
-////            }
-////            mNineGridAdapter.setDatas(datas);
-//            }
-//
-//            @Override
-//            public void onCancel(int requestCode) {
-//
-//            }
-//        });
+    private void initCamera() {
+
     }
 
     /**
@@ -123,26 +101,49 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
      *
      * @param count
      */
-    private void AlbumCamera(int count) {
+    private void openCamera(int count) {
         // 自由配置选项
-        ISListConfig config = new ISListConfig.Builder()
-                .multiSelect(true)
-                .rememberSelected(false)
-                .btnTextColor(Color.WHITE)
-                .statusBarColor(getResources().getColor(R.color.colorPrimary))
-                .title("图片")
-                .titleColor(Color.WHITE)
-                .titleBgColor(getResources().getColor(R.color.colorPrimary))
-                .cropSize(1, 1, 200, 200)
-                .needCrop(false)
-                .needCamera(true)
-                .maxNum(count)
-                .build();
-        ISNav.getInstance().toListActivity(this, config, REQUEST_CODE);
-
-//        PhotoUtil.multiSelect(9)
-//                .setNeedCropWhenOne(true)
-//                .start(this, 55, callback);
+//        ISListConfig config = new ISListConfig.Builder()
+//                .multiSelect(true)
+//                .rememberSelected(false)
+//                .btnTextColor(Color.WHITE)
+//                .statusBarColor(getResources().getColor(R.color.colorPrimary))
+//                .title("图片")
+//                .titleColor(Color.WHITE)
+//                .titleBgColor(getResources().getColor(R.color.colorPrimary))
+//                .cropSize(1, 1, 200, 200)
+//                .needCrop(false)
+//                .needCamera(true)
+//                .maxNum(count)
+//                .build();
+//        ISNav.getInstance().toListActivity(this, config, REQUEST_CODE);
+        Album.image(this) // 选择图片。
+                .multipleChoice()
+                .requestCode(REQUEST_CODE)
+                .camera(true)
+                .columnCount(4)
+                .selectCount(count)
+                //  .checkedList()
+                //  .filterSize()
+                //  .filterMimeType()
+                //  .afterFilterVisibility() // 显示被过滤掉的文件，但它们是不可用的。
+                .onResult(new Action<ArrayList<AlbumFile>>() {
+                    @Override
+                    public void onAction(int requestCode, @NonNull ArrayList<AlbumFile> result) {
+                       // List<String> pathList = data.getStringArrayListExtra("result");
+                        for (AlbumFile bean : result) {
+                            ImageItem item = new ImageItem(bean.getThumbPath());
+                            datas.add(0, item);
+                        }
+                        mNineGridAdapter.setDatas(datas);
+                    }
+                })
+                .onCancel(new Action<String>() {
+                    @Override
+                    public void onAction(int requestCode, @NonNull String result) {
+                    }
+                })
+                .start();
     }
 
     /**
@@ -189,13 +190,13 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
             @Override
             public void onItemClick(int position, AbsRecyclerViewAdapter.ClickableViewHolder holder) {
                 if (mNineGridAdapter.getItemCount() == 1) {
-                    AlbumCamera(3);
+                    openCamera(3);
                 } else {
                     if (datas.size() < 3) {
                         if (datas.size() == 1 && position == 1) {
-                            AlbumCamera(2);
+                            openCamera(2);
                         } else if (datas.size() == 2 && position == 2) {
-                            AlbumCamera(1);
+                            openCamera(1);
                         } else {
                             LookBanners(position);
                         }
@@ -229,16 +230,14 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK && data != null) {
-            List<String> pathList = data.getStringArrayListExtra("result");
-            for (String bean : pathList) {
-                ImageItem item = new ImageItem(bean);
-                datas.add(0, item);
-            }
-            mNineGridAdapter.setDatas(datas);
-        }
-//        PhotoUtil.onActivityResult(this,requestCode,resultCode,data);
-
+//        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK && data != null) {
+//            List<String> pathList = data.getStringArrayListExtra("result");
+//            for (String bean : pathList) {
+//                ImageItem item = new ImageItem(bean);
+//                datas.add(0, item);
+//            }
+//            mNineGridAdapter.setDatas(datas);
+//        }
     }
 
     @Override

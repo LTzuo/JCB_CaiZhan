@@ -6,6 +6,7 @@
     <color name="colorPrimaryDark">#D2142E</color>
     <color name="colorAccent">#FF4081</color>
     <color name="gallery_blue">#D2142E</color>
+    <color name="colorPrimaryBlack">#FF2B2B2B</color>
 
     <color name="bg_f3f2f7">#f3f2f7</color>
     <color name="line_bg">#e6e6e6</color>

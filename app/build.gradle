@@ -98,16 +98,13 @@ dependencies {
     compile 'com.dilusense.android:customkeyboard:1.1'
     //textview设置不同颜色
     compile 'com.sflin:csstextview:1.0.0'
-    //相册
-    compile 'com.yuyh.imgsel:library:2.0.2'
-    //图片/视频选择、拍照、图片/视频预览
-//    compile 'com.github.hss01248.PhotoPicker:picker:1.0.8'
-//    compile ('com.github.yalantis:ucrop:2.2.1'){
-//        exclude group: 'com.android.support'
-//    }
-//    compile 'com.mylhyl:acp:1.0.0'
-//    compile 'com.github.hss01248:AdvancedLuban:1.0.0'
-//    compile'com.github.hss01248.PhotoPicker:glide:1.0.8'
+
+    //图片/视频选择、拍照
+//    compile 'com.yuyh.imgsel:library:2.0.2'
+    compile 'com.yanzhenjie:album:2.0.0'
+    //裁剪
+    compile 'com.yanzhenjie:durban:1.0.1'
+
     //图片浏览大图带指示器
     compile 'com.ycjiang:ImagePreview:2.0.8'
     //RecyclerView 支持侧滑，支持随时添加头部和底部，提供自动/点击加载更多功能
@@ -120,6 +117,4 @@ dependencies {
     compile 'com.code-troopers.betterpickers:library:3.1.0'
     //对话框
     compile 'com.github.javiersantos:MaterialStyledDialogs:2.1'
-    //MaterialSearchView
-   // compile 'com.miguelcatalan:materialsearchview:1.4.0'
 }

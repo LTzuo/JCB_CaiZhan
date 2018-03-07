@@ -55,7 +55,7 @@ public class TableListViewTestAdapter extends BaseAdapter {
     public View getView(int position, View v, ViewGroup viewGroup) {
         ViewHolder itemViewHolder = null;
         if(v == null){
-          v = LayoutInflater.from(context).inflate(R.layout.item_table_test, null,false);
+          v = LayoutInflater.from(context).inflate(R.layout.test_item_table, null,false);
             itemViewHolder = new ViewHolder(v);
             v.setTag(itemViewHolder);
         }else{

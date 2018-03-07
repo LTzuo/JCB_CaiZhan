@@ -36,14 +36,14 @@ public class TableRecyclerViewTestAdapter extends AbsRecyclerViewAdapter {
         bindContext(parent.getContext());
         if (viewType == ITEM_TYPE_HEADER) {
             return new HeaderViewHolder(
-                    LayoutInflater.from(getContext()).inflate(R.layout.item_table_test, parent, false));
+                    LayoutInflater.from(getContext()).inflate(R.layout.test_item_table, parent, false));
         } else{
             return new ItemViewHolder(
-                    LayoutInflater.from(getContext()).inflate(R.layout.item_table_test, parent,false));
+                    LayoutInflater.from(getContext()).inflate(R.layout.test_item_table, parent,false));
         }
 //        else{
 //            return new FooterViewHolder(
-//                    LayoutInflater.from(getContext()).inflate(R.layout.item_table_test, parent, false));
+//                    LayoutInflater.from(getContext()).inflate(R.layout.test_item_table, parent, false));
 //        }
     }
 

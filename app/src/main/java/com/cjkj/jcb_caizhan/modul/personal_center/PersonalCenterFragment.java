@@ -20,6 +20,7 @@ import com.cjkj.jcb_caizhan.modul.personal_center.mine_message.MineMessageActivi
 import com.cjkj.jcb_caizhan.modul.personal_center.no_out_ticket.NoOutTicketActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.open_close.OpenAndCloseActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.order_query.OrderQueryActivity;
+import com.cjkj.jcb_caizhan.modul.personal_center.personcl_information.PersonclInformationActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.recharge.RechargeActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.seeting.SeetingActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.to_door_ticket.ToDoorTicketActivity;
@@ -77,11 +78,15 @@ public class PersonalCenterFragment extends RxLazyFragment implements Observable
         return R.layout.fragment_mine;
     }
 
-    @OnClick({R.id.Layout_Open_Close,R.id.Layout_AwardResult,R.id.layout_chenge,R.id.layout_seeting,R.id.layout_launchCrowdfunding,
+    @OnClick({R.id.img_xiugai,R.id.Layout_Open_Close,R.id.Layout_AwardResult,R.id.layout_chenge,R.id.layout_seeting,R.id.layout_launchCrowdfunding,
             R.id.Layout_recharge,R.id.layout_Withdrawals,R.id.Layout_message,R.id.Layout_OrderQuery,R.id.Layout_AccountDetails,
             R.id.Layout_Duijiang,R.id.Layout_DownLoad,R.id.Layout_NoOutTicket,R.id.Layout_ToDoorTicket})
     public void BtnClick(View v) {
-        if(v.getId() == R.id.Layout_Open_Close){
+        if(v.getId() == R.id.img_xiugai){
+            //个人信息
+            IntentUtils.Goto(getActivity(), PersonclInformationActivity.class);
+        }else if(v.getId() == R.id.Layout_Open_Close){
+            //开闭店设置
             IntentUtils.Goto(getActivity(), OpenAndCloseActivity.class);
         }else if (v.getId() == R.id.Layout_AwardResult) {
             //开奖结果
@@ -155,10 +160,10 @@ public class PersonalCenterFragment extends RxLazyFragment implements Observable
     @Override
     protected void initstatusManagerLayout() {
         mRefreshLayout.autoRefresh();
-        //mRefreshLayout.setRefreshHeader(new MaterialHeader(getActivity()).setShowBezierWave(true));//Material风格
-       // mRefreshLayout.setRefreshHeader(new BezierCircleHeader(getActivity()));//水滴
+        mRefreshLayout.setRefreshHeader(new ClassicsHeader(getActivity()));//正常刷新
+//      mRefreshLayout.setRefreshHeader(new MaterialHeader(getActivity()).setShowBezierWave(true));//Material风格
+//      mRefreshLayout.setRefreshHeader(new BezierCircleHeader(getActivity()));//水滴
         // mRefreshLayout.setRefreshHeader(new BezierRadarHeader(getActivity()));//雷达
-         mRefreshLayout.setRefreshHeader(new ClassicsHeader(getActivity()));//正常刷新
         // mRefreshLayout.setRefreshHeader(new DeliveryHeader(getActivity()));//热气球
         //mRefreshLayout.setRefreshHeader(new DropboxHeader(getActivity()));//装箱子
         //mRefreshLayout.setRefreshHeader(new FunGameBattleCityHeader(getActivity()));//坦克大战
@@ -196,7 +201,7 @@ public class PersonalCenterFragment extends RxLazyFragment implements Observable
                 .centerCrop()
                 .crossFade()
                 .into(img_header);
-        ToastUtil.ShortToast("刷新完成");
+       // ToastUtil.ShortToast("刷新完成");
 //        mSwipeRefreshLayout.setRefreshing(false);
         mRefreshLayout.finishRefresh(true);
     }

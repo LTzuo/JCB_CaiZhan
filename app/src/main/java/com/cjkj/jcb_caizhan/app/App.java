@@ -1,13 +1,15 @@
 package com.cjkj.jcb_caizhan.app;
 
 import android.app.Application;
-import android.content.Context;
-import android.widget.ImageView;
-import com.bumptech.glide.Glide;
+
+import com.cjkj.jcb_caizhan.widget.album.GlideAlbumLoader;
 import com.cjkj.jcb_caizhan.widget.imageloader.GlideImageLoader;
 import com.previewlibrary.ZoomMediaLoader;
-import com.yuyh.library.imgsel.ISNav;
-import com.yuyh.library.imgsel.common.ImageLoader;
+import com.yanzhenjie.album.Album;
+import com.yanzhenjie.album.AlbumConfig;
+
+import java.util.Locale;
+
 
 /**
  * Created by 1 on 2018/1/15.
@@ -21,28 +23,32 @@ public class App extends Application {
         super.onCreate();
         mInstance = this;
 
-       // PhotoUtil.init(getApplicationContext(),new GlideIniter());
+        //浏览大图
         ZoomMediaLoader.getInstance().init(new GlideImageLoader());
 
-        // 自定义图片加载器
-        ISNav.getInstance().init(new ImageLoader() {
-            @Override
-            public void displayImage(Context context, String path, ImageView imageView) {
-                Glide.with(context).load(path).into(imageView);
-            }
-        });
-
-//        Phoenix.config()
-//                .imageLoader(new ImageLoader() {
-//                    @Override
-//                    public void loadImage(Context mContext, ImageView imageView
-//                            , String imagePath, int type) {
-//                        Glide.with(mContext)
-//                                .load(imagePath)
-//                                .into(imageView);
-//                    }
-//                });
+        initCameraTheme();
     }
+
+    /**
+     * 自定义图片加载器
+     */
+    private void initCameraTheme(){
+//        ISNav.getInstance().init(new ImageLoader() {
+//            @Override
+//            public void displayImage(Context context, String path, ImageView imageView) {
+//                Glide.with(context).load(path).into(imageView);
+//            }
+//        });
+
+        Album.initialize(
+                AlbumConfig.newBuilder(this)
+                        .setAlbumLoader(new GlideAlbumLoader()) // 设置Album加载器。
+                        .setLocale(Locale.CHINA) // 比如强制设置在任何语言下都用中文显示。
+                        .build()
+        );
+    }
+
+
 
     public static App getInstance() {
         return mInstance;

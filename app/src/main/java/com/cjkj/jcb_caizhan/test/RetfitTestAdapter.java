@@ -39,7 +39,7 @@ public class RetfitTestAdapter extends AbsRecyclerViewAdapter {
     public ClickableViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         bindContext(parent.getContext());
         return new ItemViewHolder(
-                LayoutInflater.from(getContext()).inflate(R.layout.item_test, parent, false));
+                LayoutInflater.from(getContext()).inflate(R.layout.test_item, parent, false));
     }
 
     @Override

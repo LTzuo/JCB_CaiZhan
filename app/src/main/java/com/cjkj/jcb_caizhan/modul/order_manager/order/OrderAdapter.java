@@ -22,7 +22,6 @@ public class OrderAdapter extends AbsRecyclerViewAdapter {
             "七星彩", "竞彩足球", "竞彩篮球",
             "胜负过关", "足球胜负", "任选九场",
             "足球单场"
-
     };
 
     private int[] itemIcons = new int[]{
