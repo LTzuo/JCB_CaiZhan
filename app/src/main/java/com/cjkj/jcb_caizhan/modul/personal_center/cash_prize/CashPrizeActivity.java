@@ -24,6 +24,7 @@ import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.caizhong.CaiZhong_r
 import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.caizhong.CaiZhong_sfgg_Fragment;
 import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.caizhong.CaiZhong_zqdc_Fragment;
 import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.caizhong.CaiZhong_zqsf_Fragment;
+import com.cjkj.jcb_caizhan.widget.VerticalDrawerLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,6 +41,9 @@ public class CashPrizeActivity extends RxBaseActivity {
     TextView toolbar_title;
     @Bind(R.id.img_custom)
     ImageView img_custom;
+
+    @Bind(R.id.mVerticalDrawerLayout)
+    VerticalDrawerLayout mDrawerLayout;
 
     @Bind(R.id.mCustomGridView)
     GridView mCustomGridView;
@@ -72,8 +76,9 @@ public class CashPrizeActivity extends RxBaseActivity {
 
     private void openCustom() {
         isCustomOpen = true;
-        img_custom.setImageDrawable(getResources().getDrawable(R.mipmap.drop_down_selected_icon));
-        mCustomGridView.setVisibility(View.VISIBLE);
+       // img_custom.setImageDrawable(getResources().getDrawable(R.mipmap.drop_down_selected_icon));
+        //mCustomGridView.setVisibility(View.VISIBLE);
+        mDrawerLayout.openDrawerView();
     }
 
     private void closeCustom() {
@@ -83,8 +88,9 @@ public class CashPrizeActivity extends RxBaseActivity {
         mCustomGridAdapter.SelsectItem(index);
         toolbar_title.setText(mCustomGridAdapter.getSelectItem());
         isCustomOpen = false;
-        img_custom.setImageDrawable(getResources().getDrawable(R.mipmap.drop_down_unselected_icon));
-        mCustomGridView.setVisibility(View.GONE);
+        mDrawerLayout.closeDrawer();
+       // img_custom.setImageDrawable(getResources().getDrawable(R.mipmap.drop_down_unselected_icon));
+       // mCustomGridView.setVisibility(View.GONE);
     }
 
     @Override
@@ -114,12 +120,20 @@ public class CashPrizeActivity extends RxBaseActivity {
                 closeCustom();
             }
         });
+
+        mDrawerLayout.setDrawerListener(new VerticalDrawerLayout.SimpleDrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                img_custom.setRotation(slideOffset*180);
+            }
+        });
     }
 
     @Override
     public void initToolBar() {
         mCustomGridAdapter.SelsectItem(0);
         toolbar_title.setText(mCustomGridAdapter.getSelectItem());
+        img_custom.setVisibility(View.VISIBLE);
     }
 
     @Override

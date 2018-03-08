@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.cjkj.jcb_caizhan.test.search.TestSearchActivity">
+
+    <include layout="@layout/toolbar"/>
+
+    <ExpandableListView
+        android:id="@+id/mExpandableListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:divider="@color/bg_f3f2f7"
+        android:childDivider="@color/bg_f3f2f7"
+        android:dividerHeight="0dp"
+        android:groupIndicator="@null"
+        android:layout_below="@+id/toolbar"/>
+
+
+</LinearLayout>

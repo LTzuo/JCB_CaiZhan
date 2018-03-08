@@ -1,66 +1,96 @@
 package com.cjkj.jcb_caizhan.modul.personal_center.order_query;
 
-import android.content.Context;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.SystemClock;
-import android.support.v7.widget.Toolbar;
-import android.text.TextUtils;
-import android.view.Menu;
-import android.view.MenuItem;
-import android.view.MotionEvent;
+import android.support.v4.widget.DrawerLayout;
 import android.view.View;
-import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ExpandableListView;
+import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.TextView;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxBaseActivity;
-import com.cjkj.jcb_caizhan.utils.ToastUtil;
-import com.cjkj.jcb_caizhan.widget.material_searchview.interfaces.onSearchListener;
-import com.cjkj.jcb_caizhan.widget.material_searchview.interfaces.onSimpleSearchActionsListener;
-import com.cjkj.jcb_caizhan.widget.material_searchview.utils.Util;
-import com.cjkj.jcb_caizhan.widget.material_searchview.widgets.MaterialSearchView;
+import com.cjkj.jcb_caizhan.modul.personal_center.order_query.menu.LotteryGridAdapter;
+import com.cjkj.jcb_caizhan.modul.personal_center.order_query.menu.StateGridAdapter;
+import com.cjkj.jcb_caizhan.widget.NoScollGridView;
+
 import butterknife.Bind;
 import butterknife.OnClick;
 
 /**
  * 个人中心-订单查询
  */
-public class OrderQueryActivity extends RxBaseActivity implements onSimpleSearchActionsListener, onSearchListener {
+public class OrderQueryActivity extends RxBaseActivity {
 
-    @Bind(R.id.toolbar)
-    Toolbar mToolbar;
     @Bind(R.id.toolbar_title)
     TextView toolbar_title;
+    @Bind(R.id.menu_custom)
+    ImageView menu_custom;
+    @Bind(R.id.drawer_layout)
+    DrawerLayout mDrawerlayout;
+    @Bind(R.id.menu)
+    FrameLayout menu;
 
     @Bind(R.id.mExpandableListView)
     ExpandableListView mExpandableListView;
-
     OrderQuaryExAdapter mAdapter;
 
-    private boolean mSearchViewAdded = false;
-    private MaterialSearchView mSearchView;
-    private MenuItem searchItem;
-    private WindowManager mWindowManager;
-    private boolean searchActive = false;
+    @Bind(R.id.mLotteryGridView)
+    NoScollGridView mLotteryGridView;
+    @Bind(R.id.mStateGridView)
+    NoScollGridView mStateGridView;
 
     @Override
     public int getLayoutId() {
         return R.layout.activity_order_query;
     }
 
+    @OnClick({R.id.menu_custom,R.id.tv_cancle,R.id.tv_ok,R.id.imgback})
+    public void BtnClick(View v) {
+        if (v.getId() == R.id.menu_custom) {
+            mDrawerlayout.openDrawer(menu);
+        } else if(v.getId() == R.id.tv_cancle){
+            mDrawerlayout.closeDrawer(menu);
+        }else if(v.getId() == R.id.tv_ok){
+            mDrawerlayout.closeDrawer(menu);
+        }else if (v.getId() == R.id.imgback) {
+            finish();
+        }
+    }
+
     @Override
     public void initViews(Bundle savedInstanceState) {
+        initDrawerMenu();
+        initEx();
+        loadData();
+    }
+
+    //初始化菜单
+    private void initDrawerMenu() {
+        LotteryGridAdapter mLotteryGridAdapter = new LotteryGridAdapter(this);
+        mLotteryGridView.setAdapter(mLotteryGridAdapter);
+        mLotteryGridAdapter.SelsectItem(0);
+        mLotteryGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                mLotteryGridAdapter.SelsectItem(i);
+            }
+        });
+
+        StateGridAdapter mStateGridAdapter = new StateGridAdapter(this);
+        mStateGridView.setAdapter(mStateGridAdapter);
+        mStateGridAdapter.SelsectItem(0);
+        mStateGridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                mStateGridAdapter.SelsectItem(i);
+            }
+        });
+    }
+
+    private void initEx() {
         mAdapter = new OrderQuaryExAdapter(this);
         mExpandableListView.setAdapter(mAdapter);
-//        mExpandableListView.setOnChildClickListener(new ExpandableListView.OnChildClickListener() {
-//            @Override
-//            public boolean onChildClick(ExpandableListView parent, View v, int groupPosition, int childPosition, long id) {
-//               // ToastUtil.ShortToast(groupPosition + "nd group's " + childPosition + "nd Item is clicked!");
-//                return false;
-//            }
-//        });
-
         mExpandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
             @Override
             public void onGroupExpand(int groupPosition) {
@@ -85,16 +115,6 @@ public class OrderQueryActivity extends RxBaseActivity implements onSimpleSearch
             public void onGroupCollapse(int groupPosition) {
             }
         });
-        loadData();
-
-    }
-
-    private void initSearchView(){
-        mWindowManager = (WindowManager) getSystemService(Context.WINDOW_SERVICE);
-        mSearchView = new MaterialSearchView(this);
-        mSearchView.setOnSearchListener(this);
-        mSearchView.setSearchResultsListener(this);
-        mSearchView.setHintText("输入订单编号查询");
     }
 
     @Override
@@ -102,95 +122,12 @@ public class OrderQueryActivity extends RxBaseActivity implements onSimpleSearch
 //        List<ExBaseGroupBean> mDatas = new ArrayList<>();
 //        mDatas.add(new ExBaseGroupBean());
     }
+
     @Override
     public void initToolBar() {
-        mToolbar.setTitle("");
         toolbar_title.setText("订单查询");
-        mToolbar.setNavigationIcon(R.drawable.ic_back_white);
-        setSupportActionBar(mToolbar);
-        mToolbar.setTitleTextColor(getResources().getColor(R.color.white));
-        mToolbar.setPopupTheme(R.style.ToolBarPopupThemeDay);
-        initSearchView();
-        mToolbar.post(new Runnable() {
-            @Override
-            public void run() {
-                if (!mSearchViewAdded && mWindowManager != null) {
-                    mWindowManager.addView(mSearchView,
-                            MaterialSearchView.getSearchViewLayoutParams(OrderQueryActivity.this));
-                    mSearchViewAdded = true;
-                }
-            }
-        });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.menu_search, menu);
-        searchItem = menu.findItem(R.id.search);
-        searchItem.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                mSearchView.display();
-                openKeyboard();
-                return true;
-            }
-        });
-        if(searchActive)
-            mSearchView.display();
-        return true;
-
-    }
-
-    private void openKeyboard(){
-        new Handler().postDelayed(new Runnable() {
-            public void run() {
-                mSearchView.getSearchView().dispatchTouchEvent(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_DOWN, 0, 0, 0));
-                mSearchView.getSearchView().dispatchTouchEvent(MotionEvent.obtain(SystemClock.uptimeMillis(), SystemClock.uptimeMillis(), MotionEvent.ACTION_UP, 0, 0, 0));
-            }
-        }, 200);
-    }
-
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        return super.onOptionsItemSelected(item);
-    }
-
-    @Override
-    public void onSearch(String query) {
-        if(!TextUtils.isEmpty(query)){
-            ToastUtil.ShortToast(query);
-        }
-    }
-
-    @Override
-    public void searchViewOpened() {
-        ToastUtil.ShortToast("Search View Opened");
-    }
-
-    @Override
-    public void searchViewClosed() {
-        ToastUtil.ShortToast("Search View Closed");
-    }
-
-    @Override
-    public void onItemClicked(String item) {
-       // Toast.makeText(HomeActivity.this,item + " clicked",Toast.LENGTH_SHORT).show();
-    }
-
-    @Override
-    public void onScroll() {
-
-    }
-
-    @Override
-    public void error(String localizedMessage) {
-
-    }
-
-    @Override
-    public void onCancelSearch() {
-        searchActive = false;
-        mSearchView.hide();
+        menu_custom.setImageDrawable(getResources().getDrawable(R.drawable.shaixuan));
+        menu_custom.setVisibility(View.VISIBLE);
     }
 
 }

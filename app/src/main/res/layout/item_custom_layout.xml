@@ -11,7 +11,7 @@
         android:id="@+id/itemText"
         android:layout_width="60dp"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/_12dp"
+        android:textSize="@dimen/_10dp"
         android:gravity="center"
         android:background="@drawable/shape_custom_unselected_bg"/>
 

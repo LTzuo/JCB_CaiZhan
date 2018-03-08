@@ -98,13 +98,11 @@ dependencies {
     compile 'com.dilusense.android:customkeyboard:1.1'
     //textview设置不同颜色
     compile 'com.sflin:csstextview:1.0.0'
-
     //图片/视频选择、拍照
 //    compile 'com.yuyh.imgsel:library:2.0.2'
     compile 'com.yanzhenjie:album:2.0.0'
     //裁剪
     compile 'com.yanzhenjie:durban:1.0.1'
-
     //图片浏览大图带指示器
     compile 'com.ycjiang:ImagePreview:2.0.8'
     //RecyclerView 支持侧滑，支持随时添加头部和底部，提供自动/点击加载更多功能
@@ -115,6 +113,8 @@ dependencies {
     compile 'com.github.luongvo:iOS-SwitchView:1.0.2'
     //时间选择器
     compile 'com.code-troopers.betterpickers:library:3.1.0'
-    //对话框
+    //对话框(没有最终确定)
     compile 'com.github.javiersantos:MaterialStyledDialogs:2.1'
+    //侧滑
+
 }

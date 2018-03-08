@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.widget.tabbarhelper;
+package com.cjkj.jcb_caizhan.widget.TabbarHelper;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;

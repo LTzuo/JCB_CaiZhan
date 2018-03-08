@@ -8,20 +8,29 @@
 
     <include layout="@layout/toolbar_custom"/>
 
-    <FrameLayout
-        android:id="@+id/content_layout"
+    <com.cjkj.jcb_caizhan.widget.VerticalDrawerLayout
+        android:id="@+id/mVerticalDrawerLayout"
         android:layout_marginTop="@dimen/customToolbarHight"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
 
-    <GridView
-        android:id="@+id/mCustomGridView"
-        android:layout_marginTop="@dimen/customToolbarHight"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:background="@color/bg_f3f2f7"
-        android:visibility="gone"
-        android:numColumns="4"/>
+        <FrameLayout
+            android:id="@+id/content_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <GridView
+            android:id="@+id/mCustomGridView"
+            android:layout_marginTop="@dimen/customToolbarHight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:background="@color/white"
+            android:numColumns="4"/>
+
+    </com.cjkj.jcb_caizhan.widget.VerticalDrawerLayout>
+
+
+
 </FrameLayout>

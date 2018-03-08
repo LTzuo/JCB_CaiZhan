@@ -36,7 +36,7 @@
         <item>10份</item>
     </string-array>
 
-    <string-array name="custom_caizhong">
+    <string-array name="menu_caizhong">
         <item>全部彩种</item>
         <item>福彩3D</item>
         <item>七乐彩</item>
@@ -51,6 +51,20 @@
         <item>任选九场</item>
         <item>足球单场</item>
 
+    </string-array>
+
+    <string-array name="menu_order_state">
+        <item>全部状态</item>
+        <item>待打票</item>
+        <item>待确认</item>
+        <item>待重打票</item>
+        <item>待开奖</item>
+        <item>凑单中</item>
+        <item>凑单失败</item>
+        <item>已中奖</item>
+        <item>未中奖</item>
+        <item>流单</item>
+        <item>未支付</item>
     </string-array>
 
     <string-array name="CashPrizeValues">

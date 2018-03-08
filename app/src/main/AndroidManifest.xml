@@ -33,19 +33,12 @@
         <!-- Album相册测试界面 -->
         <activity
             android:name=".test.album.TestAlbumActivity"
-            android:theme="@style/MainActivityColorTranslucentTheme">
-
-            <!--
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-            -->
-        </activity>
-
+            android:theme="@style/MainActivityColorTranslucentTheme"></activity>
+        <!-- ToolBar带搜索功能的测试界面 -->
+        <activity android:name=".test.search.TestSearchActivity" />
         <!-- 开机动画 -->
         <activity android:name=".modul.SplashActivity">
-            <intent-filter>
+           <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
@@ -135,10 +128,10 @@
         <activity
             android:name=".modul.personal_center.open_close.OpenAndCloseActivity"
             android:theme="@style/MainActivityColorTranslucentTheme" />
-        <!-- 个人中心-个人信息-->
+        <!-- 个人中心-个人信息 -->
         <activity
             android:name=".modul.personal_center.personcl_information.PersonclInformationActivity"
-            android:theme="@style/MainActivityColorTranslucentTheme"/>
+            android:theme="@style/MainActivityColorTranslucentTheme" />
         <!-- 个人中心-未出票 -->
         <activity
             android:name=".modul.personal_center.no_out_ticket.NoOutTicketActivity"

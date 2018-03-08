@@ -12,8 +12,8 @@ import com.cjkj.jcb_caizhan.modul.data_statistics.DataStatisticsFragment;
 import com.cjkj.jcb_caizhan.modul.personal_center.PersonalCenterFragment;
 import com.cjkj.jcb_caizhan.modul.user_management.UserManagementFragment;
 import com.cjkj.jcb_caizhan.modul.order_manager.OrdermMnagePageFragment;
-import com.cjkj.jcb_caizhan.widget.tabbarhelper.BottomNavigationViewHelper;
-import com.cjkj.jcb_caizhan.widget.tabbarhelper.NoScrollViewPager;
+import com.cjkj.jcb_caizhan.widget.TabbarHelper.BottomNavigationViewHelper;
+import com.cjkj.jcb_caizhan.widget.TabbarHelper.NoScrollViewPager;
 import com.cjkj.jcb_caizhan.utils.SnackbarUtil;
 
 import java.util.Timer;
