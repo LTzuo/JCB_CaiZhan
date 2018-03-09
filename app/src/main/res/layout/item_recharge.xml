@@ -30,7 +30,7 @@
         android:layout_centerVertical="true"
         />-->
 
-    <com.cjkj.jcb_caizhan.widget.checkbox.SmoothCheckBox
+    <com.cjkj.jcb_caizhan.widget.CheckBox.SmoothCheckBox
         android:id="@+id/item_choice"
         android:layout_width="17dp"
         android:layout_height="17dp"

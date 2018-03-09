@@ -3,7 +3,6 @@ package com.cjkj.jcb_caizhan.test.search;
 import android.content.Context;
 import android.os.Handler;
 import android.os.SystemClock;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.text.TextUtils;
@@ -19,9 +18,9 @@ import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxBaseActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.order_query.OrderQuaryExAdapter;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
-import com.cjkj.jcb_caizhan.widget.material_searchview.interfaces.onSearchListener;
-import com.cjkj.jcb_caizhan.widget.material_searchview.interfaces.onSimpleSearchActionsListener;
-import com.cjkj.jcb_caizhan.widget.material_searchview.widgets.MaterialSearchView;
+import com.cjkj.jcb_caizhan.widget.Material_Searchview.interfaces.onSearchListener;
+import com.cjkj.jcb_caizhan.widget.Material_Searchview.interfaces.onSimpleSearchActionsListener;
+import com.cjkj.jcb_caizhan.widget.Material_Searchview.widgets.MaterialSearchView;
 
 import butterknife.Bind;
 
@@ -88,7 +87,6 @@ public class TestSearchActivity extends RxBaseActivity implements onSimpleSearch
             }
         });
         loadData();
-
     }
 
     private void initSearchView(){

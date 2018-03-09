@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.widget.material_searchview.interfaces;
+package com.cjkj.jcb_caizhan.widget.Material_Searchview.interfaces;
 
 /**
  * Created by shahroz on 1/12/2016.

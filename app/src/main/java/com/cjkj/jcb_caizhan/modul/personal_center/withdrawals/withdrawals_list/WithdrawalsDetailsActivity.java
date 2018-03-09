@@ -6,7 +6,7 @@ import android.widget.TextView;
 
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxBaseActivity;
-import com.cjkj.jcb_caizhan.widget.checkbox.SmoothCheckBox;
+import com.cjkj.jcb_caizhan.widget.CheckBox.SmoothCheckBox;
 
 import butterknife.Bind;
 

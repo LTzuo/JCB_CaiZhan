@@ -33,12 +33,12 @@
         <!-- Album相册测试界面 -->
         <activity
             android:name=".test.album.TestAlbumActivity"
-            android:theme="@style/MainActivityColorTranslucentTheme"></activity>
+            android:theme="@style/MainActivityColorTranslucentTheme" />
         <!-- ToolBar带搜索功能的测试界面 -->
         <activity android:name=".test.search.TestSearchActivity" />
         <!-- 开机动画 -->
         <activity android:name=".modul.SplashActivity">
-           <intent-filter>
+            <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />

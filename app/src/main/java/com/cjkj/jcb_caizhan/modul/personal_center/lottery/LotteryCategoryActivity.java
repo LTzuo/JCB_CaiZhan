@@ -12,7 +12,7 @@ import com.cjkj.jcb_caizhan.base.RxBaseActivity;
 import com.cjkj.jcb_caizhan.base.BaseEntity;
 import com.cjkj.jcb_caizhan.network.ApiConstants;
 import com.cjkj.jcb_caizhan.network.RetrofitHelper;
-import com.cjkj.jcb_caizhan.widget.resyclerview.OnItemClickListener;
+import com.cjkj.jcb_caizhan.widget.RecyclerView.OnItemClickListener;
 import java.util.ArrayList;
 import butterknife.Bind;
 import retrofit2.Call;

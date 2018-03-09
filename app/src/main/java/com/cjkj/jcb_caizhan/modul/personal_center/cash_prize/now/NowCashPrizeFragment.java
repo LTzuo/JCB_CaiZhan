@@ -3,13 +3,11 @@ package com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.now;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ExpandableListView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
+
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
-import com.cjkj.jcb_caizhan.utils.ToastUtil;
-import com.cjkj.jcb_caizhan.widget.exlistview.CommonExpandableListAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
 

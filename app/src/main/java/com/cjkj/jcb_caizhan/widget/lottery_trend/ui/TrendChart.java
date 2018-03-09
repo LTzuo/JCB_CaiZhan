@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.widget.lottery_trend.ui;
+package com.cjkj.jcb_caizhan.widget.Lottery_Trend.ui;
 
 import android.content.Context;
 import android.graphics.Canvas;
@@ -8,7 +8,7 @@ import android.graphics.Path;
 import android.support.v4.view.ViewCompat;
 import android.view.MotionEvent;
 
-import com.cjkj.jcb_caizhan.widget.lottery_trend.data.TrendData;
+import com.cjkj.jcb_caizhan.widget.Lottery_Trend.data.TrendData;
 
 import java.util.ArrayList;
 import java.util.TreeSet;

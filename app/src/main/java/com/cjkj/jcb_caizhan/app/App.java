@@ -2,8 +2,8 @@ package com.cjkj.jcb_caizhan.app;
 
 import android.app.Application;
 
-import com.cjkj.jcb_caizhan.widget.album.GlideAlbumLoader;
-import com.cjkj.jcb_caizhan.widget.imageloader.GlideImageLoader;
+import com.cjkj.jcb_caizhan.widget.Album.GlideAlbumLoader;
+import com.cjkj.jcb_caizhan.widget.Imageloader.GlideImageLoader;
 import com.previewlibrary.ZoomMediaLoader;
 import com.yanzhenjie.album.Album;
 import com.yanzhenjie.album.AlbumConfig;

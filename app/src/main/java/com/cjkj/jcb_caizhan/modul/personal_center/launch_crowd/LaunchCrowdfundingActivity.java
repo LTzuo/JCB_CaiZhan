@@ -5,6 +5,7 @@ import android.graphics.Color;
 import android.graphics.Rect;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
@@ -24,6 +25,8 @@ import com.previewlibrary.GPreviewBuilder;
 import com.yanzhenjie.album.Action;
 import com.yanzhenjie.album.Album;
 import com.yanzhenjie.album.AlbumFile;
+import com.yanzhenjie.album.api.widget.Widget;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -54,7 +57,6 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
     EditText edit;
 
     CustomKeyboardHelper helper;
-
 
     @OnClick({R.id.tv_launch})
     public void onBtnClick(View v) {
@@ -119,11 +121,18 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
 //        ISNav.getInstance().toListActivity(this, config, REQUEST_CODE);
         Album.image(this) // 选择图片。
                 .multipleChoice()
+                .widget(Widget.newDarkBuilder(this).title("图片")
+                        .statusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark))
+                        .toolBarColor(ContextCompat.getColor(this, R.color.colorPrimary))
+                        .navigationBarColor(ContextCompat.getColor(this, R.color.colorPrimaryBlack))
+                        .mediaItemCheckSelector(Color.LTGRAY, Color.RED) // 图片或者视频选择框的选择器。
+                        .bucketItemCheckSelector(Color.WHITE, Color.RED) // 切换文件夹时文件夹选择框的选择器。
+                        .build())
                 .requestCode(REQUEST_CODE)
                 .camera(true)
                 .columnCount(4)
                 .selectCount(count)
-                //  .checkedList()
+                //.checkedList()
                 //  .filterSize()
                 //  .filterMimeType()
                 //  .afterFilterVisibility() // 显示被过滤掉的文件，但它们是不可用的。

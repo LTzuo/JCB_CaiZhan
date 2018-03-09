@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.widget.resyclerview;
+package com.cjkj.jcb_caizhan.widget.RecyclerView;
 
 import android.view.View;
 

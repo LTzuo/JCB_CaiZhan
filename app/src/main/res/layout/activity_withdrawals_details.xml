@@ -18,7 +18,7 @@
         android:orientation="vertical"
         android:padding="20dp">
 
-        <com.cjkj.jcb_caizhan.widget.checkbox.SmoothCheckBox
+        <com.cjkj.jcb_caizhan.widget.CheckBox.SmoothCheckBox
             android:id="@+id/mSmoothCheckBox"
             android:layout_width="30dp"
             android:layout_height="30dp"

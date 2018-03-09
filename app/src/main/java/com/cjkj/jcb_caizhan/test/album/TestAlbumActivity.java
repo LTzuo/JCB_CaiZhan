@@ -7,7 +7,7 @@ import android.support.v4.content.ContextCompat;
 import android.view.View;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxBaseActivity;
-import com.cjkj.jcb_caizhan.widget.album.Utils;
+import com.cjkj.jcb_caizhan.widget.Album.Utils;
 import com.yanzhenjie.album.Action;
 import com.yanzhenjie.album.Album;
 import com.yanzhenjie.album.AlbumFile;

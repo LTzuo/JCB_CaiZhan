@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.widget.material_searchview.widgets;
+package com.cjkj.jcb_caizhan.widget.Material_Searchview.widgets;
 import android.content.Context;
 import android.os.AsyncTask;
 import android.os.Handler;
@@ -10,7 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 
-import com.cjkj.jcb_caizhan.widget.material_searchview.interfaces.onSearchActionsListener;
+import com.cjkj.jcb_caizhan.widget.Material_Searchview.interfaces.onSearchActionsListener;
 
 import java.util.ArrayList;
 

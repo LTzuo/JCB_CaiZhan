@@ -3,18 +3,19 @@ package com.cjkj.jcb_caizhan.modul.user_management;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.view.View;
-
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.test.TestInfo;
 import com.cjkj.jcb_caizhan.test.RetfitTestAdapter;
 import com.cjkj.jcb_caizhan.network.RetrofitHelper;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
-import com.cjkj.jcb_caizhan.widget.swiperecyclerview.SwipeRecyclerView;
+import com.cjkj.jcb_caizhan.widget.SwipeRecyclerView.SwipeRecyclerView;
+import com.wyt.searchbox.SearchFragment;
+import com.wyt.searchbox.custom.IOnSearchClickListener;
 
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.Bind;
+import butterknife.OnClick;
 import me.bakumon.statuslayoutmanager.library.DefaultOnStatusChildClickListener;
 import me.bakumon.statuslayoutmanager.library.StatusLayoutManager;
 import rx.android.schedulers.AndroidSchedulers;
@@ -24,7 +25,7 @@ import rx.schedulers.Schedulers;
  * Created by 1 on 2018/1/16.
  * 用户管理
  */
-public class UserManagementFragment extends RxLazyFragment implements SwipeRecyclerView.OnLoadListener{
+public class UserManagementFragment extends RxLazyFragment implements SwipeRecyclerView.OnLoadListener,IOnSearchClickListener {
 
     @Bind(R.id.swipeRecyclerView)
     SwipeRecyclerView mSwipRecyclerView;
@@ -32,8 +33,23 @@ public class UserManagementFragment extends RxLazyFragment implements SwipeRecyc
     List<TestInfo.ResultsBean> mDatas = new ArrayList<>();
     private int page = 1;
     StatusLayoutManager mStatusLayoutManager;
+
+    private SearchFragment searchFragment;
+
     public static UserManagementFragment newInstance() {
         return new UserManagementFragment();
+    }
+
+    @OnClick({R.id.img_search})
+    public void OnBtnClick(View v){
+        if(v.getId() == R.id.img_search){
+            searchFragment.show(getFragmentManager(), SearchFragment.TAG);
+        }
+    }
+
+    @Override
+    public void OnSearchClick(String keyword) {
+        //searchInfo.setText(keyword);
     }
 
     @Override
@@ -43,6 +59,10 @@ public class UserManagementFragment extends RxLazyFragment implements SwipeRecyc
 
     @Override
     public void finishCreateView(Bundle state) {
+
+        searchFragment = SearchFragment.newInstance();
+        searchFragment.setOnSearchClickListener(this);
+
         isPrepared = true;
         lazyLoad();
     }

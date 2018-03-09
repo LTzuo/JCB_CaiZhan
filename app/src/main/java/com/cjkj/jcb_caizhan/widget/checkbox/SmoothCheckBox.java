@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.widget.checkbox;
+package com.cjkj.jcb_caizhan.widget.CheckBox;
 
 
 import android.animation.ValueAnimator;

@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.widget.material_searchview.utils;
+package com.cjkj.jcb_caizhan.widget.Material_Searchview.utils;
 
 import android.content.Context;
 import android.support.design.widget.Snackbar;

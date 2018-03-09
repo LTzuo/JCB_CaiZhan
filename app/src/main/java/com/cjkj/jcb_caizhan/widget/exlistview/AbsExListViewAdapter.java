@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.widget.exlistview;
+package com.cjkj.jcb_caizhan.widget.ExListView;
 
 import android.content.Context;
 import android.widget.BaseExpandableListAdapter;

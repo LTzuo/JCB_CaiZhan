@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.widget.imageloader;
+package com.cjkj.jcb_caizhan.widget.Imageloader;
 
 import android.content.Context;
 import android.graphics.Bitmap;

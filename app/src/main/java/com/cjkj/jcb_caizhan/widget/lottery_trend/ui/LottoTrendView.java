@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.widget.lottery_trend.ui;
+package com.cjkj.jcb_caizhan.widget.Lottery_Trend.ui;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -9,11 +9,10 @@ import android.view.GestureDetector;
 import android.view.GestureDetector.OnDoubleTapListener;
 import android.view.GestureDetector.OnGestureListener;
 import android.view.MotionEvent;
-import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.widget.Scroller;
-import com.cjkj.jcb_caizhan.widget.lottery_trend.interfaces.ITrendChart;
+import com.cjkj.jcb_caizhan.widget.Lottery_Trend.interfaces.ITrendChart;
 
 public class LottoTrendView extends View implements OnDoubleTapListener, OnGestureListener, OnTouchListener{
     private ITrendChart mChart;

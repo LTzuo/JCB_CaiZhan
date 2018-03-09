@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.widget.lottery_trend.interfaces;
+package com.cjkj.jcb_caizhan.widget.Lottery_Trend.interfaces;
 
 import android.content.Context;
 import android.graphics.Canvas;

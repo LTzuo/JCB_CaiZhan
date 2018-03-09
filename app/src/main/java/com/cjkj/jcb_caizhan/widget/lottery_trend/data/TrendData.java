@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.widget.lottery_trend.data;
+package com.cjkj.jcb_caizhan.widget.Lottery_Trend.data;
 
 import java.io.Serializable;
 

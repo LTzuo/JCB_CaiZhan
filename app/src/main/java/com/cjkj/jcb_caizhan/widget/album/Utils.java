@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.widget.album;
+package com.cjkj.jcb_caizhan.widget.Album;
 
 import android.content.Context;
 import android.os.Environment;

@@ -8,7 +8,7 @@ import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.test.table.TableListViewTestAdapter;
 import com.cjkj.jcb_caizhan.test.table.TableTextEntity;
 import com.cjkj.jcb_caizhan.widget.SubListView;
-import com.cjkj.jcb_caizhan.widget.exlistview.CommonExpandableListAdapter;
+import com.cjkj.jcb_caizhan.widget.ExListView.CommonExpandableListAdapter;
 import com.mixiaoxiao.smoothcompoundbutton.SmoothCheckBox;
 import com.mixiaoxiao.smoothcompoundbutton.SmoothCompoundButton;
 import java.util.ArrayList;

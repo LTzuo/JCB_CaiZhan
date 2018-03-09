@@ -6,7 +6,7 @@ import android.view.View;
 
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
-import com.cjkj.jcb_caizhan.widget.swiperecyclerview.SwipeRecyclerView;
+import com.cjkj.jcb_caizhan.widget.SwipeRecyclerView.SwipeRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -7,7 +7,7 @@
 
     <include layout="@layout/include_title_datastatistics" />
 
-       <com.cjkj.jcb_caizhan.widget.swiperecyclerview.SwipeRecyclerView
+       <com.cjkj.jcb_caizhan.widget.SwipeRecyclerView.SwipeRecyclerView
             android:id="@+id/swipeRecyclerView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"

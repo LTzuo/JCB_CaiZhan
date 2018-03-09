@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-              android:layout_width="match_parent"
-              android:layout_height="match_parent"
-              android:background="@color/white"
-              android:orientation="vertical">
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:orientation="vertical">
 
-    <include layout="@layout/toolbar"/>
+    <include layout="@layout/toolbar" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,7 +20,7 @@
             android:layout_marginTop="16dp"
             android:text="第17065期"
             android:textColor="@color/black_text2_color"
-            android:textSize="14sp"/>
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/tv_awardDateTime"
@@ -29,41 +29,37 @@
             android:layout_marginTop="16dp"
             android:text="开奖时间:2017-06-09"
             android:textColor="@color/black_text2_color"
-            android:textSize="14sp"/>
+            android:textSize="14sp" />
 
         <android.support.v7.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:layout_gravity="center"
-            />
+            android:layout_gravity="center" />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1.2px"
-            android:background="@color/line_bg"
-            />
+            android:background="@color/line_bg" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            >
+            android:orientation="horizontal">
 
             <LinearLayout
                 android:layout_width="0dp"
                 android:layout_height="60dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="本期销量(元)"
                     android:textColor="@color/black"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/tv_sales"
@@ -72,15 +68,14 @@
                     android:layout_marginTop="6dp"
                     android:text="100000"
                     android:textColor="#f18b05"
-                    android:textSize="15sp"/>
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
             <TextView
                 android:layout_width="1.2px"
                 android:layout_height="match_parent"
-                android:background="@color/line_bg"
-                />
+                android:background="@color/line_bg" />
 
 
             <LinearLayout
@@ -88,15 +83,14 @@
                 android:layout_height="60dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:orientation="vertical"
-                >
+                android:orientation="vertical">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="奖池金额(元)"
                     android:textColor="@color/black"
-                    android:textSize="14sp"/>
+                    android:textSize="14sp" />
 
                 <TextView
                     android:id="@+id/tv_pool"
@@ -105,7 +99,7 @@
                     android:layout_marginTop="6dp"
                     android:text="100000"
                     android:textColor="#f18b05"
-                    android:textSize="15sp"/>
+                    android:textSize="15sp" />
 
             </LinearLayout>
 
@@ -114,8 +108,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="1.2px"
-            android:background="@color/line_bg"
-            />
+            android:background="@color/line_bg" />
 
     </LinearLayout>
 
@@ -123,19 +116,16 @@
         android:layout_width="match_parent"
         android:layout_height="1.2px"
         android:layout_marginTop="20dp"
-        android:background="@color/line_bg"
-        />
+        android:background="@color/line_bg" />
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/recyclerViewLotteryDetails"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        />
+        android:layout_height="wrap_content" />
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="1.2px"
-        android:background="@color/line_bg"
-        />
+        android:background="@color/line_bg" />
 
 </LinearLayout>

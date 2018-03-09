@@ -8,7 +8,7 @@
 
     <include layout="@layout/toolbar" />
 
-    <com.cjkj.jcb_caizhan.widget.lottery_trend.ui.LottoTrendView
+    <com.cjkj.jcb_caizhan.widget.Lottery_Trend.ui.LottoTrendView
         android:id="@+id/ltv_trendView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

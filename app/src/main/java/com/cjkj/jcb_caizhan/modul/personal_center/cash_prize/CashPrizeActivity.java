@@ -120,13 +120,6 @@ public class CashPrizeActivity extends RxBaseActivity {
                 closeCustom();
             }
         });
-
-        mDrawerLayout.setDrawerListener(new VerticalDrawerLayout.SimpleDrawerListener() {
-            @Override
-            public void onDrawerSlide(View drawerView, float slideOffset) {
-                img_custom.setRotation(slideOffset*180);
-            }
-        });
     }
 
     @Override
@@ -134,6 +127,13 @@ public class CashPrizeActivity extends RxBaseActivity {
         mCustomGridAdapter.SelsectItem(0);
         toolbar_title.setText(mCustomGridAdapter.getSelectItem());
         img_custom.setVisibility(View.VISIBLE);
+
+        mDrawerLayout.setDrawerListener(new VerticalDrawerLayout.SimpleDrawerListener() {
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                img_custom.setRotation(slideOffset*180);
+            }
+        });
     }
 
     @Override

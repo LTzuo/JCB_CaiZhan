@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.widget.material_searchview.widgets;
+package com.cjkj.jcb_caizhan.widget.Material_Searchview.widgets;
 
 import android.animation.Animator;
 import android.app.Activity;
@@ -34,10 +34,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.cjkj.jcb_caizhan.R;
-import com.cjkj.jcb_caizhan.widget.material_searchview.interfaces.onSearchActionsListener;
-import com.cjkj.jcb_caizhan.widget.material_searchview.interfaces.onSearchListener;
-import com.cjkj.jcb_caizhan.widget.material_searchview.interfaces.onSimpleSearchActionsListener;
-import com.cjkj.jcb_caizhan.widget.material_searchview.utils.Util;
+import com.cjkj.jcb_caizhan.widget.Material_Searchview.interfaces.onSearchActionsListener;
+import com.cjkj.jcb_caizhan.widget.Material_Searchview.interfaces.onSearchListener;
+import com.cjkj.jcb_caizhan.widget.Material_Searchview.interfaces.onSimpleSearchActionsListener;
+import com.cjkj.jcb_caizhan.widget.Material_Searchview.utils.Util;
 
 
 /**

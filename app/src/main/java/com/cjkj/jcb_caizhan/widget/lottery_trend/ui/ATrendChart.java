@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.widget.lottery_trend.ui;
+package com.cjkj.jcb_caizhan.widget.Lottery_Trend.ui;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -16,7 +16,7 @@ import android.text.TextUtils;
 import android.view.MotionEvent;
 
 import com.cjkj.jcb_caizhan.R;
-import com.cjkj.jcb_caizhan.widget.lottery_trend.interfaces.ITrendChart;
+import com.cjkj.jcb_caizhan.widget.Lottery_Trend.interfaces.ITrendChart;
 
 
 public abstract class ATrendChart implements ITrendChart {

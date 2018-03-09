@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import com.cjkj.jcb_caizhan.R;
-import com.cjkj.jcb_caizhan.widget.resyclerview.OnItemClickListener;
+import com.cjkj.jcb_caizhan.widget.RecyclerView.OnItemClickListener;
 
 import java.util.List;
 import butterknife.Bind;

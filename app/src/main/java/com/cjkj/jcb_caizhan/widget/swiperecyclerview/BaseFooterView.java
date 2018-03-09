@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.widget.swiperecyclerview;
+package com.cjkj.jcb_caizhan.widget.SwipeRecyclerView;
 
 import android.content.Context;
 import android.util.AttributeSet;

@@ -1,8 +1,6 @@
-package com.cjkj.jcb_caizhan.widget.exlistview;
+package com.cjkj.jcb_caizhan.widget.ExListView;
 
 import android.content.Context;
-import android.support.annotation.IdRes;
-import android.support.v7.widget.RecyclerView;
 import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
