@@ -10,15 +10,18 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
-
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxBaseActivity;
 import com.cjkj.jcb_caizhan.base.AbsRecyclerViewAdapter;
-import com.cjkj.jcb_caizhan.widget.FlowlayoutTags;
+import com.cjkj.jcb_caizhan.utils.DateHelper;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
+import com.cjkj.jcb_caizhan.widget.NoScollGridView;
+import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialogFragment;
+import com.codetroopers.betterpickers.radialtimepicker.RadialTimePickerDialogFragment;
 import com.dilusense.customkeyboard.KeyboardNumber;
 import com.dilusense.customkeyboard.KeyboardUtils;
 import com.previewlibrary.GPreviewBuilder;
@@ -28,6 +31,8 @@ import com.yanzhenjie.album.AlbumFile;
 import com.yanzhenjie.album.api.widget.Widget;
 
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import butterknife.Bind;
@@ -51,17 +56,66 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
     Toolbar mToolbar;
     @Bind(R.id.toolbar_title)
     TextView toolbar_title;
-    @Bind(R.id.fltag)
-    FlowlayoutTags mFlowlayoutTag;
+    @Bind(R.id.toolbar_custom)
+    TextView toolbar_custom;
+
+    @Bind(R.id.mTagGrid)
+    NoScollGridView mTagGrid;
+    @Bind(R.id.edit_tag)
+    EditText edit_tag;
+
+    @Bind(R.id.tv_goto_date)
+    TextView tv_goto_date;
+    @Bind(R.id.tv_goto_time)
+    TextView tv_goto_time;
+
     @Bind(R.id.edit)
     EditText edit;
 
     CustomKeyboardHelper helper;
 
-    @OnClick({R.id.tv_launch})
+    @OnClick({R.id.tv_launch, R.id.tv_goto_date, R.id.tv_goto_time})
     public void onBtnClick(View v) {
         if (v.getId() == R.id.tv_launch) {
-
+            ToastUtil.ShortToast("发起众筹");
+        } else if (v.getId() == R.id.tv_goto_date) {
+            CalendarDatePickerDialogFragment cdp = new CalendarDatePickerDialogFragment()
+                    .setOnDateSetListener(new CalendarDatePickerDialogFragment.OnDateSetListener() {
+                        @Override
+                        public void onDateSet(CalendarDatePickerDialogFragment dialog, int year, int monthOfYear, int dayOfMonth) {
+                            tv_goto_date.setText(year + "-" + (monthOfYear+1) + "-" + dayOfMonth);
+                        }
+                    })
+                    .setFirstDayOfWeek(Calendar.SUNDAY)
+                    // .setPreselectedDate(towDaysAgo.getYear(), towDaysAgo.getMonthOfYear() - 1, towDaysAgo.getDayOfMonth())
+                    // .setDateRange(minDate, null)
+                    .setDoneText("确认")
+                    .setCancelText("取消");
+            // .setThemeDark(true);
+            cdp.show(getSupportFragmentManager(), "日期选择");
+        } else if (v.getId() == R.id.tv_goto_time) {
+            RadialTimePickerDialogFragment rtpd = new RadialTimePickerDialogFragment()
+                    .setOnTimeSetListener(new RadialTimePickerDialogFragment.OnTimeSetListener() {
+                        @Override
+                        public void onTimeSet(RadialTimePickerDialogFragment dialog, int hourOfDay, int minute) {
+                            StringBuffer buffer = new StringBuffer();
+                            if (String.valueOf(hourOfDay).length() == 1) {
+                                buffer.append("0" + hourOfDay);
+                            } else
+                                buffer.append(hourOfDay);
+                            if (String.valueOf(minute).length() == 1) {
+                                buffer.append(":" + "0" + minute);
+                            } else
+                                buffer.append(":" + minute);
+                            dialog.dismiss();
+                            tv_goto_time.setText(buffer.toString());
+                        }
+                    })
+                    .setStartTime(10, 10)
+                    .setDoneText("确认")
+                    .setCancelText("取消");
+            //.setThemeDark(true);
+            rtpd.show(getSupportFragmentManager(), "时间选择");
         }
     }
 
@@ -72,30 +126,35 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
 
     @Override
     public void initViews(Bundle savedInstanceState) {
-        String[] mVals = getResources().getStringArray(R.array.FlowlayoutTagValues);
-        mFlowlayoutTag.removeAllViews();
-        mFlowlayoutTag.setTags(mVals);
-        mFlowlayoutTag.setTagsUncheckedColorAnimal(false);
-        mFlowlayoutTag.setOnTagClickListener(new FlowlayoutTags.OnTagClickListener() {
-            @Override
-            public void onTagClick(String tag) {
-                ArrayList<Integer> tagList = mFlowlayoutTag.getCheckedTagsIndexArrayList();
-                String mCategory = "";
-                for (int i = 0; i < tagList.size(); i++) {
-                    mCategory += mVals[tagList.get(i)];
-                }
-                ToastUtil.ShortToast(mCategory);
-            }
-        });
-//        helper = new CustomKeyboardHelper(this, R.xml.keyboardnumber);
-//        helper.registerEditText(edit);
-        KeyboardNumber keyboardIdentity = new KeyboardNumber(this);
-        KeyboardUtils.bindEditTextEvent(keyboardIdentity, edit);
+        initTagGrid();
+        initTvDate();
         initRecyclerView();
     }
 
-    private void initCamera() {
+    //初始化时间选择
+    private void initTvDate() {
+        Date date = new Date();
+        tv_goto_date.setText(DateHelper.getInstance().getDataString_2(date));
+        tv_goto_time.setText(DateHelper.getInstance().getNowTime(date));
+    }
 
+    //初始化金额键盘
+    private void initKeyboard() {
+        KeyboardNumber keyboardIdentity = new KeyboardNumber(this);
+        KeyboardUtils.bindEditTextEvent(keyboardIdentity, edit);
+    }
+
+    //初始化份数
+    private void initTagGrid() {
+        TagGridAdapter mTagGridAdapter = new TagGridAdapter(this);
+        mTagGrid.setAdapter(mTagGridAdapter);
+        mTagGrid.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                mTagGridAdapter.SelsectItem(i);
+                edit_tag.setText(mTagGridAdapter.getSelect());
+            }
+        });
     }
 
     /**
@@ -104,21 +163,6 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
      * @param count
      */
     private void openCamera(int count) {
-        // 自由配置选项
-//        ISListConfig config = new ISListConfig.Builder()
-//                .multiSelect(true)
-//                .rememberSelected(false)
-//                .btnTextColor(Color.WHITE)
-//                .statusBarColor(getResources().getColor(R.color.colorPrimary))
-//                .title("图片")
-//                .titleColor(Color.WHITE)
-//                .titleBgColor(getResources().getColor(R.color.colorPrimary))
-//                .cropSize(1, 1, 200, 200)
-//                .needCrop(false)
-//                .needCamera(true)
-//                .maxNum(count)
-//                .build();
-//        ISNav.getInstance().toListActivity(this, config, REQUEST_CODE);
         Album.image(this) // 选择图片。
                 .multipleChoice()
                 .widget(Widget.newDarkBuilder(this).title("图片")
@@ -139,7 +183,7 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
                 .onResult(new Action<ArrayList<AlbumFile>>() {
                     @Override
                     public void onAction(int requestCode, @NonNull ArrayList<AlbumFile> result) {
-                       // List<String> pathList = data.getStringArrayListExtra("result");
+                        // List<String> pathList = data.getStringArrayListExtra("result");
                         for (AlbumFile bean : result) {
                             ImageItem item = new ImageItem(bean.getThumbPath());
                             datas.add(0, item);
@@ -230,7 +274,9 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
     @Override
     public void initToolBar() {
         mToolbar.setTitle("");// 标题的文字需在setSupportActionBar之前，不然会无效
-        toolbar_title.setText("发起众筹");
+        toolbar_title.setText("众筹");
+        toolbar_custom.setText("历史");
+        toolbar_custom.setVisibility(View.VISIBLE);
         mToolbar.setNavigationIcon(R.drawable.ic_back_white);
         setSupportActionBar(mToolbar);
         mToolbar.setTitleTextColor(getResources().getColor(R.color.white));

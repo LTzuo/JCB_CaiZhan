@@ -107,8 +107,8 @@ dependencies {
     compile 'com.ycjiang:ImagePreview:2.0.8'
     //RecyclerView 支持侧滑，支持随时添加头部和底部，提供自动/点击加载更多功能
     compile 'com.yanzhenjie:recyclerview-swipe:1.1.4'
-    //字体对齐TextView
-    compile 'me.codeboy.android:align-text-view:2.3.0'
+    //SuperTextView(支持各种组合)
+    compile 'com.github.lygttpod:SuperTextView:2.1.6'
     //SwitchButton开关
     compile 'com.github.luongvo:iOS-SwitchView:1.0.2'
     //时间选择器
@@ -117,4 +117,6 @@ dependencies {
     compile 'com.github.javiersantos:MaterialStyledDialogs:2.1'
     //SearchBox
     compile 'com.wenwenwen888:searchbox:1.0.0'
+    //MD风格组件
+
 }

@@ -76,39 +76,35 @@ public class CashPrizeActivity extends RxBaseActivity {
 
     private void openCustom() {
         isCustomOpen = true;
-       // img_custom.setImageDrawable(getResources().getDrawable(R.mipmap.drop_down_selected_icon));
-        //mCustomGridView.setVisibility(View.VISIBLE);
         mDrawerLayout.openDrawerView();
     }
 
     private void closeCustom() {
-        if(mFragmentManager != null){
-            mFragmentManager.swichFragment(index);
-        }
+//        if(mFragmentManager != null){
+//            mFragmentManager.swichFragment(index);
+//        }
         mCustomGridAdapter.SelsectItem(index);
         toolbar_title.setText(mCustomGridAdapter.getSelectItem());
         isCustomOpen = false;
         mDrawerLayout.closeDrawer();
-       // img_custom.setImageDrawable(getResources().getDrawable(R.mipmap.drop_down_unselected_icon));
-       // mCustomGridView.setVisibility(View.GONE);
     }
 
     @Override
     public void initViews(Bundle savedInstanceState) {
         List<Fragment> fragmentList = new ArrayList<>();
         fragmentList.add(CaiZhong_All_Fragment.newIntance());
-        fragmentList.add(CaiZhong_3D_Fragment.newIntance());
-        fragmentList.add(CaiZhong_7lc_Fragment.newIntance());
-        fragmentList.add(CaiZhong_dlt_Fragment.newIntance());
-        fragmentList.add(CaiZhong_pl3_Fragment.newIntance());
-        fragmentList.add(CaiZhong_pl5_Fragment.newIntance());
-        fragmentList.add(CaiZhong_7xc_Fragment.newIntance());
-        fragmentList.add(CaiZhong_jczq_Fragment.newIntance());
-        fragmentList.add(CaiZhong_jclq_Fragment.newIntance());
-        fragmentList.add(CaiZhong_sfgg_Fragment.newIntance());
-        fragmentList.add(CaiZhong_zqsf_Fragment.newIntance());
-        fragmentList.add(CaiZhong_rx9c_Fragment.newIntance());
-        fragmentList.add(CaiZhong_zqdc_Fragment.newIntance());
+//        fragmentList.add(CaiZhong_3D_Fragment.newIntance());
+//        fragmentList.add(CaiZhong_7lc_Fragment.newIntance());
+//        fragmentList.add(CaiZhong_dlt_Fragment.newIntance());
+//        fragmentList.add(CaiZhong_pl3_Fragment.newIntance());
+//        fragmentList.add(CaiZhong_pl5_Fragment.newIntance());
+//        fragmentList.add(CaiZhong_7xc_Fragment.newIntance());
+//        fragmentList.add(CaiZhong_jczq_Fragment.newIntance());
+//        fragmentList.add(CaiZhong_jclq_Fragment.newIntance());
+//        fragmentList.add(CaiZhong_sfgg_Fragment.newIntance());
+//        fragmentList.add(CaiZhong_zqsf_Fragment.newIntance());
+//        fragmentList.add(CaiZhong_rx9c_Fragment.newIntance());
+//        fragmentList.add(CaiZhong_zqdc_Fragment.newIntance());
         mFragmentManager = new LTZFragmentManager(this,fragmentList);
         mFragmentManager.swichFragment(0);
         mCustomGridAdapter = new CustomGridAdapter(this);

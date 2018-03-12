@@ -21,6 +21,7 @@ public class LotteryGridAdapter extends BaseAdapter {
 
     private boolean selsectDatas[] = {
             false,false,false,false,false,false,false,false,false,false,false,false,false
+           ,false,false,false,false,false,false,false,false,false,false
     };
 
     private Context mContext;

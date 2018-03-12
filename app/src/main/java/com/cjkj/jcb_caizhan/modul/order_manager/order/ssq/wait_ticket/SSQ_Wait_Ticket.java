@@ -6,11 +6,9 @@ import android.widget.ExpandableListView;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
-
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.Bind;
-
 /**
  * 双色球—待打票
  * Created by 1 on 2018/2/23.
@@ -54,22 +52,22 @@ public class SSQ_Wait_Ticket extends RxLazyFragment{
 //            }
 //        });
 
-//        mExpandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
-//            @Override
-//            public void onGroupExpand(int groupPosition) {
-//                int count = mExpandableListView.getExpandableListAdapter().getGroupCount();
-//                for(int j = 0; j < count; j++){
-//                    if(j != groupPosition){
-//                        mExpandableListView.collapseGroup(j);
-//                    }
-//                }
-//            }
-//        });
+        mExpandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
+            @Override
+            public void onGroupExpand(int groupPosition) {
+                int count = mExpandableListView.getExpandableListAdapter().getGroupCount();
+                for(int j = 0; j < count; j++){
+                    if(j != groupPosition){
+                        mExpandableListView.collapseGroup(j);
+                    }
+                }
+            }
+        });
 
         mExpandableListView.setOnGroupClickListener(new ExpandableListView.OnGroupClickListener() {
             @Override
             public boolean onGroupClick(ExpandableListView parent, View v, int groupPosition, long id) {
-                ToastUtil.ShortToast("正在点击-"+groupPosition + "-group");
+               // ToastUtil.ShortToast("正在点击-"+groupPosition + "-group");
                 return false;
             }
         });
@@ -77,7 +75,7 @@ public class SSQ_Wait_Ticket extends RxLazyFragment{
         mExpandableListView.setOnGroupCollapseListener(new ExpandableListView.OnGroupCollapseListener() {
             @Override
             public void onGroupCollapse(int groupPosition) {
-                ToastUtil.ShortToast( groupPosition + "-group关闭");
+               // ToastUtil.ShortToast( groupPosition + "-group关闭");
             }
         });
     }

@@ -7,7 +7,6 @@ import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
 import com.flyco.tablayout.SlidingTabLayout;
 import butterknife.Bind;
-
 /**
  * Created by 1 on 2018/1/15.
  * 订单管理
@@ -43,4 +42,5 @@ public class OrdermMnagePageFragment extends RxLazyFragment {
         mSlidingTab.setViewPager(mViewPager);
         mViewPager.setCurrentItem(0);
     }
+
 }

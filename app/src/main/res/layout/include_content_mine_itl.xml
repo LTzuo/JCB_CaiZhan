@@ -31,7 +31,7 @@
             android:layout_width="35dp"
             android:layout_height="25dp"
             android:layout_marginLeft="5dp"
-            app:color_on="@color/orange"/>
+            app:color_on="@color/orange" />
 
         <TextView
             style="@style/font_style"
@@ -42,7 +42,6 @@
             android:gravity="end|center_vertical"
             android:textColor="@color/grey1"
             android:textSize="@dimen/minefragment_right_text_size" />
-
 
 
     </LinearLayout>
@@ -61,13 +60,45 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/Layout_AwardResult"
+        android:id="@+id/Layout_Open_CYD"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
         android:orientation="horizontal"
         android:padding="10dp">
 
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:drawableLeft="@drawable/dkcyd_grzx"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:text="打开彩友端"
+            android:textColor="@color/black_light"
+            android:textSize="@dimen/minefragment_lift_text_size" />
+
+
+        <TextView
+            style="@style/font_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/more"
+            android:gravity="end|center_vertical"
+            android:textColor="@color/grey1"
+            android:textSize="@dimen/minefragment_right_text_size" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/Layout_AwardResult"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="10dp">
 
         <TextView
             android:layout_width="wrap_content"
@@ -240,9 +271,8 @@
             android:layout_marginLeft="8dp"
             android:drawableLeft="@drawable/fqzc_grzx"
             android:drawablePadding="8dp"
-
             android:gravity="center"
-            android:text="发起众筹"
+            android:text="众筹"
             android:textColor="@color/black_light"
             android:textSize="@dimen/minefragment_lift_text_size" />
 
@@ -459,6 +489,51 @@
             android:drawablePadding="8dp"
             android:gravity="center"
             android:text="订单查询"
+            android:textColor="@color/black_light"
+            android:textSize="@dimen/minefragment_lift_text_size" />
+
+
+        <TextView
+            style="@style/font_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/more"
+            android:gravity="end|center_vertical"
+            android:textColor="@color/grey1"
+            android:textSize="@dimen/minefragment_right_text_size" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:layout_marginLeft="15dp"
+            android:layout_marginRight="10dp"
+            android:background="#e6e6e6" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Layout_Documentary"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:drawableLeft="@drawable/ddcx_grzx"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:text="跟单方案查询"
             android:textColor="@color/black_light"
             android:textSize="@dimen/minefragment_lift_text_size" />
 

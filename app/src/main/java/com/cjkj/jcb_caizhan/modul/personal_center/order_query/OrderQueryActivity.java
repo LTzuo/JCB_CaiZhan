@@ -13,6 +13,9 @@ import com.cjkj.jcb_caizhan.base.RxBaseActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.order_query.menu.LotteryGridAdapter;
 import com.cjkj.jcb_caizhan.modul.personal_center.order_query.menu.StateGridAdapter;
 import com.cjkj.jcb_caizhan.widget.NoScollGridView;
+import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialogFragment;
+
+import java.util.Calendar;
 
 import butterknife.Bind;
 import butterknife.OnClick;
@@ -40,12 +43,17 @@ public class OrderQueryActivity extends RxBaseActivity {
     @Bind(R.id.mStateGridView)
     NoScollGridView mStateGridView;
 
+    @Bind(R.id.menu_start_time)
+    TextView menu_start_time;
+    @Bind(R.id.menu_end_time)
+    TextView menu_end_time;
+
     @Override
     public int getLayoutId() {
         return R.layout.activity_order_query;
     }
 
-    @OnClick({R.id.menu_custom,R.id.tv_cancle,R.id.tv_ok,R.id.imgback})
+    @OnClick({R.id.menu_custom,R.id.tv_cancle,R.id.tv_ok,R.id.imgback,R.id.menu_start_time,R.id.menu_end_time})
     public void BtnClick(View v) {
         if (v.getId() == R.id.menu_custom) {
             mDrawerlayout.openDrawer(menu);
@@ -55,7 +63,31 @@ public class OrderQueryActivity extends RxBaseActivity {
             mDrawerlayout.closeDrawer(menu);
         }else if (v.getId() == R.id.imgback) {
             finish();
+        }else if(v.getId() == R.id.menu_start_time){
+            showDateDialog(0);
+        }else if(v.getId() == R.id.menu_end_time){
+            showDateDialog(1);
         }
+    }
+
+    //日期选择器
+    private void showDateDialog(int sys){
+        CalendarDatePickerDialogFragment cdp = new CalendarDatePickerDialogFragment()
+                .setOnDateSetListener(new CalendarDatePickerDialogFragment.OnDateSetListener() {
+                    @Override
+                    public void onDateSet(CalendarDatePickerDialogFragment dialog, int year, int monthOfYear, int dayOfMonth) {
+                       if(sys == 0){
+                           menu_start_time.setText(year + "-" + (monthOfYear+1) + "-" + dayOfMonth);
+                       }else{
+                           menu_end_time.setText(year + "-" + (monthOfYear+1) + "-" + dayOfMonth);
+                       }
+                    }
+                })
+                .setFirstDayOfWeek(Calendar.SUNDAY)
+                .setDoneText("确认")
+                .setCancelText("取消");
+        // .setThemeDark(true);
+        cdp.show(getSupportFragmentManager(), "日期选择");
     }
 
     @Override

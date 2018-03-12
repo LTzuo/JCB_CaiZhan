@@ -2,6 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:stv="http://schemas.android.com/tools"
     android:layout_marginTop="10dp"
     android:background="@color/white"
     android:orientation="vertical"
@@ -17,13 +19,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="我发起了一个众筹"
+            android:textSize="@dimen/_13dp"
             android:textColor="@color/black_alpha_70" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="￥1,000.00"
-            android:textColor="@color/colorPrimary" />
+            android:textColor="@color/colorPrimaryDark" />
     </LinearLayout>
 
     <LinearLayout
@@ -35,6 +38,8 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/_12dp"
+            android:textColor="@color/black_alpha_45"
             android:layout_weight="1"
             android:text="已众筹200份，剩余100份" />
 
@@ -42,39 +47,47 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="撤销"
-            android:textColor="@color/colorPrimary" />
+            android:textSize="@dimen/_12dp"
+            android:textColor="@color/colorPrimaryDark" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="众筹中"
-            android:textColor="@color/colorPrimary" />
+            android:textSize="@dimen/_12dp"
+            android:textColor="@color/colorPrimaryDark" />
     </LinearLayout>
 
-    <me.codeboy.android.aligntextview.AlignTextView
+    <TextView
+        android:id="@+id/text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:text="双色球5注，分别是01 02 03 04 05 06，11  01 02 03 04 05 06，11  01 02 03 04 05 06，11  01 02 03 04 05 06，11  01 02 03 04 05 06，11  01 02 03 04 05 06，11"
-        android:textColor="@color/black_alpha_60" />
+        android:textSize="@dimen/_12dp"
+        android:textColor="@color/black_alpha_60"
+        android:background="@color/bg_f3f2f7"
+        android:text="这个项目是初学开发时写的，当时因为 TextView 行尾出现参差不齐的情况纠结了好一阵，所以才想到去自定义一个 TextView近日看到这两篇文章，才想起之前写的这个"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
         android:orientation="horizontal">
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="5dp"
+            android:src="@mipmap/flight" />
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="5dp"
+            android:src="@mipmap/flight" />
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@mipmap/ic_launcher" />
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@mipmap/flight" />
     </LinearLayout>
 
     <LinearLayout
@@ -87,12 +100,15 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textSize="@dimen/_12dp"
+            android:textColor="@color/black_alpha_45"
             android:text="截止时间 2018-2-22 10:38" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="查看详情"
-            android:textColor="@color/colorPrimary" />
+            android:textSize="@dimen/_13dp"
+            android:textColor="@color/colorPrimaryDark" />
     </LinearLayout>
 </LinearLayout>

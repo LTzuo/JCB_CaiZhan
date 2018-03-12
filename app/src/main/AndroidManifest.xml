@@ -145,6 +145,16 @@
             android:name=".modul.personal_center.seeting.version_information.VersionInformationActivity"
             android:theme="@style/MainActivityColorTranslucentTheme" />
 
+        <!-- 个人中心-跟单方案查询 -->
+        <activity
+            android:name=".modul.personal_center.documentary.DocumentaryActivity"
+            android:theme="@style/MainActivityColorTranslucentTheme" />
+
+        <!-- 个人中心-跟单方案详情 -->
+        <activity
+            android:name=".modul.personal_center.documentary.details.DocDetailsActivity"
+            android:theme="@style/MainActivityColorTranslucentTheme" />
+
         <!-- 订单管理-双色球 -->
         <activity
             android:name=".modul.order_manager.order.ssq.SSQActivity"

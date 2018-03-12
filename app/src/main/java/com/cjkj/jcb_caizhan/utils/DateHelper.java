@@ -36,6 +36,8 @@ public class DateHelper {
 
     public SimpleDateFormat date_Formater_2 = new SimpleDateFormat("yyyy-MM-dd");
 
+    public SimpleDateFormat time_Formater_1 = new SimpleDateFormat("HH:mm");
+
     public Date getDate(String dateStr) {
         Date date = new Date();
         if (TextUtils.isEmpty(dateStr)) {
@@ -183,6 +185,19 @@ public class DateHelper {
     public String getCurrentMonth() {
         Calendar c = Calendar.getInstance();
         return (c.get(Calendar.MONTH) + 1) + "";
+    }
+
+    /**
+     * 获取当前时间
+     *  HH:mm
+     * @return
+     */
+    public String getNowTime(Date date){
+        if (date == null) {
+            date = new Date();
+        }
+        String str = time_Formater_1.format(date);
+        return str;
     }
 
     /**

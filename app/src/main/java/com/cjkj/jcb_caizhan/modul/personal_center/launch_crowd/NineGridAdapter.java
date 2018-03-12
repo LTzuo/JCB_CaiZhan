@@ -11,6 +11,7 @@ import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.AbsRecyclerViewAdapter;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * 九宫格图片适配器
@@ -25,17 +26,27 @@ public  class NineGridAdapter extends AbsRecyclerViewAdapter {
      */
     private int maxImages = 4;
 
-    public interface onItemImageViewClickListener{
+    public interface onItemImageViewClickListener {
         void deleItem(int position);
     }
-    private  onItemImageViewClickListener mListener;
-    public void setOnItemImageViewClickListener(onItemImageViewClickListener listener){
+
+    private onItemImageViewClickListener mListener;
+
+    public void setOnItemImageViewClickListener(onItemImageViewClickListener listener) {
         this.mListener = listener;
     }
 
     public void setDatas(List<ImageItem> datas) {
         this.datas = datas;
         notifyDataSetChanged();
+    }
+
+    public void setDatas(int groupPosition,ArrayList<ImageItem> imgLists) {
+        datas.clear();
+        if(imgLists.size() == 0) return;
+        datas.addAll(imgLists);
+        notifyItemInserted(0);//通知演示插入动画
+       // notifyItemRangeChanged(0, datas.size() - 0);//通知数据与界面重新绑定
     }
 
     /**
@@ -98,7 +109,7 @@ public  class NineGridAdapter extends AbsRecyclerViewAdapter {
                         .priority(Priority.HIGH)
                         .centerCrop()
                         .into(itemimg);
-                  item_dele.setVisibility(View.GONE);
+                item_dele.setVisibility(View.GONE);
             }
         }
         super.onBindViewHolder(holder, position);
@@ -113,16 +124,16 @@ public  class NineGridAdapter extends AbsRecyclerViewAdapter {
             return count;
         }
     }
-}
 
- class ItemViewHolder extends AbsRecyclerViewAdapter.ClickableViewHolder {
 
-    ImageView item_image,item_dele;
+    class ItemViewHolder extends AbsRecyclerViewAdapter.ClickableViewHolder {
 
-    public ItemViewHolder(View itemView) {
-        super(itemView);
-        item_image = $(R.id.item_img);
-        item_dele = $(R.id.item_dele);
+        ImageView item_image, item_dele;
+
+        public ItemViewHolder(View itemView) {
+            super(itemView);
+            item_image = $(R.id.item_img);
+            item_dele = $(R.id.item_dele);
+        }
     }
 }
-

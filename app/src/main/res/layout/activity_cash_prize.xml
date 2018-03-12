@@ -24,10 +24,10 @@
             android:layout_marginTop="@dimen/customToolbarHight"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:paddingLeft="10dp"
-            android:paddingRight="10dp"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
             android:background="@color/white"
-            android:numColumns="4"/>
+            android:numColumns="3"/>
 
     </com.cjkj.jcb_caizhan.widget.VerticalDrawerLayout>
 

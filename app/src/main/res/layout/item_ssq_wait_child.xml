@@ -9,7 +9,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textColor="@color/black_alpha_60"
-        android:textSize="@dimen/_10dp"/>
+        android:textSize="@dimen/_11dp"/>
 
     <!--为了实现效果用了倆控件，实际一个就行，涉及到换行的问题-->
     <TextView
@@ -18,7 +18,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:textColor="@color/colorPrimary"
-        android:textSize="@dimen/_10dp"/>
+        android:textSize="@dimen/_12dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -26,14 +26,14 @@
         android:layout_marginLeft="5dp"
         android:text="6"
         android:textColor="@color/blue"
-        android:textSize="@dimen/_10dp"/>
+        android:textSize="@dimen/_12dp"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="倍数1"
         android:textColor="@color/black_alpha_45"
-        android:textSize="@dimen/_10dp"/>
+        android:textSize="@dimen/_12dp"/>
 
 
 

@@ -1,12 +1,14 @@
 package com.cjkj.jcb_caizhan.utils;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Environment;
 import android.os.StatFs;
+import android.widget.Toast;
 
 import com.facebook.stetho.common.LogUtil;
 
@@ -16,6 +18,7 @@ import java.io.File;
  * Created by hcc on 18/1/16.
  * 通用工具类
  * 网络检测、sd卡、储存空间
+ * 软件版本信息、
  */
 public class CommonUtil {
 
@@ -132,8 +135,8 @@ public class CommonUtil {
     }
 
     /**
-    * 获取本地软件版本号
-    */
+     * 获取本地软件版本号
+     */
     public static int getLocalVersion(Context ctx) {
         int localVersion = 0;
         try {
@@ -164,4 +167,32 @@ public class CommonUtil {
         }
         return localVersion;
     }
+
+    /**
+     * 打开指定的App
+     */
+    public static void openOtherApp(Context context, String packname) {
+        PackageManager packageManager = context.getPackageManager();
+        if (checkPackInfo(packname,context)) {
+            Intent intent = packageManager.getLaunchIntentForPackage(packname);
+            context.startActivity(intent);
+        } else {
+            Toast.makeText(context, "您没有安装，“聚彩宝-彩友端”", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    /**
+     * 检查包是否存在 * * @param packname * @return
+     */
+    private static  boolean checkPackInfo(String packname,Context context) {
+        PackageInfo packageInfo = null;
+        try {
+            packageInfo = context.getPackageManager().getPackageInfo(packname, 0);
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
+        return packageInfo != null;
+    }
+
+
 }

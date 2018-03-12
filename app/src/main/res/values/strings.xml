@@ -11,6 +11,11 @@
         <item>众筹</item>
     </string-array>
 
+    <string-array name="order_arrays">
+        <item>待打票</item>
+        <item>已完成</item>
+    </string-array>
+
     <string-array name="personal_center_withdrawals">
         <item>提现到</item>
         <item>记录</item>
@@ -29,6 +34,7 @@
     </string-array>
 
     <string-array name="FlowlayoutTagValues">
+        <item>500份</item>
         <item>200份</item>
         <item>100份</item>
         <item>50份</item>
@@ -38,19 +44,32 @@
 
     <string-array name="menu_caizhong">
         <item>全部彩种</item>
+        <item>双色球</item>
         <item>福彩3D</item>
         <item>七乐彩</item>
         <item>大乐透</item>
         <item>排列三</item>
         <item>排列五</item>
         <item>七星彩</item>
-        <item>竞彩足球</item>
-        <item>竞彩篮球</item>
-        <item>胜负过关</item>
-        <item>足球胜负</item>
+        <!--<item>竞彩足球</item>
+        <item>竞彩篮球</item>-->
+        <item>胜负彩</item>
         <item>任选九场</item>
-        <item>足球单场</item>
-
+        <item>半全场</item>
+        <item>进球彩</item>
+        <!--竞彩足球-->
+        <item>胜负平</item>
+        <item>让球胜负平</item>
+        <item>比分</item>
+        <item>进球总数</item>
+        <item>半全场胜平负</item>
+        <item>混合过关(足)</item>
+        <!--竞彩篮球-->
+        <item>胜负</item>
+        <item>让分胜负</item>
+        <item>胜分差</item>
+        <item>大小分</item>
+        <item>混合过关(篮)</item>
     </string-array>
 
     <string-array name="menu_order_state">

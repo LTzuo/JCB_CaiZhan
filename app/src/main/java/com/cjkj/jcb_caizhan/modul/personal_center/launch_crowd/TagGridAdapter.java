@@ -1,7 +1,6 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.cash_prize;
+package com.cjkj.jcb_caizhan.modul.personal_center.launch_crowd;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,23 +12,22 @@ import com.cjkj.jcb_caizhan.R;
 import butterknife.ButterKnife;
 
 /**
- * 委托兑奖-彩种切换适配器
- * Created by 1 on 2018/2/27.
+ *
+ * Created by 1 on 2018/3/12.
  */
-public class CustomGridAdapter extends BaseAdapter{
+public class TagGridAdapter extends BaseAdapter {
+
+    private String mDatas[];
+
+    private boolean selsectDatas[] = {
+            false,false,false,false,false,false
+    };
 
     private Context mContext;
 
-    private String mDatas[] ;
-
-    private boolean selsectDatas[] = {
-            false,false,false,false,false,false,false,false,false,false,false,false,false
-            ,false,false,false,false,false,false,false,false,false,false
-    };
-
-    public CustomGridAdapter(Context context){
-        this.mContext = context;
-        mDatas  = mContext.getResources().getStringArray(R.array.menu_caizhong);
+    public TagGridAdapter(Context mContext) {
+        this.mContext = mContext;
+        mDatas = mContext.getResources().getStringArray(R.array.FlowlayoutTagValues);
     }
 
     public void SelsectItem(int index){
@@ -40,14 +38,14 @@ public class CustomGridAdapter extends BaseAdapter{
         notifyDataSetChanged();
     }
 
-    public String getSelectItem(){
-        String selecetText = null;
-        for(int i = 0;i<= selsectDatas.length - 1;i++){
+    public String getSelect(){
+        String select = "";
+        for(int i = 0;i<selsectDatas.length;i++){
             if(selsectDatas[i]){
-                selecetText = mDatas[i];
+                select = mDatas[i];
             }
         }
-        return selecetText;
+        return select.replace("份","");
     }
 
     @Override
@@ -68,15 +66,14 @@ public class CustomGridAdapter extends BaseAdapter{
     @Override
     public View getView(int i, View v, ViewGroup viewGroup) {
         ViewHolder holder = null;
-        if(v == null){
-            v = LayoutInflater.from(mContext).inflate(R.layout.item_custom_layout,null);
+        if (v == null) {
+            v = LayoutInflater.from(mContext).inflate(R.layout.item_custom_layout, viewGroup, false);
             holder = new ViewHolder(v);
             v.setTag(holder);
-        }else{
+        } else {
             holder = (ViewHolder) v.getTag();
         }
-           holder.mItemText.setText(mDatas[i]);
-
+        holder.mItemText.setText(mDatas[i]);
         if(selsectDatas[i]){
             holder.mItemText.setBackground(mContext.getResources().getDrawable(R.drawable.shape_bg_red_selected_bg));
             holder.mItemText.setTextColor(mContext.getResources().getColor(R.color.white));
@@ -87,11 +84,12 @@ public class CustomGridAdapter extends BaseAdapter{
         return v;
     }
 
-    class ViewHolder{
+    class ViewHolder {
         TextView mItemText;
-        public ViewHolder(View v){
+
+        public ViewHolder(View v) {
             super();
-            ButterKnife.bind(this,v);
+            ButterKnife.bind(this, v);
             mItemText = (TextView) v.findViewById(R.id.itemText);
         }
     }

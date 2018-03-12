@@ -7,11 +7,14 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.bumptech.glide.Glide;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.modul.personal_center.account_details.AccountDetailsActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.CashPrizeActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.chenge_station.ChangeLotteryStationActivity;
+import com.cjkj.jcb_caizhan.modul.personal_center.documentary.DocumentaryActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.dowmload_caimin.DownLoadCaiMinActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.launch_crowd.LaunchCrowdfundingActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.lottery.AwardResultActivity;
@@ -25,6 +28,7 @@ import com.cjkj.jcb_caizhan.modul.personal_center.recharge.RechargeActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.seeting.SeetingActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.to_door_ticket.ToDoorTicketActivity;
 import com.cjkj.jcb_caizhan.modul.personal_center.withdrawals.WithdrawalsActivity;
+import com.cjkj.jcb_caizhan.utils.CommonUtil;
 import com.cjkj.jcb_caizhan.utils.IntentUtils;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.github.ksoichiro.android.observablescrollview.ObservableScrollView;
@@ -80,7 +84,8 @@ public class PersonalCenterFragment extends RxLazyFragment implements Observable
 
     @OnClick({R.id.img_xiugai,R.id.Layout_Open_Close,R.id.Layout_AwardResult,R.id.layout_chenge,R.id.layout_seeting,R.id.layout_launchCrowdfunding,
             R.id.Layout_recharge,R.id.layout_Withdrawals,R.id.Layout_message,R.id.Layout_OrderQuery,R.id.Layout_AccountDetails,
-            R.id.Layout_Duijiang,R.id.Layout_DownLoad,R.id.Layout_NoOutTicket,R.id.Layout_ToDoorTicket})
+            R.id.Layout_Duijiang,R.id.Layout_DownLoad,R.id.Layout_NoOutTicket,R.id.Layout_ToDoorTicket,R.id.Layout_Open_CYD,
+            R.id.Layout_Documentary})
     public void BtnClick(View v) {
         if(v.getId() == R.id.img_xiugai){
             //个人信息
@@ -129,6 +134,12 @@ public class PersonalCenterFragment extends RxLazyFragment implements Observable
         }else if(v.getId() == R.id.Layout_ToDoorTicket){
             //上门取票
             IntentUtils.Goto(getActivity(), ToDoorTicketActivity.class);
+        }else if(v.getId() == R.id.Layout_Open_CYD){
+            //打开彩友端
+            CommonUtil.openOtherApp(getContext(),"com.cjkj.jcb_caiyou");
+        }else if(v.getId() == R.id.Layout_Documentary){
+            //跟单方案查询
+            IntentUtils.Goto(getActivity(), DocumentaryActivity.class);
         }
     }
 
