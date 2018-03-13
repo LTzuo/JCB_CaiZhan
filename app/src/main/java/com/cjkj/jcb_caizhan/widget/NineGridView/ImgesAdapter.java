@@ -1,23 +1,24 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.launch_crowd;
+package com.cjkj.jcb_caizhan.widget.NineGridView;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.AbsRecyclerViewAdapter;
+
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 /**
  * 九宫格图片适配器
  * Created by 1 on 2018/2/12.
  */
-public  class NineGridAdapter extends AbsRecyclerViewAdapter {
+public class ImgesAdapter extends AbsRecyclerViewAdapter {
 
     private List<ImageItem> datas = new ArrayList<>();
     /**
@@ -41,33 +42,14 @@ public  class NineGridAdapter extends AbsRecyclerViewAdapter {
         notifyDataSetChanged();
     }
 
-    public void setDatas(int groupPosition,ArrayList<ImageItem> imgLists) {
-        datas.clear();
-        if(imgLists.size() == 0) return;
-        datas.addAll(imgLists);
+
+    public void addInfo(ImageItem img) {
+        datas.add(0, img);
         notifyItemInserted(0);//通知演示插入动画
-       // notifyItemRangeChanged(0, datas.size() - 0);//通知数据与界面重新绑定
+        notifyItemRangeChanged(0, datas.size() - 0);//通知数据与界面重新绑定
     }
 
-    /**
-     * 获取最大上传张数
-     *
-     * @return
-     */
-    public int getMaxImages() {
-        return maxImages;
-    }
-
-    /**
-     * 设置最大上传张数
-     *
-     * @param maxImages
-     */
-    public void setMaxImages(int maxImages) {
-        this.maxImages = maxImages;
-    }
-
-    public NineGridAdapter(RecyclerView mRecyvlerView) {
+    public ImgesAdapter(RecyclerView mRecyvlerView) {
         super(mRecyvlerView);
     }
 
@@ -84,13 +66,7 @@ public  class NineGridAdapter extends AbsRecyclerViewAdapter {
             ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
             ImageView itemimg = itemViewHolder.item_image;
             ImageView item_dele = itemViewHolder.item_dele;
-//            if(position == mDatas.size()-1){
-//                item.setImageBitmap(mDatas.get(position).getBitmap());
-//            }else{
-//                Glide.with(getContext())
-//                        .load(mDatas.get(position).getPath())
-//                        .into(item);
-//            }
+
             if (datas != null && position < datas.size()) {
                 Glide.with(getContext())
                         .load(datas.get(position).getUrl())
@@ -117,16 +93,19 @@ public  class NineGridAdapter extends AbsRecyclerViewAdapter {
 
     @Override
     public int getItemCount() {
-        int count = datas == null ? 1 : datas.size() + 1;
-        if (count >= maxImages) {
-            return datas.size();
+        int count;
+        if (datas == null) {
+            count = 1;
+        } else if (datas.size() == 3) {
+            count = 3;
         } else {
-            return count;
+            count = datas.size() + 1;
         }
+        return count;
     }
 
 
-    class ItemViewHolder extends AbsRecyclerViewAdapter.ClickableViewHolder {
+    class ItemViewHolder extends ClickableViewHolder {
 
         ImageView item_image, item_dele;
 

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="com.cjkj.jcb_caizhan.modul.personal_center.personcl_information.modify.ModifyActivity">
+
+    <include layout="@layout/toolbar"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginTop="10dp"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/_16dp"
+            android:textColor="@color/black_alpha_60"
+            android:text="支付宝账号："/>
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="请输入您的支付宝账号"
+            android:layout_marginLeft="5dp"
+            android:textSize="@dimen/_15dp"
+            android:textColor="@color/black_alpha_60"
+            android:background="@null"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="10dp"
+        android:textSize="@dimen/_11dp"
+        android:textColor="@color/colorPrimary"
+        android:text="*支付宝账号必须为本人实名认证，为保障提现金额安全，请谨慎填写"/>
+
+    <TextView
+        style="@style/red_button_style"
+        android:layout_marginTop="20dp"
+        android:text="确认" />
+
+</LinearLayout>

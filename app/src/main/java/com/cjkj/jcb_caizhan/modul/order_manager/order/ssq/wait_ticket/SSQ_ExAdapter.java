@@ -11,9 +11,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.AbsRecyclerViewAdapter;
-import com.cjkj.jcb_caizhan.modul.personal_center.launch_crowd.ImageItem;
-import com.cjkj.jcb_caizhan.modul.personal_center.launch_crowd.NineGridAdapter;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
+import com.cjkj.jcb_caizhan.widget.NineGridView.ChildImages;
+import com.cjkj.jcb_caizhan.widget.NineGridView.ImageItem;
+import com.cjkj.jcb_caizhan.widget.NineGridView.ImgesAdapter;
 import com.cjkj.jcb_caizhan.widget.SubListView;
 import com.yanzhenjie.album.Action;
 import com.yanzhenjie.album.Album;
@@ -29,10 +30,8 @@ import java.util.Map;
 public class SSQ_ExAdapter extends BaseExpandableListAdapter {
 
     private static final int REQUEST_CODE = 1;
-   // List<NineGridAdapter> mImageAdapterList = new ArrayList<>();
-    private Map<Integer,ArrayList<ImageItem>> mImageMap =new HashMap<>();
 
-    ArrayList<ImageItem> mImageList = new ArrayList<>();//临时的列表
+    private Map<Integer,ChildImages> mImageMap =new HashMap<>();
 
     //一级节点数据
     private List<GroupItem> mGroupItems;
@@ -139,7 +138,7 @@ public class SSQ_ExAdapter extends BaseExpandableListAdapter {
         }else{
             holder.mgroupimage.setImageDrawable(mContext.getResources().getDrawable(R.drawable.shou_jt));
         }
-       // holder.mNumbered_unique.setText(groupPosition);
+        holder.mNumbered_unique.setText(groupPosition+"");
         return convertView;
     }
 
@@ -156,14 +155,12 @@ public class SSQ_ExAdapter extends BaseExpandableListAdapter {
     public View getChildView(int groupPosition, int childPosition, boolean isLastChild, View convertView, ViewGroup parent) {
         ChildViewHolder holder = null;
         if(convertView!=null){
-
             holder = (ChildViewHolder) convertView.getTag();
         }else{
             holder = new ChildViewHolder();
             convertView = View.inflate(mContext,R.layout.child_ssq_wait_ticket, null);
             holder.mChildListView = (SubListView) convertView.findViewById(R.id.mChildListView);
             holder.mNineRecyclerView = (RecyclerView) convertView.findViewById(R.id.mNineRecyclerView);
-
             convertView.setTag(holder);
         }
         List<String> SourceDateList = new ArrayList<>();
@@ -175,20 +172,27 @@ public class SSQ_ExAdapter extends BaseExpandableListAdapter {
         SubListViewAdapter listViewAdaAdapter = new SubListViewAdapter(mContext,SourceDateList);
         holder.mChildListView.setAdapter(listViewAdaAdapter);
 
-        mImageList.clear();
-        mImageMap.put(groupPosition,mImageList);
-        NineGridAdapter mNineGridAdapter = new NineGridAdapter(holder.mNineRecyclerView);
-      //  mImageAdapterList.add(mNineGridAdapter);
+
         holder.mNineRecyclerView.setLayoutManager(new GridLayoutManager(mContext, 4));
-        mNineGridAdapter.setDatas(groupPosition,mImageMap.get(groupPosition));
-        mNineGridAdapter.setOnItemClickListener(new AbsRecyclerViewAdapter.OnItemClickListener() {
+
+        if(mImageMap!=null&&mImageMap.containsKey(groupPosition)){
+            if(!mImageMap.get(groupPosition).getImgs().isEmpty()){
+                mImageMap.get(groupPosition).getAdapter().setDatas(mImageMap.get(groupPosition).getImgs());
+            }
+         }else {
+            ImgesAdapter mImgesAdapter= new ImgesAdapter(holder.mNineRecyclerView);
+            mImageMap.put(groupPosition,new ChildImages(new ArrayList<ImageItem>(),mImgesAdapter));
+            mImgesAdapter.setDatas(new ArrayList<ImageItem>());
+        }
+        holder.mNineRecyclerView.setAdapter(mImageMap.get(groupPosition).getAdapter());
+        mImageMap.get(groupPosition).getAdapter().setOnItemClickListener(new AbsRecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position, AbsRecyclerViewAdapter.ClickableViewHolder holder) {
 //                if (mNineGridAdapter.getItemCount() == 1) {
 //                    openCamera(groupPosition);
 //                } else {
-                    if (mImageMap.get(groupPosition).size() < 3) {
-                            openCamera(groupPosition,mNineGridAdapter);
+                    if (mImageMap.get(groupPosition).getImgs().size() < 3) {
+                            openCamera(groupPosition,  mImageMap.get(groupPosition).getAdapter());
                     } else {
                        // LookBanners(position);
                         ToastUtil.ShortToast("浏览第"+groupPosition+"组");
@@ -196,7 +200,6 @@ public class SSQ_ExAdapter extends BaseExpandableListAdapter {
 //                }
             }
         });
-        holder.mNineRecyclerView.setAdapter(mNineGridAdapter);
         return convertView;
     }
 
@@ -204,19 +207,20 @@ public class SSQ_ExAdapter extends BaseExpandableListAdapter {
      * 打开相机
      * @param gropPosition
      */
-    private void openCamera(int gropPosition,NineGridAdapter mNineGridAdapter) {
-        ArrayList<ImageItem> imgLists = mImageMap.get(gropPosition);
-        Album.camera(mContext) // 相机功能。
-                .image() // 拍照。
-               // .filePath() // 文件保存路径，非必须。
+    private void openCamera(int gropPosition,ImgesAdapter mImgesAdapter) {
+        ArrayList<ImageItem> imgLists = (ArrayList<ImageItem>) mImageMap.get(gropPosition).getImgs();
+        Album.camera(mContext)
+                .image()
+               // .filePath()
                 .requestCode(REQUEST_CODE)
                 .onResult(new Action<String>() {
                     @Override
                     public void onAction(int requestCode, @NonNull String result) {
+                        mImageMap.remove(gropPosition);
                         ImageItem item = new ImageItem(result);
                         imgLists.add(0,item);
-                        mImageMap.put(gropPosition,imgLists);
-                        mNineGridAdapter.setDatas(gropPosition,imgLists);
+                        mImageMap.put(gropPosition,new ChildImages(imgLists,mImgesAdapter));
+                        mImgesAdapter.addInfo(item);
                     }
                 })
                 .onCancel(new Action<String>() {
@@ -246,7 +250,6 @@ public class SSQ_ExAdapter extends BaseExpandableListAdapter {
     class ChildViewHolder{
         SubListView mChildListView;
         RecyclerView mNineRecyclerView;
-        TextView mTextView;
     }
 
     /**

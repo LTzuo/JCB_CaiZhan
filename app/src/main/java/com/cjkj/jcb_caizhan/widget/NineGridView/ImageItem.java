@@ -1,7 +1,8 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.launch_crowd;
+package com.cjkj.jcb_caizhan.widget.NineGridView;
 
 import android.graphics.Rect;
 import android.os.Parcel;
+
 import com.previewlibrary.enitity.IThumbViewInfo;
 
 /**

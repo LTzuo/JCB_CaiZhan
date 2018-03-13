@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_f3f2f7"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context="com.cjkj.jcb_caizhan.modul.personal_center.personcl_information.PersonclInformationActivity">
 
-    <include layout="@layout/toolbar"/>
+    <include layout="@layout/toolbar" />
 
     <android.support.v4.widget.NestedScrollView
-        android:layout_below="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -23,34 +23,314 @@
                 android:id="@+id/Layout_header"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="5dp"
                 android:background="@color/snow"
                 android:gravity="center_vertical"
-                android:layout_marginTop="5dp"
-                android:paddingTop="5dp"
+                android:orientation="horizontal"
                 android:paddingBottom="5dp"
-                android:paddingLeft="20dp"
-                android:paddingRight="20dp"
-                android:orientation="horizontal">
+                android:paddingLeft="32dp"
+                android:paddingRight="10dp"
+                android:paddingTop="5dp">
+
+                <cn.carbs.android.avatarimageview.library.AvatarImageView
+                    android:id="@+id/mAvatarImageView"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@mipmap/flight"
+                    app:aiv_BoarderColor="#db4358"
+                    app:aiv_BoarderWidth="2dp"
+                    app:aiv_ShowBoarder="false"
+                    app:aiv_TextSizeRatio="0.4" />
 
                 <TextView
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_15dp"
-                    android:textColor="@color/black_alpha_70"
+                    android:layout_marginLeft="33dp"
                     android:layout_weight="1"
-                    android:text="头像"/>
+                    android:drawableRight="@drawable/more"
+                    android:text="更换头像"
+                    android:textColor="@color/black_alpha_45"
+                    android:textSize="@dimen/_13dp" />
+            </LinearLayout>
 
-                <cn.carbs.android.avatarimageview.library.AvatarImageView
-                    android:id="@+id/mAvatarImageView"
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    android:src="@mipmap/flight"
-                    android:layout_gravity="center_horizontal"
-                    android:padding="2dp"
-                    app:aiv_BoarderWidth="2dp"
-                    app:aiv_BoarderColor="#db4358"
-                    app:aiv_ShowBoarder="false"
-                    app:aiv_TextSizeRatio="0.4"/>
+            <LinearLayout
+                android:id="@+id/Layout_wechat"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@color/snow"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="微        信"
+                    android:textColor="@color/black_alpha_70"
+                    android:textSize="@dimen/_15dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/more"
+                    android:text="方便彩民去联系你，去填写"
+                    android:textColor="@color/black_alpha_45"
+                    android:textSize="@dimen/_13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Layout_alipay"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@color/snow"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="支  付  宝"
+                    android:textColor="@color/black_alpha_70"
+                    android:textSize="@dimen/_15dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/more"
+                    android:text="方便彩民去联系你，去填写"
+                    android:textColor="@color/black_alpha_45"
+                    android:textSize="@dimen/_13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Layout_phongnumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@color/snow"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="手机号码"
+                    android:textColor="@color/black_alpha_70"
+                    android:textSize="@dimen/_15dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/more"
+                    android:text="13943025871"
+                    android:textColor="@color/black_alpha_45"
+                    android:textSize="@dimen/_13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Layout_ShopNotices"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@color/snow"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="店铺公告"
+                    android:textColor="@color/black_alpha_70"
+                    android:textSize="@dimen/_15dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/more"
+                    android:text="买彩票，中大奖"
+                    android:textColor="@color/black_alpha_45"
+                    android:textSize="@dimen/_13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Layout_identityauthentication"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@color/snow"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="身份认证"
+                    android:textColor="@color/black_alpha_70"
+                    android:textSize="@dimen/_15dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/more"
+                    android:text="已认证"
+                    android:textColor="@color/black_alpha_45"
+                    android:textSize="@dimen/_13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Layout_Shopcertification"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@color/snow"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="店铺认证"
+                    android:textColor="@color/black_alpha_70"
+                    android:textSize="@dimen/_15dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/more"
+                    android:text="已认证"
+                    android:textColor="@color/black_alpha_45"
+                    android:textSize="@dimen/_13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Layout_chengepwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@color/snow"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="密码修改"
+                    android:textColor="@color/black_alpha_70"
+                    android:textSize="@dimen/_15dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/more"
+                    android:text="******"
+                    android:textColor="@color/black_alpha_45"
+                    android:textSize="@dimen/_13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Layout_txwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@color/snow"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="提现密码"
+                    android:textColor="@color/black_alpha_70"
+                    android:textSize="@dimen/_15dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/more"
+                    android:text="******"
+                    android:textColor="@color/black_alpha_45"
+                    android:textSize="@dimen/_13dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/Layout_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:background="@color/snow"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingBottom="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="10dp"
+                android:paddingTop="10dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="我的地址"
+                    android:textColor="@color/black_alpha_70"
+                    android:textSize="@dimen/_15dp" />
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_weight="1"
+                    android:drawableRight="@drawable/more"
+                    android:text="吉林省长春市朝阳区繁荣路与前进大街交汇文庭雅苑7栋慧万家"
+                    android:textColor="@color/black_alpha_45"
+                    android:textSize="@dimen/_13dp" />
             </LinearLayout>
 
         </LinearLayout>

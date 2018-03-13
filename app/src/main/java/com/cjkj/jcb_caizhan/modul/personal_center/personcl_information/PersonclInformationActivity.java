@@ -8,10 +8,10 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.TextView;
-
 import com.bumptech.glide.Glide;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxBaseActivity;
+import com.cjkj.jcb_caizhan.modul.personal_center.personcl_information.modify.ModifyActivity;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.cjkj.jcb_caizhan.widget.Album.Utils;
 import com.yanzhenjie.album.Action;
@@ -20,10 +20,8 @@ import com.yanzhenjie.album.AlbumFile;
 import com.yanzhenjie.album.api.widget.Widget;
 import com.yanzhenjie.durban.Controller;
 import com.yanzhenjie.durban.Durban;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import butterknife.Bind;
 import butterknife.OnClick;
 import cn.carbs.android.avatarimageview.library.AvatarImageView;
@@ -45,10 +43,40 @@ public class PersonclInformationActivity extends RxBaseActivity {
     @Bind(R.id.mAvatarImageView)
     AvatarImageView mAvatarImageView;
 
-    @OnClick({R.id.Layout_header})
+    Intent mIntent;
+
+    @OnClick({R.id.Layout_header,R.id.Layout_wechat,R.id.Layout_phongnumber,R.id.Layout_ShopNotices,
+            R.id.Layout_identityauthentication,R.id.Layout_Shopcertification,R.id.Layout_chengepwd,
+            R.id.Layout_txwd,R.id.Layout_address,R.id.Layout_alipay})
     public void OnBtnClick(View v) {
         if (v.getId() == R.id.Layout_header) {
             openCamera();
+        }else if(v.getId() == R.id.Layout_wechat){
+            mIntent.putExtra("modify",0);
+            startActivity(mIntent);
+        }else if(v.getId() == R.id.Layout_phongnumber){
+            mIntent.putExtra("modify",1);
+            startActivity(mIntent);
+        }else if(v.getId() == R.id.Layout_ShopNotices){
+            mIntent.putExtra("modify",2);
+            startActivity(mIntent);
+        }else if(v.getId() == R.id.Layout_identityauthentication){
+            ToastUtil.ShortToast(3+"身份认证");
+        }else if(v.getId() == R.id.Layout_Shopcertification){
+            mIntent.putExtra("modify",4);
+            startActivity(mIntent);
+        }else if(v.getId() == R.id.Layout_chengepwd){
+            mIntent.putExtra("modify",5);
+            startActivity(mIntent);
+        }else if(v.getId() == R.id.Layout_txwd){
+            mIntent.putExtra("modify",6);
+            startActivity(mIntent);
+        }else if(v.getId() == R.id.Layout_address){
+            mIntent.putExtra("modify",7);
+            startActivity(mIntent);
+        }else if(v.getId() == R.id.Layout_alipay){
+            mIntent.putExtra("modify",8);
+            startActivity(mIntent);
         }
     }
 
@@ -95,7 +123,7 @@ public class PersonclInformationActivity extends RxBaseActivity {
 
     @Override
     public void initViews(Bundle savedInstanceState) {
-
+        mIntent = new Intent(this, ModifyActivity.class);
     }
 
     /**

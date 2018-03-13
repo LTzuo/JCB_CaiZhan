@@ -117,6 +117,6 @@ dependencies {
     compile 'com.github.javiersantos:MaterialStyledDialogs:2.1'
     //SearchBox
     compile 'com.wenwenwen888:searchbox:1.0.0'
-    //MD风格组件
-
+    //地址选择器
+    compile 'com.github.chihane:JDAddressSelector:1.1.4'
 }

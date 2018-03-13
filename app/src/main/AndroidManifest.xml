@@ -132,6 +132,12 @@
         <activity
             android:name=".modul.personal_center.personcl_information.PersonclInformationActivity"
             android:theme="@style/MainActivityColorTranslucentTheme" />
+
+        <!-- 个人中心-个人信息修改 -->
+        <activity
+            android:name=".modul.personal_center.personcl_information.modify.ModifyActivity"
+            android:theme="@style/MainActivityColorTranslucentTheme"/>
+
         <!-- 个人中心-未出票 -->
         <activity
             android:name=".modul.personal_center.no_out_ticket.NoOutTicketActivity"
