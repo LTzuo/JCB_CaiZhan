@@ -10,17 +10,19 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.Priority;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.AbsRecyclerViewAdapter;
+import com.cjkj.jcb_caizhan.utils.ToastUtil;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 九宫格图片适配器
+ * 九宫格图片适配器,嵌套ExpandableListView的RecyclerView使用的适配器
  * Created by 1 on 2018/2/12.
  */
-public class ImgesAdapter extends AbsRecyclerViewAdapter {
+public class PhotoAdapter extends AbsRecyclerViewAdapter {
 
     private List<ImageItem> datas = new ArrayList<>();
+    private int groupPosition;//对应ExpandableListView的Group的index
     /**
      * 可以动态设置最多上传几张，之后就不显示+号了，用户也无法上传了
      * 默认3张
@@ -28,7 +30,7 @@ public class ImgesAdapter extends AbsRecyclerViewAdapter {
     private int maxImages = 4;
 
     public interface onItemImageViewClickListener {
-        void deleItem(int position);
+        void deleItem(int groupPosition,int position);
     }
 
     private onItemImageViewClickListener mListener;
@@ -42,32 +44,44 @@ public class ImgesAdapter extends AbsRecyclerViewAdapter {
         notifyDataSetChanged();
     }
 
+//    public void addInfo(ImageItem img) {
+//        datas.add(0, img);
+//        notifyItemInserted(0);//通知演示插入动画
+//        notifyItemRangeChanged(0, datas.size() - 0);//通知数据与界面重新绑定
+//    }
 
-    public void addInfo(ImageItem img) {
-        datas.add(0, img);
-        notifyItemInserted(0);//通知演示插入动画
-        notifyItemRangeChanged(0, datas.size() - 0);//通知数据与界面重新绑定
-    }
-
-    public ImgesAdapter(RecyclerView mRecyvlerView) {
+    public PhotoAdapter(RecyclerView mRecyvlerView,int groupPosition) {
         super(mRecyvlerView);
+        this.groupPosition = groupPosition;
     }
 
     @Override
-    public ClickableViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public AbsRecyclerViewAdapter.ClickableViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         bindContext(parent.getContext());
         return new ItemViewHolder(
                 LayoutInflater.from(getContext()).inflate(R.layout.item_repairgrid, parent, false));
     }
 
     @Override
-    public void onBindViewHolder(ClickableViewHolder holder, int position) {
+    public void onBindViewHolder(AbsRecyclerViewAdapter.ClickableViewHolder holder, int position) {
         if (holder instanceof ItemViewHolder) {
             ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
             ImageView itemimg = itemViewHolder.item_image;
             ImageView item_dele = itemViewHolder.item_dele;
 
-            if (datas != null && position < datas.size()) {
+            if (position == datas.size()) {
+                if (position == 3) {
+                    itemimg.setVisibility(View.GONE);
+                    item_dele.setVisibility(View.GONE);
+                } else {
+                    Glide.with(getContext())
+                            .load(R.drawable.addphoto)
+                            .priority(Priority.HIGH)
+                            .centerCrop()
+                            .into(itemimg);
+                    item_dele.setVisibility(View.GONE);
+                }
+            } else {
                 Glide.with(getContext())
                         .load(datas.get(position).getUrl())
                         .priority(Priority.HIGH)
@@ -76,16 +90,9 @@ public class ImgesAdapter extends AbsRecyclerViewAdapter {
                 item_dele.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        mListener.deleItem(position);
+                        mListener.deleItem(position,groupPosition);
                     }
                 });
-            } else {
-                Glide.with(getContext())
-                        .load(R.drawable.addphoto)
-                        .priority(Priority.HIGH)
-                        .centerCrop()
-                        .into(itemimg);
-                item_dele.setVisibility(View.GONE);
             }
         }
         super.onBindViewHolder(holder, position);
@@ -93,19 +100,11 @@ public class ImgesAdapter extends AbsRecyclerViewAdapter {
 
     @Override
     public int getItemCount() {
-        int count;
-        if (datas == null) {
-            count = 1;
-        } else if (datas.size() == 3) {
-            count = 3;
-        } else {
-            count = datas.size() + 1;
-        }
-        return count;
+        return datas.size() + 1;
     }
 
 
-    class ItemViewHolder extends ClickableViewHolder {
+    class ItemViewHolder extends AbsRecyclerViewAdapter.ClickableViewHolder {
 
         ImageView item_image, item_dele;
 

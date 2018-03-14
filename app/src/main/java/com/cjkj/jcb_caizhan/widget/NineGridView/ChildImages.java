@@ -11,19 +11,19 @@ public class ChildImages {
 
     private ArrayList<ImageItem> Imgs = new ArrayList<>();
 
-    private ImgesAdapter adapter;
+    private PhotoAdapter adapter;
 
-    public ImgesAdapter getAdapter() {
+    public PhotoAdapter getAdapter() {
         return adapter;
     }
 
-    public void setAdapter(ImgesAdapter adapter) {
+    public void setAdapter(PhotoAdapter adapter) {
         this.adapter = adapter;
     }
 
     public ChildImages(){}
 
-    public ChildImages(ArrayList<ImageItem> imgs,ImgesAdapter adapter){
+    public ChildImages(ArrayList<ImageItem> imgs,PhotoAdapter adapter){
         this.Imgs = imgs;
         this.adapter = adapter;
     }
