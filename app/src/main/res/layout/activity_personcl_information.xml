@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bg_f3f2f7"
-    tools:context="com.cjkj.jcb_caizhan.modul.personal_center.personcl_information.PersonclInformationActivity">
+    tools:context="com.cjkj.jcb_caizhan.modul.Personal_Center.personcl_information.PersonclInformationActivity">
 
     <include layout="@layout/toolbar" />
 

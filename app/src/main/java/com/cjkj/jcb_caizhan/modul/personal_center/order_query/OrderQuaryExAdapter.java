@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.order_query;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.order_query;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.cjkj.jcb_caizhan.R;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.now.ChildListViewAdapter;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.cash_prize.now.ChildListViewAdapter;
 import com.cjkj.jcb_caizhan.test.table.TableListViewTestAdapter;
 import com.cjkj.jcb_caizhan.test.table.TableTextEntity;
 import com.cjkj.jcb_caizhan.widget.SubListView;

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:background="@color/bg_f3f2f7"
     android:orientation="vertical"
-    tools:context="com.cjkj.jcb_caizhan.modul.personal_center.withdrawals.withdrawals_list.WithdrawalsDetailsActivity">
+    tools:context=".modul.Personal_Center.withdrawals.WithdrawalsDetailsActivity">
 
     <include layout="@layout/toolbar" />
 

@@ -1,12 +1,12 @@
-package com.cjkj.jcb_caizhan.modul.order_manager;
+package com.cjkj.jcb_caizhan.modul.Order_Manager;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.cjkj.jcb_caizhan.R;
-import com.cjkj.jcb_caizhan.modul.order_manager.crowd.CrowdfundFragment;
-import com.cjkj.jcb_caizhan.modul.order_manager.order.OrderFragment;
+import com.cjkj.jcb_caizhan.modul.Order_Manager.crowd.CrowdfundFragment;
+import com.cjkj.jcb_caizhan.modul.Order_Manager.order.OrderFragment;
 
 /**
  * 订单管理界面Fragment模块Adapter

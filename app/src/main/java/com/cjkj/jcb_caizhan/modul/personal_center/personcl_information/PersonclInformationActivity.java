@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.personcl_information;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.personcl_information;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxBaseActivity;
-import com.cjkj.jcb_caizhan.modul.personal_center.personcl_information.modify.ModifyActivity;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.personcl_information.modify.ModifyActivity;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.cjkj.jcb_caizhan.widget.Album.Utils;
 import com.yanzhenjie.album.Action;
@@ -61,7 +61,8 @@ public class PersonclInformationActivity extends RxBaseActivity {
             mIntent.putExtra("modify",2);
             startActivity(mIntent);
         }else if(v.getId() == R.id.Layout_identityauthentication){
-            ToastUtil.ShortToast(3+"身份认证");
+            mIntent.putExtra("modify",3);
+            startActivity(mIntent);
         }else if(v.getId() == R.id.Layout_Shopcertification){
             mIntent.putExtra("modify",4);
             startActivity(mIntent);

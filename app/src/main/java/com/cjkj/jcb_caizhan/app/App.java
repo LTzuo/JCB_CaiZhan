@@ -2,9 +2,11 @@ package com.cjkj.jcb_caizhan.app;
 
 import android.app.Application;
 
+import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.widget.Album.GlideAlbumLoader;
 import com.cjkj.jcb_caizhan.widget.Imageloader.GlideImageLoader;
 import com.previewlibrary.ZoomMediaLoader;
+import com.weavey.loading.lib.LoadingLayout;
 import com.yanzhenjie.album.Album;
 import com.yanzhenjie.album.AlbumConfig;
 
@@ -27,6 +29,24 @@ public class App extends Application {
         ZoomMediaLoader.getInstance().init(new GlideImageLoader());
 
         initCameraTheme();
+
+        initLoadinglayout();
+    }
+
+    private void initLoadinglayout(){
+        LoadingLayout.getConfig()
+                .setErrorText("出错啦~请稍后重试！")
+                .setEmptyText("抱歉，暂无数据")
+                .setNoNetworkText("无网络连接，请检查您的网络")
+                .setErrorImage(R.mipmap.define_error)
+                .setEmptyImage(R.mipmap.define_empty)
+                .setNoNetworkImage(R.mipmap.define_nonetwork)
+                .setAllTipTextColor(R.color.gray)
+                .setAllTipTextSize(14)
+                .setReloadButtonText("点我重试哦")
+                .setReloadButtonTextSize(14)
+                .setReloadButtonTextColor(R.color.gray)
+                .setReloadButtonWidthAndHeight(150,40);
     }
 
     /**

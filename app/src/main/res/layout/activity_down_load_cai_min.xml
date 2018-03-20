@@ -6,7 +6,7 @@
     android:background="@color/white"
     android:orientation="vertical"
     android:gravity="center_horizontal"
-    tools:context="com.cjkj.jcb_caizhan.modul.personal_center.dowmload_caimin.DownLoadCaiMinActivity">
+    tools:context="com.cjkj.jcb_caizhan.modul.Personal_Center.dowmload_caimin.DownLoadCaiMinActivity">
 
     <include layout="@layout/toolbar"/>
 

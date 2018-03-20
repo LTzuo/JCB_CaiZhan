@@ -1,15 +1,21 @@
-package com.cjkj.jcb_caizhan.modul.order_manager.order;
+package com.cjkj.jcb_caizhan.modul.Order_Manager.order;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.cjkj.jcb_caizhan.R;
-import com.cjkj.jcb_caizhan.modul.order_manager.order.ssq.SSQActivity;
+import com.cjkj.jcb_caizhan.base.AbsRecyclerViewAdapter;
+import com.cjkj.jcb_caizhan.core.Constants;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
-import com.cjkj.jcb_caizhan.utils.IntentUtils;
+import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.TicketActivity;
+import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.wait_ticket.competitioncolor.CompetitioncolorTicketActivity;
+import com.cjkj.jcb_caizhan.utils.SPUtil;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
+
+import java.util.List;
 
 import butterknife.Bind;
 
@@ -17,7 +23,7 @@ import butterknife.Bind;
  * 订单管理-订单
  * Created by 1 on 2018/1/15.
  */
-public class OrderFragment extends RxLazyFragment {
+public class OrderFragment extends RxLazyFragment implements OrderContract.IOrderContractView {
 
     @Bind(R.id.RecyclerView)
     RecyclerView mRecyclerView;
@@ -25,6 +31,8 @@ public class OrderFragment extends RxLazyFragment {
     SwipeRefreshLayout mSwipeRefreshLayout;
 
     OrderAdapter mAdapter;
+
+    OrderPressenter mPressenter;
 
     public static OrderFragment newIntance() {
         return new OrderFragment();
@@ -37,6 +45,7 @@ public class OrderFragment extends RxLazyFragment {
 
     @Override
     public void finishCreateView(Bundle state) {
+        mPressenter = new OrderPressenter(this);
         isPrepared = true;
         lazyLoad();
     }
@@ -68,55 +77,22 @@ public class OrderFragment extends RxLazyFragment {
         GridLayoutManager mLayoutManager = new GridLayoutManager(getActivity(), 2);
         mRecyclerView.setLayoutManager(mLayoutManager);
         mRecyclerView.setAdapter(mAdapter);
-        mAdapter.setOnItemClickListener((position, holder) -> {
-            switch (position) {
-                case 0:
-                    IntentUtils.Goto(getActivity(),SSQActivity.class);
-                    break;
-                case 1:
-                    ToastUtil.ShortToast("3d");
-                    break;
-                case 2:
-                    ToastUtil.ShortToast("七乐彩");
-                    break;
-                case 3:
-                    ToastUtil.ShortToast("大乐透");
-                    break;
-                case 4:
-                    ToastUtil.ShortToast("排列三");
-                    break;
-                case 5:
-                    ToastUtil.ShortToast("排列五");
-                    break;
-                case 6:
-                    ToastUtil.ShortToast("七星彩");
-                    break;
-                case 7:
-                    ToastUtil.ShortToast("竞彩足球");
-                    break;
-                case 8:
-                    ToastUtil.ShortToast("竞彩篮球");
-                    break;
-                case 9:
-                    ToastUtil.ShortToast("胜负过关");
-                    break;
-                case 10:
-                    ToastUtil.ShortToast("足球胜负");
-                    break;
-                case 11:
-                    ToastUtil.ShortToast("任选九场");
-                    break;
-                case 12:
-                    ToastUtil.ShortToast("足球单场");
-                    break;
+        mAdapter.setOnItemClickListener(new AbsRecyclerViewAdapter.OnItemClickListener() {
+            @Override
+            public void onItemClick(int position, AbsRecyclerViewAdapter.ClickableViewHolder holder) {
+                if(mAdapter.getItemLotteryTypeid(position).equals("16") || mAdapter.getItemLotteryTypeid(position).equals("17")) {
+                    //竞彩
+                    Intent intent = new Intent(getContext(), CompetitioncolorTicketActivity.class);
+                    intent.putExtra("lotteryTypeid", mAdapter.getItemLotteryTypeid(position));
+                    getContext().startActivity(intent);
+                }else {
+                    //数字彩、进球彩
+                    Intent intent1 = new Intent(getContext(), TicketActivity.class);
+                    intent1.putExtra("lotteryTypeid", mAdapter.getItemLotteryTypeid(position));
+                    getContext().startActivity(intent1);
+                }
             }
         });
-//        mAdapter.setOnItemClickListener(new AbsRecyclerViewAdapter.OnItemClickListener() {
-//            @Override
-//            public void onItemClick(int position, AbsRecyclerViewAdapter.ClickableViewHolder holder) {
-//                ToastUtil.ShortToast("-"+position);
-//            }
-//        });
     }
 
     @Override
@@ -127,9 +103,24 @@ public class OrderFragment extends RxLazyFragment {
 //                .observeOn(AndroidSchedulers.mainThread())
 //                .subscribe(mDatas -> {
 //                    mAdapter.setInfo(mDatas);
-        finishTask();
+        if (!SPUtil.get(getContext(), Constants.key_uSessionId, "").toString().isEmpty()) {
+            mPressenter.getOrderIndex(SPUtil.get(getContext(), Constants.key_uSessionId, "").toString());
+        }
+//        finishTask();
 //                }, throwable -> {
 //                });
+    }
+
+    @Override
+    public void getOrderIndexSuessful(List<OrderEntity> orderList) {
+        mAdapter.setInfo(orderList);
+        finishTask();
+    }
+
+    @Override
+    public void getOrderIndexFild(String msg) {
+        ToastUtil.ShortToast(msg);
+        finishTask();
     }
 
     @Override
@@ -141,4 +132,11 @@ public class OrderFragment extends RxLazyFragment {
             }
         }, 1 * 1000);
     }
+
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        mPressenter.unSubscribe();
+    }
+
 }

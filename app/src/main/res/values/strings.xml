@@ -5,6 +5,22 @@
     <string name="data_statistics">数据统计</string>
     <string name="personal_center">个人中心</string>
     <string name="bottom_progress_refreshing_text">正在加载数据...</string>
+    <string name="login">登录</string>
+    <string name="login_hint_account">手机号</string>
+    <string name="login_hint_password">密码</string>
+    <string name="login_text_forgetpassword">忘记密码?</string>
+    <string name="login_text_phonenumber">用短信验证登录</string>
+    <string name="login_sign">注册</string>
+    <string name="shortmessage_login_getVerificationCode">获取验证码</string>
+    <string name="confirm">确认</string>
+    <string name="newregist">立即注册</string>
+    <string name="text_VerificationCode">验证码</string>
+    <string name="text_new_pwd">新密码</string>
+    <string name="text_confirm_pwd">确认密码</string>
+    <string name="regist_hint1">请您阅读并同意</string>
+    <string name="regist_hint2">《用户服务协议》</string>
+    <string name="USERXIEYITITLE">彩民用户协议</string>
+
 
     <string-array name="sections">
         <item>订单</item>
@@ -17,8 +33,9 @@
     </string-array>
 
     <string-array name="personal_center_withdrawals">
-        <item>提现到</item>
-        <item>记录</item>
+        <item>银行卡</item>
+        <item>支付宝</item>
+        <item>微信</item>
     </string-array>
 
     <string-array name="personal_center_OrderQuery">

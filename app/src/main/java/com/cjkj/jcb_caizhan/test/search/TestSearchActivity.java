@@ -16,7 +16,7 @@ import android.widget.TextView;
 
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxBaseActivity;
-import com.cjkj.jcb_caizhan.modul.personal_center.order_query.OrderQuaryExAdapter;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.order_query.OrderQuaryExAdapter;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.cjkj.jcb_caizhan.widget.Material_Searchview.interfaces.onSearchListener;
 import com.cjkj.jcb_caizhan.widget.Material_Searchview.interfaces.onSimpleSearchActionsListener;

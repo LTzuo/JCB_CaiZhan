@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.cjkj.jcb_caizhan.modul.personal_center.personcl_information.modify.ModifyActivity">
+    tools:context="com.cjkj.jcb_caizhan.modul.Personal_Center.personcl_information.modify.ModifyActivity">
 
     <include layout="@layout/toolbar"/>
 

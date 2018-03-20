@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.launch_crowd;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.launch_crowd;
 
 import android.content.Context;
 import android.view.LayoutInflater;

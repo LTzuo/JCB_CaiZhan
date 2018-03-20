@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/bg_f3f2f7"
-    tools:context="com.cjkj.jcb_caizhan.modul.personal_center.open_close.OpenAndCloseActivity">
+    tools:context="com.cjkj.jcb_caizhan.modul.Personal_Center.open_close.OpenAndCloseActivity">
 
     <include layout="@layout/toolbar"/>
 

@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.to_door_ticket;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.to_door_ticket;
 
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;

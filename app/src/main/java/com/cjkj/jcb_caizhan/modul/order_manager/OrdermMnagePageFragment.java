@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.order_manager;
+package com.cjkj.jcb_caizhan.modul.Order_Manager;
 
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;

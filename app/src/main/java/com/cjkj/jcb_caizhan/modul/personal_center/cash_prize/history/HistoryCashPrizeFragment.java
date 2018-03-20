@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.history;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.cash_prize.history;
 
 import android.os.Bundle;
 import android.widget.TextView;

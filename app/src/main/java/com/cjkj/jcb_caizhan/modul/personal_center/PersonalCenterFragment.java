@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center;
+package com.cjkj.jcb_caizhan.modul.Personal_Center;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -7,27 +7,27 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.cjkj.jcb_caizhan.R;
-import com.cjkj.jcb_caizhan.modul.personal_center.account_details.AccountDetailsActivity;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.CashPrizeActivity;
-import com.cjkj.jcb_caizhan.modul.personal_center.chenge_station.ChangeLotteryStationActivity;
-import com.cjkj.jcb_caizhan.modul.personal_center.documentary.DocumentaryActivity;
-import com.cjkj.jcb_caizhan.modul.personal_center.dowmload_caimin.DownLoadCaiMinActivity;
-import com.cjkj.jcb_caizhan.modul.personal_center.launch_crowd.LaunchCrowdfundingActivity;
-import com.cjkj.jcb_caizhan.modul.personal_center.lottery.AwardResultActivity;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.account_details.AccountDetailsActivity;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.cash_prize.CashPrizeActivity;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.chenge_station.ChangeLotteryStationActivity;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.documentary.DocumentaryActivity;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.dowmload_caimin.DownLoadCaiMinActivity;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.launch_crowd.LaunchCrowdfundingActivity;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.lottery.AwardResultActivity;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.mine_message.MineMessageActivity;
-import com.cjkj.jcb_caizhan.modul.personal_center.no_out_ticket.NoOutTicketActivity;
-import com.cjkj.jcb_caizhan.modul.personal_center.open_close.OpenAndCloseActivity;
-import com.cjkj.jcb_caizhan.modul.personal_center.order_query.OrderQueryActivity;
-import com.cjkj.jcb_caizhan.modul.personal_center.personcl_information.PersonclInformationActivity;
-import com.cjkj.jcb_caizhan.modul.personal_center.recharge.RechargeActivity;
-import com.cjkj.jcb_caizhan.modul.personal_center.seeting.SeetingActivity;
-import com.cjkj.jcb_caizhan.modul.personal_center.to_door_ticket.ToDoorTicketActivity;
-import com.cjkj.jcb_caizhan.modul.personal_center.withdrawals.WithdrawalsActivity;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.mine_message.MineMessageActivity;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.no_out_ticket.NoOutTicketActivity;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.open_close.OpenAndCloseActivity;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.order_query.OrderQueryActivity;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.personcl_information.PersonclInformationActivity;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.recharge.RechargeActivity;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.seeting.SeetingActivity;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.to_door_ticket.ToDoorTicketActivity;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.withdrawals.WithdrawalsActivity;
+import com.cjkj.jcb_caizhan.modul.ather.login.LoginActivity;
 import com.cjkj.jcb_caizhan.utils.CommonUtil;
 import com.cjkj.jcb_caizhan.utils.IntentUtils;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
@@ -85,7 +85,7 @@ public class PersonalCenterFragment extends RxLazyFragment implements Observable
     @OnClick({R.id.img_xiugai,R.id.Layout_Open_Close,R.id.Layout_AwardResult,R.id.layout_chenge,R.id.layout_seeting,R.id.layout_launchCrowdfunding,
             R.id.Layout_recharge,R.id.layout_Withdrawals,R.id.Layout_message,R.id.Layout_OrderQuery,R.id.Layout_AccountDetails,
             R.id.Layout_Duijiang,R.id.Layout_DownLoad,R.id.Layout_NoOutTicket,R.id.Layout_ToDoorTicket,R.id.Layout_Open_CYD,
-            R.id.Layout_Documentary})
+            R.id.Layout_Documentary,R.id.layout_login_test})
     public void BtnClick(View v) {
         if(v.getId() == R.id.img_xiugai){
             //个人信息
@@ -140,6 +140,9 @@ public class PersonalCenterFragment extends RxLazyFragment implements Observable
         }else if(v.getId() == R.id.Layout_Documentary){
             //跟单方案查询
             IntentUtils.Goto(getActivity(), DocumentaryActivity.class);
+        }else if(v.getId() == R.id.layout_login_test){
+           IntentUtils.Goto(getActivity(), LoginActivity.class);
+            getActivity().finish();
         }
     }
 
@@ -149,7 +152,6 @@ public class PersonalCenterFragment extends RxLazyFragment implements Observable
         mFlexibleSpaceHeight = getResources().getDimensionPixelSize(R.dimen.minefragment_header_hight);
         isPrepared = true;
         lazyLoad();
-
         switchView.setChecked(true);
         switchView.setOnCheckedChangeListener(new SwitchView.OnCheckedChangeListener() {
             @Override

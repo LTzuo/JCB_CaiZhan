@@ -1,6 +1,5 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.dowmload_caimin;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.dowmload_caimin;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.widget.ImageView;

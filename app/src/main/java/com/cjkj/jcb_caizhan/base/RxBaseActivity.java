@@ -1,6 +1,8 @@
 package com.cjkj.jcb_caizhan.base;
 
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 import android.view.MenuItem;
 
 import com.trello.rxlifecycle.components.support.RxAppCompatActivity;
@@ -15,6 +17,8 @@ import butterknife.ButterKnife;
  * Activity基类
  */
 public abstract class RxBaseActivity extends RxAppCompatActivity {
+
+    protected Handler mHandler = new Handler(Looper.myLooper());
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

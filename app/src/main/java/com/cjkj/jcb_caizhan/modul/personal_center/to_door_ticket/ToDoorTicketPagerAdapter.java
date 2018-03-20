@@ -1,11 +1,11 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.to_door_ticket;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.to_door_ticket;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.cjkj.jcb_caizhan.R;
-import com.cjkj.jcb_caizhan.modul.personal_center.to_door_ticket.todoor.ToDoorTicketFragment;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.to_door_ticket.todoor.ToDoorTicketFragment;
 
 /**
  * 个人中心-上门取票pager适配器

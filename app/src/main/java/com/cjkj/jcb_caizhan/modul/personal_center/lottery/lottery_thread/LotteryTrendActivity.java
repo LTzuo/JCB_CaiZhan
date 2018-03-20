@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.lottery.lottery_thread;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.lottery.lottery_thread;
 
 import android.os.Bundle;
 import android.os.Handler;

@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".modul.personal_center.lottery.lottery_thread.LotteryThreadListActivity">
+    tools:context=".modul.Personal_Center.lottery.lottery_thread.LotteryThreadListActivity">
 
     <include layout="@layout/toolbar" />
 

@@ -5,14 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".modul.SplashActivity">
+    tools:context=".modul.ather.welcome.SplashActivity">
 
     <ImageView
         android:id="@+id/img_splash"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:scaleType="centerCrop"
-        android:src="@mipmap/ic_launcher"/>
+        android:src="@mipmap/flight"/>
 
     <com.cjkj.jcb_caizhan.widget.SimpleButton
         android:id="@+id/sb_skip"
@@ -21,10 +21,10 @@
         android:layout_gravity="right"
         android:layout_marginRight="20dp"
         android:layout_marginTop="30dp"
-        app:sb_text="跳过 3"
+        app:sb_text="跳过 10"
         app:sb_auto_check="false"
-        app:sb_bg_color="@color/colorPrimary"
-        app:sb_border_color="@color/colorPrimary"
+        app:sb_bg_color="@color/black_alpha_40"
+        app:sb_border_color="@color/black_alpha_40"
         app:sb_shape="arc"
         app:sb_text_color="@android:color/white"/>
 

@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.personcl_information.modify;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.personcl_information.modify;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -37,6 +37,8 @@ public class ModifyActivity extends RxBaseActivity implements View.OnClickListen
             return R.layout.activity_modify_phonenumber;
         }else if(modify == 2){
             return R.layout.activity_modify_shopnotices;
+        }else if(modify == 3){
+            return R.layout.activity_modify_bindidcard;
         }else if(modify == 4){
             return R.layout.activity_modify_shopcertification;
         }else if(modify == 5){
@@ -86,6 +88,8 @@ public class ModifyActivity extends RxBaseActivity implements View.OnClickListen
             toolbar_title.setText("手机号");
         }else if(modify == 2){
             toolbar_title.setText("店铺公告");
+        }else if(modify == 3){
+            toolbar_title.setText("身份认证");
         }else if(modify == 4){
             toolbar_title.setText("店铺认证");
         }else if(modify == 5){

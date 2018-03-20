@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.order_query;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.order_query;
 
 import android.os.Bundle;
 import android.support.v4.widget.DrawerLayout;
@@ -10,8 +10,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxBaseActivity;
-import com.cjkj.jcb_caizhan.modul.personal_center.order_query.menu.LotteryGridAdapter;
-import com.cjkj.jcb_caizhan.modul.personal_center.order_query.menu.StateGridAdapter;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.order_query.menu.LotteryGridAdapter;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.order_query.menu.StateGridAdapter;
 import com.cjkj.jcb_caizhan.widget.NoScollGridView;
 import com.codetroopers.betterpickers.calendardatepicker.CalendarDatePickerDialogFragment;
 

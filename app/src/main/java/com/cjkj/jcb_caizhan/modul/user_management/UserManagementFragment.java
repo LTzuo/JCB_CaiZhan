@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.user_management;
+package com.cjkj.jcb_caizhan.modul.User_Management;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;

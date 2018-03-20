@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.data_statistics;
+package com.cjkj.jcb_caizhan.modul.Data_Statistics;
 
 /**
  * 数据统计实体

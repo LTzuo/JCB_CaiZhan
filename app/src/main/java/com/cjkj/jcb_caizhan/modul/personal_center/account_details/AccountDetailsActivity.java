@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.account_details;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.account_details;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -6,9 +6,7 @@ import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.widget.TextView;
 import com.cjkj.jcb_caizhan.R;
-import com.cjkj.jcb_caizhan.base.AbsRecyclerViewAdapter;
 import com.cjkj.jcb_caizhan.base.RxBaseActivity;
-import com.cjkj.jcb_caizhan.utils.ToastUtil;
 
 import butterknife.Bind;
 

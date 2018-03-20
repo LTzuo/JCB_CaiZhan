@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context="com.cjkj.jcb_caizhan.modul.personal_center.to_door_ticket.ToDoorTicketActivity">
+    tools:context="com.cjkj.jcb_caizhan.modul.Personal_Center.to_door_ticket.ToDoorTicketActivity">
 
     <include layout="@layout/toolbar"/>
 

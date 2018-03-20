@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cjkj.jcb_caizhan.modul.personal_center.mine_message.MineMessageActivity">
+    tools:context="com.cjkj.jcb_caizhan.modul.Personal_Center.mine_message.MineMessageActivity">
 
     <include layout="@layout/toolbar" />
 

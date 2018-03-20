@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".modul.personal_center.launch_crowd.LaunchCrowdfundingActivity">
+    tools:context=".modul.Personal_Center.launch_crowd.LaunchCrowdfundingActivity">
 
     <include layout="@layout/toolbar" />
 

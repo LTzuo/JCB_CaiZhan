@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.documentary.details;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.documentary.details;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;

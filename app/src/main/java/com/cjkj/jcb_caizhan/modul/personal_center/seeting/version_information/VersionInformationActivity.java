@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.seeting.version_information;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.seeting.version_information;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;

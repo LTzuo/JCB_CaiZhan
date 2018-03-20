@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.order_query.menu;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.order_query.menu;
 
 import android.content.Context;
 import android.view.LayoutInflater;

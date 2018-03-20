@@ -1,17 +1,15 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.mine_message;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.mine_message;
 
 import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.AbsRecyclerViewAdapter;
 import com.cjkj.jcb_caizhan.base.RxBaseActivity;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
-import com.yanzhenjie.recyclerview.swipe.SwipeItemClickListener;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenu;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuBridge;
 import com.yanzhenjie.recyclerview.swipe.SwipeMenuCreator;

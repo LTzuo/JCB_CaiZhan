@@ -609,8 +609,8 @@
     </LinearLayout>
 
 
+
     <LinearLayout
-        android:id="@+id/layout_seeting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -621,10 +621,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="8dp"
-            android:drawableLeft="@drawable/sz_grzx"
+            android:drawableLeft="@drawable/manager_grzx"
             android:drawablePadding="8dp"
             android:gravity="center"
-            android:text="设置"
+            android:text="彩站管理员"
             android:textColor="@color/black_light"
             android:textSize="@dimen/minefragment_lift_text_size" />
 
@@ -652,7 +652,6 @@
             android:layout_marginRight="10dp"
             android:background="#e6e6e6" />
     </LinearLayout>
-
     <LinearLayout
         android:id="@+id/layout_chenge"
         android:layout_width="match_parent"
@@ -697,7 +696,9 @@
             android:background="#e6e6e6" />
     </LinearLayout>
 
+
     <LinearLayout
+        android:id="@+id/layout_seeting"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/white"
@@ -708,10 +709,10 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:layout_marginLeft="8dp"
-            android:drawableLeft="@drawable/tc_grzx"
+            android:drawableLeft="@drawable/sz_grzx"
             android:drawablePadding="8dp"
             android:gravity="center"
-            android:text="退出"
+            android:text="设置"
             android:textColor="@color/black_light"
             android:textSize="@dimen/minefragment_lift_text_size" />
 
@@ -726,6 +727,37 @@
             android:textColor="@color/grey1"
             android:textSize="@dimen/minefragment_right_text_size" />
     </LinearLayout>
+    <LinearLayout
+        android:id="@+id/layout_login_test"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="8dp"
+            android:drawableLeft="@drawable/sz_grzx"
+            android:drawablePadding="8dp"
+            android:gravity="center"
+            android:text="登录测试"
+            android:textColor="@color/black_light"
+            android:textSize="@dimen/minefragment_lift_text_size" />
+
+
+        <TextView
+            style="@style/font_style"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:drawableRight="@drawable/more"
+            android:gravity="end|center_vertical"
+            android:textColor="@color/grey1"
+            android:textSize="@dimen/minefragment_right_text_size" />
+    </LinearLayout>
+
 
     <View
         android:layout_width="match_parent"

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:colortextview="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".modul.personal_center.recharge.RechargeActivity">
+    tools:context=".modul.Personal_Center.recharge.RechargeActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -99,7 +99,7 @@
             android:textColor="@color/black_alpha_70" />
 
 
-        <com.sflin.csstextview.CSSTextView
+        <!--<com.sflin.csstextview.CSSTextView
             android:id="@+id/textview1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -108,17 +108,35 @@
             android:layout_marginTop="10dp"
             android:textColor="@color/black_alpha_60"
             android:textSize="@dimen/_12dp"
-            />
-
-        <TextView
+            />-->
+        <LinearLayout
+            android:id="@+id/layout_colortv"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:text="●账户不允许从事无真实交易背景和虚假交易，银行卡转账套现或洗钱等违反国家法律、法规的行为，否则充值金额款项将不能提现。"
-            android:textColor="@color/black_alpha_60"
-            android:textSize="@dimen/_12dp" />
+            android:orientation="vertical">
+
+            <loic.teillard.colortextview.ColorTextView
+                android:id="@+id/textview1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12dp"
+                colortextview:clt_color1="@color/black_alpha_60"
+                colortextview:clt_color2="@color/colorPrimary"
+                colortextview:clt_spaces="true"
+                colortextview:clt_txt1="●为防止信用卡套现的行为，"
+                colortextview:clt_txt2="本次充值的金额在15天后可提现充值金额的70%，剩余的30%可进行派奖使用，请谨慎充值。" />
+
+            <loic.teillard.colortextview.ColorTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="@dimen/_12dp"
+                colortextview:clt_color1="@color/black_alpha_60"
+                colortextview:clt_spaces="true"
+                colortextview:clt_txt1="●账户不允许从事无真实交易背景和虚假交易，银行卡转账套现或洗钱等违反国家法律、法规的行为，否则充值金额款项将不能提现。" />
+        </LinearLayout>
 
 
     </LinearLayout>
@@ -127,5 +145,5 @@
         layout="@layout/layout_keyboardview"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom"/>
+        android:layout_gravity="bottom" />
 </FrameLayout>

@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.to_door_ticket.todoor;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.to_door_ticket.todoor;
 
 import android.os.Bundle;
 

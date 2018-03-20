@@ -19,13 +19,14 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:text="我发起了一个众筹"
-            android:textSize="@dimen/_13dp"
+            android:textSize="@dimen/_14dp"
             android:textColor="@color/black_alpha_70" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="￥1,000.00"
+            android:textSize="@dimen/_12dp"
             android:textColor="@color/colorPrimaryDark" />
     </LinearLayout>
 
@@ -46,13 +47,6 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="撤销"
-            android:textSize="@dimen/_12dp"
-            android:textColor="@color/colorPrimaryDark" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:text="众筹中"
             android:textSize="@dimen/_12dp"
@@ -65,8 +59,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:textSize="@dimen/_12dp"
-        android:textColor="@color/black_alpha_60"
-        android:background="@color/bg_f3f2f7"
+        android:textColor="@color/black_alpha_55"
         android:text="这个项目是初学开发时写的，当时因为 TextView 行尾出现参差不齐的情况纠结了好一阵，所以才想到去自定义一个 TextView近日看到这两篇文章，才想起之前写的这个"/>
 
     <LinearLayout
@@ -75,18 +68,18 @@
         android:layout_marginTop="5dp"
         android:orientation="horizontal">
         <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="80dp"
+            android:layout_height="75dp"
             android:layout_marginRight="5dp"
             android:src="@mipmap/flight" />
         <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="80dp"
+            android:layout_height="75dp"
             android:layout_marginRight="5dp"
             android:src="@mipmap/flight" />
         <ImageView
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="80dp"
+            android:layout_height="75dp"
             android:src="@mipmap/flight" />
     </LinearLayout>
 
@@ -105,10 +98,11 @@
             android:text="截止时间 2018-2-22 10:38" />
 
         <TextView
+            android:id="@+id/Tv_LookDetails"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="查看详情"
-            android:textSize="@dimen/_13dp"
+            android:textSize="@dimen/_12dp"
             android:textColor="@color/colorPrimaryDark" />
     </LinearLayout>
 </LinearLayout>

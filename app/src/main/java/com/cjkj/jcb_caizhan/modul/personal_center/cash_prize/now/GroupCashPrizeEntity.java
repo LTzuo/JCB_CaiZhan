@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.now;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.cash_prize.now;
 
 /**
  * 当前委托Group实体

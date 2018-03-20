@@ -1,10 +1,10 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.caizhong;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.cash_prize.caizhong;
 
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.CustomPagerAdapter;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.cash_prize.CustomPagerAdapter;
 import com.flyco.tablayout.SlidingTabLayout;
 import butterknife.Bind;
 

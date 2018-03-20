@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.data_statistics;
+package com.cjkj.jcb_caizhan.modul.Data_Statistics;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

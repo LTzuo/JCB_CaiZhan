@@ -1,7 +1,7 @@
 package com.cjkj.jcb_caizhan.network.api;
 
 import com.cjkj.jcb_caizhan.base.BaseEntity;
-import com.cjkj.jcb_caizhan.modul.personal_center.lottery.MobLotteryEntity;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.lottery.MobLotteryEntity;
 import com.cjkj.jcb_caizhan.network.ApiConstants;
 import java.util.ArrayList;
 import retrofit2.Call;

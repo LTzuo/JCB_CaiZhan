@@ -6,6 +6,14 @@ package com.cjkj.jcb_caizhan.core;
  */
 public class Constants {
 
+    public static String LOG = "LOG";
+
+    /**sessionId**/
+    public static String key_SessionId = "SessionId";
+
+    /**uSessionId**/
+    public static String key_uSessionId = "uSessionId";
+
     //个人中心-开奖结果URL
     public static final String AWARDRESULT_URL = "http://192.168.10.59:8801/pages/server/lotteryhistoryListpage.html?flag=site";
 

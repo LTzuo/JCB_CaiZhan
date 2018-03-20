@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.documentary;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.documentary;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

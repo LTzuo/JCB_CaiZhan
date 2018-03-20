@@ -98,4 +98,20 @@
         <attr name="color_unchecked_stroke" format="color"/>
     </declare-styleable>
 
+    <!--自定义TextView 实现填充色、圆角、文字变色、边框、边框颜色、背景图等功能，
+    再也不用写一大堆shape这样xml了。-->
+    <declare-styleable name="customTextView">
+        <attr name="textSolidColor" format="color" />
+        <attr name="textStrokeColor" format="color" />
+        <attr name="textRadius" format="dimension" />
+        <attr name="textLeftTopRadius" format="dimension" />
+        <attr name="textLeftBottomRadius" format="dimension" />
+        <attr name="textRightTopRadius" format="dimension" />
+        <attr name="textRightBottomRadius" format="dimension" />
+        <attr name="textStrokeWidth" format="dimension" />
+        <attr name="textDrawable" format="reference" />
+        <attr name="textNormalTextColor" format="color" />
+        <attr name="textSelectedTextColor" format="color" />
+    </declare-styleable>
+
 </resources>

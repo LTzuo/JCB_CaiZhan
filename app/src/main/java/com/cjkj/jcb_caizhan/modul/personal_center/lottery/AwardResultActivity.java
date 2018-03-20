@@ -1,10 +1,8 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.lottery;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.lottery;
 
 import android.graphics.Bitmap;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
 import android.view.KeyEvent;
-import android.view.MenuItem;
 import android.view.View;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
@@ -14,7 +12,7 @@ import android.widget.TextView;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxBaseActivity;
 import com.cjkj.jcb_caizhan.core.Constants;
-import com.cjkj.jcb_caizhan.modul.personal_center.lottery.lottery_thread.LotteryThreadListActivity;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.lottery.lottery_thread.LotteryThreadListActivity;
 import com.cjkj.jcb_caizhan.utils.IntentUtils;
 
 import butterknife.Bind;

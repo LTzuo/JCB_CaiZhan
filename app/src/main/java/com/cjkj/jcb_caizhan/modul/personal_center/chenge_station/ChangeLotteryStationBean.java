@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.chenge_station;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.chenge_station;
 
 /**
  * 切换彩站实体

@@ -1,12 +1,12 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.cash_prize;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.cash_prize;
 
 import android.content.Context;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.cjkj.jcb_caizhan.R;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.history.HistoryCashPrizeFragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.now.NowCashPrizeFragment;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.cash_prize.history.HistoryCashPrizeFragment;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.cash_prize.now.NowCashPrizeFragment;
 
 /**
  * 个人中心-委托兑奖pager适配器

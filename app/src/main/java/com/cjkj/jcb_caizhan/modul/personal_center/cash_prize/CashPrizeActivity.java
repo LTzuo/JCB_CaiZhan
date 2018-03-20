@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.cash_prize;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.cash_prize;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -11,19 +11,7 @@ import android.widget.TextView;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.app.LTZFragmentManager;
 import com.cjkj.jcb_caizhan.base.RxBaseActivity;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.caizhong.CaiZhong_3D_Fragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.caizhong.CaiZhong_7lc_Fragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.caizhong.CaiZhong_7xc_Fragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.caizhong.CaiZhong_All_Fragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.caizhong.CaiZhong_dlt_Fragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.caizhong.CaiZhong_jclq_Fragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.caizhong.CaiZhong_jczq_Fragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.caizhong.CaiZhong_pl3_Fragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.caizhong.CaiZhong_pl5_Fragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.caizhong.CaiZhong_rx9c_Fragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.caizhong.CaiZhong_sfgg_Fragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.caizhong.CaiZhong_zqdc_Fragment;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.caizhong.CaiZhong_zqsf_Fragment;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.cash_prize.caizhong.CaiZhong_All_Fragment;
 import com.cjkj.jcb_caizhan.widget.VerticalDrawerLayout;
 
 import java.util.ArrayList;

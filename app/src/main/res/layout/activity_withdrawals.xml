@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".modul.personal_center.withdrawals.WithdrawalsActivity">
+    tools:context=".modul.Personal_Center.withdrawals.WithdrawalsActivity">
 
     <include layout="@layout/toolbar" />
 

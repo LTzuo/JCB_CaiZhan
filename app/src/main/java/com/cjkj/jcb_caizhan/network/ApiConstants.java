@@ -7,10 +7,9 @@ package com.cjkj.jcb_caizhan.network;
 
 public class ApiConstants {
 
-    public static final String TESTURL = "http://gank.io/api/";
+    public static final String URL_BASE = "http://192.168.10.4:8804/";
 
-    //接口请求的Url
-    public static final String BASEURL = "http://gank.io/api/";
+    public static final String TESTURL = "http://gank.io/api/";
 
     //Mob官网API
     public static final String URL_Mob = "http://apicloud.mob.com/";

@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.open_close;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.open_close;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;

@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     android:background="@color/bg_f3f2f7"
     android:orientation="vertical"
-    tools:context="com.cjkj.jcb_caizhan.modul.personal_center.documentary.details.DocDetailsActivity">
+    tools:context="com.cjkj.jcb_caizhan.modul.Personal_Center.documentary.details.DocDetailsActivity">
 
     <include layout="@layout/toolbar"/>
 

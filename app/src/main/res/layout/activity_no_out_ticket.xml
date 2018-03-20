@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cjkj.jcb_caizhan.modul.personal_center.no_out_ticket.NoOutTicketActivity">
+    tools:context="com.cjkj.jcb_caizhan.modul.Personal_Center.no_out_ticket.NoOutTicketActivity">
 
     <include layout="@layout/toolbar"/>
 

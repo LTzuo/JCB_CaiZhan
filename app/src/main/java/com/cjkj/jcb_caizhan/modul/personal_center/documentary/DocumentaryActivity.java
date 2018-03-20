@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.documentary;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.documentary;
 
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
@@ -8,7 +8,7 @@ import android.widget.TextView;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.AbsRecyclerViewAdapter;
 import com.cjkj.jcb_caizhan.base.RxBaseActivity;
-import com.cjkj.jcb_caizhan.modul.personal_center.documentary.details.DocDetailsActivity;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.documentary.details.DocDetailsActivity;
 import com.cjkj.jcb_caizhan.utils.IntentUtils;
 import butterknife.Bind;
 

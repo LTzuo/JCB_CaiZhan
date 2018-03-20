@@ -1,5 +1,6 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.recharge;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.recharge;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
@@ -10,6 +11,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxBaseActivity;
@@ -17,11 +19,10 @@ import com.cjkj.jcb_caizhan.base.AbsRecyclerViewAdapter;
 import com.cjkj.jcb_caizhan.widget.CheckBox.SmoothCheckBox;
 import com.dilusense.customkeyboard.KeyboardNumber;
 import com.dilusense.customkeyboard.KeyboardUtils;
-import com.sflin.csstextview.CSSTextView;
-
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.Bind;
+import loic.teillard.colortextview.ColorTextView;
 
 /**
  * 个人中心-充值
@@ -33,8 +34,10 @@ public class RechargeActivity extends RxBaseActivity {
     @Bind(R.id.toolbar_title)
     TextView toolbar_title;
 
-    @Bind(R.id.textview1)
-    CSSTextView textView1;
+//    @Bind(R.id.layout_colortv)
+//    ViewGroup layout_colortv;
+//    @Bind(R.id.textview1)
+//    ColorTextView textView1;
 
     @Bind(R.id.SingleChoiceRecyclerView)
     RecyclerView mSingleChoiceListView;
@@ -75,9 +78,15 @@ public class RechargeActivity extends RxBaseActivity {
         KeyboardNumber  keyboardIdentity = new KeyboardNumber(this);
         KeyboardUtils.bindEditTextEvent(keyboardIdentity, editText);
 
-        textView1.setText("●为防止信用卡套现的行为，本次充值的金额在15天后可提现充值金额的70%，剩余的30%可进行派奖使用，请谨慎充值。");
-        textView1.setTextArrColor("●为防止信用卡套现的行为，",getResources().getColor(R.color.black_alpha_60));
-        textView1.setTextArrColor("本次充值的金额在15天后可提现充值金额的70%，剩余的30%可进行派奖使用，请谨慎充值。",getResources().getColor(R.color.colorPrimary));
+//        textView1.setText("●为防止信用卡套现的行为，本次充值的金额在15天后可提现充值金额的70%，剩余的30%可进行派奖使用，请谨慎充值。");
+//        textView1.setTextArrColor("●为防止信用卡套现的行为，",getResources().getColor(R.color.black_alpha_60));
+//        textView1.setTextArrColor("本次充值的金额在15天后可提现充值金额的70%，剩余的30%可进行派奖使用，请谨慎充值。",getResources().getColor(R.color.colorPrimary));
+//        ColorTextView colorTextView = new ColorTextView(this);
+//        colorTextView.addTextColor("●为防止信用卡套现的行为，",getResources().getColor(R.color.black_alpha_60));
+//        colorTextView.addTextColor("本次充值的金额在15天后可提现充值金额的70%，剩余的30%可进行派奖使用，请谨慎充值。", getResources().getColor(R.color.colorPrimary));
+//        colorTextView.setSpaces(true);
+//        colorTextView.apply();
+//        layout_colortv.addView(colorTextView);
     }
 
     @Override

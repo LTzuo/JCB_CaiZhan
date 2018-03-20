@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.cjkj.jcb_caizhan.modul.personal_center.personcl_information.modify.ModifyActivity">
+    tools:context="com.cjkj.jcb_caizhan.modul.Personal_Center.personcl_information.modify.ModifyActivity">
 
     <include layout="@layout/toolbar" />
 
@@ -11,8 +11,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/toolbar">
-
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -29,404 +27,433 @@
                 android:text="为了给您和彩民持续提供更安全便捷的服务，请您认真上传认证资料，我们会在24小时内电话通知您审核的结果。"
                 android:textColor="#e58e27"
                 android:textSize="@dimen/_11dp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
                 android:layout_below="@+id/toolbar"
-                android:orientation="horizontal"
+                android:layout_marginTop="1dp"
                 android:background="@color/white"
+                android:orientation="horizontal"
                 android:padding="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_16dp"
+                    android:text="店铺名称："
                     android:textColor="@color/black_alpha_60"
-                    android:text="店铺名称："/>
+                    android:textSize="@dimen/_16dp" />
 
                 <EditText
+                    android:id="@+id/edt_siteName"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:layout_weight="1"
+                    android:background="@null"
                     android:hint="请输入店铺名称(*必填)"
-                    android:layout_marginLeft="5dp"
-                    android:textSize="@dimen/_14dp"
                     android:textColor="@color/black_alpha_60"
-                    android:background="@null"/>
+                    android:textSize="@dimen/_14dp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
                 android:layout_below="@+id/toolbar"
-                android:orientation="horizontal"
+                android:layout_marginTop="1dp"
                 android:background="@color/white"
+                android:orientation="horizontal"
                 android:padding="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_16dp"
+                    android:text="店主姓名："
                     android:textColor="@color/black_alpha_60"
-                    android:text="店主姓名："/>
+                    android:textSize="@dimen/_16dp" />
 
                 <EditText
+                    android:id="@+id/edt_linkMan"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
                     android:layout_weight="1"
+                    android:background="@null"
                     android:hint="请输入店主姓名(*必填)"
-                    android:layout_marginLeft="5dp"
-                    android:textSize="@dimen/_14dp"
                     android:textColor="@color/black_alpha_60"
-                    android:background="@null"/>
+                    android:textSize="@dimen/_14dp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
                 android:layout_below="@+id/toolbar"
-                android:orientation="horizontal"
+                android:layout_marginTop="1dp"
                 android:background="@color/white"
+                android:orientation="horizontal"
                 android:padding="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_16dp"
+                    android:text="邀  请  人："
                     android:textColor="@color/black_alpha_60"
-                    android:text="邀  请  人："/>
+                    android:textSize="@dimen/_16dp" />
 
                 <EditText
+                    android:id="@+id/edt_invater"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="请输入邀请人手机号码"
                     android:layout_marginLeft="5dp"
-                    android:textSize="@dimen/_14dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="请输入邀请人手机号码"
                     android:textColor="@color/black_alpha_60"
-                    android:background="@null"/>
+                    android:inputType="number"
+                    android:textSize="@dimen/_14dp" />
             </LinearLayout>
+
             <LinearLayout
                 android:id="@+id/layout_choice_address"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="1dp"
-                android:orientation="horizontal"
                 android:background="@color/white"
+                android:orientation="horizontal"
                 android:padding="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_16dp"
+                    android:text="所在地址："
                     android:textColor="@color/black_alpha_60"
-                    android:text="所在地址："/>
+                    android:textSize="@dimen/_16dp" />
 
                 <TextView
                     android:id="@+id/tv_adress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:layout_marginLeft="5dp"
-                    android:textSize="@dimen/_14dp"
+                    android:layout_weight="1"
                     android:drawablePadding="5dp"
                     android:drawableRight="@drawable/more"
                     android:textColor="@color/black_alpha_60"
-                    />
+                    android:textSize="@dimen/_14dp" />
             </LinearLayout>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="1dp"
                 android:layout_below="@+id/toolbar"
-                android:orientation="horizontal"
+                android:layout_marginTop="1dp"
                 android:background="@color/white"
+                android:orientation="horizontal"
                 android:padding="10dp">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="@dimen/_16dp"
+                    android:text="详细地址："
                     android:textColor="@color/black_alpha_60"
-                    android:text="详细地址："/>
+                    android:textSize="@dimen/_16dp" />
 
                 <EditText
+                    android:id="@+id/edt_siteAddress"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="街道、楼牌号等(*必填)"
                     android:layout_marginLeft="5dp"
-                    android:textSize="@dimen/_14dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="街道、楼牌号等(*必填)"
                     android:textColor="@color/black_alpha_60"
-                    android:background="@null"/>
+                    android:textSize="@dimen/_14dp" />
             </LinearLayout>
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:orientation="horizontal"
                 android:layout_marginTop="10dp"
                 android:layout_weight="2"
+                android:background="@color/white"
+                android:orientation="horizontal"
                 android:padding="10dp">
 
                 <LinearLayout
+                    android:id="@+id/layout_card"
                     android:layout_width="0dp"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
-                    android:orientation="vertical"
                     android:gravity="center"
-                    >
+                    android:orientation="vertical">
+
                     <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="60dp"
-                        android:src="@drawable/addphoto"
-                        />
+                        android:id="@+id/img_card"
+                        android:layout_width="60dp"
+                        android:layout_height="85dp"
+                        android:src="@drawable/addphoto" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="手持身份证"/>
+                        android:text="手持身份证" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
                     android:gravity="center"
-                    >
+                    android:orientation="vertical">
+
                     <View
                         android:layout_width="60dp"
                         android:layout_height="85dp"
-                        android:background="@color/black_alpha_45"
-                        />
+                        android:background="@color/black_alpha_45" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="示例"/>
+                        android:text="示例" />
                 </LinearLayout>
 
             </LinearLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/_12dp"
                 android:layout_marginLeft="10dp"
-                android:text="*手持身份证照片必传"/>
+                android:text="*手持身份证照片必传"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_12dp" />
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
                 android:layout_marginTop="15dp"
-                android:orientation="horizontal"
                 android:layout_weight="2"
+                android:background="@color/white"
+                android:orientation="horizontal"
                 android:padding="10dp">
 
                 <LinearLayout
+                    android:id="@+id/layout_sitePic"
                     android:layout_width="0dp"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
-                    android:orientation="vertical"
                     android:gravity="center"
-                    >
+                    android:orientation="vertical">
+
                     <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="60dp"
-                        android:src="@drawable/addphoto"
-                        />
+                        android:id="@+id/img_sitePic"
+                        android:layout_width="60dp"
+                        android:layout_height="85dp"
+                        android:src="@drawable/addphoto" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="彩店照片"/>
+                        android:text="彩店照片" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
                     android:gravity="center"
-                    >
+                    android:orientation="vertical">
+
                     <View
                         android:layout_width="60dp"
                         android:layout_height="85dp"
-                        android:background="@color/black_alpha_45"
-                        />
+                        android:background="@color/black_alpha_45" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="示例"/>
+                        android:text="示例" />
                 </LinearLayout>
 
             </LinearLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/_12dp"
                 android:layout_marginLeft="10dp"
-                android:text="*彩店照片必传"/>
+                android:text="*彩店照片必传"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_12dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/white"
                 android:layout_marginTop="15dp"
-                android:orientation="horizontal"
                 android:layout_weight="2"
+                android:background="@color/white"
+                android:orientation="horizontal"
                 android:padding="10dp">
 
                 <LinearLayout
+                    android:id="@+id/layout_siteCPic"
                     android:layout_width="0dp"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
-                    android:orientation="vertical"
                     android:gravity="center"
-                    >
-                <ImageView
-                    android:layout_width="50dp"
-                    android:layout_height="60dp"
-                    android:src="@drawable/addphoto"
-                    />
+                    android:orientation="vertical">
+
+                    <ImageView
+                        android:id="@+id/img_siteCPic"
+                        android:layout_width="60dp"
+                        android:layout_height="85dp"
+                        android:src="@drawable/addphoto" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="福彩代销证"/>
+                        android:text="福彩代销证" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
                     android:gravity="center"
-                    >
+                    android:orientation="vertical">
+
                     <View
                         android:layout_width="60dp"
                         android:layout_height="85dp"
-                        android:background="@color/black_alpha_45"
-                        />
+                        android:background="@color/black_alpha_45" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="示例"/>
+                        android:text="示例" />
                 </LinearLayout>
 
 
-
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:background="@color/white"
                 android:orientation="horizontal"
-                android:layout_weight="2"
                 android:padding="10dp">
 
                 <LinearLayout
+                    android:id="@+id/layout_siteLPic"
                     android:layout_width="0dp"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
-                    android:orientation="vertical"
                     android:gravity="center"
-                    >
+                    android:orientation="vertical">
+
                     <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="60dp"
-                        android:src="@drawable/addphoto"
-                        />
+                        android:id="@+id/img_siteLPic"
+                        android:layout_width="60dp"
+                        android:layout_height="85dp"
+                        android:src="@drawable/addphoto" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="体彩代销证"/>
+                        android:text="体彩代销证" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
                     android:gravity="center"
-                    >
+                    android:orientation="vertical">
+
                     <View
                         android:layout_width="60dp"
                         android:layout_height="85dp"
-                        android:background="@color/black_alpha_45"
-                        />
+                        android:background="@color/black_alpha_45" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="示例"/>
+                        android:text="示例" />
                 </LinearLayout>
 
 
-
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_weight="2"
                 android:background="@color/white"
                 android:orientation="horizontal"
-                android:layout_weight="2"
                 android:padding="10dp">
 
                 <LinearLayout
+                    android:id="@+id/layout_siteSPic"
                     android:layout_width="0dp"
                     android:layout_height="fill_parent"
                     android:layout_weight="1"
-                    android:orientation="vertical"
                     android:gravity="center"
-                    >
+                    android:orientation="vertical">
+
                     <ImageView
-                        android:layout_width="50dp"
-                        android:layout_height="60dp"
-                        android:src="@drawable/addphoto"
-                        />
+                        android:id="@+id/img_siteSPic"
+                        android:layout_width="60dp"
+                        android:layout_height="85dp"
+                        android:src="@drawable/addphoto" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="竞彩代销证"/>
+                        android:text="竞彩代销证" />
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:orientation="vertical"
                     android:gravity="center"
-                    >
+                    android:orientation="vertical">
+
                     <View
                         android:layout_width="60dp"
                         android:layout_height="85dp"
-                        android:background="@color/black_alpha_45"
-                        />
+                        android:background="@color/black_alpha_45" />
+
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="示例"/>
+                        android:text="示例" />
                 </LinearLayout>
 
             </LinearLayout>
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:textColor="@color/colorPrimary"
-                android:textSize="@dimen/_12dp"
                 android:layout_marginLeft="10dp"
-                android:text="*以上三张代销证至少上传一个"/>
+                android:text="*以上三张代销证至少上传一个"
+                android:textColor="@color/colorPrimary"
+                android:textSize="@dimen/_12dp" />
+
             <TextView
+                android:id="@+id/tv_submit"
                 style="@style/red_button_style"
-                android:layout_marginTop="20dp"
                 android:layout_marginBottom="20dp"
+                android:layout_marginTop="20dp"
                 android:text="提交" />
         </LinearLayout>
     </android.support.v4.widget.NestedScrollView>

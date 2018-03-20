@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.lottery;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.lottery;
 
 import java.util.List;
 

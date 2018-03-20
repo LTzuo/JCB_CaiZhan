@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.lottery;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.lottery;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;

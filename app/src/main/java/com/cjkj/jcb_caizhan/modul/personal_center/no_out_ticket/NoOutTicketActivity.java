@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.no_out_ticket;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.no_out_ticket;
 
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;

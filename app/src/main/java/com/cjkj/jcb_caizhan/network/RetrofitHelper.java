@@ -1,6 +1,7 @@
 package com.cjkj.jcb_caizhan.network;
 
 import com.cjkj.jcb_caizhan.app.App;
+import com.cjkj.jcb_caizhan.network.api.MainApi;
 import com.cjkj.jcb_caizhan.network.api.MineApi;
 import com.cjkj.jcb_caizhan.network.api.UserManagemantApi;
 import com.cjkj.jcb_caizhan.utils.CommonUtil;
@@ -35,12 +36,32 @@ public class RetrofitHelper {
         initOkHttpClient();
     }
 
+//    public static MainApi geMainApi() {
+//        return createApi(MainApi.class, ApiConstants.URL_BASE);
+//    }
+
     public static UserManagemantApi getTestApi() {
         return createApi(UserManagemantApi.class, ApiConstants.TESTURL);
     }
 
     public static MineApi getMineApi() {
         return createApi(MineApi.class, ApiConstants.TESTURL);
+    }
+
+    private static MainApi mainApi;
+
+    public static MainApi getApi() {
+        if (mainApi == null) {
+            Retrofit retrofit = new Retrofit.Builder()
+                    .client(mOkHttpClient)
+                    .baseUrl(ApiConstants.URL_BASE)
+                    .addConverterFactory(GsonConverterFactory.create())
+                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                   // .addConverterFactory(ScalarsConverterFactory.create())
+                    .build();
+            mainApi = retrofit.create(MainApi.class);
+        }
+        return mainApi;
     }
 
     /**

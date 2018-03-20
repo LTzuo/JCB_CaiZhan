@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.user_management;
+package com.cjkj.jcb_caizhan.modul.User_Management;
 
 /**
  * Created by 1 on 2018/1/16.

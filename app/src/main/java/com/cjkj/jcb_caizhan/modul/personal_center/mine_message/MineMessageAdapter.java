@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.mine_message;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.mine_message;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;

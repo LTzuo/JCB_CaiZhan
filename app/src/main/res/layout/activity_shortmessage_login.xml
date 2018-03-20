@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal"
+    android:background="@color/white"
+    tools:context=".modul.ather.login.ShortmessageLoginActivity">
+    <ImageView
+        android:id="@+id/splash_default_iv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:src="@drawable/logo" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/default_grow_margin"
+        android:layout_marginLeft="@dimen/default_general_margin"
+        android:layout_marginRight="@dimen/default_general_margin"
+        >
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/action_bar_default_height"
+            android:gravity="center_vertical">
+
+            <EditText
+                android:id="@+id/et_username"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginStart="@dimen/default_small_padding"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:ellipsize="start"
+                android:hint="@string/login_hint_account"
+                android:maxLines="1"
+                android:textColor="@color/gray"
+                android:textColorHint="@color/gray"
+                android:textSize="@dimen/default_medium_text_size"
+                android:inputType="number"
+                android:maxLength="11"
+                />
+
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:background="@color/line_bg" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/action_bar_default_height"
+            android:gravity="center_vertical">
+
+            <EditText
+                android:id="@+id/et_vercode"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center_vertical"
+                android:layout_marginStart="@dimen/default_small_padding"
+                android:layout_weight="1"
+                android:background="@android:color/transparent"
+                android:ellipsize="start"
+                android:hint="@string/text_VerificationCode"
+                android:maxLines="1"
+                android:textColor="@color/gray"
+                android:textColorHint="@color/gray"
+                android:textSize="@dimen/default_medium_text_size"
+                android:inputType="number"
+                android:maxLength="6"/>
+
+            <com.lucenlee.countdownlibrary.CountdownButton
+                android:id="@+id/activity_main_btn_countdown"
+                android:onClick="onClick"
+                app:startText="获取验证码"
+                app:endText="重新获取"
+                app:postfix="s"
+                app:countdown="60"
+                android:textAllCaps="false"
+                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:gravity="center"
+                android:background="@drawable/corner_btn"
+                android:text="@string/shortmessage_login_getVerificationCode"
+                android:textColor="@color/white"
+                android:textSize="@dimen/default_small_text_size"
+                android:layout_marginTop="@dimen/_5dp"
+                android:layout_marginBottom="@dimen/_5dp"
+                android:paddingEnd="@dimen/default_small_padding"
+                android:paddingStart="@dimen/default_small_padding"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/line_height"
+            android:background="@color/line_bg" />
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/btn_login"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/login_button_height"
+        android:layout_marginBottom="@dimen/default_general_margin"
+        android:layout_marginLeft="@dimen/default_general_margin"
+        android:layout_marginRight="@dimen/default_general_margin"
+        android:layout_marginTop="@dimen/default_long_margin"
+        android:background="@drawable/corner_btn"
+        android:gravity="center"
+        android:text="@string/login"
+        android:textColor="@color/white"
+        android:textSize="@dimen/default_medium_text_size" />
+
+</LinearLayout>
+

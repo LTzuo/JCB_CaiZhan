@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.no_out_ticket;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.no_out_ticket;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import com.cjkj.jcb_caizhan.R;
-import com.cjkj.jcb_caizhan.modul.personal_center.cash_prize.now.ChildListViewAdapter;
+import com.cjkj.jcb_caizhan.modul.Personal_Center.cash_prize.now.ChildListViewAdapter;
 import com.cjkj.jcb_caizhan.widget.SubListView;
 import com.cjkj.jcb_caizhan.widget.ExListView.AbsExListViewAdapter;
 import com.cjkj.jcb_caizhan.widget.ExListView.ExBaseChildBean;

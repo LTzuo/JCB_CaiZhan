@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.personal_center.recharge;
+package com.cjkj.jcb_caizhan.modul.Personal_Center.recharge;
 
 import java.io.Serializable;
 
