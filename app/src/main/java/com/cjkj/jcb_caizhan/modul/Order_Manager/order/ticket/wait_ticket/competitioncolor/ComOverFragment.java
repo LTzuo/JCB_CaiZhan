@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.wait_ticket.normal;
+package com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.wait_ticket.competitioncolor;
 
 import android.widget.ExpandableListView;
 
@@ -7,11 +7,11 @@ import com.cjkj.jcb_caizhan.base.BaseFragment;
 import com.cjkj.jcb_caizhan.core.Constants;
 import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.TicketActivity;
 import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.TicketEntity;
-import com.cjkj.jcb_caizhan.network.ApiConstants;
-import com.cjkj.jcb_caizhan.utils.LubanUtils;
+import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.over_ticket.OverContract;
+import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.over_ticket.OverExAdapter;
+import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.over_ticket.OverPressenter;
 import com.cjkj.jcb_caizhan.utils.SPUtil;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
-import com.cjkj.jcb_caizhan.widget.NineGridView.ImageItem;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -19,27 +19,15 @@ import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.weavey.loading.lib.LoadingLayout;
 
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.Bind;
-import okhttp3.Call;
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
 
 /**
- * 本期待打票
+ * 竞彩本期已完成
  * Created by 1 on 2018/2/23.
  */
-public class WaitFragment extends BaseFragment implements TicketContract.ITicketView, WaitExAdapter.OnChildSubmitBtnClick {
+public class ComOverFragment extends BaseFragment implements OverContract.IOverView{
 
     @Bind(R.id.mExpandableListView)
     ExpandableListView mExpandableListView;
@@ -49,22 +37,22 @@ public class WaitFragment extends BaseFragment implements TicketContract.ITicket
     @Bind(R.id.loading)
     LoadingLayout loading;
 
-    TicketPressenter mPressenter;
+    OverPressenter mPressenter;
 
-    WaitExAdapter mAdapter;
+    OverExAdapter mAdapter;
 
     String lotteryTypeid;
 
     int index = 1;
 
-    public static WaitFragment newIntance() {
-        return new WaitFragment();
+    public static ComOverFragment newIntance() {
+        return new ComOverFragment();
     }
 
     @Override
     public void onFirstUserVisible() {
-        lotteryTypeid = ((TicketActivity) getActivity()).getLotteryTypeid();
-        mPressenter = new TicketPressenter(this);
+        lotteryTypeid = ((CompetitioncolorTicketActivity) getActivity()).getLotteryTypeid();
+        mPressenter = new OverPressenter(this);
         initstatusManagerLayout();
         initRecyclerView();
     }
@@ -81,9 +69,9 @@ public class WaitFragment extends BaseFragment implements TicketContract.ITicket
 
     @Override
     protected void initRecyclerView() {
-        mAdapter = new WaitExAdapter(getContext());
+        mAdapter = new OverExAdapter(getContext());
         mExpandableListView.setAdapter(mAdapter);
-        mAdapter.setOnSubmitBtnClickListener(this);
+
         mExpandableListView.setOnGroupExpandListener(new ExpandableListView.OnGroupExpandListener() {
             @Override
             public void onGroupExpand(int groupPosition) {
@@ -128,7 +116,7 @@ public class WaitFragment extends BaseFragment implements TicketContract.ITicket
             public void run() {
                 if (!SPUtil.get(getContext(), Constants.key_uSessionId, "").toString().isEmpty()) {
                     mPressenter.getCurrentOrders(SPUtil.get(getContext(), Constants.key_uSessionId, "").toString(),
-                            lotteryTypeid, index, "0");
+                            lotteryTypeid, index, "1");
                 }
             }
         });
@@ -180,55 +168,16 @@ public class WaitFragment extends BaseFragment implements TicketContract.ITicket
     @Override
     public void ShowFail(String msg) {
         ToastUtil.ShortToast(msg);
-          loading.setStatus(LoadingLayout.Loading);
+        loading.setStatus(LoadingLayout.Loading);
         finishTask();
     }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
+        if(mPressenter != null)
         mPressenter.unSubscribe();
     }
-
-    @Override
-    public void onChildSubmitBtnClick(String orderId, ArrayList<ImageItem> Imgs) {
-        Map<String, Object> maps = new HashMap<String, Object>();
-        for (int i = 0; i < Imgs.size(); i++) {
-            if (Imgs.get(i).isLocal()) {
-                File file = LubanUtils.Compress(getContext(), Imgs.get(i).getUrl());
-                maps.put(Constants.ImgArray[i], file);
-            } else {
-                maps.put(Constants.ImgArray[i], Imgs.get(i).getUrl());
-            }
-        }
-        maps.put("uSessionId", SPUtil.get(getContext(), Constants.key_uSessionId, "").toString());
-        maps.put("lotteryTypeid", lotteryTypeid);
-        maps.put("orderId", orderId);
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-               mPressenter.putOrderPics(maps);
-            }
-        }).start();
-    }
-
-    @Override
-    public void putOrderPicsSuccessful(String msg) {
-//        if (loaddialog != null) {
-//            loaddialog.dismiss();
-//        }
-        ToastUtil.ShortToast(msg);
-        loadData();
-    }
-
-    @Override
-    public void putOrderPicsFaild(String msg) {
-//        if (loaddialog != null) {
-//            loaddialog.dismiss();
-//        }
-        ToastUtil.ShortToast(msg);
-    }
-
 
 
 }

@@ -157,6 +157,24 @@ public interface MainApi {
 
 
     /**
+     * 调整竞彩赔率和确认赔率
+     *
+     * @param uSessionId
+     * @param putType      操作类型，0调整赔率，1确认赔率
+     * @param oddsId       赔率编号，确认赔率时填写orderId
+     * @param oddsFiles     赔率字段，(调整赔率时必填)
+     * @param oddsValue    赔率，(调整赔率时必填)
+     * @return
+     */
+    @POST(ApiConstants.URL_BASE + "putOrderOdds?")
+    Observable<JsonObject> putOrderOdds(@Query("uSessionId") String uSessionId,
+                                            @Query("putType") String putType,
+                                            @Query("oddsId") String oddsId,
+                                            @Query("oddsFiles") String oddsFiles,
+                                        @Query("oddsValue") String oddsValue);
+
+
+    /**
      * 上传打票
      * @body uSessionId
      * @body lotteryTypeid

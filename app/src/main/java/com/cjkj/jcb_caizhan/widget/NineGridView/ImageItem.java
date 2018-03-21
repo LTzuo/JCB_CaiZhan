@@ -11,21 +11,20 @@ import com.previewlibrary.enitity.IThumbViewInfo;
  */
 public class ImageItem implements IThumbViewInfo  {
 
-
     private String url;  //图片地址
     private Rect mBounds; // 记录坐标
-    private String user = "用户字段";
+    private boolean isLocal = true;//图片路径是否是本地路径
+
+    public Rect getmBounds() {
+        return mBounds;
+    }
+
+    public void setmBounds(Rect mBounds) {
+        this.mBounds = mBounds;
+    }
 
     public ImageItem(String url) {
         this.url = url;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public void setUser(String user) {
-        this.user = user;
     }
 
     @Override
@@ -74,4 +73,11 @@ public class ImageItem implements IThumbViewInfo  {
     };
 
 
+    public boolean isLocal() {
+        return isLocal;
+    }
+
+    public void setLocal(boolean local) {
+        isLocal = local;
+    }
 }

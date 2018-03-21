@@ -10,9 +10,9 @@
 
     <android.support.v4.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginBottom="50dp"
-        android:layout_below="@+id/toolbar">
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/toolbar"
+        android:layout_marginBottom="50dp">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -233,6 +233,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/Layout_SubListView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -244,6 +245,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+
                     android:orientation="horizontal">
 
                     <TextView
@@ -259,7 +261,61 @@
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
                         android:text="(点击赔率可修改对应赔率)"
-                        android:textColor="@color/colorPrimary"
+                        android:textColor="@color/base_color_0"
+                        android:textSize="@dimen/_12dp" />
+                </LinearLayout>
+
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="0.5dp"
+                    android:layout_marginBottom="5dp"
+                    android:layout_marginTop="10dp"
+                    android:background="@color/line_bg" />
+                <com.cjkj.jcb_caizhan.widget.SubListView
+                    android:id="@+id/mSubListView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:divider="@color/white"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp" />
+            </LinearLayout>
+
+
+
+            <LinearLayout
+                android:id="@+id/Layout_GridView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:paddingBottom="10dp"
+                android:paddingTop="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_ticktt_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="打票"
+                        android:textColor="@color/black_alpha_70"
+                        android:textSize="@dimen/_14dp" />
+
+                    <TextView
+                        android:id="@+id/tv_ticktt_hint"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="(上传相关票据照片)"
+                        android:textColor="@color/base_color_0"
                         android:textSize="@dimen/_12dp" />
                 </LinearLayout>
 
@@ -271,41 +327,70 @@
                     android:layout_marginTop="10dp"
                     android:background="@color/line_bg" />
 
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/mGridRecyclerView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:divider="@color/white"
+                    android:overScrollMode="never"
+                    android:paddingBottom="10dp"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp" />
+
             </LinearLayout>
-
-            <com.cjkj.jcb_caizhan.widget.SubListView
-                android:id="@+id/mSubListView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/white"
-                android:divider="@color/white"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp" />
-
-
         </LinearLayout>
+
 
     </android.support.v4.widget.NestedScrollView>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:orientation="vertical">
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:background="@color/line_bg"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="49dp"
-        android:background="@color/white"
-        android:textColor="@color/base_color_0"
-        android:padding="10dp"
-        android:gravity="center"
-        android:text="确认赔率"
+        android:layout_alignParentRight="true">
 
-        />
-    </LinearLayout>
+        <LinearLayout
+            android:id="@+id/Layout_sure_odds"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/line_bg" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="确认赔率"
+                android:textColor="@color/base_color_0" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Layout_submit_ticket"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+
+            android:orientation="vertical">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:background="@color/line_bg" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="49dp"
+                android:background="@color/white"
+                android:gravity="center"
+                android:padding="10dp"
+                android:text="上传打票"
+                android:textColor="@color/base_color_0" />
+        </LinearLayout>
+    </FrameLayout>
 </RelativeLayout>

@@ -6,6 +6,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.over_ticket.OverFragment;
+import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.wait_ticket.competitioncolor.ComOverFragment;
 import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.wait_ticket.competitioncolor.CompetitionTicketFragment;
 
 /**
@@ -30,7 +31,7 @@ public class CompetitionTicketPagerAdapter extends FragmentPagerAdapter {
                     fragments[position] = CompetitionTicketFragment.newIntance();
                     break;
                 case 1:
-                    fragments[position] = OverFragment.newIntance();
+                    fragments[position] = ComOverFragment.newIntance();
                     break;
                 default:
                     break;

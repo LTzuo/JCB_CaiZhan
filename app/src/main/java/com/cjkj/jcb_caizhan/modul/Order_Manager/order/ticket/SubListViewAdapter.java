@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.wait_ticket.normal;
+package com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket;
 
 import android.content.Context;
 import android.view.View;

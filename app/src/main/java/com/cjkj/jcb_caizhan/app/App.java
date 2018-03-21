@@ -1,6 +1,8 @@
 package com.cjkj.jcb_caizhan.app;
 
 import android.app.Application;
+import android.os.Handler;
+import android.os.Looper;
 
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.widget.Album.GlideAlbumLoader;
@@ -19,6 +21,8 @@ import java.util.Locale;
 public class App extends Application {
 
     public static App mInstance;
+
+    public static Handler mAppHandler = new Handler(Looper.myLooper());
 
     @Override
     public void onCreate() {

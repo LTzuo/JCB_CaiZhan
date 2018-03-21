@@ -4,8 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+
 import com.cjkj.jcb_caizhan.R;
-import com.cjkj.jcb_caizhan.base.RxLazyFragment;
+import com.cjkj.jcb_caizhan.base.BaseFragment;
 import com.cjkj.jcb_caizhan.core.Constants;
 import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.TicketEntity;
 import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.wait_ticket.competitioncolor.details.CompetitionTicketDetailsActivity;
@@ -19,13 +20,14 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.weavey.loading.lib.LoadingLayout;
 
 import java.util.List;
+
 import butterknife.Bind;
 
 /**
  * 竞彩-待打票
  * Created by 1 on 2018/3/20.
  */
-public class CompetitionTicketFragment extends RxLazyFragment implements CompetitioncolorContract.ICompetitioncolorView{
+public class CompetitionTicketFragment extends BaseFragment implements CompetitioncolorContract.ICompetitioncolorView {
 
     @Bind(R.id.mRecyclerView)
     RecyclerView mRecyclerView;
@@ -44,29 +46,6 @@ public class CompetitionTicketFragment extends RxLazyFragment implements Competi
 
     public static CompetitionTicketFragment newIntance() {
         return new CompetitionTicketFragment();
-    }
-
-    @Override
-    public int getLayoutResId() {
-        return R.layout.recyclerview_layout_refush_loadmore;
-    }
-
-    @Override
-    public void finishCreateView(Bundle state) {
-        mPresenter = new CompetitionPresenter(this);
-        lotteryTypeid = ((CompetitioncolorTicketActivity) getActivity()).getLotteryTypeid();
-        isPrepared = true;
-        lazyLoad();
-    }
-
-    @Override
-    protected void lazyLoad() {
-        if (!isPrepared || !isVisible) {
-            return;
-        }
-        initstatusManagerLayout();
-        initRecyclerView();
-        isPrepared = false;
     }
 
     @Override
@@ -98,9 +77,10 @@ public class CompetitionTicketFragment extends RxLazyFragment implements Competi
         });
 
         competitionRecyclerAdapter.setOnItemClickListener((position, holder) -> {
-            Intent intent = new Intent(getContext(),CompetitionTicketDetailsActivity.class);
+            Intent intent = new Intent(getContext(), CompetitionTicketDetailsActivity.class);
             Bundle bundle = new Bundle();
             bundle.putParcelable("TicketEntity", competitionRecyclerAdapter.getItemData(position));
+            bundle.putString("lotteryTypeid", lotteryTypeid);
             intent.putExtras(bundle);
             startActivity(intent);
         });
@@ -134,15 +114,40 @@ public class CompetitionTicketFragment extends RxLazyFragment implements Competi
 
     @Override
     protected void finishTask() {
-        mHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
+        if (mRefreshLayout == null)
+            return;
+//        mHandler.postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
                 if (index == 1)
                     mRefreshLayout.finishRefresh(true);
                 else
                     mRefreshLayout.finishLoadMore();
-            }
-        }, 2 * 1000);
+//            }
+//        }, 1 * 1000);
+    }
+
+    @Override
+    protected int bindLayout() {
+        return R.layout.recyclerview_layout_refush_loadmore;
+    }
+
+    @Override
+    public void onFirstUserVisible() {
+        mPresenter = new CompetitionPresenter(this);
+        lotteryTypeid = ((CompetitioncolorTicketActivity) getActivity()).getLotteryTypeid();
+        initstatusManagerLayout();
+        initRecyclerView();
+    }
+
+    @Override
+    public void onUserVisible() {
+        loadData();
+    }
+
+    @Override
+    public void onUserInvisible() {
+
     }
 
     @Override

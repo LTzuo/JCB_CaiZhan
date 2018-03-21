@@ -128,8 +128,8 @@ public class ShopCertificationActivity extends RxBaseActivity implements ShopCer
                 ToastUtil.ShortToast("请上传手持身份证照");
                 return;
             }
-            cardPic = LubanUtils.getImgString(CARDPIC_RESUSTCODE);
-            ToastUtil.ShortToast(cardPic);
+           // cardPic = LubanUtils.getImgString(CARDPIC_RESUSTCODE);
+           // ToastUtil.ShortToast(cardPic);
             if (LubanUtils.imgsMap.isEmpty()  || !LubanUtils.imgsMap.containsKey(SITEPIC_RESUSTCODE)) {
                 ToastUtil.ShortToast("请上店铺证照");
                 return;
@@ -151,7 +151,7 @@ public class ShopCertificationActivity extends RxBaseActivity implements ShopCer
             if (AppValidationMgr.isNotEmpty(SPUtil.get(this, Constants.key_uSessionId, "").toString())) {
                 mPressenter.siteAuth(SPUtil.get(this, Constants.key_uSessionId, "").toString(), invater,
                         siteName, linkName, spro, scity, edt_siteAddress.getText().toString(),
-                        cardPic, "", "", "", "", "0");
+                        "", "", "", "", "", "0");
                       //  sitePic, siteCPic, siteLPic, siteSPic, cardPic, "0");
             }
         }

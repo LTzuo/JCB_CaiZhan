@@ -86,6 +86,7 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_toLeftOf="@+id/groupIcon"
+            android:maxLength="4"
             android:text="林天佐"
             android:textColor="@color/black_alpha_45"
             android:textSize="@dimen/_12dp" />

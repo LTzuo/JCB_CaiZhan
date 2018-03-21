@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.wait_ticket.normal;
+package com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.over_ticket;
 
 import android.app.Activity;
 import android.content.Context;
@@ -18,6 +18,9 @@ import com.cjkj.jcb_caizhan.base.AbsRecyclerViewAdapter;
 import com.cjkj.jcb_caizhan.modul.Order_Manager.order.OrderDetailListEntity;
 import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.SubListViewAdapter;
 import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.TicketEntity;
+import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.UserListEntity;
+import com.cjkj.jcb_caizhan.test.table.TableListViewTestAdapter;
+import com.cjkj.jcb_caizhan.test.table.TableTextEntity;
 import com.cjkj.jcb_caizhan.utils.FastJsonUtil;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.cjkj.jcb_caizhan.widget.NineGridView.ChildImages;
@@ -38,10 +41,10 @@ import butterknife.ButterKnife;
 import cn.carbs.android.avatarimageview.library.AvatarImageView;
 
 /**
- * 双色球-可折叠二级菜单适配器(待打票)
+ * 双色球-可折叠二级菜单适配器(已打票)
  * Created by 1 on 2018/2/23.
  */
-public class WaitExAdapter extends BaseExpandableListAdapter {
+public class OverExAdapter extends BaseExpandableListAdapter {
 
     private static final int REQUEST_CODE = 1;
 
@@ -51,18 +54,8 @@ public class WaitExAdapter extends BaseExpandableListAdapter {
 
     private Context mContext;
 
-    public WaitExAdapter(Context context) {
+    public OverExAdapter(Context context) {
         mContext = context;
-    }
-
-    private OnChildSubmitBtnClick mChildSubmitBtnClickListener;
-
-    public interface OnChildSubmitBtnClick {
-        void onChildSubmitBtnClick(String orderId, ArrayList<ImageItem> Imgs);
-    }
-
-    public void setOnSubmitBtnClickListener(OnChildSubmitBtnClick mChildSubmitBtnClickListener) {
-        this.mChildSubmitBtnClickListener = mChildSubmitBtnClickListener;
     }
 
     public void setInfo(List<TicketEntity> datas) {
@@ -211,86 +204,65 @@ public class WaitExAdapter extends BaseExpandableListAdapter {
         if (convertView != null) {
             holder = (ChildViewHolder) convertView.getTag();
         } else {
-            convertView = View.inflate(mContext, R.layout.child_wait_ticket, null);
+            convertView = View.inflate(mContext, R.layout.child_over_ticket, null);
             holder = new ChildViewHolder(convertView);
             convertView.setTag(holder);
         }
 
         holder.childplayType.setText(mDatas.get(groupPosition).getPlayType());
         holder.childorderState.setText(mDatas.get(groupPosition).getOrderState());
-        if(mDatas.get(groupPosition).getOrderState().equals("打票错误")){
-            holder.Layout_orderNote.setVisibility(View.VISIBLE);
-            holder.tv_orderNote.setText("错误说明:"+mDatas.get(groupPosition).getOrderNote());
-        }else{
-            holder.Layout_orderNote.setVisibility(View.GONE);
-        }
+
+        holder.tv_orderTime.setText("打票时间:" + mDatas.get(groupPosition).getOrderTime());
+
         if (!mDatas.get(groupPosition).getOrderTimes().equals("0")) {
             holder.childmultiple.setText("(倍数" + mDatas.get(groupPosition).getOrderTimes() + ")");
         }
-
         holder.childamount.setText("合计：" + mDatas.get(groupPosition).getAmount() + "元");
 
         List<OrderDetailListEntity> SourceDateList = FastJsonUtil.getBeanList(mDatas.get(groupPosition).getOrderDetailList(), OrderDetailListEntity.class);
         SubListViewAdapter listViewAdaAdapter = new SubListViewAdapter(mContext, SourceDateList);
         holder.mChildListView.setAdapter(listViewAdaAdapter);
 
-//        if (!mDatas.get(groupPosition).getUserList().isEmpty()) {
-//            ToastUtil.ShortToast(mDatas.get(groupPosition).getUserList().size() + "人参与合买");
-//        }
 
-        holder.child_btn_submit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if(mImageMap.isEmpty() || mImageMap.get(groupPosition).getImgs().isEmpty()){
-                    ToastUtil.ShortToast("请上传票据");
-                    return;
-                }
-                mChildSubmitBtnClickListener.onChildSubmitBtnClick(mDatas.get(groupPosition).getOrderId(), mImageMap.get(groupPosition).getImgs());
-            }
-        });
 
-        holder.mNineRecyclerView.setLayoutManager(new GridLayoutManager(mContext, 4));
-        if (mImageMap != null && mImageMap.containsKey(groupPosition)) {
-            if (!mImageMap.get(groupPosition).getImgs().isEmpty()) {
-                mImageMap.get(groupPosition).getAdapter().setDatas(mImageMap.get(groupPosition).getImgs());
+        List<ImageItem> imgs = new ArrayList<>();
+        if (!mDatas.get(groupPosition).getOrderPic().isEmpty()) {
+            String[] strs = mDatas.get(groupPosition).getOrderPic().split(",");
+            for (int i = 0, len = strs.length; i < len; i++) {
+                ImageItem item = new ImageItem(strs[i]);
+                item.setLocal(false);
+                imgs.add(0, item);
             }
-        } else {
-            PhotoAdapter mPhotoAdapter = new PhotoAdapter(holder.mNineRecyclerView, groupPosition);
-            if (!mDatas.get(groupPosition).getOrderPic().isEmpty()) {
-                ArrayList<ImageItem>  imgs = new ArrayList<>();
-                String[] strs = mDatas.get(groupPosition).getOrderPic().split(",");
-                for (int i = 0, len = strs.length; i < len; i++) {
-                    ImageItem item = new ImageItem(strs[i]);
-                    item.setLocal(false);
-                    imgs.add(0, item);
-                }
-                mImageMap.put(groupPosition, new ChildImages(imgs, mPhotoAdapter));
-                mPhotoAdapter.setDatas(imgs);
-            }else {
-                mImageMap.put(groupPosition, new ChildImages(new ArrayList<ImageItem>(), mPhotoAdapter));
-                mPhotoAdapter.setDatas(new ArrayList<ImageItem>());
-            }
-//            mImageMap.put(groupPosition, new ChildImages(new ArrayList<ImageItem>(), mPhotoAdapter));
-//            mPhotoAdapter.setDatas(new ArrayList<ImageItem>());
-            mPhotoAdapter.setOnItemImageViewClickListener(new PhotoAdapter.onItemImageViewClickListener() {
-                @Override
-                public void deleItem(int position, int groupPosition) {
-                    mImageMap.get(groupPosition).getImgs().remove(position);
-                    mImageMap.get(groupPosition).getAdapter().setDatas(mImageMap.get(groupPosition).getImgs());
-                }
-            });
         }
-        holder.mNineRecyclerView.setAdapter(mImageMap.get(groupPosition).getAdapter());
-        mImageMap.get(groupPosition).getAdapter().setOnItemClickListener(new AbsRecyclerViewAdapter.OnItemClickListener() {
+        holder.mNineRecyclerView.setLayoutManager(new GridLayoutManager(mContext, 4));
+        GridAdapter mGridAdapter = new GridAdapter(holder.mNineRecyclerView);
+        mGridAdapter.setDatas(imgs);
+        holder.mNineRecyclerView.setAdapter(mGridAdapter);
+        mGridAdapter.setOnItemClickListener(new AbsRecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(int position, AbsRecyclerViewAdapter.ClickableViewHolder holder) {
-                if (mImageMap.get(groupPosition).getImgs().size() == position) {
-                    openCamera(groupPosition, mImageMap.get(groupPosition).getAdapter());
-                } else {
-                    LookBanners(mImageMap.get(groupPosition).getImgs(), position);
-                }
+                GPreviewBuilder.from((Activity) mContext)
+                        .setData(imgs)
+                        .setCurrentIndex(position)
+                        .setSingleFling(true)
+                        .setDrag(false)
+                        .setType(GPreviewBuilder.IndicatorType.Number)
+                        .start();
             }
         });
+
+        if (!"".equals(mDatas.get(groupPosition).getUserList()) && !mDatas.get(groupPosition).getUserList().isEmpty()) {
+            holder.Layout_with.setVisibility(View.VISIBLE);
+            UserTableListViewAdapter mTableTestAdapter = new UserTableListViewAdapter(mContext);
+            holder.childTablelistView.setAdapter(mTableTestAdapter);
+            List<UserListEntity> userList = new ArrayList<>();
+            userList.addAll(FastJsonUtil.getBeanList(mDatas.get(groupPosition).getUserList(), UserListEntity.class));
+            userList.add(0,new UserListEntity("","合买人","等级","出资","份额","奖金/加奖"));
+            mTableTestAdapter.setInfo(userList);
+        } else {
+            holder.Layout_with.setVisibility(View.GONE);
+        }
+
         return convertView;
     }
 
@@ -305,7 +277,7 @@ public class WaitExAdapter extends BaseExpandableListAdapter {
 //        Album.album(mContext)
 //                .multipleChoice()
 //                .columnCount(4)
-                  .image()
+                .image()
                 // .filePath()
                 .requestCode(REQUEST_CODE)
                 .onResult(new Action<String>() {
@@ -313,7 +285,6 @@ public class WaitExAdapter extends BaseExpandableListAdapter {
                     public void onAction(int requestCode, @NonNull String result) {
                         mImageMap.remove(gropPosition);
                         ImageItem item = new ImageItem(result);
-                        item.setLocal(true);
                         imgLists.add(0, item);
                         mImageMap.put(gropPosition, new ChildImages(imgLists, mPhotoAdapter));
                         //mImgesAdapter.addInfo(item);
@@ -401,12 +372,13 @@ public class WaitExAdapter extends BaseExpandableListAdapter {
         TextView childorderState;
         @Bind(R.id.childmultiple)
         TextView childmultiple;
-        @Bind(R.id.child_btn_submit)
-        TextView child_btn_submit;
-        @Bind(R.id.Layout_orderNote)
-        LinearLayout Layout_orderNote;
-        @Bind(R.id.tv_orderNote)
-        TextView tv_orderNote;
+        @Bind(R.id.Layout_with)
+        LinearLayout Layout_with;
+        @Bind(R.id.childTablelistView)
+        SubListView childTablelistView;
+        @Bind(R.id.tv_orderTime)
+        TextView tv_orderTime;
+
         public ChildViewHolder(View v) {
             ButterKnife.bind(this, v);
         }

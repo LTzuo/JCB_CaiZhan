@@ -1,7 +1,12 @@
 package com.cjkj.jcb_caizhan.utils;
 
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.os.Environment;
 import android.util.Base64;
+
+import com.nanchen.compresshelper.CompressHelper;
+
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -42,7 +47,7 @@ public class LubanUtils {
                     public void onSuccess(File file) {
                         // TODO 压缩成功后调用，返回压缩后的图片文件
                         ToastUtil.ShortToast("压缩图片成功");
-                        saveImgStringToMap(imgKey,file);
+
                     }
 
                     @Override
@@ -53,51 +58,21 @@ public class LubanUtils {
                 }).launch();    //启动压缩
     }
 
-
     /**
-     * 根据 file 获取String
      *
-     * @param file
-     * @return
-     * @throws IOException
+     * 自定义压缩文件
      */
-    public static void saveImgStringToMap(int key,File file) {
-        try {
-            FileInputStream inputFile = new FileInputStream(file);
-            byte[] buffer = new byte[(int) file.length()];
-            inputFile.read(buffer);
-            inputFile.close();
-            if (!imgsMap.isEmpty() && imgsMap.containsKey(key)) {
-                imgsMap.remove(key);
-            }
-            imgsMap.put(key,Base64.encodeToString(buffer, Base64.DEFAULT));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    /**
-     * 根据 imgKey 获取文件转String
-     *
-     * @param imgKey
-     * @return
-     * @throws IOException
-     */
-    public static String getImgString(int imgKey) {
-//        try {
-            if (!imgsMap.isEmpty() && imgsMap.containsKey(imgKey)) {
-//                FileInputStream inputFile = new FileInputStream(imgsMap.get(imgKey));
-//                byte[] buffer = new byte[(int) imgsMap.get(imgKey).length()];
-//                inputFile.read(buffer);
-//                inputFile.close();
-//                return Base64.encodeToString(buffer, Base64.DEFAULT);
-                return imgsMap.get(imgKey);
-            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//            return "";
-//        }
-        return "";
+    public static File Compress(Context context,String imgPath){
+     return   new CompressHelper.Builder(context)
+                .setMaxWidth(1200)  // 默认最大宽度为720
+                .setMaxHeight(1600) // 默认最大高度为960
+                .setQuality(80)    // 默认压缩质量为80
+               // .setFileName(yourFileName) // 设置你需要修改的文件名
+                .setCompressFormat(Bitmap.CompressFormat.JPEG) // 设置默认压缩为jpg格式
+                .setDestinationDirectoryPath(Environment.getExternalStoragePublicDirectory(
+                        Environment.DIRECTORY_PICTURES).getAbsolutePath())
+                .build()
+                .compressToFile(new File(imgPath));
     }
 
 }

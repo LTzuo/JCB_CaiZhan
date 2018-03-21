@@ -55,7 +55,7 @@ public abstract class RxLazyFragment extends RxFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        ButterKnife.bind(this,view);
+        ButterKnife.bind(this, view);
         finishCreateView(savedInstanceState);
     }
 
@@ -71,7 +71,6 @@ public abstract class RxLazyFragment extends RxFragment {
     public void onResume() {
         super.onResume();
     }
-
 
     @Override
     public void onDestroyView() {

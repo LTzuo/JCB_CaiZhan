@@ -192,7 +192,8 @@
         <!--订单管理-竞彩订单打票详情-->
         <activity
             android:name=".modul.Order_Manager.order.ticket.wait_ticket.competitioncolor.details.CompetitionTicketDetailsActivity"
-            android:theme="@style/MainActivityColorTranslucentTheme"/>
+            android:theme="@style/MainActivityColorTranslucentTheme"
+            />
 
         <!-- 订单管理-众筹详情 -->
         <activity

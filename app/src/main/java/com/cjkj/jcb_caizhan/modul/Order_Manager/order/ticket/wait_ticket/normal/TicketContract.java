@@ -1,7 +1,8 @@
-package com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket;
+package com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.wait_ticket.normal;
 
 import com.cjkj.jcb_caizhan.base.BasePresenter;
 import com.cjkj.jcb_caizhan.base.BaseView;
+import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.TicketEntity;
 
 import java.util.List;
 import java.util.Map;
@@ -18,6 +19,12 @@ public interface TicketContract {
         void ShowFail(String msg);
 
         void Sussesful(List<TicketEntity> orderList);
+
+        //打票成功
+        void putOrderPicsSuccessful(String msg);
+
+        //打票失败
+        void putOrderPicsFaild(String msg);
     }
 
     interface  ITicketPressenter extends BasePresenter{
@@ -33,14 +40,10 @@ public interface TicketContract {
         void getCurrentOrders(String uSessionId,String lotteryTypeid,int pagesNum,String orderType);
 
         /**
-         * 上传打票
-         * @param uSessionId   用户登录返回的uSessionId
-         * @param lotteryTypeid  彩种编号
-         * @param orderId      订单编号
-         * @param maps       图片map
-         * @return
+         * 上传打票(Body)
+         * @param map
          */
-        void putOrderPics(Map<String, Object> maps);
+        void putOrderPics(Map<String, Object> map);
 
     }
 

@@ -17,5 +17,6 @@ public class Constants {
     //个人中心-开奖结果URL
     public static final String AWARDRESULT_URL = "http://192.168.10.59:8801/pages/server/lotteryhistoryListpage.html?flag=site";
 
+    public static final String[] ImgArray = new String []{"orderPic1","orderPic2","orderPic3"};
 
 }

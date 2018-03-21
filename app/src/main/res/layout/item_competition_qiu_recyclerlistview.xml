@@ -16,6 +16,7 @@
         android:id="@+id/layout_odds"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
         android:orientation="vertical">
 
         <TextView
@@ -31,7 +32,7 @@
             android:layout_height="wrap_content"
             android:horizontalSpacing="1dp"
             android:verticalSpacing="1dp"
-            android:numColumns="6" />
+            android:numColumns="5" />
 
     </LinearLayout>
 
