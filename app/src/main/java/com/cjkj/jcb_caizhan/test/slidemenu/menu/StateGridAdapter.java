@@ -1,4 +1,4 @@
-package com.cjkj.jcb_caizhan.modul.Personal_Center.order_query.menu;
+package com.cjkj.jcb_caizhan.test.slidemenu.menu;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -12,23 +12,22 @@ import com.cjkj.jcb_caizhan.R;
 import butterknife.ButterKnife;
 
 /**
- * 订单查询-Menu彩种适配器
+ * 订单查询-Menu订单状态适配器
  * Created by 1 on 2018/3/8.
  */
-public class LotteryGridAdapter extends BaseAdapter {
+public class StateGridAdapter extends BaseAdapter {
 
     private String mDatas[];
 
     private boolean selsectDatas[] = {
             false,false,false,false,false,false,false,false,false,false,false,false,false
-           ,false,false,false,false,false,false,false,false,false,false
     };
 
     private Context mContext;
 
-    public LotteryGridAdapter(Context mContext) {
+    public StateGridAdapter(Context mContext) {
         this.mContext = mContext;
-        mDatas = mContext.getResources().getStringArray(R.array.menu_caizhong);
+        mDatas = mContext.getResources().getStringArray(R.array.menu_order_state);
     }
 
     public void SelsectItem(int index){

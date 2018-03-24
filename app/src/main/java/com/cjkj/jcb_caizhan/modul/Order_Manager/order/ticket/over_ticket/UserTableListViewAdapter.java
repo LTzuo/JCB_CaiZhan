@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.TicketEntity;
 import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.UserListEntity;
@@ -70,7 +71,8 @@ public class UserTableListViewAdapter extends BaseAdapter {
         itemViewHolder.text5.setText(mDatas.get(position).getWinAmount());
 
 
-        if(mDatas.get(position).getUserNickName().equals("合买人")){
+        if(mDatas.get(position).getUserNickName().equals("合买人")||
+                mDatas.get(position).getUserNickName().equals("参与众筹")){
             itemViewHolder.head_img.setVisibility(View.GONE);
             itemViewHolder.text2.setBackground(null);
             itemViewHolder.text2.setTextColor(context.getResources().getColor(R.color.black_alpha_60));
@@ -78,6 +80,15 @@ public class UserTableListViewAdapter extends BaseAdapter {
             itemViewHolder.head_img.setVisibility(View.VISIBLE);
             itemViewHolder.text2.setTextColor(context.getResources().getColor(R.color.white));
             itemViewHolder.text2.setBackground(context.getResources().getDrawable(R.drawable.shape_half_red_bg));
+
+            if(!mDatas.get(position).getUserPic().isEmpty()){
+                Glide.with(context)
+                        .load(mDatas.get(position).getUserPic())
+                        .centerCrop()
+                        .crossFade()
+                        .into(itemViewHolder.head_img);
+            }
+
         }
         return v;
     }

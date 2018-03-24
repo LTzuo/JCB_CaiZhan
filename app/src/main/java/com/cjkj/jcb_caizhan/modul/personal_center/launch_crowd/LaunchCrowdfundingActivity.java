@@ -1,5 +1,6 @@
 package com.cjkj.jcb_caizhan.modul.Personal_Center.launch_crowd;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Rect;
@@ -9,15 +10,23 @@ import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxBaseActivity;
 import com.cjkj.jcb_caizhan.base.AbsRecyclerViewAdapter;
+import com.cjkj.jcb_caizhan.core.Constants;
 import com.cjkj.jcb_caizhan.utils.DateHelper;
+import com.cjkj.jcb_caizhan.utils.DecCalUtil;
+import com.cjkj.jcb_caizhan.utils.LubanUtils;
+import com.cjkj.jcb_caizhan.utils.SPUtil;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.cjkj.jcb_caizhan.widget.NineGridView.ImageItem;
 import com.cjkj.jcb_caizhan.widget.NineGridView.NineGridAdapter;
@@ -32,25 +41,29 @@ import com.yanzhenjie.album.Album;
 import com.yanzhenjie.album.AlbumFile;
 import com.yanzhenjie.album.api.widget.Widget;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.OnClick;
 import cn.qing.soft.keyboardlib.CustomKeyboardHelper;
+import cn.yhq.dialog.core.DialogBuilder;
 
 /**
  * 个人中心-发起众筹
  */
-public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGridAdapter.onItemImageViewClickListener {
+public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGridAdapter.onItemImageViewClickListener, LunchCrowdContract.ILunchCrowdView {
 
     @Bind(R.id.mRecyclerView)
     RecyclerView mRecyclerView;
     NineGridAdapter mNineGridAdapter;
     GridLayoutManager mGridLayoutManager;
-    private List<ImageItem> datas = new ArrayList<>();
+    private List<ImageItem> Imgs = new ArrayList<>();
 
     private static final int REQUEST_CODE = 1;
 
@@ -73,19 +86,37 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
 
     @Bind(R.id.edit)
     EditText edit;
+    @Bind(R.id.edit_context)
+    EditText edit_context;
+    @Bind(R.id.tv_price)
+    TextView tv_price;
+    @Bind(R.id.tv_hint)
+    TextView tv_hint;
 
     CustomKeyboardHelper helper;
 
-    @OnClick({R.id.tv_launch, R.id.tv_goto_date, R.id.tv_goto_time})
+    LunchCrowdPresenter mPresenter;
+
+    @OnClick({R.id.tv_launch, R.id.tv_goto_date, R.id.tv_goto_time,R.id.toolbar_custom})
     public void onBtnClick(View v) {
         if (v.getId() == R.id.tv_launch) {
-            ToastUtil.ShortToast("发起众筹");
+            LaunchCrowd();
         } else if (v.getId() == R.id.tv_goto_date) {
             CalendarDatePickerDialogFragment cdp = new CalendarDatePickerDialogFragment()
                     .setOnDateSetListener(new CalendarDatePickerDialogFragment.OnDateSetListener() {
                         @Override
                         public void onDateSet(CalendarDatePickerDialogFragment dialog, int year, int monthOfYear, int dayOfMonth) {
-                            tv_goto_date.setText(year + "-" + (monthOfYear+1) + "-" + dayOfMonth);
+                            StringBuffer buffer = new StringBuffer();
+                            buffer.append(year + "-");
+                            if (String.valueOf(monthOfYear).length() == 1) {
+                                buffer.append("0" + (monthOfYear + 1) + "-");
+                            } else
+                                buffer.append((monthOfYear + 1) + "-");
+                            if (String.valueOf(dayOfMonth).length() == 1) {
+                                buffer.append("0" + dayOfMonth);
+                            } else
+                                buffer.append(dayOfMonth);
+                            tv_goto_date.setText(buffer.toString());
                         }
                     })
                     .setFirstDayOfWeek(Calendar.SUNDAY)
@@ -118,7 +149,67 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
                     .setCancelText("取消");
             //.setThemeDark(true);
             rtpd.show(getSupportFragmentManager(), "时间选择");
+        }else if(v.getId() == R.id.toolbar_custom){
+            Intent intent = new Intent(LaunchCrowdfundingActivity.this,CrowdHistoryActivity.class);
+            startActivity(intent);
         }
+    }
+
+    private void LaunchCrowd() {
+        if (edit_tag.getText().toString().isEmpty()) {
+            ToastUtil.ShortToast("请输入或选择份数");
+            return;
+        }
+        if (edit.getText().toString().isEmpty()) {
+            ToastUtil.ShortToast("请输入总金额");
+            return;
+        }
+        if (edit_context.getText().toString().isEmpty()) {
+            ToastUtil.ShortToast("请输入方案介绍");
+            return;
+        }
+        if (Imgs.isEmpty()) {
+            ToastUtil.ShortToast("请上传众筹照片");
+            return;
+        }
+        Map<String, Object> maps = new HashMap<String, Object>();
+        for (int i = 0; i < Imgs.size(); i++) {
+            if (Imgs.get(i).isLocal()) {
+                File file = LubanUtils.Compress(this, Imgs.get(i).getUrl());
+                maps.put(Constants.ImgCrowArray[i], file);
+            } else {
+                maps.put(Constants.ImgCrowArray[i], Imgs.get(i).getUrl());
+            }
+        }
+        maps.put("uSessionId", SPUtil.get(this, Constants.key_uSessionId, "").toString());
+        maps.put("orderPart", edit_tag.getText().toString());
+        maps.put("amount", edit.getText().toString());
+        maps.put("endTime", tv_goto_date.getText().toString() + " " + tv_goto_time.getText().toString());
+        maps.put("content", edit_context.getText().toString());
+        maps.put("putType", "0");//putType  0 新建   1调整
+
+        DialogBuilder.alertDialog(LaunchCrowdfundingActivity.this).setMessage("该订单会在 ( " + tv_goto_date.getText().toString() + " " + tv_goto_time.getText().toString()
+                + " ) 自动终止众筹，确定发起吗？")
+                .setOnPositiveButtonClickListener(new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        new Thread(new Runnable() {
+                            @Override
+                            public void run() {
+                                mPresenter.putCrowd(maps);
+                            }
+                        }).start();
+                    }
+                }).create().show();
+
+    }
+
+    private void init() {
+        edit_tag.setText("");
+        edit.setText("");
+        edit_context.setText("");
+        Imgs.clear();
+        mNineGridAdapter.setDatas(Imgs);
     }
 
     @Override
@@ -128,15 +219,71 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
 
     @Override
     public void initViews(Bundle savedInstanceState) {
+        mPresenter = new LunchCrowdPresenter(this);
         initTagGrid();
         initTvDate();
         initRecyclerView();
+        initListeners();
+    }
+
+    private void initListeners() {
+        edit_tag.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Calculation(charSequence.toString(), edit.getText().toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+
+        edit.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+                Calculation(edit_tag.getText().toString(), charSequence.toString());
+            }
+
+            @Override
+            public void afterTextChanged(Editable editable) {
+
+            }
+        });
+    }
+
+    private void Calculation(String s1, String s2) {
+        if (s1.isEmpty() || s2.isEmpty()) {
+            tv_price.setText("0.00");
+            tv_hint.setText("技术服务费2%");
+            return;
+        }
+        double v1 = Double.valueOf(s1);
+        double v2 = Double.valueOf(s2);
+        double value1 = DecCalUtil.div(v2, v1, 3);
+        double value2 = DecCalUtil.mul(v2, 0.002);
+        tv_price.setText(value1 + "");
+        tv_hint.setText("技术服务费" + value2 + "元");
     }
 
     //初始化时间选择
     private void initTvDate() {
         Date date = new Date();
-        tv_goto_date.setText(DateHelper.getInstance().getDataString_2(date));
+        Calendar now = Calendar.getInstance();
+        now.setTime(date);
+        now.set(Calendar.DATE, now.get(Calendar.DATE) + 3);
+
+        tv_goto_date.setText(DateHelper.getInstance().getDataString_2(now.getTime()));
         tv_goto_time.setText(DateHelper.getInstance().getNowTime(date));
     }
 
@@ -188,9 +335,9 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
                         // List<String> pathList = data.getStringArrayListExtra("result");
                         for (AlbumFile bean : result) {
                             ImageItem item = new ImageItem(bean.getThumbPath());
-                            datas.add(0, item);
+                            Imgs.add(0, item);
                         }
-                        mNineGridAdapter.setDatas(datas);
+                        mNineGridAdapter.setDatas(Imgs);
                     }
                 })
                 .onCancel(new Action<String>() {
@@ -209,7 +356,7 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
     private void LookBanners(int position) {
         computeBoundsBackward(position);
         GPreviewBuilder.from(LaunchCrowdfundingActivity.this)
-                .setData(datas)
+                .setData(Imgs)
                 .setCurrentIndex(position)
                 .setSingleFling(true)
                 .setDrag(false)
@@ -222,24 +369,24 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
      * 从第一个完整可见item逆序遍历，如果初始位置为0，则不执行方法内循环
      */
     private void computeBoundsBackward(int firstCompletelyVisiblePos) {
-        for (int i = firstCompletelyVisiblePos; i < datas.size(); i++) {
+        for (int i = firstCompletelyVisiblePos; i < Imgs.size(); i++) {
             View itemView = mGridLayoutManager.findViewByPosition(i);
             Rect bounds = new Rect();
             if (itemView != null) {
                 ImageView thumbView = (ImageView) itemView.findViewById(R.id.item_img);
                 thumbView.getGlobalVisibleRect(bounds);
             }
-            datas.get(i).setBounds(bounds);
+            Imgs.get(i).setBounds(bounds);
         }
     }
 
     @Override
     public void initRecyclerView() {
-        datas = new ArrayList<>();
+        Imgs = new ArrayList<>();
         mNineGridAdapter = new NineGridAdapter(mRecyclerView);
         mGridLayoutManager = new GridLayoutManager(this, 4);
         mRecyclerView.setLayoutManager(mGridLayoutManager);
-        mNineGridAdapter.setDatas(datas);
+        mNineGridAdapter.setDatas(Imgs);
         mNineGridAdapter.setOnItemImageViewClickListener(this);
         mNineGridAdapter.setOnItemClickListener(new AbsRecyclerViewAdapter.OnItemClickListener() {
             @Override
@@ -247,10 +394,10 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
                 if (mNineGridAdapter.getItemCount() == 1) {
                     openCamera(3);
                 } else {
-                    if (datas.size() < 3) {
-                        if (datas.size() == 1 && position == 1) {
+                    if (Imgs.size() < 3) {
+                        if (Imgs.size() == 1 && position == 1) {
                             openCamera(2);
-                        } else if (datas.size() == 2 && position == 2) {
+                        } else if (Imgs.size() == 2 && position == 2) {
                             openCamera(1);
                         } else {
                             LookBanners(position);
@@ -286,27 +433,39 @@ public class LaunchCrowdfundingActivity extends RxBaseActivity implements NineGr
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-//        if (requestCode == REQUEST_CODE && resultCode == RESULT_OK && data != null) {
-//            List<String> pathList = data.getStringArrayListExtra("result");
-//            for (String bean : pathList) {
-//                ImageItem item = new ImageItem(bean);
-//                datas.add(0, item);
-//            }
-//            mNineGridAdapter.setDatas(datas);
-//        }
+    public void Successful(String msg) {
+        ToastUtil.ShortToast(msg);
+
+        mHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                init();
+            }
+        }, 1000 * 1);
+
+
     }
 
     @Override
+    public void Faild(String msg) {
+        ToastUtil.ShortToast(msg);
+
+    }
+
+
+    @Override
     public void deleItem(int position) {
-        datas.remove(position);
+        Imgs.remove(position);
         mNineGridAdapter.notifyDataSetChanged();
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        datas.clear();
+        Imgs.clear();
+        if (mPresenter != null) {
+            mPresenter.unSubscribe();
+        }
     }
 
 }

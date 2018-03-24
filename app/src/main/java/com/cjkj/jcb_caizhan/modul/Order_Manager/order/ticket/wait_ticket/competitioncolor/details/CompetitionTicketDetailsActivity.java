@@ -27,7 +27,6 @@ import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.cjkj.jcb_caizhan.widget.NineGridView.ImageItem;
 import com.cjkj.jcb_caizhan.widget.NineGridView.NineGridAdapter;
 import com.cjkj.jcb_caizhan.widget.SubListView;
-import com.nanchen.compresshelper.CompressHelper;
 import com.previewlibrary.GPreviewBuilder;
 import com.yanzhenjie.album.Action;
 import com.yanzhenjie.album.Album;
@@ -80,6 +79,7 @@ public class CompetitionTicketDetailsActivity extends RxBaseActivity implements 
     LinearLayout Layout_SubListView;
     @Bind(R.id.Layout_GridView)
     LinearLayout Layout_GridView;
+
     GridLayoutManager mGridLayoutManager;
 
     @Bind(R.id.mSubListView)
@@ -167,7 +167,7 @@ public class CompetitionTicketDetailsActivity extends RxBaseActivity implements 
 
         imgs = new ArrayList<>();
         if (!mDatas.getOrderPic().isEmpty()) {
-            String[] strs = mDatas.getOrderPic().split(",");
+            String[] strs = mDatas.getOrderPic().split(",|;");
             for (int i = 0, len = strs.length; i < len; i++) {
                 ImageItem item = new ImageItem(strs[i]);
                 item.setLocal(false);
@@ -204,19 +204,20 @@ public class CompetitionTicketDetailsActivity extends RxBaseActivity implements 
         orderId.setText(mDatas.getOrderId());
         playType.setText(mDatas.getPlayType() + (mDatas.getOrderTimes().equals("0") ? "" : "(倍数" + mDatas.getOrderTimes() + ")"));
 
-        if (mDatas.getOrderState().equals("已确认赔率") || mDatas.getOrderState().equals("打票错误")) {
+        if (mDatas.getOrderState().equals("已确认赔率")) {
             Layout_sure_odds.setVisibility(View.GONE);
             Layout_submit_ticket.setVisibility(View.VISIBLE);
             Layout_SubListView.setVisibility(View.GONE);
             Layout_GridView.setVisibility(View.VISIBLE);
-            if (mDatas.getOrderState().equals("打票错误")) {
-                tv_ticktt_title.setText("打票错误");
-                tv_ticktt_hint.setText("(错误说明:" + mDatas.getOrderNote() + ")");
-
-            } else {
-                tv_ticktt_title.setText("打票");
-                tv_ticktt_hint.setText("(上传相关票据照片)");
-            }
+            tv_ticktt_title.setText("打票");
+            tv_ticktt_hint.setText("(上传相关票据照片)");
+        } else if (mDatas.getOrderState().equals("打票错误")) {
+            tv_ticktt_title.setText("打票错误");
+            tv_ticktt_hint.setText("(错误说明:" + mDatas.getOrderNote() + ")");
+            Layout_sure_odds.setVisibility(View.VISIBLE);
+            Layout_submit_ticket.setVisibility(View.GONE);
+            Layout_SubListView.setVisibility(View.VISIBLE);
+            Layout_GridView.setVisibility(View.GONE);
         } else {
             Layout_sure_odds.setVisibility(View.VISIBLE);
             Layout_submit_ticket.setVisibility(View.GONE);
@@ -313,12 +314,6 @@ public class CompetitionTicketDetailsActivity extends RxBaseActivity implements 
                 .start();
     }
 
-    /**
-     * 查看大图
-     *
-     * @param datas 每组数据
-     * @param index 每组数据中对应的index
-     */
     /**
      * 查看大图
      *

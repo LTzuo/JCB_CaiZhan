@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/drawer_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbar"
+        android:background="@color/bg_f3f2f7">
+
+        <include layout="@layout/toolbar_custom" />
+
+        <ExpandableListView
+            android:id="@+id/mExpandableListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar"
+            android:childDivider="@color/bg_f3f2f7"
+            android:divider="@color/bg_f3f2f7"
+            android:dividerHeight="0dp"
+            android:groupIndicator="@null" />
+    </RelativeLayout>
+
+
+    <include layout="@layout/draw_menu_order_query"/>
+</android.support.v4.widget.DrawerLayout>

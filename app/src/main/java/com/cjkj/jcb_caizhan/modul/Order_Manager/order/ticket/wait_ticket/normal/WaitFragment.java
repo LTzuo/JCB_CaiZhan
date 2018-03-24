@@ -7,7 +7,6 @@ import com.cjkj.jcb_caizhan.base.BaseFragment;
 import com.cjkj.jcb_caizhan.core.Constants;
 import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.TicketActivity;
 import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.TicketEntity;
-import com.cjkj.jcb_caizhan.network.ApiConstants;
 import com.cjkj.jcb_caizhan.utils.LubanUtils;
 import com.cjkj.jcb_caizhan.utils.SPUtil;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
@@ -20,20 +19,12 @@ import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.weavey.loading.lib.LoadingLayout;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import butterknife.Bind;
-import okhttp3.Call;
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
 
 /**
  * 本期待打票
@@ -158,16 +149,16 @@ public class WaitFragment extends BaseFragment implements TicketContract.ITicket
     public void Sussesful(List<TicketEntity> orderList) {
         if (index == 1) {
             mAdapter.setInfo(orderList);
-            mHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
+//            mHandler.postDelayed(new Runnable() {
+//                @Override
+//                public void run() {
                     if (orderList.isEmpty()) {
                         loading.setStatus(LoadingLayout.Empty);
                     } else {
                         loading.setStatus(LoadingLayout.Success);
                     }
-                }
-            }, 1 * 1000);
+//                }
+//            }, 1 * 1000);
         } else {
             if (orderList.isEmpty()) {
                 ToastUtil.ShortToast("没有更多数据了");

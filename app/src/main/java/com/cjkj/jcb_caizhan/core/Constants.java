@@ -19,4 +19,6 @@ public class Constants {
 
     public static final String[] ImgArray = new String []{"orderPic1","orderPic2","orderPic3"};
 
+    public static final String[] ImgCrowArray = new String []{"crowdPic1","crowdPic2","crowdPic3"};
+
 }

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lotterys>
+    <lottery id="1">
+        <name>全部</name>
+        <value></value>
+    </lottery>
+    <lottery id="2">
+        <name>竞彩足球</name>
+        <value>16</value>
+    </lottery>
+    <lottery id="3">
+        <name>竞彩篮球</name>
+        <value>17</value>
+    </lottery>
+
+</lotterys>

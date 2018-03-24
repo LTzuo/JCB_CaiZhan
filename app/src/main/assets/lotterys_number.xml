@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lotterys>
+    <lottery id="1">
+        <name>全部</name>
+        <value></value>
+    </lottery>
+    <lottery id="2">
+        <name>双色球</name>
+        <value>4</value>
+    </lottery>
+    <lottery id="3">
+        <name>3D</name>
+        <value>5</value>
+    </lottery>
+    <lottery id="4">
+        <name>七乐彩</name>
+        <value>6</value>
+    </lottery>
+    <lottery id="5">
+        <name>大乐透</name>
+        <value>7</value>
+    </lottery>
+    <lottery id="6">
+        <name>排列三</name>
+        <value>8</value>
+    </lottery>
+    <lottery id="7">
+        <name>排列五</name>
+        <value>9</value>
+    </lottery>
+    <lottery id="8">
+        <name>七星彩</name>
+        <value>10</value>
+    </lottery>
+</lotterys>

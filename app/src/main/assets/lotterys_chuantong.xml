@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lotterys>
+    <lottery id="1">
+        <name>全部</name>
+        <value></value>
+    </lottery>
+    <lottery id="2">
+        <name>胜负彩</name>
+        <value>12</value>
+    </lottery>
+    <lottery id="3">
+        <name>任选九场</name>
+        <value>13</value>
+    </lottery>
+    <lottery id="4">
+        <name>半全场</name>
+        <value>14</value>
+    </lottery>
+    <lottery id="5">
+        <name>进球彩</name>
+        <value>15</value>
+    </lottery>
+</lotterys>

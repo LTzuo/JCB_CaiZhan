@@ -50,6 +50,12 @@
         <item>取票历史</item>
     </string-array>
 
+    <string-array name="orderquery_arrays">
+        <item>数字彩</item>
+        <item>传统足球</item>
+        <item>竞彩</item>
+    </string-array>
+
     <string-array name="FlowlayoutTagValues">
         <item>500份</item>
         <item>200份</item>

@@ -42,7 +42,6 @@ public  class NineGridAdapter extends AbsRecyclerViewAdapter {
         notifyDataSetChanged();
     }
 
-
     public void addInfo(ImageItem img){
          datas.add(0,img);
          notifyItemInserted(0);//通知演示插入动画
@@ -54,18 +53,18 @@ public  class NineGridAdapter extends AbsRecyclerViewAdapter {
      *
      * @return
      */
-    public int getMaxImages() {
-        return maxImages;
-    }
+//    public int getMaxImages() {
+//        return maxImages;
+//    }
 
     /**
      * 设置最大上传张数
      *
      * @param maxImages
      */
-    public void setMaxImages(int maxImages) {
-        this.maxImages = maxImages;
-    }
+  //  public void setMaxImages(int maxImages) {
+//        this.maxImages = maxImages;
+//    }
 
     public NineGridAdapter(RecyclerView mRecyvlerView) {
         super(mRecyvlerView);

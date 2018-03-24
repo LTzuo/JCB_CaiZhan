@@ -1,21 +1,14 @@
 package com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.over_ticket;
 
-import android.os.Bundle;
 import android.widget.ExpandableListView;
 
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.BaseFragment;
-import com.cjkj.jcb_caizhan.base.RxLazyFragment;
 import com.cjkj.jcb_caizhan.core.Constants;
 import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.TicketActivity;
-import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.wait_ticket.normal.TicketContract;
 import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.TicketEntity;
-import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.wait_ticket.normal.TicketPressenter;
-import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.wait_ticket.normal.WaitExAdapter;
-import com.cjkj.jcb_caizhan.utils.LubanUtils;
 import com.cjkj.jcb_caizhan.utils.SPUtil;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
-import com.cjkj.jcb_caizhan.widget.NineGridView.ImageItem;
 import com.scwang.smartrefresh.header.MaterialHeader;
 import com.scwang.smartrefresh.layout.SmartRefreshLayout;
 import com.scwang.smartrefresh.layout.api.RefreshLayout;
@@ -23,11 +16,7 @@ import com.scwang.smartrefresh.layout.listener.OnLoadMoreListener;
 import com.scwang.smartrefresh.layout.listener.OnRefreshListener;
 import com.weavey.loading.lib.LoadingLayout;
 
-import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import butterknife.Bind;
 
@@ -154,16 +143,11 @@ public class OverFragment extends BaseFragment implements OverContract.IOverView
     public void Sussesful(List<TicketEntity> orderList) {
         if (index == 1) {
             mAdapter.setInfo(orderList);
-            mHandler.postDelayed(new Runnable() {
-                @Override
-                public void run() {
                     if (orderList.isEmpty()) {
                         loading.setStatus(LoadingLayout.Empty);
                     } else {
                         loading.setStatus(LoadingLayout.Success);
                     }
-                }
-            }, 1 * 1000);
         } else {
             if (orderList.isEmpty()) {
                 ToastUtil.ShortToast("没有更多数据了");

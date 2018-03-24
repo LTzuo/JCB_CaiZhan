@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/bg_f3f2f7"
     tools:context="com.cjkj.jcb_caizhan.modul.Order_Manager.crowd.crowd_details.CrowdDetailsActivity">
 
@@ -17,175 +17,120 @@
 
         <android.support.v4.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
+            android:layout_height="match_parent">
+
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
                 <!--彩站头像、彩站名称、店主姓名、店主联系电话、众筹的状态-->
+                <include layout="@layout/include_header_crowd"/>
 
-                <LinearLayout
-                    android:id="@+id/Layout1"
+                <!--众筹方案及相关数据,众筹内容-->
+               <LinearLayout
+                    android:id="@+id/Layout_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center_horizontal"
+                    android:layout_below="@+id/Layout_header"
+                    android:layout_marginTop="10dp"
                     android:background="@color/white"
-                    android:padding="15dp"
-                    android:orientation="vertical">
-                    <cn.carbs.android.avatarimageview.library.AvatarImageView
-                        android:id="@+id/img_avatar"
-                        android:layout_width="60dp"
-                        android:layout_height="60dp"
-                        android:layout_centerHorizontal="true"
-                        android:src="@mipmap/flight"
-                        android:layout_gravity="center_horizontal"
-                        android:padding="2dp"
-                        app:aiv_ShowBoarder="false"
-                        app:aiv_TextSizeRatio="0.4"/>
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:textColor="@color/black_alpha_70"
-                        android:textSize="@dimen/_15dp"
-                        android:layout_marginTop="5dp"
-                        android:text="林家1店"/>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+                    <EditText
+                        android:id="@+id/edt_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:orientation="horizontal">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textColor="@color/black_alpha_60"
-                            android:textSize="@dimen/_13dp"
-                            android:layout_marginTop="5dp"
-                            android:text="店主：林天佐   电话：13943025871"/>
-                    </LinearLayout>
+                        android:background="@null"
+                        android:enabled="false"
+                        android:textColor="@color/black_alpha_55"
+                        android:textSize="@dimen/_12dp" />
 
-                    <com.cjkj.jcb_caizhan.widget.CustomTextView
-                        android:id="@+id/mCustomTextView"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="众筹中"
-                        android:paddingLeft="8dp"
-                        android:paddingRight="8dp"
-                        android:paddingTop="3dp"
-                        android:paddingBottom="3dp"
-                        android:textSize="@dimen/_10dp"
-                        android:textColor="@color/white"
-                        android:layout_marginTop="10dp"
-                        app:textRadius="@dimen/_10dp"
-                        app:textSolidColor="@color/_ec6941"
-                        app:textStrokeWidth="2dp"
-                        />
+                       <android.support.v7.widget.RecyclerView
+                           android:id="@+id/mGridRecyclerView"
+                           android:layout_marginTop="5dp"
+                           android:layout_width="wrap_content"
+                           android:layout_height="wrap_content"
+                           />
 
-
+                   <!--组合按钮-->
+                   <include layout="@layout/include_combination_button"/>
                 </LinearLayout>
 
-                <!--众筹方案及相关数据-->
+                <!--上传打票-->
                 <LinearLayout
-                    android:layout_below="@+id/Layout1"
+                    android:id="@+id/Layout_ticket"
+                    android:layout_below="@+id/Layout_content"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="10dp"
-                    android:padding="10dp"
                     android:background="@color/white"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/text"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:textSize="@dimen/_12dp"
-                        android:textColor="@color/black_alpha_55"
-                        android:text="这个项目是初学开发时写的，当时因为 TextView 行尾出现参差不齐的情况纠结了好一阵，所以才想到去自定义一个 TextView近日看到这两篇文章，才想起之前写的这个"/>
+                    android:visibility="gone"
+                    android:orientation="vertical"
+                    android:paddingBottom="10dp"
+                    android:paddingTop="10dp">
 
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
                         android:orientation="horizontal">
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="75dp"
-                            android:layout_marginRight="5dp"
-                            android:src="@mipmap/flight" />
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="75dp"
-                            android:layout_marginRight="5dp"
-                            android:src="@mipmap/flight" />
-                        <ImageView
-                            android:layout_width="80dp"
-                            android:layout_height="75dp"
-                            android:src="@mipmap/flight" />
+
+                        <TextView
+                            android:id="@+id/tv_ticktt_title"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="上传打票"
+                            android:textColor="@color/black_alpha_70"
+                            android:textSize="@dimen/_12dp" />
+
+                        <TextView
+                            android:id="@+id/tv_ticktt_hint"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="(上传相关票据照片)"
+                            android:textColor="@color/base_color_0"
+                            android:textSize="@dimen/_12dp" />
                     </LinearLayout>
 
-                    <RelativeLayout
+
+                    <View
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
+                        android:layout_height="0.5dp"
+                        android:layout_marginBottom="5dp"
                         android:layout_marginTop="10dp"
-                        >
-                        <Button
-                            android:id="@+id/mBtnChenge"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="@dimen/_12dp"
-                            android:background="@color/colorPrimary"
-                            android:textColor="@color/white"
-                            android:text="修改众筹" />
-                        <com.cjkj.jcb_caizhan.widget.CustomTextView
-                            android:id="@+id/mStopCtv"
-                            android:layout_toLeftOf="@+id/mCancleCtv"
-                            android:layout_marginRight="5dp"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="终止众筹"
-                            android:paddingLeft="8dp"
-                            android:paddingRight="8dp"
-                            android:paddingTop="5dp"
-                            android:paddingBottom="5dp"
-                            android:textSize="@dimen/_12dp"
-                            android:textColor="@color/white"
-                            android:layout_marginTop="10dp"
-                            app:textLeftTopRadius="5dp"
-                            app:textLeftBottomRadius="5dp"
-                            app:textRightTopRadius="5dp"
-                            app:textRightBottomRadius="5dp"
-                            app:textSolidColor="@color/_ec6941"
-                            app:textStrokeWidth="2dp"
-                            />
-                        <com.cjkj.jcb_caizhan.widget.CustomTextView
-                            android:id="@+id/mCancleCtv"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:text="撤销众筹"
-                            android:paddingLeft="8dp"
-                            android:paddingRight="8dp"
-                            android:paddingTop="5dp"
-                            android:paddingBottom="5dp"
-                            android:textSize="@dimen/_12dp"
-                            android:textColor="@color/white"
-                            android:layout_marginTop="10dp"
-                            app:textLeftTopRadius="5dp"
-                            app:textLeftBottomRadius="5dp"
-                            app:textRightTopRadius="5dp"
-                            app:textRightBottomRadius="5dp"
-                            app:textSolidColor="@color/_ec6941"
-                            app:textStrokeWidth="2dp"
-                            />
-                    </RelativeLayout>
+                        android:background="@color/line_bg" />
 
-
-
+                    <android.support.v7.widget.RecyclerView
+                        android:id="@+id/mTicketGridRecyclerView"
+                        android:layout_marginTop="5dp"
+                        android:layout_marginLeft="10dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content" />
+                    <com.cjkj.jcb_caizhan.widget.CustomTextView
+                        android:id="@+id/mCtvSubmit"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:paddingBottom="5dp"
+                        android:paddingLeft="8dp"
+                        android:paddingRight="8dp"
+                        android:paddingTop="5dp"
+                        android:layout_marginTop="20dp"
+                        android:text="确定上传"
+                        android:textColor="@color/white"
+                        android:textSize="@dimen/_12dp"
+                        app:textLeftBottomRadius="5dp"
+                        app:textLeftTopRadius="5dp"
+                        app:textRightBottomRadius="5dp"
+                        app:textRightTopRadius="5dp"
+                        app:textSolidColor="@color/colorPrimary"
+                        app:textStrokeWidth="2dp" />
                 </LinearLayout>
 
+                <!--参与众筹-->
+                <include layout="@layout/include_footer_crowd"/>
 
             </RelativeLayout>
 

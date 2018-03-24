@@ -6,6 +6,10 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.base.RxLazyFragment;
+import com.cjkj.jcb_caizhan.core.Constants;
+import com.cjkj.jcb_caizhan.utils.SPUtil;
+import com.cjkj.jcb_caizhan.utils.ToastUtil;
+
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.Bind;
@@ -13,7 +17,7 @@ import butterknife.Bind;
  * 众筹
  * Created by 1 on 2018/2/22.
  */
-public class CrowdfundFragment extends RxLazyFragment {
+public class CrowdfundFragment extends RxLazyFragment implements CrowdContract.ICrowdView{
 
     @Bind(R.id.mRecyclerView)
     RecyclerView mRecyclerView;
@@ -24,9 +28,13 @@ public class CrowdfundFragment extends RxLazyFragment {
 
     List<CrowdEntity> mDatas = new ArrayList<>();
 
+    int index = 1;
+
     public static CrowdfundFragment newIntance() {
         return new CrowdfundFragment();
     }
+
+    CrowdPresenter mCrowdPresenter;
 
     @Override
     public int getLayoutResId() {
@@ -35,6 +43,7 @@ public class CrowdfundFragment extends RxLazyFragment {
 
     @Override
     public void finishCreateView(Bundle state) {
+        mCrowdPresenter = new CrowdPresenter(this);
         isPrepared = true;
         lazyLoad();
     }
@@ -70,25 +79,39 @@ public class CrowdfundFragment extends RxLazyFragment {
 
     @Override
     protected void loadData() {
-//        Observable.just(mDatas)
-//                .compose(bindToLifecycle())
-//                .subscribeOn(Schedulers.io())
-//                .observeOn(AndroidSchedulers.mainThread())
-//                .subscribe(mDatas -> {
-//                    mAdapter.setInfo(mDatas);
+        mCrowdPresenter.getCrowdList(SPUtil.get(getContext(), Constants.key_uSessionId,"").toString(),
+                "0",index);
+    }
+
+    @Override
+    public void ListSuccessFul(List<CrowdEntity> crowdList) {
+        mAdapter.setInfo(crowdList);
         finishTask();
-//                }, throwable -> {
-//                });
+    }
+
+    @Override
+    public void DetilsSuccessFul(CrowdEntity mCrowdEntity) {
+        //无返回
+    }
+
+    @Override
+    public void PutSuccessFul(String msg) {
+        //无返回
+    }
+
+    @Override
+    public void UpdateCrowdSuccessFul(String msg) {
+        //无返回
+    }
+
+    @Override
+    public void Filed(String msg) {
+        ToastUtil.ShortToast(msg);
     }
 
     @Override
     protected void finishTask() {
-        mHandler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mSwipeRefreshLayout.setRefreshing(false);
-            }
-        }, 1 * 1000);
+       mSwipeRefreshLayout.setRefreshing(false);
     }
 
 }

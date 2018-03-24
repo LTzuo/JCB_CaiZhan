@@ -175,16 +175,63 @@ public interface MainApi {
 
 
     /**
-     * 上传打票
-     * @body uSessionId
-     * @body lotteryTypeid
-     * @body orderId
-     * @body maps
-     * @body
+     * 获取彩站认证资料
+     * @param uSessionId
+     * @return
      */
-//    @Multipart
-    @POST(ApiConstants.URL_BASE + "putOrderPics?")
-    Observable<JsonObject> putOrderPics();
+    @POST(ApiConstants.URL_BASE + "getSiteAuth?")
+    Observable<JsonObject> getSiteAuth(@Query("uSessionId") String uSessionId);
+
+
+    /**
+     * 获取众筹列表与详情
+     *
+     * @param uSessionId
+     * @param getType     0众筹中未开奖前，1众筹历史，2单个订单
+     * @param orderId      单个订单时订单编号(不是必传)
+     * @param pagesNum    页码，一页30条数据(不是必传)
+     * @return
+     */
+    @POST(ApiConstants.URL_BASE + "getCrowds?")
+    Observable<JsonObject> getCrowds(@Query("uSessionId") String uSessionId,
+                                        @Query("getType") String getType,
+                                        @Query("orderId") String orderId,
+                                        @Query("pagesNum") String pagesNum);
+
+    /**
+     * 数据统计列表
+     * @param uSessionId
+     * @return
+     */
+    @POST(ApiConstants.URL_BASE + "getBills?")
+    Observable<JsonObject> getBills(@Query("uSessionId") String uSessionId);
+
+
+    /**
+     *
+     * @param uSessionId
+     * @param userId          彩友编号，查询本站彩友是需要用
+     * @param pagesNum       页码
+     * @param orderType       订单类型，0数字彩，1传统足球，2竞彩
+     * @param lotteryTypeid      彩种编号，查询时使用
+     * @param startDate        开始时期，查询时使用
+     * @param endDate         结束日期，查询时使用
+     * @param orderState        状态，99全部，0凑单中，1等待打票，2已打票，
+     *                          3打票错误，4已确认，5系统取消，6 未支付，
+     *                          7已支付等待结果，8奏单失败，9场次取消，
+     *                          10退票成功，11赔率已更新(0-8为数字彩和传统足球状态、所有都是竞彩的状态)
+     * @return
+     */
+    @POST(ApiConstants.URL_BASE + "getOrders?")
+    Observable<JsonObject> getOrders(@Query("uSessionId") String uSessionId,
+                                     @Query("userId") String userId,
+                                     @Query("pagesNum") int pagesNum,
+                                     @Query("orderType") int orderType,
+                                     @Query("lotteryTypeid") String lotteryTypeid,
+                                     @Query("startDate") String startDate,
+                                     @Query("endDate") String endDate,
+                                     @Query("orderState") String orderState);
+
 
 
 }

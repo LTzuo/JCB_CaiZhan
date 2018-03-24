@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/LayoutBtns"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <!--众筹详情中，组合按钮布局，作为引入布局，已减少布局嵌套层数，
+      该组合按钮，包含两部分，一层(修改众筹、终止众筹、撤销众筹)
+      二层(确认修改(众筹)、取消修改(众筹))
+      三层(中奖、未中奖)-->
+    <RelativeLayout
+        android:id="@+id/LayoutBtn1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+
+        <com.cjkj.jcb_caizhan.widget.CustomTextView
+            android:id="@+id/mBtnChenge"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="5dp"
+            android:text="修改众筹"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12dp"
+            app:textLeftBottomRadius="5dp"
+            app:textLeftTopRadius="5dp"
+            app:textRightBottomRadius="5dp"
+            app:textRightTopRadius="5dp"
+            app:textSolidColor="@color/colorPrimary" />
+
+        <com.cjkj.jcb_caizhan.widget.CustomTextView
+            android:id="@+id/mStopCtv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="5dp"
+            android:layout_toLeftOf="@+id/mRevokeCtv"
+            android:paddingBottom="5dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="5dp"
+            android:text="终止众筹"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12dp"
+            app:textLeftBottomRadius="5dp"
+            app:textLeftTopRadius="5dp"
+            app:textRightBottomRadius="5dp"
+            app:textRightTopRadius="5dp"
+            app:textSolidColor="@color/_ec6941"
+            app:textStrokeWidth="2dp" />
+
+        <com.cjkj.jcb_caizhan.widget.CustomTextView
+            android:id="@+id/mRevokeCtv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:paddingBottom="5dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="5dp"
+            android:text="撤销众筹"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12dp"
+            app:textLeftBottomRadius="5dp"
+            app:textLeftTopRadius="5dp"
+            app:textRightBottomRadius="5dp"
+            app:textRightTopRadius="5dp"
+            app:textSolidColor="@color/_ec6941"
+            app:textStrokeWidth="2dp" />
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/LayoutBtn2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:gravity="center"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <com.cjkj.jcb_caizhan.widget.CustomTextView
+            android:id="@+id/mSureCtv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="5dp"
+            android:text="确定修改"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12dp"
+            app:textLeftBottomRadius="5dp"
+            app:textLeftTopRadius="5dp"
+            app:textRightBottomRadius="5dp"
+            app:textRightTopRadius="5dp"
+            app:textSolidColor="@color/_ec6941"
+            app:textStrokeWidth="2dp" />
+
+        <com.cjkj.jcb_caizhan.widget.CustomTextView
+            android:id="@+id/mCancleCtv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="5dp"
+            android:text="取消"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12dp"
+            app:textLeftBottomRadius="5dp"
+            app:textLeftTopRadius="5dp"
+            app:textRightBottomRadius="5dp"
+            app:textRightTopRadius="5dp"
+            app:textSolidColor="@color/_ec6941"
+            app:textStrokeWidth="2dp" />
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:id="@+id/LayoutBtn3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:gravity="center_vertical"
+        android:layout_marginTop="20dp"
+        android:orientation="horizontal">
+
+        <com.cjkj.jcb_caizhan.widget.CustomTextView
+            android:id="@+id/mCtvWinning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="5dp"
+            android:text="中奖"
+            android:layout_marginRight="10dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12dp"
+            app:textLeftBottomRadius="5dp"
+            app:textLeftTopRadius="5dp"
+            app:textRightBottomRadius="5dp"
+            app:textRightTopRadius="5dp"
+            app:textSolidColor="@color/_ec6941"
+            app:textStrokeWidth="2dp" />
+
+        <com.cjkj.jcb_caizhan.widget.CustomTextView
+            android:id="@+id/mCtvNoWinning"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingBottom="5dp"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:paddingTop="5dp"
+            android:text="未中奖"
+            android:layout_marginLeft="10dp"
+            android:textColor="@color/white"
+            android:textSize="@dimen/_12dp"
+            app:textLeftBottomRadius="5dp"
+            app:textLeftTopRadius="5dp"
+            app:textRightBottomRadius="5dp"
+            app:textRightTopRadius="5dp"
+            app:textSolidColor="@color/gray"
+            app:textStrokeWidth="2dp" />
+    </LinearLayout>
+</FrameLayout>

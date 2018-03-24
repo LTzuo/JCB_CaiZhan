@@ -17,52 +17,87 @@ import java.util.List;
  * Created by 1 on 2018/2/8.
  */
 public class DataStatisticsAdapter extends AbsRecyclerViewAdapter {
+    public static final int TYPE_HEADER = 0;
+    public static final int TYPE_NORMAL = 1;
 
-    private List<DataStatisticsBean> mDatas = new ArrayList<>();
+    private List<DataEntity> mDatas = new ArrayList<>();
+    private String todayOrders, todayAmount;
 
     public DataStatisticsAdapter(RecyclerView recyclerView) {
         super(recyclerView);
     }
 
-    public void setInfo(List<DataStatisticsBean> mDatas) {
+    public void setInfo(List<DataEntity> mDatas, String todayOrders, String todayAmount) {
+        this.todayOrders = todayOrders;
+        this.todayAmount = todayAmount;
         this.mDatas = mDatas;
+        notifyDataSetChanged();
     }
 
     @Override
     public ClickableViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         bindContext(parent.getContext());
-        return new ItemViewHolder(
-                LayoutInflater.from(getContext()).inflate(R.layout.item_data_statistics, parent, false));
+        if (viewType == 0) {
+            return new HeaderViewHolder(
+                    LayoutInflater.from(getContext()).inflate(R.layout.header_data_statistics, parent, false));
+        } else {
+            return new ItemViewHolder(
+                    LayoutInflater.from(getContext()).inflate(R.layout.item_data_statistics, parent, false));
+        }
     }
 
     @Override
     public void onBindViewHolder(AbsRecyclerViewAdapter.ClickableViewHolder holder, int position) {
-        if (holder instanceof ItemViewHolder) {
+        if (holder instanceof HeaderViewHolder) {
+            HeaderViewHolder headerHolder = (HeaderViewHolder) holder;
+            headerHolder.item_1.setText(todayOrders);
+            headerHolder.item_2.setText(todayAmount);
+        } else {
             ItemViewHolder itemViewHolder = (ItemViewHolder) holder;
-            itemViewHolder.item_type.setText(mDatas.get(position).getDataType());
-            itemViewHolder.item_day_title.setText(mDatas.get(position).getDayTitle());
-            itemViewHolder.item_week_title.setText(mDatas.get(position).getWeekTitle());
-            itemViewHolder.item_month_title.setText(mDatas.get(position).getMonthTitle());
-            itemViewHolder.item_day_single.setText(mDatas.get(position).getDayofsingle());
-            itemViewHolder.item_week_single.setText(mDatas.get(position).getWeekofsingle());
-            itemViewHolder.item_month_single.setText(mDatas.get(position).getMonthofsingle());
-            itemViewHolder.item_day_price.setText(mDatas.get(position).getDayofprice());
-            itemViewHolder.item_week_price.setText(mDatas.get(position).getWeekofprice());
-            itemViewHolder.item_month_price.setText(mDatas.get(position).getMonthofprice());
+            itemViewHolder.item_type.setText(mDatas.get(position - 1).getBillTitle());
+            itemViewHolder.item_day_title.setText(mDatas.get(position - 1).getBillDetails().get(0).getDetailTitle());
+            itemViewHolder.item_week_title.setText(mDatas.get(position - 1).getBillDetails().get(1).getDetailTitle());
+            itemViewHolder.item_month_title.setText(mDatas.get(position - 1).getBillDetails().get(2).getDetailTitle());
+            itemViewHolder.item_day_single.setText(mDatas.get(position - 1).getBillDetails().get(0).getDetailValue1());
+            itemViewHolder.item_week_single.setText(mDatas.get(position - 1).getBillDetails().get(1).getDetailValue1());
+            itemViewHolder.item_month_single.setText(mDatas.get(position - 1).getBillDetails().get(2).getDetailValue1());
+            itemViewHolder.item_day_price.setText(mDatas.get(position - 1).getBillDetails().get(0).getDetailValue2());
+            itemViewHolder.item_week_price.setText(mDatas.get(position - 1).getBillDetails().get(1).getDetailValue2());
+            itemViewHolder.item_month_price.setText(mDatas.get(position - 1).getBillDetails().get(2).getDetailValue2());
         }
         super.onBindViewHolder(holder, position);
     }
 
+    /*根据位置来返回不同的item类型*/
+    @Override
+    public int getItemViewType(int position) {
+        if (position == 0) {
+            return TYPE_HEADER;
+        } else
+            return TYPE_NORMAL;
+    }
+
     @Override
     public int getItemCount() {
-        return mDatas == null ? 0 : mDatas.size();
+        return mDatas == null ? 0 : mDatas.size() + 1;
     }
+
+    private class HeaderViewHolder extends AbsRecyclerViewAdapter.ClickableViewHolder {
+        TextView item_1, item_2;
+
+        public HeaderViewHolder(View headerView) {
+            super(headerView);
+            item_1 = $(R.id.item_1);
+            item_2 = $(R.id.item_2);
+        }
+    }
+
 
     private class ItemViewHolder extends AbsRecyclerViewAdapter.ClickableViewHolder {
 
         TextView item_type, item_day_title, item_week_title, item_month_title,
                 item_day_single, item_week_single, item_month_single,
-                item_day_price,item_week_price,item_month_price;
+                item_day_price, item_week_price, item_month_price;
 
         public ItemViewHolder(View itemView) {
             super(itemView);

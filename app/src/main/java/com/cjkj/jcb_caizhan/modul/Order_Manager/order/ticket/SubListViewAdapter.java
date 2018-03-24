@@ -7,10 +7,16 @@ import android.widget.BaseAdapter;
 import android.widget.TextView;
 import com.cjkj.jcb_caizhan.R;
 import com.cjkj.jcb_caizhan.modul.Order_Manager.order.OrderDetailListEntity;
+import com.cjkj.jcb_caizhan.modul.Order_Manager.order.ticket.wait_ticket.competitioncolor.details.OddsGridListAdapter;
+import com.cjkj.jcb_caizhan.utils.FastJsonUtil;
+import com.cjkj.jcb_caizhan.utils.ToastUtil;
+import com.cjkj.jcb_caizhan.widget.NoScollGridView;
+
 import java.util.ArrayList;
 import java.util.List;
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.yhq.dialog.core.DialogBuilder;
 
 /**
  * 不可滑动ListvListView适配器
@@ -60,7 +66,19 @@ public class SubListViewAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
 
-        holder.item_index.setText(mDatas.get(position).getOrderGroup());
+        if(mDatas.get(position).getOrderGroup().equals("odds")){
+            holder.tv_seeodds.setVisibility(View.VISIBLE);
+            holder.tv_seeodds.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    LookOdds(mDatas.get(position).getOddsList());
+                }
+            });
+        }else{
+            holder.tv_seeodds.setVisibility(View.GONE);
+            holder.item_index.setText(mDatas.get(position).getOrderGroup());
+        }
+
         if(mDatas.get(position).getOrderGroup().indexOf("蓝") != -1 || mDatas.get(position).getOrderGroup().indexOf("后") != -1){
             holder.item_number.setTextColor(mContext.getResources().getColor(R.color.blue));
         }else{
@@ -73,6 +91,18 @@ public class SubListViewAdapter extends BaseAdapter {
         return convertView;
     }
 
+    /**弹出对话框查看赔率**/
+    private void LookOdds(String odds){
+        //赔率数据
+        List<OddsEntity> oddsList = FastJsonUtil.getBeanList(odds, OddsEntity.class);
+        View customView =
+                View.inflate(mContext, R.layout.layout_noscrollgridview, null);
+        NoScollGridView gridView = (NoScollGridView) customView.findViewById(R.id.mAddsGridView);
+        OddsGridListAdapter mOddsGridListAdapter = new OddsGridListAdapter(mContext, oddsList);
+        gridView.setAdapter(mOddsGridListAdapter);
+        DialogBuilder.otherDialog(mContext).setContentView(customView).show();
+    }
+
     class ViewHolder {
         @Bind(R.id.item_index)
         TextView item_index;
@@ -80,6 +110,9 @@ public class SubListViewAdapter extends BaseAdapter {
         TextView item_number;
         @Bind(R.id.item_beishu)
         TextView item_beishu;
+
+        @Bind(R.id.tv_seeodds)
+        TextView tv_seeodds;
 
         public ViewHolder(View v) {
             ButterKnife.bind(this, v);

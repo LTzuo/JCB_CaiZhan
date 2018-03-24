@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<lotterys>
+    <lottery id="1">
+        <name>全部</name>
+        <value>99</value>
+    </lottery>
+    <lottery id="2">
+        <name>凑单中</name>
+        <value>0</value>
+    </lottery>
+    <lottery id="3">
+        <name>等待打票</name>
+        <value>1</value>
+    </lottery>
+    <lottery id="4">
+        <name>已打票</name>
+        <value>2</value>
+    </lottery>
+    <lottery id="5">
+        <name>打票错误</name>
+        <value>3</value>
+    </lottery>
+    <lottery id="6">
+        <name>已确认</name>
+        <value>4</value>
+    </lottery>
+    <lottery id="7">
+        <name>系统取消</name>
+        <value>5</value>
+    </lottery>
+    <lottery id="8">
+        <name>未支付</name>
+        <value>6</value>
+    </lottery>
+    <lottery id="9">
+        <name>已支付等待结果</name>
+        <value>7</value>
+    </lottery>
+    <lottery id="10">
+        <name>凑单失败</name>
+        <value>8</value>
+    </lottery>
+    <lottery id="11">
+        <name>场次取消</name>
+        <value>9</value>
+    </lottery>
+    <lottery id="12">
+        <name>退票成功</name>
+        <value>10</value>
+    </lottery>
+    <lottery id="13">
+        <name>赔率已更新</name>
+        <value>11</value>
+    </lottery>
+</lotterys>

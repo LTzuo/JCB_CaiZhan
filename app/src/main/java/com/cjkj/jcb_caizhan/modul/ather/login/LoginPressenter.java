@@ -67,7 +67,7 @@ public class LoginPressenter implements ILoginPressenter {
                             if (result == 0) {
                                 //去首页
                                 mLoginView.LoginSussesful(true);
-                            } else if (result == 1 || result == 2 || result == 0) {
+                            } else if (result == 1 || result == 2 || result == 0 || result == 3) {
                                 //去店铺认证
                                 mLoginView.LoginSussesful(false);
                             }

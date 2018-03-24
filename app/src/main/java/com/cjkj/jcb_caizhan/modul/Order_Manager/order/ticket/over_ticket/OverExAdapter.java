@@ -24,6 +24,7 @@ import com.cjkj.jcb_caizhan.test.table.TableTextEntity;
 import com.cjkj.jcb_caizhan.utils.FastJsonUtil;
 import com.cjkj.jcb_caizhan.utils.ToastUtil;
 import com.cjkj.jcb_caizhan.widget.NineGridView.ChildImages;
+import com.cjkj.jcb_caizhan.widget.NineGridView.GridAdapter;
 import com.cjkj.jcb_caizhan.widget.NineGridView.ImageItem;
 import com.cjkj.jcb_caizhan.widget.NineGridView.PhotoAdapter;
 import com.cjkj.jcb_caizhan.widget.SubListView;
@@ -223,18 +224,16 @@ public class OverExAdapter extends BaseExpandableListAdapter {
         SubListViewAdapter listViewAdaAdapter = new SubListViewAdapter(mContext, SourceDateList);
         holder.mChildListView.setAdapter(listViewAdaAdapter);
 
-
-
         List<ImageItem> imgs = new ArrayList<>();
         if (!mDatas.get(groupPosition).getOrderPic().isEmpty()) {
-            String[] strs = mDatas.get(groupPosition).getOrderPic().split(",");
+            String[] strs = mDatas.get(groupPosition).getOrderPic().split(",|;");
             for (int i = 0, len = strs.length; i < len; i++) {
                 ImageItem item = new ImageItem(strs[i]);
                 item.setLocal(false);
                 imgs.add(0, item);
             }
         }
-        holder.mNineRecyclerView.setLayoutManager(new GridLayoutManager(mContext, 4));
+        holder.mNineRecyclerView.setLayoutManager(new GridLayoutManager(mContext, 3));
         GridAdapter mGridAdapter = new GridAdapter(holder.mNineRecyclerView);
         mGridAdapter.setDatas(imgs);
         holder.mNineRecyclerView.setAdapter(mGridAdapter);

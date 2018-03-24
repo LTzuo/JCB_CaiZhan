@@ -36,7 +36,9 @@
             android:theme="@style/MainActivityColorTranslucentTheme" />
         <!-- ToolBar带搜索功能的测试界面 -->
         <activity android:name=".test.search.TestSearchActivity" />
-        <!-- 开机动画 -->
+        <!---侧滑菜单->
+        <activity android:name=".test.slidemenu.SlideMenuActivity"/>
+        <!-_- 开机动画 -->
         <activity android:name=".modul.ather.welcome.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -189,15 +191,18 @@
             android:name=".modul.Order_Manager.order.ticket.wait_ticket.competitioncolor.CompetitioncolorTicketActivity"
             android:theme="@style/MainActivityColorTranslucentTheme" />
 
-        <!--订单管理-竞彩订单打票详情-->
+        <!-- 订单管理-竞彩订单打票详情 -->
         <activity
             android:name=".modul.Order_Manager.order.ticket.wait_ticket.competitioncolor.details.CompetitionTicketDetailsActivity"
-            android:theme="@style/MainActivityColorTranslucentTheme"
-            />
+            android:theme="@style/MainActivityColorTranslucentTheme" />
 
         <!-- 订单管理-众筹详情 -->
         <activity
             android:name=".modul.Order_Manager.crowd.crowd_details.CrowdDetailsActivity"
+            android:theme="@style/MainActivityColorTranslucentTheme" />
+        <!-- 众筹历史列表 -->
+        <activity
+            android:name=".modul.Personal_Center.launch_crowd.CrowdHistoryActivity"
             android:theme="@style/MainActivityColorTranslucentTheme" />
 
     </application>

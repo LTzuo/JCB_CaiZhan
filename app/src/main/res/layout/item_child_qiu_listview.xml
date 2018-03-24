@@ -1,4 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
 <LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
@@ -34,3 +38,12 @@
         android:textSize="@dimen/_13dp" />
 
 </LinearLayout>
+
+    <TextView
+        android:id="@+id/tv_seeodds"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/navy"
+        android:textSize="@dimen/_13dp"
+        android:text="查看赔率"/>
+</FrameLayout>

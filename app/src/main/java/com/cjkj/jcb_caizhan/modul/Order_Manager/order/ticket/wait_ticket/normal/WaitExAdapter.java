@@ -258,7 +258,7 @@ public class WaitExAdapter extends BaseExpandableListAdapter {
             PhotoAdapter mPhotoAdapter = new PhotoAdapter(holder.mNineRecyclerView, groupPosition);
             if (!mDatas.get(groupPosition).getOrderPic().isEmpty()) {
                 ArrayList<ImageItem>  imgs = new ArrayList<>();
-                String[] strs = mDatas.get(groupPosition).getOrderPic().split(",");
+                String[] strs = mDatas.get(groupPosition).getOrderPic().split(",|;");
                 for (int i = 0, len = strs.length; i < len; i++) {
                     ImageItem item = new ImageItem(strs[i]);
                     item.setLocal(false);

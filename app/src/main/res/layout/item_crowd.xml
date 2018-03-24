@@ -15,6 +15,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/tv_crowdTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -23,6 +24,7 @@
             android:textColor="@color/black_alpha_70" />
 
         <TextView
+            android:id="@+id/tv_amount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="￥1,000.00"
@@ -37,6 +39,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/tv_fenshu"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="@dimen/_12dp"
@@ -45,6 +48,7 @@
             android:text="已众筹200份，剩余100份" />
 
         <TextView
+            android:id="@+id/tv_crowdState"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
@@ -54,7 +58,7 @@
     </LinearLayout>
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/tv_content"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
@@ -62,27 +66,12 @@
         android:textColor="@color/black_alpha_55"
         android:text="这个项目是初学开发时写的，当时因为 TextView 行尾出现参差不齐的情况纠结了好一阵，所以才想到去自定义一个 TextView近日看到这两篇文章，才想起之前写的这个"/>
 
-    <LinearLayout
-        android:layout_width="match_parent"
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/mGridRecyclerView"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
-        android:orientation="horizontal">
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="75dp"
-            android:layout_marginRight="5dp"
-            android:src="@mipmap/flight" />
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="75dp"
-            android:layout_marginRight="5dp"
-            android:src="@mipmap/flight" />
-        <ImageView
-            android:layout_width="80dp"
-            android:layout_height="75dp"
-            android:src="@mipmap/flight" />
-    </LinearLayout>
-
+        />
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -90,6 +79,7 @@
         android:orientation="horizontal">
 
         <TextView
+            android:id="@+id/tv_endTime"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"

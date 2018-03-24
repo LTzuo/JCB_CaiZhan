@@ -20,8 +20,9 @@
         android:paddingTop="10dp">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:id="@+id/img_lottery"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:src="@drawable/icon_ssq" />
 
         <LinearLayout
@@ -42,6 +43,7 @@
                 android:textSize="@dimen/_14dp" />
 
             <TextView
+                android:id="@+id/group_lotteryPerion"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -92,8 +94,10 @@
             app:aiv_TextSizeRatio="0.4" />
 
         <TextView
+            android:id="@+id/group_user"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:maxLength="4"
             android:text="林天佐"
             android:textColor="@color/black_alpha_60"
             android:textSize="@dimen/_10dp" />

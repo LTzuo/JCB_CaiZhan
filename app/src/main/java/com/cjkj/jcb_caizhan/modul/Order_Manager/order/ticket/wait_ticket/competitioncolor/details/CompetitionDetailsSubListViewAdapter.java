@@ -117,6 +117,7 @@ public class CompetitionDetailsSubListViewAdapter extends BaseAdapter implements
                                        @Override
                                        public void afterTextChanged(Editable s) {
                                            // TODO Auto-generated method stub
+                                           if(s.toString().length() == 0)return;
                                            selectionStart = editText.getSelectionStart();
                                            selectionEnd = editText.getSelectionEnd();
 
